@@ -1,0 +1,80 @@
+{
+  "name": "lispa/amos-basic-template",
+  "description": "AMOS Basic Template",
+  "keywords": [
+    "amos4",
+    "yii2",
+    "framework",
+    "advanced",
+    "project template"
+  ],
+  "homepage": "http://www.lispa.it/",
+  "type": "project",
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=5.4.0",
+    "lispa/amos-admin": "*",
+    "lispa/amos-attachments": "*",
+    "lispa/amos-chat": "*",
+    "lispa/amos-comments": "*",
+    "lispa/amos-community": "*",
+    "lispa/amos-comuni": "*",
+    "lispa/amos-core": "*",
+    "lispa/amos-cwh": "*",
+    "lispa/amos-dashboard": "*",
+    "lispa/amos-discussioni": "*",
+    "lispa/amos-documenti": "*",
+    "lispa/amos-email-manager": "*",
+    "lispa/amos-events": "*",
+    "lispa/amos-faq": "*",
+    "lispa/amos-favorites": "*",
+    "lispa/amos-gantt":"*",
+    "lispa/amos-inforeq": "*",
+    "lispa/amos-my-activities": "*",
+    "lispa/amos-news": "*",
+    "lispa/amos-notify": "*",
+    "lispa/amos-organizzazioni": "*",
+    "lispa/amos-privileges": "*",
+    "lispa/amos-progetti": "*",
+    "lispa/amos-project-management": "*",
+    "lispa/amos-proposte-collaborazione": "*",
+    "lispa/amos-proposte-collaborazione-een": "*",
+    "lispa/amos-report": "*",
+    "lispa/amos-risultati": "*",
+    "lispa/amos-slideshow": "*",
+    "lispa/amos-sondaggi": "*",
+    "lispa/amos-tag": "*",
+    "lispa/amos-upload": "*",
+    "lispa/amos-utility": "*",
+    "lispa/amos-wizflow": "*",
+    "lispa/amos-workflow": "*",
+    "kartik-v/yii2-datecontrol": "@dev",
+    "kartik-v/yii2-grid": "@dev",
+    "kartik-v/yii2-password": "@dev",
+    "kartik-v/yii2-social": "@dev",
+    "kartik-v/yii2-widgets": "@dev",
+    "kartik-v/yii2-widget-select2": "2.0.8",
+    "lajax/yii2-translate-manager": "1.*",
+    "mdmsoft/yii2-admin": "~2.0",
+    "schmunk42/yii2-giiant": "@stable",
+    "yiisoft/yii2": "~2.0.12",
+    "yiisoft/yii2-bootstrap": "*",
+    "yiisoft/yii2-swiftmailer": "*"
+  },
+  "require-dev": {
+    "yiisoft/yii2-codeception": "*",
+    "yiisoft/yii2-debug": "*",
+    "yiisoft/yii2-gii": "*",
+    "yiisoft/yii2-faker": "*"
+  },
+  "config": {
+    "process-timeout": 1800,
+    "secure-http": false
+  },
+  "extra": {
+    "asset-installer-paths": {
+      "npm-asset-library": "vendor/npm",
+      "bower-asset-library": "vendor/bower"
+    }
+  }
+}
