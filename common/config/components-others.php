@@ -35,8 +35,25 @@ return [
     ],
     'authManager' => [
         'class' => 'yii\rbac\DbManager',
-	/*'defaultRoles' => ['BASIC_USER'],*/ // your define roles
+	'defaultRoles' => ['BASIC_USER'], // your define roles
     ],
+/*    'authClientCollection' => [
+        'class'   => \yii\authclient\Collection::className(),
+        'clients' => [
+            // here is the list of clients you want to use
+            // you can read more in the "Available clients" section
+        ],
+    ],*/
+/*    'facebook' => [
+        'class'        => 'dektrium\user\clients\Facebook',
+        'clientId'     => 'APP_ID',
+        'clientSecret' => 'APP_SECRET',
+    ],
+    'google' => [
+        'class'        => 'dektrium\user\clients\Google',
+        'clientId'     => 'CLIENT_ID',
+        'clientSecret' => 'CLIENT_SECRET',
+    ], */    
     'cache' => [
         'class' => 'yii\caching\FileCache',
     ],
