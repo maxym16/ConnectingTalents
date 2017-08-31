@@ -43,22 +43,21 @@ AppAsset::register($this);
     NavBar::begin([
         'brandLabel' => 'Connecting Talents',
         'brandUrl' => Yii::$app->homeUrl,
+        //Yii::$app->response->redirect(['/talent'])
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
     $menuItems = [
-        ['label' => 'Help', 'url' => ['/']],
-        ['label' => 'Community', 'url' => ['/']],
-        ['label' => 'Notification', 'url' => ['/']],
+        ['label' => 'Help', 'url' => ['/talent']],
+        ['label' => 'I have an opportunity', 'url' => ['/opport']],
     ];
     if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'I have a talent', 'url' => ['/talent']];
-        $menuItems[] = ['label' => 'I have an opportunity', 'url' => ['/opport']];
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+        $menuItems[] = ['label' => 'Signup', 'url' => ['/talent/signup']];
+        $menuItems[] = ['label' => 'Login', 'url' => ['/talent/login']];
     } else {
         $menuItems[] = '<li>'
-            . Html::beginForm(['/site/logout'], 'post')
+            . Html::beginForm(['/talent/logout'], 'post')
             . Html::submitButton(
                 'Logout (' . Yii::$app->user->identity->username . ')',
                 ['class' => 'btn btn-link']

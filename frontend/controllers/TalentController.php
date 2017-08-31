@@ -1,18 +1,5 @@
 <?php
 
-/**
- * Lombardia Informatica S.p.A.
- * OPEN 2.0
- *
- * @see http://example.com Developers'community
- * @license GPLv3
- * @license https://opensource.org/licenses/gpl-3.0.html GNU General Public License version 3
- *
- * @package    lispa\amos\basic\template
- * @category   CategoryName
- * @author     Lombardia Informatica S.p.A.
- */
-
 namespace frontend\controllers;
 
 use common\models\LoginForm;
@@ -28,14 +15,12 @@ use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 
 /**
- * Class SiteController
- * @package frontend\controllers
+ * Description of TalentController
  */
-class SiteController extends Controller
+class TalentController extends Controller 
 {
-    /**
-     * @inheritdoc
-     */
+    public $layout = 'talent';
+    
     public function behaviors()
     {
         return [
@@ -63,10 +48,7 @@ class SiteController extends Controller
             ],
         ];
     }
-
-    /**
-     * @inheritdoc
-     */
+    
     public function actions()
     {
         return [
@@ -79,30 +61,12 @@ class SiteController extends Controller
             ],
         ];
     }
-
-    /**
-     * Displays homepage.
-     * @return string
-     */
+    
     public function actionIndex()
     {
         return $this->render('index');
     }
-
-/*    public function actionTalent()
-    {
-        return $this->render('talent');
-    }
-
-    public function actionOpport()
-    {
-        return $this->render('opport');
-    }
-*/
-    /**
-     * Logs in a user.
-     * @return string|\yii\web\Response
-     */
+    
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {
@@ -119,10 +83,6 @@ class SiteController extends Controller
         }
     }
 
-    /**
-     * Logs out the current user.
-     * @return \yii\web\Response
-     */
     public function actionLogout()
     {
         Yii::$app->user->logout();
@@ -130,41 +90,6 @@ class SiteController extends Controller
         return $this->goHome();
     }
 
-    /**
-     * Displays contact page.
-     * @return string|\yii\web\Response
-     */
-    public function actionContact()
-    {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
-                Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
-            } else {
-                Yii::$app->session->setFlash('error', 'There was an error sending email.');
-            }
-
-            return $this->refresh();
-        } else {
-            return $this->render('contact', [
-                'model' => $model,
-            ]);
-        }
-    }
-
-    /**
-     * Displays about page.
-     * @return string
-     */
-    public function actionAbout()
-    {
-        return $this->render('about');
-    }
-
-    /**
-     * Signs user up.
-     * @return string|\yii\web\Response
-     */
     public function actionSignup()
     {
         $model = new SignupForm();
@@ -227,4 +152,5 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
+
 }

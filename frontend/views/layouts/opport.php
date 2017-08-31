@@ -48,17 +48,15 @@ AppAsset::register($this);
         ],
     ]);
     $menuItems = [
-        ['label' => 'Help', 'url' => ['/']],
-        ['label' => 'Community', 'url' => ['/']],
-        ['label' => 'Notification', 'url' => ['/']],
+        ['label' => 'Help', 'url' => ['/opport']],
+        ['label' => 'I have a talent', 'url' => ['/talent']],
     ];
     if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'I have a talent', 'url' => ['/talent']];
-        $menuItems[] = ['label' => 'I have an opportunity', 'url' => ['/opport']];
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+        $menuItems[] = ['label' => 'Signup', 'url' => ['/opport/signup']];
+        $menuItems[] = ['label' => 'Login', 'url' => ['/opport/login']];
     } else {
         $menuItems[] = '<li>'
-            . Html::beginForm(['/site/logout'], 'post')
+            . Html::beginForm(['/opport/logout'], 'post')
             . Html::submitButton(
                 'Logout (' . Yii::$app->user->identity->username . ')',
                 ['class' => 'btn btn-link']
