@@ -21,7 +21,7 @@ $this->title = 'Connecting Talents | Opportunity';
                   <div class="panel-body bg-success">
                       <br>  
                       <br> <br> <br> <br> <br> <br>  
-                      <p class="text-center">Levels Explaination</p>
+                      <p class="text-center"><a href="<?= Url::to(['#']) ?>">Levels Explaination</p>
                       <br>  
                       <br> <br> <br> <br> <br> <br>  
                   </div>
