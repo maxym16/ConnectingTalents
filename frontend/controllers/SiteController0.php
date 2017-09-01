@@ -1,43 +1,25 @@
 <?php
 
-
-
 /**
-
  * Lombardia Informatica S.p.A.
-
  * OPEN 2.0
-
  *
-
  * @see http://example.com Developers'community
-
  * @license GPLv3
-
  * @license https://opensource.org/licenses/gpl-3.0.html GNU General Public License version 3
-
  *
-
  * @package    lispa\amos\basic\template
-
  * @category   CategoryName
-
  * @author     Lombardia Informatica S.p.A.
-
  */
 
-
-
 namespace frontend\controllers;
-
-
 
 use common\models\LoginForm;
 use frontend\models\ContactForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
-use nodge\eauth\openid\ControllerBehavior;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\filters\AccessControl;
@@ -49,7 +31,6 @@ use yii\web\Controller;
  * Class SiteController
  * @package frontend\controllers
  */
-
 class SiteController extends Controller
 {
     /**
@@ -80,14 +61,8 @@ class SiteController extends Controller
                     'logout' => ['post'],
                 ],
             ],
-//            'eauth' => array(
-//                // required to disable csrf validation on OpenID requests
-//                'class' => ControllerBehavior::className(),
-//                'only' => array('login'),
-//            ),
         ];
     }
-
 
     /**
      * @inheritdoc
@@ -114,43 +89,26 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
+/*    public function actionTalent()
+    {
+        return $this->render('talent');
+    }
+
+    public function actionOpport()
+    {
+        return $this->render('opport');
+    }
+*/
     /**
      * Logs in a user.
      * @return string|\yii\web\Response
      */
     public function actionLogin()
     {
-        $serviceName = Yii::$app->getRequest()->getQueryParam('service');
-        if (isset($serviceName)) {
-            /** @var $eauth \nodge\eauth\ServiceBase */
-            $eauth = Yii::$app->get('eauth')->getIdentity($serviceName);
-            $eauth->setRedirectUrl(Yii::$app->getUser()->getReturnUrl());
-            $eauth->setCancelUrl(Yii::$app->getUrlManager()->createAbsoluteUrl('site/login'));
-
-            try {
-                if ($eauth->authenticate()) {
-//					var_dump($eauth->getIsAuthenticated(), $eauth->getAttributes()); exit;
-                    $identity = User::findByEAuth($eauth);
-                    Yii::$app->getUser()->login($identity);
-                    // special redirect with closing popup window
-                    $eauth->redirect();
-                }
-                else {
-                    // close popup window and redirect to cancelUrl
-                    $eauth->cancel();
-                }
-            }
-            catch (\nodge\eauth\ErrorException $e) {
-                // save error to show it later
-                Yii::$app->getSession()->setFlash('error', 'EAuthException: '.$e->getMessage());
-                // close popup window and redirect to cancelUrl
-//				$eauth->cancel();
-                $eauth->redirect($eauth->getCancelUrl());
-            }
-        }
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
+
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
@@ -168,6 +126,7 @@ class SiteController extends Controller
     public function actionLogout()
     {
         Yii::$app->user->logout();
+
         return $this->goHome();
     }
 
@@ -217,7 +176,6 @@ class SiteController extends Controller
             }
         }
 
-
         return $this->render('signup', [
             'model' => $model,
         ]);
@@ -261,6 +219,7 @@ class SiteController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
             Yii::$app->session->setFlash('success', 'New password was saved.');
+
             return $this->goHome();
         }
 
@@ -269,4 +228,3 @@ class SiteController extends Controller
         ]);
     }
 }
-

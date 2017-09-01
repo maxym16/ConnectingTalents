@@ -41,11 +41,6 @@ class User extends Record implements IdentityInterface
     {
 
     /**
-     * @var array EAuth attributes
-     */
-    public $profile;
-
-    /**
      * @const STATUS_DELETED User-status: Deleted
      */
     const STATUS_DELETED = 0;
@@ -55,8 +50,6 @@ class User extends Record implements IdentityInterface
      */
     const STATUS_ACTIVE = 10;
 
-
-    public $authKey;
     /**
      * @return string
      */
@@ -102,40 +95,7 @@ class User extends Record implements IdentityInterface
      */
     public static function findIdentity($id) 
     {
-//        return static::findOne(['id' => $id, 'status' => self::STATUS_ACTIVE]);
-        if (Yii::$app->getSession()->has('user-'.$id)) {
-            return new self(Yii::$app->getSession()->get('user-'.$id));
-        }
-        else {
-            return static::findOne(['id' => $id, 'status' => self::STATUS_ACTIVE]);
-        }
-
-    }
-
-    /**
-     * @param \nodge\eauth\ServiceBase $service
-     * @return User
-     * @throws ErrorException
-     */
-    public static function findByEAuth($service) {
-        if (!$service->getIsAuthenticated()) {
-            throw new ErrorException('EAuth user should be authenticated before creating identity.');
-        }
-
-
-
-        $id = $service->getServiceName().'-'.$service->getId();
-
-        $attributes = [
-            'id' => $id,
-            'username' => $service->getAttribute('name'),
-            'authKey' => md5($id),
-            'profile' => $service->getAttributes(),
-        ];
-        $attributes['profile']['service'] = $service->getServiceName();
-        Yii::$app->getSession()->set('user-'.$id, $attributes);
-//        var_dump(new self()); exit;
-        return new self($attributes);
+        return static::findOne(['id' => $id, 'status' => self::STATUS_ACTIVE]);
     }
 
     /**

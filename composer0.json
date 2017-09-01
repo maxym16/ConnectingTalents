@@ -13,7 +13,6 @@
   "minimum-stability": "stable",
   "require": {
     "php": ">=5.4.0",
-    "nodge/yii2-eauth": "~2.0",
     "lispa/amos-admin": "*",
     "lispa/amos-attachments": "*",
     "lispa/amos-chat": "*",
@@ -61,7 +60,6 @@
     "yiisoft/yii2": "~2.0.12",
     "yiisoft/yii2-bootstrap": "*",
     "yiisoft/yii2-swiftmailer": "*"
-
   },
   "require-dev": {
     "yiisoft/yii2-codeception": "*",

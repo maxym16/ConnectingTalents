@@ -37,7 +37,23 @@ return [
         'class' => 'yii\rbac\DbManager',
 	'defaultRoles' => ['BASIC_USER'], // your define roles
     ],
-
+/*    'authClientCollection' => [
+        'class'   => \yii\authclient\Collection::className(),
+        'clients' => [
+            // here is the list of clients you want to use
+            // you can read more in the "Available clients" section
+        ],
+    ],*/
+/*    'facebook' => [
+        'class'        => 'dektrium\user\clients\Facebook',
+        'clientId'     => 'APP_ID',
+        'clientSecret' => 'APP_SECRET',
+    ],
+    'google' => [
+        'class'        => 'dektrium\user\clients\Google',
+        'clientId'     => 'CLIENT_ID',
+        'clientSecret' => 'CLIENT_SECRET',
+    ], */    
     'cache' => [
         'class' => 'yii\caching\FileCache',
     ],
@@ -56,10 +72,6 @@ return [
                 'enableCaching' => false,
                 'forceTranslation' => true,
             ],
-            'eauth' => [
-                'class' => 'yii\i18n\PhpMessageSource',
-                'basePath' => '@eauth/messages',
-            ],
         ],
     ],
     'translatemanager' => [
@@ -72,27 +84,7 @@ return [
         // Disable r= routes
         'enablePrettyUrl' => true,
         'rules' => array(
-            'login/<service:google|facebook|etc>' => 'site/login',
             '<module:[\w-]+>/<controller:[\w-]+>/<action:[\w-]+>/<id:\d+>] => <module>/<controller>/<action>',
         ),
-    ],
-    'eauth' => [
-        'class' => 'nodge\eauth\EAuth',
-        'popup' => true, // Use the popup window instead of redirecting.
-        'cache' => false, // Cache component name or false to disable cache. Defaults to 'cache' on production environments.
-        'cacheExpire' => 0, // Cache lifetime. Defaults to 0 - means unlimited.
-        'httpClient' => [
-            // uncomment this to use streams in safe_mode
-            //'useStreamsFallback' => true,
-        ],
-        'services' => [ // You can change the providers and their classes.
-            'google' => [
-                // register your app here: https://code.google.com/apis/console/
-                'class' => 'nodge\eauth\services\GoogleOAuth2Service',
-                'clientId' => '347050430833-hptnbmep2qumgfpjpqoa8fab9oci792u.apps.googleusercontent.com',
-                'clientSecret' => '49w_1X0HWhUoUClKJauUr-kA',
-                'title' => 'Google',
-            ],
-        ],
     ],
 ];
