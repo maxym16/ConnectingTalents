@@ -9,11 +9,11 @@ use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 
-$this->title = 'Connecting Talents | Talent';
+$this->title = 'Connecting Talents | My profile';
 ?>
 <div class="site-index">
     <div class="container">
-        <h2 class="text-center">I HAVE A TALENT</h2>
+        <h2 class="text-center">My profile</h2>
         <br>
 	<div class="row">
             <div class="col-lg-4">
