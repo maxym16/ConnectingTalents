@@ -121,11 +121,9 @@ class SiteController extends Controller
             try {
                 if ($eauth->authenticate()) {
 //					var_dump($eauth->getIsAuthenticated(), $eauth->getAttributes()); exit;
-                    
                     $identity = User::findByEAuth($eauth);
-
+//                    var_dump($eauth->getAttributes() ); exit;
                     Yii::$app->getUser()->login($identity);
-
                     // special redirect with closing popup window
                     $eauth->redirect();
                 }
@@ -150,7 +148,8 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+//            return $this->goBack();
+            return $this->redirect(['/registration']);
         } else {
             return $this->render('login', [
                 'model' => $model,
