@@ -102,7 +102,13 @@ class User extends Record implements IdentityInterface
      */
     public static function findIdentity($id) 
     {
-        return static::findOne(['id' => $id, 'status' => self::STATUS_ACTIVE]);
+//        return static::findOne(['id' => $id, 'status' => self::STATUS_ACTIVE]);
+        if (Yii::$app->getSession()->has('user-'.$id)) {
+            return new self(Yii::$app->getSession()->get('user-'.$id));
+        }
+        else {
+            return static::findOne(['id' => $id, 'status' => self::STATUS_ACTIVE]);
+        }
 
     }
 
@@ -115,6 +121,9 @@ class User extends Record implements IdentityInterface
         if (!$service->getIsAuthenticated()) {
             throw new ErrorException('EAuth user should be authenticated before creating identity.');
         }
+
+
+
         $id = $service->getServiceName().'-'.$service->getId();
 
         $attributes = [

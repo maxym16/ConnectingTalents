@@ -17,7 +17,6 @@ namespace frontend\controllers;
 
 use common\models\LoginForm;
 use common\models\User;
-use common\models\UserSocial;
 use frontend\models\ContactForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
@@ -122,14 +121,11 @@ class SiteController extends Controller
             try {
                 if ($eauth->authenticate()) {
 //					var_dump($eauth->getIsAuthenticated(), $eauth->getAttributes()); exit;
-//                    $identity = User::findByEAuth($eauth);
-                    $user = UserSocial::initAutorization($eauth->getServiceTitle(), $eauth->getAttributes());
-//                    var_dump($user ); exit;
-                    if ($user) {
-                        Yii::$app->getUser()->login($user);
-                        // special redirect with closing popup window
-                        $eauth->redirect();
-                    }
+                    $identity = User::findByEAuth($eauth);
+//                    var_dump($eauth->getAttributes() ); exit;
+                    Yii::$app->getUser()->login($identity);
+                    // special redirect with closing popup window
+                    $eauth->redirect();
                 }
                 else {
                     // close popup window and redirect to cancelUrl

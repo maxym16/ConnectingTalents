@@ -72,7 +72,7 @@ return [
         // Disable r= routes
         'enablePrettyUrl' => true,
         'rules' => array(
-            'login/<service:google|facebook|etc>' => 'site/login',
+            'login/<service:google|facebook|linkedin_oauth2>' => 'site/login',
             '<module:[\w-]+>/<controller:[\w-]+>/<action:[\w-]+>/<id:\d+>] => <module>/<controller>/<action>',
         ),
     ],
@@ -89,9 +89,22 @@ return [
             'google' => [
                 // register your app here: https://code.google.com/apis/console/
                 'class' => 'nodge\eauth\services\GoogleOAuth2Service',
-                'clientId' => '347050430833-hptnbmep2qumgfpjpqoa8fab9oci792u.apps.googleusercontent.com',
-                'clientSecret' => '49w_1X0HWhUoUClKJauUr-kA',
+                'clientId' => '221077937769-4o6vmdfdk5ndcos2eq4btesm0et718hf.apps.googleusercontent.com',
+                'clientSecret' => 'pMTCYcQe-4Z1gcazzi46bR1h',
                 'title' => 'Google',
+            ],
+            'facebook' => [
+                // register your app here: https://developers.facebook.com/apps/
+                'class' => 'nodge\eauth\services\FacebookOAuth2Service',
+                'clientId' => '1836071753076704',
+                'clientSecret' => 'c84540ebf7ab4610081dd2f30d431f11',
+            ],
+            'linkedin_oauth2' => [
+                // register your app here: https://www.linkedin.com/secure/developer
+                'class' => 'nodge\eauth\services\LinkedinOAuth2Service',
+                'clientId' => '86v0nxpecxfhg4',
+                'clientSecret' => 'PAvd1mkyNUCIOOj2',
+                'title' => 'LinkedIn',
             ],
         ],
     ],
