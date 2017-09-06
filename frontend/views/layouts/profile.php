@@ -36,8 +36,9 @@ AppAsset::register($this);
         ],
     ]);
     $menuItems = [
-        ['label' => 'Help', 'url' => ['/talent']],
-        ['label' => 'I have an opportunity', 'url' => ['/opport']],
+        ['label' => 'Help', 'url' => ['#']],
+        ['label' => 'Community', 'url' => ['/community']],
+        ['label' => 'Notification', 'url' => ['/']],
     ];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Signup', 'url' => ['/talent/signup']];

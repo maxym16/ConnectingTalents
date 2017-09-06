@@ -20,6 +20,7 @@ use yii\web\Controller;
  */
 class ProfileController extends Controller 
 {
+    public $layout = 'profile';
 
     public function actionIndex()
     {
