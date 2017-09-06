@@ -1,6 +1,4 @@
 <?php
-/* @var $this \yii\web\View */
-/* @var $content string */
 
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
@@ -34,9 +32,9 @@ AppAsset::register($this);
         ],
     ]);
     $menuItems = [
-        ['label' => 'Help', 'url' => ['/']],
-        ['label' => 'Community', 'url' => ['/community']],
-        ['label' => 'Notification', 'url' => ['/']],
+        ['label' => 'Home', 'url' => ['/']],
+        ['label' => 'Help', 'url' => ['#']],
+        ['label' => 'Notification', 'url' => ['#']],
     ];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'I have a talent', 'url' => ['/talent']];
@@ -80,3 +78,4 @@ AppAsset::register($this);
 </body>
 </html>
 <?php $this->endPage() ?>
+    

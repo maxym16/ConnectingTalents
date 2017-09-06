@@ -128,7 +128,7 @@ class SiteController extends Controller
                     if ($user) {
                         Yii::$app->getUser()->login($user);
                         // special redirect with closing popup window
-                        $eauth->redirect(['/profile']);
+                        $eauth->redirect();
                     }
                 }
                 else {
