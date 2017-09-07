@@ -96,16 +96,6 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
-/*    public function actionTalent()
-    {
-        return $this->render('talent');
-    }
-
-    public function actionOpport()
-    {
-        return $this->render('opport');
-    }
-*/
     /**
      * Logs in a user.
      * @return string|\yii\web\Response
