@@ -37,7 +37,17 @@ AppAsset::register($this);
     ]);
     $menuItems = [
         ['label' => 'Help', 'url' => ['#']],
-        ['label' => 'Community', 'url' => ['/community']],
+        ['label' => 'Community', 'url' => ['/community?name='. Yii::$app->user->identity->username]],
+/*        
+  echo Html::a('Community', ['/community'], [
+    'data' => [
+        'method' => 'post',
+        'params' => [
+            'name' => Yii::$app->user->identity->username,
+            'param2' => 'value2',
+        ],
+    ],
+]);*/
         ['label' => 'Notification', 'url' => ['/']],
     ];
     if (Yii::$app->user->isGuest) {

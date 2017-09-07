@@ -37,10 +37,9 @@ AppAsset::register($this);
         ['label' => 'Notification', 'url' => ['#']],
     ];
     if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'I have a talent', 'url' => ['/talent']];
-        $menuItems[] = ['label' => 'I have an opportunity', 'url' => ['/opport']];
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
     } else {
+        $menuItems[] = ['label' => Yii::$app->user->identity->username, 'url' => ['/profile']];
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(
