@@ -42,6 +42,7 @@ AppAsset::register($this);
         $menuItems[] = ['label' => 'Signup', 'url' => ['/opport/signup']];
         $menuItems[] = ['label' => 'Login', 'url' => ['/opport/login']];
     } else {
+        $menuItems[] = ['label' => Yii::$app->user->identity->username, 'url' => ['/profile']];
         $menuItems[] = '<li>'
             . Html::beginForm(['/opport/logout'], 'post')
             . Html::submitButton(
