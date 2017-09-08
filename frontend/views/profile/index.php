@@ -49,7 +49,7 @@ $this->title = 'Connecting Talents | '.Yii::$app->user->identity->username;
                     <h4 class="heading text-center">UTC REPRESENTATION</h4>
                     <br>
                     <p class="text-center">UTC DATA</p>
-                    <p class="text-center">(Previous versions ?)</p>
+                    <p class="text-center">(Previous versions)</p>
                     <br><br>
                 </div>
             </div>

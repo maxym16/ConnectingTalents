@@ -19,7 +19,7 @@ $this->title = 'Connecting Talents | Opportunity';
             <div class="col-lg-12">
                 <div class="panel-body bg-success">
                   <br> <br>  
-                  <p class="text-center">Insert your opportunity</p>
+                  <p class="text-center"><a href="<?= Url::to(['/insert-opport']) ?>">Insert your opportunity</p>
                   <br> <br>  
                 </div>
             </div>
@@ -29,7 +29,7 @@ $this->title = 'Connecting Talents | Opportunity';
             <div class="col-lg-12">
                 <div class="panel-body bg-info">
                   <br> <br>  
-                  <p class="text-center">Join an existing opportunity</p>
+                  <p class="text-center"><a href="<?= Url::to(['#']) ?>">Join an existing opportunity</p>
                   <br> <br>  
                 </div>
             </div>

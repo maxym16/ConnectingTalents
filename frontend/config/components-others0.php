@@ -33,13 +33,15 @@ return [
         // this is the name of the session cookie used for login on the frontend
         'name' => 'advanced-frontend',
     ],
-    /*'urlManager' => [
+    /*
+    'urlManager' => [
         'enablePrettyUrl' => true,
         'showScriptName' => false,
         'rules' => [
-            
+            '<module:[\w-]+>/<controller:[\w-]+>/<action:[\w-]+>/<id:\d+>] => <module>/<controller>/<action>',
         ],
-    ],*/
+    ],
+    */
     'user' => [
         'identityClass' => 'common\models\User',
         'enableAutoLogin' => true,

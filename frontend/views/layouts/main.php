@@ -35,14 +35,16 @@ AppAsset::register($this);
     ]);
     $menuItems = [
         ['label' => 'Help', 'url' => ['/']],
-        ['label' => 'Community', 'url' => ['/community']],
+//        ['label' => 'Community', 'url' => ['/community']],
         ['label' => 'Notification', 'url' => ['/']],
     ];
     if (Yii::$app->user->isGuest) {
+        $menuItems[] = ['label' => 'Community', 'url' => ['/community']];
         $menuItems[] = ['label' => 'I have a talent', 'url' => ['/talent']];
         $menuItems[] = ['label' => 'I have an opportunity', 'url' => ['/opport']];
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
     } else {
+        $menuItems[] = ['label' => 'Community', 'url' => ['/community?name='. Yii::$app->user->identity->username]];
         $menuItems[] = ['label' => Yii::$app->user->identity->username, 'url' => ['/profile']];
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
