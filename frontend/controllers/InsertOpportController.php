@@ -16,13 +16,6 @@ class InsertOpportController extends Controller
     {
     $model = new Summary();
 
-/*    if ($model->load(Yii::$app->request->post())) {
-        if ($model->validate()) {
-            // form inputs are valid, do something here
-            return;
-        }
-    }
-*/
     return $this->render('summary', [
         'model' => $model,
     ]);
