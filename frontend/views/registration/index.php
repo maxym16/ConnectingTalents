@@ -19,7 +19,7 @@ $this->title = 'Connecting Talents | Registration';
             <div class="panel panel-success col-lg-12">
               <div class="panel-body bg-success text-center">
                   <br> <br> <br> <br> <br> <br>  
-                  <p><a href="<?= Url::to(['#']) ?>">Registration: Additional Data</p>
+                  <p><a href="<?= Url::to(['#']) ?>">Registration: Additional Data</a></p>
                   <br> <br> <br> <br> <br> <br>  
               </div>
             </div>

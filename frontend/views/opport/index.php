@@ -9,6 +9,7 @@ use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 
+Url::remember();
 $this->title = 'Connecting Talents | Opportunity';
 ?>
 <div class="site-index">
@@ -19,7 +20,7 @@ $this->title = 'Connecting Talents | Opportunity';
             <div class="col-lg-12">
                 <div class="panel-body bg-success">
                   <br> <br>  
-                  <p class="text-center"><a href="<?= Url::to(['/insert-opport']) ?>">Insert your opportunity</p>
+                  <p class="text-center"><a href="<?= Url::to(['/insert-opport']) ?>">Insert your opportunity</a></p>
                   <br> <br>  
                 </div>
             </div>
@@ -29,7 +30,7 @@ $this->title = 'Connecting Talents | Opportunity';
             <div class="col-lg-12">
                 <div class="panel-body bg-info">
                   <br> <br>  
-                  <p class="text-center"><a href="<?= Url::to(['#']) ?>">Join an existing opportunity</p>
+                  <p class="text-center"><a href="<?= Url::to(['#']) ?>">Join an existing opportunity</a></p>
                   <br> <br>  
                 </div>
             </div>

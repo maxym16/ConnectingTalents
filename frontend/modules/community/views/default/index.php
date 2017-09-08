@@ -25,7 +25,7 @@ $this->title = 'Connecting Talents | Community&Blog';
             <div class="col-lg-12">
                 <div class="panel-body bg-info">
                   <br> <br>  
-                  <p class="text-center"><a href="<?= Url::to(['/community/blog']) ?>">Blog</p>
+                  <p class="text-center"><a href="<?= Url::to(['/community/blog']) ?>">Blog</a></p>
                   <br> <br>  
                 </div>
             </div>

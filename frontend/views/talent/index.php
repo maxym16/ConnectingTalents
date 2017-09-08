@@ -21,7 +21,7 @@ $this->title = 'Connecting Talents | Talent';
                   <div class="panel-body bg-success">
                       <br>  
                       <br> <br> <br> <br> <br> <br>  
-                      <p class="text-center"><a href="<?= Url::to(['#']) ?>">Levels Explaination</p>
+                      <p class="text-center"><a href="<?= Url::to(['#']) ?>">Levels Explaination</a></p>
                       <br>  
                       <br> <br> <br> <br> <br> <br>  
                   </div>
@@ -32,7 +32,7 @@ $this->title = 'Connecting Talents | Talent';
             <div class="col-lg-8">
                 <div class="panel panel-warning col-lg-11">
                   <div class="panel-body bg-warning">
-                      <p class="text-center"><a href="<?= Url::to(['/talent/signup']) ?>">Start the Registration Process</p>
+                      <p class="text-center"><a href="<?= Url::to(['/talent/signup']) ?>">Start the Registration Process</a></p>
                   </div>
                 </div>
                 <div class="panel panel-danger col-lg-11">

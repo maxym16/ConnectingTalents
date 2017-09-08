@@ -20,7 +20,7 @@ $this->title = 'Connecting Talents | Showcase Opportunities';
             <div class="panel panel-success col-lg-12">
               <div class="panel-body bg-success text-center">
                   <br> <br> <br> <br> <br> <br>  
-                  <p><a href="<?= Url::to(['#']) ?>">Showcase Opportunities Light</p>
+                  <p><a href="<?= Url::to(['#']) ?>">Showcase Opportunities Light</a></p>
                   <br> <br> <br> <br> <br> <br>  
               </div>
             </div>

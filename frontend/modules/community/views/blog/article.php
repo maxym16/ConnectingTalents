@@ -6,7 +6,7 @@
 //use yii\widgets\Breadcrumbs;
 use yii\helpers\Url;
 
-$this->params['breadcrumbs'][]= ['label' => 'Community&Blog', 'url' => '/community'];
+$this->params['breadcrumbs'][]= ['label' => 'Community&Blog', 'url' => yii\helpers\Url::previous()];
 $this->params['breadcrumbs'][]= ['label' => 'Blog', 'url' => '/community/blog'];
 $this->params['breadcrumbs'][]= ['label' => $article->titolo];
 $this->title = 'Connecting Talents | Blog | '.$article->titolo;
