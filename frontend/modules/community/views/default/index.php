@@ -4,7 +4,7 @@
 use yii\helpers\Url;
 
 /* @var $this yii\web\View */
-
+yii\helpers\Url::remember();
 $this->title = 'Connecting Talents | Community&Blog';
 ?>
 <div class="site-index">
