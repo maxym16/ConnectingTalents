@@ -15,8 +15,8 @@ $this->title = 'Connecting Talents | Opportuning Summary';
     <?php $form = ActiveForm::begin(); ?>
 
         <?= $form->field($model, 'description') ?>
-        <?= $form->field($model, 'date') ?>
-        <?= $form->field($model, 'incorp') ?>
+        <?= $form->field($model, 'date')->input('date') ?>
+        <?= $form->field($model, 'incorp')->checkbox(); ?>
         <?= $form->field($model, 'based') ?>
         <?= $form->field($model, 'markets') ?>
         <?= $form->field($model, 'links') ?>

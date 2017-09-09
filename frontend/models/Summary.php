@@ -20,8 +20,8 @@ class Summary extends ActiveRecord
     {
         return [
             [['description', 'date', 'based', 'markets'], 'required'],
-            [['date'], 'date','format'=>'Y-m-d'],
-            [['incorp'], 'integer'],
+            [['date'], 'date','format'=>'d.m.Y'],
+            [['user_id','team_id','archip_id','incorp'], 'integer'],
             [['links'], 'string'],
         ];
     }
