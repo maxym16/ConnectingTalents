@@ -14,9 +14,14 @@ $this->title = 'Connecting Talents | Lifecycle';
 
     <?php $form = ActiveForm::begin(); ?>
 
-        <?= $form->field($model, 'stage') ?>
-        <?= $form->field($model, 'rev') ?>
-        <?= $form->field($model, 'rev_month') ?>
+        <?= $form->field($model, 'stage')->dropdownList([
+            '1.Idea generation',
+            '2.Prototyping',
+            '3.Early adopters',
+            '4.Paying users'],
+            ['prompt'=>'Lifecycle stage']); ?>
+        <?= $form->field($model, 'rev')->textInput(['placeholder' => '$']) ?>
+        <?= $form->field($model, 'rev_month')->textInput(['placeholder' => '$']) ?>
     
         <div class="form-group">
             <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
