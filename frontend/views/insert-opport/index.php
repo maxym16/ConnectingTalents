@@ -27,10 +27,16 @@ $this->title = 'Connecting Talents | Insert opportunity';
             <div class="col-lg-6">
                 <div class="panel-body bg-info">
                   <p class="text-center">Opportunity registration section</p>
-                  <br>   
+                  <br>
+                  <div class="col-lg-12 bg-warning">
                   <p class="text-left"><a href="<?= Url::to(['/insert-opport/summary']) ?>">Opportunity Summary</a></p>
+                  </div>
+                  <div class="col-lg-12 bg-success">
                   <p class="text-left"><a href="<?= Url::to(['/insert-opport/lifecycle']) ?>">Lifecycle</a></p>
-                  <p class="text-left"><a href="<?= Url::to(['#']) ?>">Team Members</a></p>
+                  </div>
+                  <div class="col-lg-12 bg-warning">
+                  <p class="text-left">Team Members</p>
+                  </div>
                 </div>
             </div>
         </div>
