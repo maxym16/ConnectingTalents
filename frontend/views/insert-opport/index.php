@@ -21,7 +21,7 @@ $this->title = 'Connecting Talents | Insert opportunity';
             <div class="col-lg-6">
                 <div class="panel-body bg-success">
                     <p class="text-center"><a href="<?= Url::to(['#']) ?>">Opportunity owner registration</a></p>
-                  <br> <br> <br> <br> <br>  
+                  <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>  
                 </div>
             </div>
             <div class="col-lg-6">
@@ -36,6 +36,22 @@ $this->title = 'Connecting Talents | Insert opportunity';
                   </div>
                   <div class="col-lg-12 bg-warning">
                   <p class="text-left">Team Members</p>
+                  </div>
+                  <div class="col-lg-12 bg-info">
+                  <br>
+                  <p class="text-center">Opportunity needs:</p>
+                    <div class="checkbox">
+                    <label><input type="checkbox" value="">1.Find talents</label>
+                    </div>
+                    <div class="checkbox">
+                    <label><input type="checkbox" value="">2.Tune the Team</label>
+                    </div>
+                    <div class="checkbox disabled">
+                    <label><input type="checkbox" value="">3.Grow an Opportunity</label>
+                    </div>                  
+                    <div class="checkbox disabled">
+                    <label><input type="checkbox" value="">4.Create an Archipelago</label>
+                    </div>
                   </div>
                 </div>
             </div>
