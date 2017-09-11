@@ -32,7 +32,8 @@ $this->title = 'Connecting Talents | Lifecycle';
                                 <option value="">$</option>
                             </select>
                         </span>
-                        <?= Html::input($model, 'rev', null, ['class' => 'form-control', 'placeholder'=>'Livetime Rev (if any)']) ?>
+                    <!--    < ? = Html::input($model, 'rev', null, ['class' => 'form-control', 'placeholder'=>'Livetime Rev (if any)']) ? >-->
+                        <?= $form->field($model, 'rev')->textInput(['class' => 'form-control','placeholder'=>'Livetime Rev (if any)']) ?>
                     </div>
                 </div>
                 <div class="col-sm-6">
@@ -43,7 +44,8 @@ $this->title = 'Connecting Talents | Lifecycle';
                                 <option value="">$</option>
                             </select>
                         </span>
-                        <?= Html::input($model, 'rev_month', null, ['class' => 'form-control', 'placeholder'=>'Rev Last Month (if any)']) ?>
+                       <!-- < ? = Html::input($model, 'rev_month', null, ['class' => 'form-control', 'placeholder'=>'Rev Last Month (if any)']) ? >-->
+                       <?= $form->field($model, 'rev_month')->textInput(['class' => 'form-control','placeholder'=>'Rev Last Month (if any)']) ?>
                     </div>
                 </div>
             </div>
