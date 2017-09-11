@@ -37,7 +37,7 @@ AppAsset::register($this);
     ]);
     $menuItems = [
         ['label' => 'Help', 'url' => ['#']],
-        ['label' => 'Community', 'url' => ['/community?name='. Yii::$app->user->identity->username]],
+        ['label' => 'Community', 'url' => ['/community']],
 /*        
   echo Html::a('Community', ['/community'], [
     'data' => [

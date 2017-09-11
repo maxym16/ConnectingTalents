@@ -64,7 +64,10 @@ class OpportController extends Controller
     
     public function actionIndex()
     {
-        return $this->render('index');
+        if(!Yii::$app->user->isGuest)
+            {$username=Yii::$app->user->identity->username;} 
+        else {$username='';}
+        return $this->render('index',compact('username'));
     }
     
     public function actionLogin()

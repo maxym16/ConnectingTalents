@@ -8,7 +8,7 @@ namespace frontend\controllers;
 //use frontend\models\PasswordResetRequestForm;
 //use frontend\models\ResetPasswordForm;
 //use frontend\models\SignupForm;
-//use Yii;
+use Yii;
 //use yii\base\InvalidParamException;
 //use yii\filters\AccessControl;
 //use yii\filters\VerbFilter;
@@ -24,7 +24,10 @@ class ProfileController extends Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+        if(!Yii::$app->user->isGuest)
+            {$username=Yii::$app->user->identity->username;} 
+        else {$username=null;}
+        return $this->render('index',compact('username'));
     }
 
 }

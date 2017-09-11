@@ -9,13 +9,13 @@ use yii\helpers\Url;
 
 //Url::remember();
 
-$this->params['breadcrumbs'][]= ['label' => 'I have an opportunity', 'url' => '/opport'];
+$this->params['breadcrumbs'][]= ['label' => 'I have an opportunity', 'url' => Url::previous()];
 $this->params['breadcrumbs'][]= ['label' => 'Insert opportunity'];
 $this->title = 'Connecting Talents | Insert opportunity';
 ?>
 <div class="site-index">
     <div class="container">
-        <h2 class="text-center">Insert opportunity</h2>
+        <h2 class="text-center">Insert opportunity(after log-in)</h2>
         <br>
 	<div class="row">
             <div class="col-lg-6">

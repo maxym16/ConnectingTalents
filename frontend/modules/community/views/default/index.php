@@ -9,7 +9,7 @@ $this->title = 'Connecting Talents | Community&Blog';
 ?>
 <div class="site-index">
     <div class="container">
-        <h2 class="text-center">Community&Blog  &nbsp;&nbsp;<?= $name;?></h2>
+        <h2 class="text-center">Community&Blog  &nbsp;&nbsp;<?= $username;?></h2>
         <br>
 	<div class="row">
             <div class="col-lg-12">
@@ -30,7 +30,7 @@ $this->title = 'Connecting Talents | Community&Blog';
                 </div>
             </div>
         </div>
-        <?php if($name):?>
+        <?php if($username):?>
         <br>
 	<div class="row">
             <div class="col-lg-12">

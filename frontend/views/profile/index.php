@@ -9,11 +9,11 @@ use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 
-$this->title = 'Connecting Talents | '.Yii::$app->user->identity->username;
+$this->title = 'Connecting Talents | '.$username;
 ?>
 <div class="site-index">
     <div class="container">
-        <h2 class="text-center"><?= Yii::$app->user->identity->username; ?></h2>
+        <h2 class="text-center"><?= $username; ?></h2>
         <br>
         <div class="row">
             <div class="col-lg-2">
