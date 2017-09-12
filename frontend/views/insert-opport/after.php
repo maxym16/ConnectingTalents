@@ -1,8 +1,5 @@
 <?php
 
-/**
- * OPEN 2.0
- */
 use yii\helpers\Url;
 
 /* @var $this yii\web\View */
@@ -74,7 +71,7 @@ $this->title = 'Connecting Talents | Insert opportunity';
                   <p class="text-left"><a href="<?= Url::to(['#']) ?>">Showcase Opportunity in details</a></p>
                   <p class="text-left"><a href="<?= Url::to(['#']) ?>">Showcase Archipelagos in details</a></p>
                   <p class="text-left"><a href="<?= Url::to(['#']) ?>">Sharing Platform</a></p>
-                  <p class="text-left"><a href="<?= Url::to(['#']) ?>">My Opportunities</a></p>
+                  <p class="text-left"><a href="<?= Url::to(['/my-opport']) ?>">My Opportunities</a></p>
                   <br>  
                 </div>
             </div>
