@@ -111,14 +111,13 @@ class SiteController extends Controller
 
             try {
                 if ($eauth->authenticate()) {
-//					var_dump($eauth->getIsAuthenticated(), $eauth->getAttributes()); exit;
-//                    $identity = User::findByEAuth($eauth);
+
                     $user = UserSocial::initAutorization($eauth->getServiceTitle(), $eauth->getAttributes());
-//                    var_dump($user ); exit;
+
                     if ($user) {
                         Yii::$app->getUser()->login($user);
                         // special redirect with closing popup window
-                        $eauth->redirect(['/profile']);
+                        $eauth->redirect(['/']);
                     }
                 }
                 else {
