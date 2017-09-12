@@ -5,43 +5,14 @@ use yii\helpers\Url;
 /* @var $this yii\web\View */
 $this->params['breadcrumbs'][]= ['label' => 'I have an opportunity', 'url' => '/opport'];
 $this->params['breadcrumbs'][]= ['label' => 'Insert opportunity', 'url' => '/insert-opport'];
-$this->params['breadcrumbs'][]= ['label' => 'My opportunities'];
+$this->params['breadcrumbs'][]= ['label' => 'My opportunities', 'url' => '/my-opport'];
+$this->params['breadcrumbs'][]= ['label' => 'My teams'];
 
-$this->title = 'Connecting Talents | My opportunities';
+$this->title = 'Connecting Talents | My teams';
 ?>
 <div class="site-index">
     <div class="container">
-        <h2 class="text-center">My opportunities</h2>
-        <div class="row">
-            <div class="col-lg-4">
-                <p class="text-center"><a href="<?= Url::to(['/my-teams']) ?>">My teams</a></p>
-            </div>
-            <div class="col-lg-4">
-                <p class="text-center"><a href="<?= Url::to(['#']) ?>">Manage my opportunities</a></p>
-            </div>
-            <div class="col-lg-4">
-                <p class="text-center"><a href="<?= Url::to(['#']) ?>">Insert an opportunity</a></p>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-lg-6 bg-info text-center">
-                <ul class="list-group">List of the actual subscribed opportunities
-                    <li class="list-group-item list-group-item-info">Owned opportunities</li>
-                    <li class="list-group-item list-group-item-info">Joined opportunities</li>
-                    <li class="list-group-item list-group-item-info">Stand-by opportunities</li>
-                    <li class="list-group-item list-group-item-info">My wish list</li>
-                </ul>
-            </div>
-            <div class="col-lg-6 bg-success text-center">
-                <ul class="list-group">Notification area
-                    <li class="list-group-item list-group-item-success">Join opportunity requests</li>
-                    <li class="list-group-item list-group-item-success">New matches</li>
-                    <li class="list-group-item list-group-item-success">Talent scouting notifications</li>
-                    <li class="list-group-item list-group-item-success">&nbsp;</li>
-                </ul>
-            </div>
-        </div>
+        <h2 class="text-center">My teams</h2>
         <br>
         <div class="row">
             <div class="col-lg-2">
