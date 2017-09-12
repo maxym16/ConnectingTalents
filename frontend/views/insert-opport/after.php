@@ -20,14 +20,24 @@ $this->title = 'Connecting Talents | Insert opportunity';
 	<div class="row">
             <div class="col-lg-6">
                 <div class="panel-body bg-success">
-                    <p class="text-center"><a href="<?= Url::to(['#']) ?>">Opportunity owner registration</a></p>
-                  <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>  
+                    <p class="text-center">Opportunity owner info</p>
+                  <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>  
+                  <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>  
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="panel-body bg-info">
-                  <p class="text-center">Opportunity registration section</p>
+                  <p class="text-center">Opportunity registration info</p>
                   <br>
+                  <div class="col-lg-12 bg-success">
+                  <h3 class="text-center">OTC</h3>
+                    <ul class="list-group">
+                        <li class="list-group-item">1.Purpose</li>
+                        <li class="list-group-item">2.Footprint</li>
+                        <li class="list-group-item">3.Resources</li>
+                        <li class="list-group-item">4.Opportunity Owner Portrait</li>
+                    </ul>
+                  </div>
                   <div class="col-lg-12 bg-warning">
                   <p class="text-left"><a href="<?= Url::to(['/insert-opport/summary']) ?>">Opportunity Summary</a></p>
                   </div>
@@ -61,9 +71,10 @@ $this->title = 'Connecting Talents | Insert opportunity';
             <div class="col-lg-12">
                 <div class="panel-body bg-warning">
                   <br>  
-                  <p class="text-left"><a href="<?= Url::to(['#']) ?>">Showcase of Talents (only statistics by tag)</a></p>
-                  <p class="text-left"><a href="<?= Url::to(['#']) ?>">Showcase of other Opportunities stored in CT (only statistics by tag)</a></p>
-                  <p class="text-left"><a href="<?= Url::to(['#']) ?>">Showcase of CT Archipelagos (only statistics by tag)</a></p>
+                  <p class="text-left"><a href="<?= Url::to(['#']) ?>">Showcase Opportunity in details</a></p>
+                  <p class="text-left"><a href="<?= Url::to(['#']) ?>">Showcase Archipelagos in details</a></p>
+                  <p class="text-left"><a href="<?= Url::to(['#']) ?>">Sharing Platform</a></p>
+                  <p class="text-left"><a href="<?= Url::to(['#']) ?>">My Opportunities</a></p>
                   <br>  
                 </div>
             </div>
