@@ -20,8 +20,35 @@ $this->title = 'Connecting Talents | Insert opportunity';
 	<div class="row">
             <div class="col-lg-6">
                 <div class="panel-body bg-success">
-                    <p class="text-center"><a href="<?= Url::to(['#']) ?>">Opportunity owner registration</a></p>
-                  <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>  
+                    <p class="text-center"><a href="<?= Url::to(['#']) ?>">Opportunity owner registration section</a></p>
+                    <div class="row col-lg-12">
+                        <br>
+                        <p>Opportunity Intro</p>
+                        <li class="list-group-item">Quick description of the Idea</li>
+                        <li class="list-group-item">Starting date</li>
+                        <li class="list-group-item">Incorporation</li>
+                        <li class="list-group-item">Basecamp City/Country</li>
+                        <li class="list-group-item">Main Market (Country)</li>
+                        <li class="list-group-item">Links</li>
+                    </div>
+                    <div class="row col-lg-12">
+                        <br>
+                        <p>Lifecycle</p>
+                        <li class="list-group-item">menu with multiple choice:Idea generation,Prototyping,Early adopters,Paying Users</li>
+                    </div>
+                    <div class="row col-lg-12">
+                        <br>
+                        <p>Team Members</p>
+                        <li class="list-group-item">Name</li>
+                        <li class="list-group-item">Surname</li>
+                        <li class="list-group-item">E-mail address</li>
+                        <li class="list-group-item">Type of member</li>
+                    </div>
+                    <div class="row col-lg-12">
+                        <br>
+                        <p>Opportunity needs</p>
+                        <li class="list-group-item">The Opportunity Owner must provide feedback on the purpose which registers his Opportunity for</li>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-6">
