@@ -121,6 +121,13 @@ $this->title = 'Connecting Talents | My teams';
                 </div>
             </div>
         </div>
+        <div class="row col-lg-12">
+            <div class="col-lg-offset-2 bg-info">
+                <br>
+                <p class="text-center">Request team services</p>
+                <br>
+            </div>
+        </div>
             
         </div>
     </div>        
