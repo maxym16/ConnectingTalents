@@ -26,7 +26,6 @@ $this->title = 'Connecting Talents | My teams';
                         <li class="list-group-item">UTC4</li><!--active -->
                     </ul>
                     <br><br><br><br><br><br><br><br>
-                    <br><br><br><br><br><br><br><br>
                 </div>
             </div>
             <div class="row col-lg-10">
@@ -55,6 +54,74 @@ $this->title = 'Connecting Talents | My teams';
                     </div>
                 </div>
             </div>
+            <div class="row col-lg-10">
+                <div class="col-lg-7">
+                    <div class="thumbnail row" style="border: 2px solid #ee6633">
+                        <div class="panel-heading text-center">My Teams</div>
+                        <br>
+                        <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th class="text-center">Opportunity Name</th>
+                            <th class="text-center">Size</th>
+                            <th class="text-center">Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                        <td class="text-center">Name 1</td>
+                        <td class="text-center">3/8</td>
+                        <td class="text-center danger"></td>
+                        </tr>
+                        <tr>
+                        <td class="text-center">Name 2</td>
+                        <td class="text-center">3/8</td>
+                        <td class="text-center warning"></td>
+                        </tr>
+                        <tr>
+                        <td class="text-center">Name 3</td>
+                        <td class="text-center">3/8</td>
+                        <td class="text-center success"></td>
+                        </tr>
+                        </tbody>
+                        </table>
+                    </div>                    
+                </div>
+                <div class="col-lg-5">
+                    <div class="thumbnail col-lg-12" style="border: 2px solid #ee6633">
+                        <div class="panel-heading text-center">Joined team</div>
+                        <br>
+                        <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th class="text-center">Opportunity Name</th>
+                            <th class="text-center">Size</th>
+                            <th class="text-center">Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                        <td class="text-center">Name 4</td>
+                        <td class="text-center">3/8</td>
+                        <td class="text-center danger"></td>
+                        </tr>
+                        <tr>
+                        <td class="text-center">Name 5</td>
+                        <td class="text-center">3/8</td>
+                        <td class="text-center warning"></td>
+                        </tr>
+                        <tr>
+                        <td class="text-center">Name 6</td>
+                        <td class="text-center">3/8</td>
+                        <td class="text-center success"></td>
+                        </tr>
+                        </tbody>
+                        </table>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+            
         </div>
     </div>        
 </div>
