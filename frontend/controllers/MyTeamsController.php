@@ -6,7 +6,7 @@ use yii\web\Controller;
 use Yii;
 
 /**
- * Description of MyOpportController
+ * Description of MyTeamsController
  */
 class MyTeamsController extends Controller 
 {
@@ -18,3 +18,4 @@ class MyTeamsController extends Controller
         return $this->render('index',compact('username')); 
     }
 }
+

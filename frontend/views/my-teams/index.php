@@ -69,17 +69,17 @@ $this->title = 'Connecting Talents | My teams';
                         </thead>
                         <tbody>
                         <tr>
-                        <td class="text-center">Name 1</td>
+                            <td class="text-center"><a href="<?= Url::to(['/my-team/1']) ?>">Team 1</a></td>
                         <td class="text-center">3/8</td>
                         <td class="text-center danger"></td>
                         </tr>
                         <tr>
-                        <td class="text-center">Name 2</td>
+                            <td class="text-center"><a href="<?= Url::to(['/my-team/2']) ?>">Team 2</a></td>
                         <td class="text-center">3/8</td>
                         <td class="text-center warning"></td>
                         </tr>
                         <tr>
-                        <td class="text-center">Name 3</td>
+                            <td class="text-center"><a href="<?= Url::to(['/my-team/3']) ?>">Team 3</a></td>
                         <td class="text-center">3/8</td>
                         <td class="text-center success"></td>
                         </tr>
@@ -101,17 +101,17 @@ $this->title = 'Connecting Talents | My teams';
                         </thead>
                         <tbody>
                         <tr>
-                        <td class="text-center">Name 4</td>
+                            <td class="text-center">Team 4</td>
                         <td class="text-center">3/8</td>
                         <td class="text-center danger"></td>
                         </tr>
                         <tr>
-                        <td class="text-center">Name 5</td>
+                        <td class="text-center">Team 5</td>
                         <td class="text-center">3/8</td>
                         <td class="text-center warning"></td>
                         </tr>
                         <tr>
-                        <td class="text-center">Name 6</td>
+                        <td class="text-center">Team 6</td>
                         <td class="text-center">3/8</td>
                         <td class="text-center success"></td>
                         </tr>
