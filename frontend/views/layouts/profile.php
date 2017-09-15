@@ -48,7 +48,7 @@ AppAsset::register($this);
         ],
     ],
 ]);*/
-        ['label' => 'Notification', 'url' => ['/']],
+//        ['label' => 'Notification', 'url' => ['/']],
     ];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Signup', 'url' => ['/talent/signup']];

@@ -35,7 +35,7 @@ AppAsset::register($this);
     ]);
     $menuItems = [
         ['label' => 'Help', 'url' => ['#']],
-        ['label' => 'Notification', 'url' => ['#']],
+//        ['label' => 'Notification', 'url' => ['#']],
 //        ['label' => 'My profile', 'url' => ['/profile']],
     ];
     if (Yii::$app->user->isGuest) {
