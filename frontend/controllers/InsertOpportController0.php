@@ -6,34 +6,9 @@ use Yii;
 use yii\web\Controller;
 use frontend\models\Summary;
 use frontend\models\Lifecycle;
-use yii\filters\AccessControl;
 
 class InsertOpportController extends Controller
 {
-    public function behaviors()
-    {
-
-        return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'only' => ['index', 'summary', 'lifecycle', 'after'],
-                'rules' => [
-                    /*[
-                        'allow' => true,
-                        'actions' => ['login', 'signup'],
-                        'roles' => ['?'],
-                    ],*/
-                    [
-                        'allow' => true,
-                        'actions' => ['index', 'summary', 'lifecycle', 'after'],
-                        'roles' => ['@'],
-                    ],
-                ],
-            ]
-        ];
-    }
-
-
     public function actionIndex()
     {
         if(!Yii::$app->user->isGuest)
