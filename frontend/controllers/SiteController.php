@@ -90,15 +90,14 @@ class SiteController extends Controller
 
     /**
      * Displays homepage.
-     * @return string
+     * @return string->
      */
     public function actionIndex()
     {
-        /*
-        if (!\Yii::$app->user->can('admin')) { 
+        if (!\Yii::$app->user->can('user1')) { 
             throw new \yii\web\ForbiddenHttpException('Access denied.'); 
         }
-        */
+        
         return $this->render('index');
     }
 

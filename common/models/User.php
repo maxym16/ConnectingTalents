@@ -83,6 +83,17 @@ class User extends Record implements IdentityInterface
         ];
     }
 
+/*    public function afterSave($insert, $changedAttributes)
+    {
+        parent::afterSave($insert, $changedAttributes);
+
+        $auth = Yii::$app->authManager;
+        $role = $auth->getRole('user1');
+        $auth->assign($role, $this->id);
+
+        return true;
+    }
+*/
     /**
      * Define Properties rules
      * @inheritdoc

@@ -7,6 +7,7 @@ use yii\console\Controller;
 use common\components\rbac\UserGroupRule;
 use common\models\UserProfileRole;
 use common\models\UserProfile;
+use common\models\User;
 use yii\console\Exception;
 use yii\helpers\ArrayHelper;
 
@@ -53,7 +54,8 @@ class RolesController extends Controller
 
     private function findModel($username)
     {
-        if (!$model = UserProfile::findOne(['nome' => $username])) {
+//        if (!$model = UserProfile::findOne(['nome' => $username])) {
+        if (!$model = User::findOne(['username' => $username])) {
             throw new Exception('User is not found');
         }
         return $model;
