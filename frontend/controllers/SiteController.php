@@ -94,10 +94,15 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        if (!\Yii::$app->user->can('user1')) { 
+/*        
+        $userId = Yii::$app->user->id; //id текущего пользователя
+        $userRole = Yii::$app->authManager->getRole('user_1');
+        Yii::$app->authManager->assign($userRole, $userId);
+*/        
+/*        if (!\Yii::$app->user->can('user_1')) { 
             throw new \yii\web\ForbiddenHttpException('Access denied.'); 
         }
-        
+*/        
         return $this->render('index');
     }
 
