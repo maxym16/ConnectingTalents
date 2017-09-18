@@ -1,18 +1,5 @@
 <?php
 
-/**
- * Lombardia Informatica S.p.A.
- * OPEN 2.0
- *
- * @see http://example.com Developers'community
- * @license GPLv3
- * @license https://opensource.org/licenses/gpl-3.0.html GNU General Public License version 3
- *
- * @package    lispa\amos\basic\template
- * @category   CategoryName
- * @author     Lombardia Informatica S.p.A.
- */
-
 return [
     'assetManager' => [
         //'bundles' => require(__DIR__ . '/../../backend/assets/AppAsset.php'),
@@ -34,8 +21,13 @@ return [
         ]
     ],
     'authManager' => [
-        'class' => 'yii\rbac\DbManager',
-	'defaultRoles' => ['BASIC_USER'], // your define roles
+        'class' => 'yii\rbac\PhpManager',
+	'defaultRoles' => ['admin', 'admin_ct', 'admin_email',
+            'user_1','user_2','user_3'], // your define roles
+        //задамо куди будуть зберігатися наші файли конфігурацій RBAC для 'class' => 'yii\rbac\PhpManager'
+        'itemFile' => '@common/components/rbac/items.php',
+        'assignmentFile' => '@common/components/rbac/assignments.php',
+        'ruleFile' => '@common/components/rbac/rules.php',        
     ],
 
     'cache' => [

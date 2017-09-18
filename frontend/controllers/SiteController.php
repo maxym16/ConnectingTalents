@@ -1,18 +1,5 @@
 <?php
 
-/**
- * Lombardia Informatica S.p.A.
- * OPEN 2.0
- *
- * @see http://example.com Developers'community
- * @license GPLv3
- * @license https://opensource.org/licenses/gpl-3.0.html GNU General Public License version 3
- *
- * @package    lispa\amos\basic\template
- * @category   CategoryName
- * @author     Lombardia Informatica S.p.A.
- */
-
 namespace frontend\controllers;
 
 use common\models\LoginForm;
@@ -28,6 +15,7 @@ use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
+use yii\web\ForbiddenHttpException;
 
 /**
  * Class SiteController
@@ -35,13 +23,11 @@ use yii\web\Controller;
  */
 class SiteController extends Controller
 {
-    /**
-     * @inheritdoc
-     */
+
     public function behaviors()
     {
         return [
-            'access' => [
+/*            'access' => [
                 'class' => AccessControl::className(),
                 'only' => ['logout', 'signup'],
                 'rules' => [
@@ -56,7 +42,7 @@ class SiteController extends Controller
                         'roles' => ['@'],
                     ],
                 ],
-            ],
+            ],*/
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -70,10 +56,25 @@ class SiteController extends Controller
             ],
         ];
     }
-
+    
     /**
-     * @inheritdoc
+     * check access before each action
+     * @param type $action
+     * @return boolean
+     * @throws ForbiddenHttpException
      */
+/*    public function beforeAction($action)
+    {
+        if (parent::beforeAction($action)) {
+            if (!\Yii::$app->user->can($action->id)) {
+                throw new ForbiddenHttpException('Access denied');
+            }
+            return true;
+        } else {
+            return false;
+        }
+    }
+*/
     public function actions()
     {
         return [
@@ -93,6 +94,11 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        /*
+        if (!\Yii::$app->user->can('admin')) { 
+            throw new \yii\web\ForbiddenHttpException('Access denied.'); 
+        }
+        */
         return $this->render('index');
     }
 
