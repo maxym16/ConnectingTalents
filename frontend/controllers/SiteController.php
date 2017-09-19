@@ -4,6 +4,8 @@ namespace frontend\controllers;
 
 use common\models\LoginForm;
 use common\models\User;
+use common\models\UserProfile;
+use common\models\UserProfileRole;
 use common\models\UserSocial;
 use frontend\models\ContactForm;
 use frontend\models\PasswordResetRequestForm;
@@ -155,6 +157,53 @@ class SiteController extends Controller
             return $this->redirect(['/profile']);
         } else {
             return $this->render('login', [
+                'model' => $model,
+            ]);
+        }
+    }
+
+    public function actionExtraLogin()
+    {
+        $serviceName = Yii::$app->getRequest()->getQueryParam('service');
+        if (isset($serviceName)) {
+            /** @var $eauth \nodge\eauth\ServiceBase */
+            $eauth = Yii::$app->get('eauth')->getIdentity($serviceName);
+            $eauth->setRedirectUrl(Yii::$app->getUser()->getReturnUrl());
+            $eauth->setCancelUrl(Yii::$app->getUrlManager()->createAbsoluteUrl('site/login'));
+
+            try {
+                if ($eauth->authenticate()) {
+                    $user = UserSocial::initAutorization($eauth->getServiceTitle(), $eauth->getAttributes());
+                    if ($user) {
+                        Yii::$app->getUser()->login($user);
+                        // special redirect with closing popup window
+                        $eauth->redirect(['/']);
+                    }
+                }
+                else {
+                    // close popup window and redirect to cancelUrl
+                    $eauth->cancel();
+                }
+            }
+            catch (\nodge\eauth\ErrorException $e) {
+                // save error to show it later
+                Yii::$app->getSession()->setFlash('error', 'EAuthException: '.$e->getMessage());
+                // close popup window and redirect to cancelUrl
+//				$eauth->cancel();
+                $eauth->redirect($eauth->getCancelUrl());
+            }
+        }
+
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+
+        $model = new \common\models\LoginExtraForm();
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+//            return $this->goBack();
+            return $this->redirect(['/profile']);
+        } else {
+            return $this->render('extra-login', [
                 'model' => $model,
             ]);
         }

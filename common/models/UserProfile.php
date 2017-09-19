@@ -75,11 +75,24 @@ use Yii;
 class UserProfile extends \yii\db\ActiveRecord
 {
     /**
-     * @inheritdoc
+     * @const STATUS_DELETED User-status: Deleted
      */
+    const STATUS_DELETED = 0;
+
+    /**
+     * @const STATUS_ACTIVE User-status: Active
+     */
+    const STATUS_ACTIVE = 1;
+
+
     public static function tableName()
     {
         return 'user_profile';
+    }
+
+        public static function findByUsername($username) 
+    {
+        return static::findOne(['nome' => $username, 'attivo' => self::STATUS_ACTIVE]);
     }
 
     /**
