@@ -1,47 +1,21 @@
 <?php
 
-/* @var $this yii\web\View */
-/* @var $form yii\bootstrap\ActiveForm */
-/* @var $model \frontend\models\SignupForm */
-
 use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
+use yii\widgets\ActiveForm;
 
-$this->title = 'Signup Extra';
-$this->params['breadcrumbs'][] = $this->title;
+/* @var $this yii\web\View */
+/* @var $model common\models\UserProfile */
+/* @var $form ActiveForm */
 ?>
-<div class="site-signup">
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="site-signup-extra">
 
-    <p>Please fill out the following fields to extra signup:</p>
+    <?php $form = ActiveForm::begin(); ?>
 
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
-
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
-
-                <?= $form->field($model, 'email') ?>
-
-                <?= $form->field($model, 'password')->passwordInput() ?>
-
-                <div class="form-group">
-                    <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
-                </div>
-
-            <?php ActiveForm::end(); ?>
+        <?= $form->field($model, 'nome') ?>
+    
+        <div class="form-group">
+            <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-5">
-            <?php
-            if (Yii::$app->getSession()->hasFlash('error')) {
-                echo '<div class="alert alert-danger">'.Yii::$app->getSession()->getFlash('error').'</div>';
-            }
-            ?>
-            <p class="lead">Access with your Social network account</p>
-            <?php echo \nodge\eauth\Widget::widget(['action' => 'site/login']); ?>
-        </div>
-    </div>
+    <?php ActiveForm::end(); ?>
 
-</div>
+</div><!-- site-signup-extra -->

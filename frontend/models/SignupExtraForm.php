@@ -12,7 +12,7 @@ use common\models\UserProfileRole;
  */
 class SignupExtraForm extends Model
 {
-    public $username;
+    public $nome;
     public $email;
     public $password;
 
@@ -51,11 +51,12 @@ class SignupExtraForm extends Model
         }
         
         $user = new User();
-        $user->username = $this->username;
+        $userpr = new UserProfile();
+        $userpr->nome = $this->nome;
         $user->email = $this->email;
         $user->setPassword($this->password);
         $user->generateAuthKey();
         
-        return $user->save() ? $user : null;
+        return $userpr->save() ? $userpr : null;
     }
 }
