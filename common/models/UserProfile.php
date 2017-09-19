@@ -92,6 +92,7 @@ class UserProfile extends \yii\db\ActiveRecord
 
         public static function findByUsername($username) 
     {
+//        return static::findOne(['username' => $username, 'status' => self::STATUS_ACTIVE]);
         return static::findOne(['nome' => $username, 'attivo' => self::STATUS_ACTIVE]);
     }
 
