@@ -265,8 +265,22 @@ class SiteController extends Controller
                 }
             }
         }
-
         return $this->render('signup', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionSignupExtra()
+    {
+        $model = new \frontend\models\SignupExtraForm();
+        if ($model->load(Yii::$app->request->post())) {
+            if ($user = $model->signup()) {
+                if (Yii::$app->getUser()->login($user)) {
+                    return $this->goHome();
+                }
+            }
+        }
+        return $this->render('signup-extra', [
             'model' => $model,
         ]);
     }

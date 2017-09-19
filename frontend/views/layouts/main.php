@@ -43,10 +43,10 @@ AppAsset::register($this);
         $menuItems[] = ['label' => 'I have a talent', 'url' => ['/talent']];
         $menuItems[] = ['label' => 'I have an opportunity', 'url' => ['/opport']];
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-        $menuItems[] = ['label' => 'ExtraLogin', 'url' => ['/site/extra-login']];
+        $menuItems[] = ['label' => 'SignUp', 'url' => ['/site/signup']];
     } else {
 //        $menuItems[] = ['label' => 'Community', 'url' => ['/community']];
-        $menuItems[] = ['label' => 'ExtraLogin', 'url' => ['/site/extra-login']];
+        $menuItems[] = ['label' => 'ExtraSignUp', 'url' => ['/site/signup-extra']];
         $menuItems[] = ['label' => Yii::$app->user->identity->username, 'url' => ['/profile']];
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
