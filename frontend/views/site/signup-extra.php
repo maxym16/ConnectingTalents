@@ -7,7 +7,8 @@ use yii\widgets\ActiveForm;
 /* @var $model common\models\UserProfile */
 /* @var $form ActiveForm */
 //var_dump($model);
-echo '<pre>' . print_r($model, true) . '</pre>';
+//echo '<pre>' . print_r($model, true) . '</pre>';
+debug($model);
 ?>
 <div class="site-signup-extra">
 
