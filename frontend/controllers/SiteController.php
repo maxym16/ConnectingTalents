@@ -11,6 +11,7 @@ use frontend\models\ContactForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
+use frontend\models\SignupExtraForm;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\filters\AccessControl;
@@ -272,7 +273,7 @@ class SiteController extends Controller
 
     public function actionSignupExtra()
     {
-        $model = new \frontend\models\SignupExtraForm();
+        $model = new SignupExtraForm();
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {
                 if (Yii::$app->getUser()->login($user)) {
