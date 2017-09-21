@@ -46,7 +46,7 @@ AppAsset::register($this);
         $menuItems[] = ['label' => 'SignUp', 'url' => ['/site/signup']];
     } else {
 //        $menuItems[] = ['label' => 'Community', 'url' => ['/community']];
-        $menuItems[] = ['label' => 'ExtraSignUp', 'url' => ['/site/signup-extra']];
+        $menuItems[] = ['label' => 'ExtraSignUp', 'url' => ['/signup-extra/create']];
         $menuItems[] = ['label' => Yii::$app->user->identity->username, 'url' => ['/profile']];
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')

@@ -1,6 +1,6 @@
 <?php
 
-namespace frontend\models;
+namespace common\models;
 
 use yii\base\Model;
 use common\models\User;
@@ -13,19 +13,6 @@ use yii\db\ActiveRecord;
  */
 class SignupExtraForm extends ActiveRecord
 {
-/*    public $nome;
-    public $cognome;
-    public $sesso;
-    public $user_profile_age_group_id;
-    public $telefono;
-    public $facebook;
-    public $googleplus;
-    public $linkedin;
-    public $avatar_id;
-    public $note;
-    public $user_profile_role_id;
-    public $presentazione_breve;
-    public $presentazione_personale;*/
     public $email;
     public $password;
 

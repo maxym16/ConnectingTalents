@@ -275,11 +275,21 @@ class SiteController extends Controller
     {
         $model = new SignupExtraForm();
         if ($model->load(Yii::$app->request->post())) {
-            if ($user = $model->signup()) {
-                if (Yii::$app->getUser()->login($user)) {
-                    return $this->goHome();
+//            debug(Yii::$app->request->post()); die;
+            if($model->validate()){
+                $user2 = UserProfile::findByUsername($model->nome);
+                if ($user2) {
+                    $model->update();
+                } else {               
+                $model->save();
                 }
+                return $this->goHome();
+                //return $this->refresh();
+            } else {
+                Yii::$app->session->setFlash('error', 'Error.');
+                return $this->refresh();
             }
+            
         }
         return $this->render('signup-extra', [
             'model' => $model,

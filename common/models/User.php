@@ -28,6 +28,7 @@ use lispa\amos\core\record\Record;
  *
  * @property integer $id
  * @property string $username
+ * @property string $surname
  * @property string $password_hash
  * @property string $password_reset_token
  * @property string $email
@@ -104,7 +105,9 @@ class User extends Record implements IdentityInterface
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
             ['email', 'email'],
-            [['username', 'email'], 'unique']
+            [['username', 'surname'], 'string'],
+            [['email'], 'unique'],
+            [['email'], 'required'],
         ];
     }
 
