@@ -39,10 +39,10 @@ class SignupExtraController extends Controller
         $dataProvider = new ActiveDataProvider([
             'query' => SignupExtraForm::find(),
         ]);
-
-        return $this->render('index', [
-            'dataProvider' => $dataProvider,
-        ]);
+        return $this->redirect(['/']);
+//        return $this->render('index', [
+//            'dataProvider' => $dataProvider,
+//        ]);
     }
 
     /**
@@ -73,10 +73,21 @@ class SignupExtraController extends Controller
         if(\Yii::$app->user->identity->id){
           $user = User::findOne(\Yii::$app->user->identity->id);  
         }
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-//            debug($model);
+        if ($model->load(Yii::$app->request->post())) {
+            if($model->validate()){
+                if($user){
+                $user->username=$model->nome;
+                $user->surname=$model->cognome;
+                $user->email=$model->email;
+                $user->password_hash=Yii::$app->security->generatePasswordHash($model->password);
+                $user->update();
+                }
+            $model->save();
+            }
             return $this->redirect(['/', 'id' => $model->id]);
-        } else {
+            //return $this->refresh();
+        }        
+        else {
             return $this->render('create', [
                 'model' => $model, 'user' => $user,
             ]);
