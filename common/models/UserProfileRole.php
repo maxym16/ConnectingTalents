@@ -14,10 +14,16 @@ use Yii;
  */
 class UserProfileRole extends \yii\db\ActiveRecord
 {
-    const ROLE_USER1 = 'user1';
-    const ROLE_USER2 = 'user2';
-    const ROLE_USER3 = 'user3';
+    const ROLE_USER1 = 'user_1';
+    const ROLE_USER2 = 'user_2';
+    const ROLE_USER3 = 'user_3';
     const ROLE_ADMIN = 'admin';
+    const ROLE_ADMINCT = 'admin_ct';
+    const ROLE_ADMINEMAIL = 'admin_email';
+    const ROLE_FAN = 'fan';
+    const ROLE_CONTRIBUTOR = 'contributor';
+    const ROLE_PARTNER = 'partner';
+    const ROLE_SPONSOR = 'sponsor';
     
     public static function tableName()
     {

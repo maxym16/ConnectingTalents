@@ -22,6 +22,7 @@ class UserRoleRule extends Rule
      */
     public function execute($user, $item, $params)
     {
+         // Отримуємо масив користувача з бази 
         $user = ArrayHelper::getValue($params, 'user', UserProfile::findOne($user));
 
         if ($user) {
