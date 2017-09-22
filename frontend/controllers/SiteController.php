@@ -155,7 +155,7 @@ class SiteController extends Controller
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
 //            return $this->goBack();
-            return $this->redirect(['/profile']);
+            return $this->redirect(['/']);
         } else {
             return $this->render('login', [
                 'model' => $model,
@@ -202,7 +202,7 @@ class SiteController extends Controller
         $model = new \common\models\LoginExtraForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
 //            return $this->goBack();
-            return $this->redirect(['/profile']);
+            return $this->redirect(['/']);
         } else {
             return $this->render('extra-login', [
                 'model' => $model,

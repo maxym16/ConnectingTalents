@@ -8,6 +8,7 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use common\models\User;
 
 /**
  * SignupExtraController implements the CRUD actions for SignupExtraForm model.
@@ -51,8 +52,12 @@ class SignupExtraController extends Controller
      */
     public function actionView($id)
     {
+        $user = new User();
+        if(\Yii::$app->user->identity->id){
+          $user = User::findOne(\Yii::$app->user->identity->id);  
+        }
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $this->findModel($id), 'user' => $user,
         ]);
     }
 
@@ -64,12 +69,16 @@ class SignupExtraController extends Controller
     public function actionCreate()
     {
         $model = new SignupExtraForm();
-
+        $user = new User();
+        if(\Yii::$app->user->identity->id){
+          $user = User::findOne(\Yii::$app->user->identity->id);  
+        }
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+//            debug($model);
+            return $this->redirect(['/', 'id' => $model->id]);
         } else {
             return $this->render('create', [
-                'model' => $model,
+                'model' => $model, 'user' => $user,
             ]);
         }
     }
@@ -83,12 +92,16 @@ class SignupExtraController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $user = new User();
+        if(\Yii::$app->user->identity->id){
+          $user = User::findOne(\Yii::$app->user->identity->id);  
+        }
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
-                'model' => $model,
+                'model' => $model, 'user' => $user,
             ]);
         }
     }

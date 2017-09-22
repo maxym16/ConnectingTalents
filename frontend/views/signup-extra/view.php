@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model frontend\models\SignupExtraForm */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Signup Extra Forms', 'url' => ['index']];
+//$this->params['breadcrumbs'][] = ['label' => 'Signup Extra Forms', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="signup-extra-form-view">
