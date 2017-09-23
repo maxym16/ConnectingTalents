@@ -76,6 +76,7 @@ $this->params['breadcrumbs'][] = 'View';
         'email:email',
         'username',
         'surname',
+        'role',
     ],
     ]); ?>
 

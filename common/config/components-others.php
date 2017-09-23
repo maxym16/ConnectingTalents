@@ -22,8 +22,9 @@ return [
     ],
     'authManager' => [
         'class' => 'yii\rbac\PhpManager',
-	'defaultRoles' => ['admin', 'admin_ct', 'admin_email',
-            'user_1','user_2','user_3'], // your define roles
+        'defaultRoles' => \common\models\User::roleArray(),
+	//'defaultRoles' => ['admin', 'admin_ct', 'admin_email',
+        //    'user_1','user_2','user_3'], // your define roles
         //задамо куди будуть зберігатися наші файли конфігурацій RBAC для 'class' => 'yii\rbac\PhpManager'
         'itemFile' => '@common/components/rbac/items.php',
         'assignmentFile' => '@common/components/rbac/assignments.php',

@@ -29,6 +29,22 @@ class SiteController extends Controller
     public function behaviors()
     {
         return [
+/*            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['logout', 'signup'],
+                'rules' => [
+                    [
+                        'actions' => ['signup'],
+                        'allow' => true,
+                        'roles' => ['?'],
+                    ],
+                    [
+                        'actions' => ['logout'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],*/
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -43,6 +59,24 @@ class SiteController extends Controller
         ];
     }
     
+    /**
+     * check access before each action
+     * @param type $action
+     * @return boolean
+     * @throws ForbiddenHttpException
+     */
+/*    public function beforeAction($action)
+    {
+        if (parent::beforeAction($action)) {
+            if (!\Yii::$app->user->can($action->id)) {
+                throw new ForbiddenHttpException('Access denied');
+            }
+            return true;
+        } else {
+            return false;
+        }
+    }
+*/
     public function actions()
     {
         return [
@@ -62,6 +96,42 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+/*        
+        $userId = Yii::$app->user->id; //id поточного користувача
+        $userRole = Yii::$app->authManager->getRole('user_1');
+        Yii::$app->authManager->assign($userRole, $userId);
+*/      
+        if(\Yii::$app->user->id){
+          $user = User::findOne(\Yii::$app->user->id);
+          debug($user->role);
+        }
+        debug(\Yii::$app->user->can('user_2'));
+        debug(User::getRoleOfUser(Yii::$app->user->id));
+        debug(Yii::$app->user->id);
+//        debug($this->getUser()->id);
+//        debug($this->getUser()->id);
+        echo 'can user_1'; debug(\Yii::$app->user->can('user_1'));
+        echo 'checkAccess role'; 
+//        debug(Yii::$app->authManager->checkAccess(\Yii::$app->user->id,User::findOne(\Yii::$app->user->id)->role));
+        debug(Yii::$app->authManager->checkAccess(\Yii::$app->user->id,'user_3'));
+        echo 'can user_2'; debug(\Yii::$app->user->can('user_2'));
+        echo 'can user_3'; debug(\Yii::$app->user->can('user_3'));
+        echo 'can admin'; debug(\Yii::$app->user->can('admin'));
+        echo 'can guest'; debug(\Yii::$app->user->can('guest'));
+        echo 'role'; debug(User::findOne(\Yii::$app->user->id)->role);
+        echo 'can index'; debug(\Yii::$app->user->can('index'));
+        echo 'can contact'; debug(\Yii::$app->user->can('contact'));
+        echo 'fan'; debug(\Yii::$app->user->can('fan'));
+        echo 'contributor'; debug(\Yii::$app->user->can('contributor'));
+        echo 'partner'; debug(\Yii::$app->user->can('partner'));
+        echo 'sponsor'; debug(\Yii::$app->user->can('sponsor'));
+        echo 'can team_create'; debug(\Yii::$app->user->can('team_create'));
+//        echo 'checkAccess team_create'; debug(\Yii::$app->user->checkAccess('team_create'));
+//        echo 'Roles usera'; debug(\Yii::$app->authManager->getRolesByUser(\Yii::$app->user->id));
+//        User::findOne(\Yii::$app->user->id)->role
+//        Yii::$app->authManager->checkAccess($this->getUser()->id)
+//        Yii::$app->user->checkAccess('admin')
+//        debug(Yii::$app->authManager->getRole('user_1'));
         
 /*        if (!\Yii::$app->user->can('user_1')) { 
             throw new \yii\web\ForbiddenHttpException('Access denied.'); 

@@ -109,6 +109,7 @@ $actionColumnTemplateString = '<div class="action-buttons">'.$actionColumnTempla
 			'email:email',
 			'username',
 			'surname',
+                        'role',
         ],
         ]); ?>
     </div>

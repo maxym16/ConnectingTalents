@@ -3,16 +3,13 @@ return [
     'admin' => [
         'type' => 1,
         'description' => 'Administrator',
-        'ruleName' => 'userRole',
         'children' => [
             'admin_ct',
-            'adminPanel',
         ],
     ],
     'admin_ct' => [
         'type' => 1,
         'description' => 'Administrator of the Connecting Talents',
-        'ruleName' => 'userRole',
         'children' => [
             'user_3',
             'admin_email',
@@ -21,12 +18,10 @@ return [
     'admin_email' => [
         'type' => 1,
         'description' => 'Administrator email',
-        'ruleName' => 'userRole',
     ],
     'user_1' => [
         'type' => 1,
         'description' => 'User level1',
-        'ruleName' => 'userRole',
         'children' => [
             'guest',
             'extra_registration',
@@ -35,8 +30,7 @@ return [
     ],
     'user_2' => [
         'type' => 1,
-        'description' => 'User level2',
-        'ruleName' => 'userRole',
+        'description' => 'User 2',
         'children' => [
             'user_1',
             'profile_view',
@@ -51,16 +45,13 @@ return [
     ],
     'user_3' => [
         'type' => 1,
-        'description' => 'User level3',
-        'ruleName' => 'userRole',
+        'description' => 'User 3',
         'children' => [
             'user_2',
         ],
     ],
     'guest' => [
         'type' => 1,
-        'description' => 'Guest',
-        'ruleName' => 'userRole',
         'children' => [
             'login',
             'logout',

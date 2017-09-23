@@ -1,18 +1,5 @@
 <?php
 
-/**
- * Lombardia Informatica S.p.A.
- * OPEN 2.0
- *
- * @see http://example.com Developers'community
- * @license GPLv3
- * @license https://opensource.org/licenses/gpl-3.0.html GNU General Public License version 3
- *
- * @package    lispa\amos\basic\template
- * @category   CategoryName
- * @author     Lombardia Informatica S.p.A.
- */
-
 namespace common\models;
 
 use Yii;
@@ -22,6 +9,7 @@ use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
 use lispa\amos\admin\models\UserProfile;
 use lispa\amos\core\record\Record;
+use yii\db\Query;
 
 /**
  * User model
@@ -55,8 +43,38 @@ class User extends Record implements IdentityInterface
      * @const STATUS_ACTIVE User-status: Active
      */
     const STATUS_ACTIVE = 10;
-
-
+    //roles
+    const ROLE_GUEST = 'guest';
+    const ROLE_USER1 = 'user_1';
+    const ROLE_USER2 = 'user_2';
+    const ROLE_USER3 = 'user_3';
+    const ROLE_ADMIN = 'admin';
+    const ROLE_ADMINCT = 'admin_ct';
+    const ROLE_ADMINEMAIL = 'admin_email';
+    const ROLE_FAN = 'fan';
+    const ROLE_CONTRIBUTOR = 'contributor';
+    const ROLE_PARTNER = 'partner';
+    const ROLE_SPONSOR = 'sponsor';
+ 
+    /**
+     * return array all access roles Повертає масив всіх доступних ролей
+     * @return array
+     */
+    static public function roleArray()
+    {
+        return [
+        self::ROLE_USER1,
+        self::ROLE_USER2,
+        self::ROLE_USER3,
+        self::ROLE_ADMIN,
+        self::ROLE_ADMINCT,
+        self::ROLE_ADMINEMAIL,
+        self::ROLE_FAN,
+        self::ROLE_CONTRIBUTOR,
+        self::ROLE_PARTNER,
+        self::ROLE_SPONSOR,
+        ];
+    }
     public $authKey;
     /**
      * @return string
@@ -105,7 +123,7 @@ class User extends Record implements IdentityInterface
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
             ['email', 'email'],
-            [['username', 'surname'], 'string'],
+            [['username', 'surname', 'role'], 'string'],
             [['email'], 'unique'],
             [['email'], 'required'],
         ];
@@ -289,4 +307,28 @@ class User extends Record implements IdentityInterface
             return NULL;
     }
 
+    /**
+     * Повертає роль користувача або `null`.
+     * @return string|null
+     */
+    public function getRole()
+    {
+        $identity = $this->getIdentity();
+        return $identity !== null ? $identity->role : null;
+    }
+    
+    /**
+     * Повертає роль користувача по його ID у випадку успіха і `false` якщо невдача.
+     * @param integer $id ID користувача
+     * @return string|false
+     */
+    static public function getRoleOfUser($id)
+    {
+        return (new Query)
+            ->select('role')
+            ->from(self::tableName())
+            ->where(['id' => $id])
+            ->scalar();
+    }    
+    
 }

@@ -41,6 +41,7 @@ use yii\helpers\StringHelper;
 
 <!-- attribute surname -->
 			<?= $form->field($model, 'surname')->textInput(['maxlength' => true]) ?>
+			<?= $form->field($model, 'role')->textInput(['maxlength' => true]) ?>
         </p>
         <?php $this->endBlock(); ?>
         

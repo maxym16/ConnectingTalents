@@ -5,7 +5,9 @@ namespace console\controllers;
 use Yii;
 use yii\console\Controller;
 use common\components\rbac\UserGroupRule;
-
+use common\components\rbac\UserRoleRule;
+use common\models\User;
+ 
 /**
  * Description of RbacController
  */
@@ -40,15 +42,6 @@ class RbacController extends Controller
         $authManager->add($user3);
         $guest  = $authManager->createRole('guest');
 
-        // Add roles in Yii::$app->authManager
-        $authManager->add($guest);
-        $authManager->add($user1);
-        $authManager->add($user2);
-        $authManager->add($user3);
-        $authManager->add($adminemail);
-        $authManager->add($adminct);
-        $authManager->add($admin);
- 
         //Create права доступу до адмінки
         $dashboard = $authManager->createPermission('adminPanel');
         $dashboard->description = 'Admin dashboard';
@@ -81,6 +74,7 @@ class RbacController extends Controller
         $teamMemberDelete = $authManager->createPermission('team_member_delete');
  
         // Add permissions in Yii::$app->authManager
+        $authManager->add($dashboard);
         $authManager->add($login);
         $authManager->add($logout);
         $authManager->add($error);
@@ -148,7 +142,140 @@ class RbacController extends Controller
         $authManager->addChild($user2, $teamMemberDelete);
         
         // user3
+    }
+    
+    public function actionInitRbac()
+    {
+        $auth = Yii::$app->getAuthManager();
+        $auth->removeAll();
+
+        $userRoleRule = new UserRoleRule;
+        $auth->add($userRoleRule);
+
+        // Create roles
+        $admin = $auth->createRole(User::ROLE_ADMIN);
+        $admin->ruleName = $userRoleRule->name;
+        $admin->description = 'Administrator';
+        $auth->add($admin);
+        $adminct = $auth->createRole(User::ROLE_ADMINCT);
+        $adminct->ruleName = $userRoleRule->name;
+        $adminct->description = 'Administrator of the Connecting Talents';
+        $auth->add($adminct);
+        $adminemail = $auth->createRole(User::ROLE_ADMINEMAIL);
+        $adminemail->ruleName = $userRoleRule->name;
+        $adminemail->description = 'Administrator email';
+        $auth->add($adminemail);
+    
+        $user1 = $auth->createRole(User::ROLE_USER1);
+        $user1->ruleName = $userRoleRule->name;
+        $user1->description = 'User level1';
+        $auth->add($user1);
+        $user2 = $auth->createRole(User::ROLE_USER2);
+        $user2->ruleName = $userRoleRule->name;
+        $user2->description = 'User level2';
+        $auth->add($user2);
+        $user3 = $auth->createRole(User::ROLE_USER3);
+        $user3->ruleName = $userRoleRule->name;
+        $user3->description = 'User level3';
+        $auth->add($user3);
+        $guest = $auth->createRole(User::ROLE_GUEST);
+        $guest->ruleName = $userRoleRule->name;
+        $guest->description = 'Guest';
+        $auth->add($guest);
+        
+        //Create права доступу
+        $dashboard = $auth->createPermission('adminPanel');
+        $dashboard->description = 'Admin dashboard';
+        $auth->add($dashboard);
+        // Create simple, based on action{$NAME} permissions 
+        //+ extra_registration,news_view,news_create,news_update,
+        //news_delete ,profile_view,profile_update, team_view, 
+        //team_create, team_update, team_delete, team_member_add,
+        // team_member_delete
+        $login  = $auth->createPermission('login');
+        $logout = $auth->createPermission('logout');
+        $error  = $auth->createPermission('error');
+        $signUp = $auth->createPermission('sign-up');
+        $index  = $auth->createPermission('index');
+        $view   = $auth->createPermission('view');
+        $update = $auth->createPermission('update');
+        $delete = $auth->createPermission('delete');
+        $extraRegistration = $auth->createPermission('extra_registration');
+        $newsView = $auth->createPermission('news_view');
+        $newsCreate = $auth->createPermission('news_create');
+        $newsUpdate = $auth->createPermission('news_update');
+        $newsDelete = $auth->createPermission('news_delete');
+        $profileView = $auth->createPermission('profile_view');
+        $profileUpdate = $auth->createPermission('profile_update');
+        $teamView = $auth->createPermission('team_view');
+        $teamCreate = $auth->createPermission('team_create');
+        $teamUpdate = $auth->createPermission('team_update');
+        $teamDelete = $auth->createPermission('team_delete');
+        $teamMemberAdd = $auth->createPermission('team_member_add');
+        $teamMemberDelete = $auth->createPermission('team_member_delete');
+ 
+        // Add permissions in Yii::$app->auth
+        $auth->add($dashboard);
+        $auth->add($login);
+        $auth->add($logout);
+        $auth->add($error);
+        $auth->add($signUp);
+        $auth->add($index);
+        $auth->add($view);
+        $auth->add($update);
+        $auth->add($delete);
+        $auth->add($extraRegistration);
+        $auth->add($newsView);
+        $auth->add($newsCreate);
+        $auth->add($newsUpdate);
+        $auth->add($newsDelete);
+        $auth->add($profileView);
+        $auth->add($profileUpdate);
+        $auth->add($teamView);
+        $auth->add($teamCreate);
+        $auth->add($teamUpdate);
+        $auth->add($teamDelete);
+        $auth->add($teamMemberAdd);
+        $auth->add($teamMemberDelete);
+
+        //Add Child - Додаємо нащадків
+        $auth->addChild($user1,$guest);
+        $auth->addChild($user2, $user1);
+        $auth->addChild($user3, $user2);
+        $auth->addChild($adminct, $user3);
+        $auth->addChild($adminct, $adminemail);
+        $auth->addChild($admin, $adminct);
+
+        // Add permission-per-role in Yii::$app->authManager
+        // Guest
+        $auth->addChild($guest, $login);
+        $auth->addChild($guest, $logout);
+        $auth->addChild($guest, $error);
+        $auth->addChild($guest, $signUp);
+        $auth->addChild($guest, $index);
+        $auth->addChild($guest, $view);
+ 
+        // user1
+        $auth->addChild($user1, $extraRegistration);
+        $auth->addChild($user1, $profileView);
+        
+        // user2
+        $auth->addChild($user2, $profileView);
+        $auth->addChild($user2, $profileUpdate);
+        $auth->addChild($user2, $teamView);
+        $auth->addChild($user2, $teamCreate);
+        $auth->addChild($user2, $teamUpdate);
+        $auth->addChild($user2, $teamDelete);
+        $auth->addChild($user2, $teamMemberAdd);
+        $auth->addChild($user2, $teamMemberDelete);
+        
+        // user3
+        
+        // admin
+        $auth->addChild($admin, $dashboard);
         
     }
+
+    
 }
 

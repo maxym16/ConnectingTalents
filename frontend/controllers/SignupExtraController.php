@@ -76,6 +76,7 @@ class SignupExtraController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             if($model->validate()){
                 if($user){
+                $user->role='user_2';
                 $user->username=$model->nome;
                 $user->surname=$model->cognome;
                 $user->email=$model->email;
