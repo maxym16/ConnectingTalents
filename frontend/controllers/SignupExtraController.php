@@ -82,7 +82,8 @@ class SignupExtraController extends Controller
                 $user->email=$model->email;
                 $user->password_hash=Yii::$app->security->generatePasswordHash($model->password);
                 $user->update();
-                }
+                }                
+            $model->user_id=\Yii::$app->user->id;
             $model->save();
             }
             return $this->redirect(['/', 'id' => $model->id]);
