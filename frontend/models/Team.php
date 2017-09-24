@@ -10,6 +10,7 @@ use Yii;
  * @property integer $id
  * @property string $name
  * @property integer $owner
+ * @property integer $owner_opport
  * @property string $description
  * @property string $date
  * @property integer $type
@@ -29,8 +30,8 @@ class Team extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'owner', 'description', 'date', 'type','joined_team_id', 'team_role_id', 'parent_id'], 'required'],
-            [['owner', 'type', 'team_role_id', 'parent_id', 'visible', 'status'], 'integer'],
+            [['name', 'owner', 'owner_opport', 'description', 'date', 'type','joined_team_id', 'team_role_id', 'parent_id'], 'required'],
+            [['owner', 'owner_opport', 'type', 'team_role_id', 'parent_id', 'visible', 'status'], 'integer'],
             [['description','joined_team_id'], 'string'],
             [['date'], 'safe'],
             [['name'], 'string', 'max' => 100],
@@ -43,6 +44,7 @@ class Team extends \yii\db\ActiveRecord
             'id' => 'ID',
             'name' => 'Name',
             'owner' => 'Owner of team',
+            'owner_opport' => 'Owner of opportunity',
             'description' => 'Description',
             'date' => 'Date',
             'type' => 'Type',
