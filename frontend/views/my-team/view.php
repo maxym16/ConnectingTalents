@@ -11,7 +11,7 @@ $this->params['breadcrumbs'][]= ['label' => 'I have an opportunity', 'url' => '/
 $this->params['breadcrumbs'][]= ['label' => 'Insert opportunity', 'url' => '/insert-opport'];
 $this->params['breadcrumbs'][]= ['label' => 'My opportunities', 'url' => '/my-opport'];
 $this->params['breadcrumbs'][]= ['label' => 'My teams', 'url' => '/my-teams'];
-$this->params['breadcrumbs'][] = ['label' => 'My team', 'url' => ['index']];
+//$this->params['breadcrumbs'][] = ['label' => 'My team', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="team-view">
