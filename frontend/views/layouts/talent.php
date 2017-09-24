@@ -43,6 +43,10 @@ AppAsset::register($this);
         $menuItems[] = ['label' => 'Signup', 'url' => ['/talent/signup']];
         $menuItems[] = ['label' => 'Login', 'url' => ['/talent/login']];
     } else {
+        if(Yii::$app->user->id){
+        if(common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_1'){
+        $menuItems[] = ['label' => 'ExtraSignUp', 'url' => ['/signup-extra/create']];
+        }}
         $menuItems[] = ['label' => Yii::$app->user->identity->username, 'url' => ['/profile']];
         $menuItems[] = '<li>'
             . Html::beginForm(['/talent/logout'], 'post')
