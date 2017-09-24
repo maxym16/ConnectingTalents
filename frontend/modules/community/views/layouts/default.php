@@ -32,13 +32,16 @@ AppAsset::register($this);
         ],
     ]);
     $menuItems = [
-        ['label' => 'Home', 'url' => ['/']],
         ['label' => 'Help', 'url' => ['#']],
 //        ['label' => 'Notification', 'url' => ['#']],
     ];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
     } else {
+        if(Yii::$app->user->id){
+        if(common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_1'){
+        $menuItems[] = ['label' => 'ExtraSignUp', 'url' => ['/signup-extra/create']];
+        }}
         $menuItems[] = ['label' => Yii::$app->user->identity->username, 'url' => ['/profile']];
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
