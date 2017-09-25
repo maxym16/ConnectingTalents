@@ -1,11 +1,8 @@
 <?php
 
-use yii\helpers\Html;
-use yii\grid\GridView;
 use yii\helpers\Url;
 
 /* @var $this yii\web\View */
-/* @var $dataProvider yii\data\ActiveDataProvider */
 $this->params['breadcrumbs'][]= ['label' => 'I have an opportunity', 'url' => '/opport'];
 $this->params['breadcrumbs'][]= ['label' => 'Insert opportunity', 'url' => '/insert-opport'];
 $this->params['breadcrumbs'][]= ['label' => 'My opportunities', 'url' => '/my-opport'];
@@ -13,10 +10,6 @@ $this->params['breadcrumbs'][]= ['label' => 'My teams'];
 
 $this->title = 'Connecting Talents | My teams';
 ?>
-<div class="team-index">
-
-<!--    <h1>< ? = Html::encode($this->title) ? ></h1>-->
-
 <div class="site-index">
     <div class="container">
         <h2 class="text-center">My teams</h2>
@@ -76,17 +69,17 @@ $this->title = 'Connecting Talents | My teams';
                         </thead>
                         <tbody>
                         <tr>
-                            <td class="text-center"><a href="<?= Url::to(['/my-teams/1']) ?>">Team 1</a></td>
+                            <td class="text-center"><a href="<?= Url::to(['/my-team/1']) ?>">Team 1</a></td>
                         <td class="text-center">3/8</td>
                         <td class="text-center danger"></td>
                         </tr>
                         <tr>
-                            <td class="text-center"><a href="<?= Url::to(['/my-teams/2']) ?>">Team 2</a></td>
+                            <td class="text-center"><a href="<?= Url::to(['/my-team/2']) ?>">Team 2</a></td>
                         <td class="text-center">3/8</td>
                         <td class="text-center warning"></td>
                         </tr>
                         <tr>
-                            <td class="text-center"><a href="<?= Url::to(['/my-teams/3']) ?>">Team 3</a></td>
+                            <td class="text-center"><a href="<?= Url::to(['/my-team/3']) ?>">Team 3</a></td>
                         <td class="text-center">3/8</td>
                         <td class="text-center success"></td>
                         </tr>
@@ -130,11 +123,6 @@ $this->title = 'Connecting Talents | My teams';
         </div>
         <div class="row col-lg-12">
             <div class="col-lg-offset-2 bg-info">
-                <p>
-                <?= Html::a('Create Team', ['create'], ['class' => 'btn btn-success']) ?>
-                </p>
-            </div>
-            <div class="col-lg-offset-2 bg-info">
                 <br>
                 <p class="text-center">Request team services</p>
                 <br>
@@ -143,32 +131,4 @@ $this->title = 'Connecting Talents | My teams';
             
         </div>
     </div>        
-</div>
-    
-    <!--
-    <p>
-        < ? = Html::a('Create Team', ['create'], ['class' => 'btn btn-success']) ? >
-    </p>
-    < ? = GridView::widget([
-        'dataProvider' => $dataProvider,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-//            'id',
-            'name',
-            'owner',
-//            'owner_opport',
-            'description:ntext',
-            'date',
-            'joined_team_id',
-            // 'type',
-            // 'team_role_id',
-            // 'parent_id',
-            // 'visible',
-            // 'status',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ? >
-    -->
 </div>

@@ -65,7 +65,7 @@ return [
         // Disable r= routes
         'enablePrettyUrl' => true,
         'rules' => array(
-            'my-team/<id:\d+>' => 'my-team/view',
+            'my-teams/<id:\d+>' => 'my-teams/view',
             'login/<service:google|facebook|linkedin_oauth2>' => 'site/login',
             '<module:[\w-]+>/<controller:[\w-]+>/<action:[\w-]+>/<id:\d+>] => <module>/<controller>/<action>',
         ),
