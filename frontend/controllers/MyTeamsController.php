@@ -123,4 +123,15 @@ class MyTeamsController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+    public function actionTeamRequests()
+    {
+        $model = new Team();
+        $user_id=\Yii::$app->user->id;
+
+        return $this->render('team-requests', [
+            'model' => $model, 'user_id' => $user_id,
+        ]);
+    }
+
 }

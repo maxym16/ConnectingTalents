@@ -6,7 +6,7 @@ use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Team */
-
+Url::remember();
 $this->title = $model->name;
 $this->params['breadcrumbs'][]= ['label' => 'I have an opportunity', 'url' => '/opport'];
 $this->params['breadcrumbs'][]= ['label' => 'Insert opportunity', 'url' => '/insert-opport'];
@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
-        <a href="<?= Url::to([$model->id]) ?>" class="btn btn-success">Manage team incoming requests</a>
+        <?= Html::a('Manage team incoming requests', ['team-requests'], ['class' => 'btn btn-success']) ?>
         <a href="<?= Url::to([$model->id]) ?>" class="btn btn-success">Add/remove members</a>
         <a href="<?= Url::to([$model->id]) ?>" class="btn btn-success">Request Team services</a>
         <a href="<?= Url::to(['/my-teams/'.$model->id]) ?>" class="btn btn-success">Team Coding</a>

@@ -171,4 +171,5 @@ $this->title = 'Connecting Talents | My teams';
         ],
     ]); ? >
     -->
-</div>
+
+    
