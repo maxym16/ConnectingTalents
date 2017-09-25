@@ -40,13 +40,15 @@ class SignupExtraForm extends ActiveRecord
     {
         return [
             [['nome', 'cognome'], 'required'],
-            [['sesso', 'presentazione_personale', 'note'], 'string'],
-            [['avatar_id', 'user_profile_role_id', 'user_profile_age_group_id'/*, 'user_id'*/], 'integer'],
+            [['sesso','image','expl', 'presentazione_personale', 'note'], 'string'],
+            [['sharing', 'user_profile_role_id', 'user_profile_age_group_id'/*, 'user_id'*/], 'integer'],
             [['nome', 'cognome', 'presentazione_breve', 'telefono'/*, 'status'*/, 'facebook', 'linkedin', 'googleplus'], 'string', 'max' => 255],
             ['telefono', 'unique', 'message' => 'This phono has already been taken.'],
-            
+            [['purpos'],'string'],
+//            [['telefono'],'PhoneNumber'],
+//            ['telefono', 'match', 'pattern' => '/^\+7\s\([0-9]{3}\)\s[0-9]{3}\-[0-9]{2}\-[0-9]{2}$/', 'message' => 'Wrong number' ],
             ['email', 'trim'],
-            ['email', 'email'],
+            [['email','email_pec'], 'email'],
             ['email', 'string', 'max' => 255],
 //            ['email', 'exist', 'targetClass' => '\common\models\User', 'message' => 'This email address has already been taken.'],
 
@@ -61,8 +63,12 @@ class SignupExtraForm extends ActiveRecord
             'email' => 'E-mail',
             'cognome' => 'Surname',
             'sesso' => 'Sex',
+            'purpos' => 'Purposes',
+            'expl' => 'Explaination',
+            'sharing' => 'Sharing platform',
             'user_profile_age_group_id' => 'Age',
-            'telefono' => 'Phone',
+            'telefono' => 'Telephone',
+            'image' => 'Photo',
             'avatar_id' => 'Photo',
             'note' => 'About me',
             'user_profile_role_id' => 'Role',

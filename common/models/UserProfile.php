@@ -12,6 +12,10 @@ use Yii;
  * @property string $cognome
  * @property string $codice_fiscale
  * @property string $sesso
+ * @property string $image
+ * @property string $purpos
+ * @property string $expl
+ * @property integer $sharing
  * @property string $presentazione_breve
  * @property string $presentazione_personale
  * @property string $nascita_data
@@ -103,9 +107,10 @@ class UserProfile extends \yii\db\ActiveRecord
     {
         return [
             [['nome', 'cognome'], 'required'],
-            [['sesso', 'presentazione_personale', 'widgets_selected', 'nazionalita', 'altri_dati_contatto', 'note'], 'string'],
+            [['sesso','image','expl', 'presentazione_personale', 'widgets_selected', 'nazionalita', 'altri_dati_contatto', 'note'], 'string'],
+            [['purpos'],'string'],
             [['nascita_data', 'ultimo_accesso', 'ultimo_logout', 'created_at', 'updated_at', 'deleted_at'], 'safe'],
-            [['privacy', 'attivo', 'validato_almeno_una_volta', 'avatar_id', 'nascita_nazioni_id', 'nascita_province_id', 'nascita_comuni_id', 'user_profile_titoli_studio_id', 'user_profile_stati_civili_id', 'nazionalita_residenza_id', 'comune_residenza_id', 'provincia_residenza_id', 'domicilio_provincia_id', 'domicilio_comune_id', 'residenza_nazione_id', 'facilitatore_id', 'default_facilitatore', 'user_profile_area_id', 'user_profile_role_id', 'user_profile_age_group_id', 'prevalent_partnership_id', 'user_id', 'created_by', 'updated_by', 'deleted_by'], 'integer'],
+            [['sharing','privacy', 'attivo', 'validato_almeno_una_volta', 'avatar_id', 'nascita_nazioni_id', 'nascita_province_id', 'nascita_comuni_id', 'user_profile_titoli_studio_id', 'user_profile_stati_civili_id', 'nazionalita_residenza_id', 'comune_residenza_id', 'provincia_residenza_id', 'domicilio_provincia_id', 'domicilio_comune_id', 'residenza_nazione_id', 'facilitatore_id', 'default_facilitatore', 'user_profile_area_id', 'user_profile_role_id', 'user_profile_age_group_id', 'prevalent_partnership_id', 'user_id', 'created_by', 'updated_by', 'deleted_by'], 'integer'],
             [['nome', 'cognome', 'presentazione_breve', 'indirizzo_residenza', 'numero_civico_residenza', 'domicilio_indirizzo', 'domicilio_localita', 'email_pec', 'telefono', 'cellulare', 'fax', 'status', 'facebook', 'twitter', 'linkedin', 'googleplus', 'user_profile_area_other', 'user_profile_role_other'], 'string', 'max' => 255],
             [['codice_fiscale'], 'string', 'max' => 16],
             [['cap_residenza', 'domicilio_lat', 'domicilio_lon'], 'string', 'max' => 45],
@@ -126,9 +131,12 @@ class UserProfile extends \yii\db\ActiveRecord
             'email' => 'E-mail',
             'cognome' => 'Surname',
             'sesso' => 'Sex',
+            'purpos' => 'Purposes',
+            'expl' => 'Explaination',
+            'sharing' => 'Sharing platform',
             'user_profile_age_group_id' => 'Age',
-            'telefono' => 'Phone',
-            'avatar_id' => 'Photo',
+            'telefono' => 'Telephone',
+            'image' => 'Photo',
             'note' => 'About me',
             'user_profile_role_id' => 'Role',
             'presentazione_breve' => 'Remote work',
@@ -148,7 +156,7 @@ class UserProfile extends \yii\db\ActiveRecord
             'domicilio_lon' => 'Domicilio Lon',
             'widgets_selected' => 'Widgets Selected',
             'nazionalita' => 'Nazionalita',
-            'email_pec' => 'Email Pec',
+            'email_pec' => 'E-mail',
             'altri_dati_contatto' => 'Altri Dati Contatto',
             'cellulare' => 'Cellulare',
             'fax' => 'Fax',

@@ -75,6 +75,7 @@ class SignupExtraController extends Controller
         }
         if ($model->load(Yii::$app->request->post())) {
             if($model->validate()){
+//                debug($model); die;
                 if($user){
                 $user->role='user_2';
                 $user->username=$model->nome;
@@ -85,6 +86,9 @@ class SignupExtraController extends Controller
                 }                
             $model->user_id=\Yii::$app->user->id;
             $model->save();
+            }
+            else {
+            return $this->redirect(['/signup-extra/create', 'id' => $model->id]);
             }
             return $this->redirect(['/', 'id' => $model->id]);
             //return $this->refresh();
