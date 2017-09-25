@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Team */
@@ -19,14 +20,18 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+        <?= Html::a('Update Team', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete Team', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
                 'method' => 'post',
             ],
         ]) ?>
+        <a href="<?= Url::to([$model->id]) ?>" class="btn btn-success">Manage team incoming requests</a>
+        <a href="<?= Url::to([$model->id]) ?>" class="btn btn-success">Add/remove members</a>
+        <a href="<?= Url::to([$model->id]) ?>" class="btn btn-success">Request Team services</a>
+        <a href="<?= Url::to(['/my-teams/'.$model->id]) ?>" class="btn btn-success">Team Coding</a>
     </p>
 
     <?= DetailView::widget([
