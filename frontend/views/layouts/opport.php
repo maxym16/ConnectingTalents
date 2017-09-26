@@ -46,7 +46,7 @@ AppAsset::register($this);
         if(common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_1'){
         $menuItems[] = ['label' => 'ExtraSignUp', 'url' => ['/signup-extra/create']];
         }
-        if(common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_2'){
+        if(common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_2' || common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_3'){
         $menuItems[] = ['label' => Yii::$app->user->identity->username, 'url' => ['/profile']];
         }}
         $menuItems[] = '<li>'
