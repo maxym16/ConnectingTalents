@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "user_profile".
@@ -88,6 +89,8 @@ class UserProfile extends \yii\db\ActiveRecord
      */
     const STATUS_ACTIVE = 1;
 
+    public $file;
+    public $del_img;    
 
     public static function tableName()
     {
@@ -117,6 +120,8 @@ class UserProfile extends \yii\db\ActiveRecord
             [['domicilio_civico'], 'string', 'max' => 10],
             [['domicilio_cap'], 'string', 'max' => 5],
             [['partita_iva', 'iban'], 'string', 'max' => 20],
+            [['file'], 'file', 'extensions' => 'png, jpg'],
+            [['del_img'], 'boolean'],
         ];
     }
 

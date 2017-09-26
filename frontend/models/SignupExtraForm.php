@@ -7,6 +7,7 @@ use common\models\User;
 use common\models\UserProfile;
 use common\models\UserProfileRole;
 use yii\db\ActiveRecord;
+use yii\web\UploadedFile;
 
 /**
  * Signup form
@@ -28,7 +29,9 @@ class SignupExtraForm extends ActiveRecord
     public $presentazione_personale;*/
     public $email;
     public $password;
-
+    public $file;
+    public $del_img;
+    
     public static function tableName(){
         return 'user_profile';
     }
@@ -45,6 +48,8 @@ class SignupExtraForm extends ActiveRecord
             [['nome', 'cognome', 'presentazione_breve', 'telefono'/*, 'status'*/, 'facebook', 'linkedin', 'googleplus'], 'string', 'max' => 255],
             ['telefono', 'unique', 'message' => 'This phono has already been taken.'],
             [['purpos'],'string'],
+            [['file'], 'file', 'extensions' => 'png, jpg'],
+            [['del_img'], 'boolean'],
 //            [['telefono'],'PhoneNumber'],
 //            ['telefono', 'match', 'pattern' => '/^\+7\s\([0-9]{3}\)\s[0-9]{3}\-[0-9]{2}\-[0-9]{2}$/', 'message' => 'Wrong number' ],
             ['email', 'trim'],

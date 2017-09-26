@@ -5,9 +5,9 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\SignupExtraForm */
 
-$this->title = 'Update Signup Extra Form: ' . $model->id;
+$this->title = 'Update personal data : ' . $model->nome;
 //$this->params['breadcrumbs'][] = ['label' => 'Signup Extra Forms', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = ['label' => $model->nome, 'url' => ['/profile', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="signup-extra-form-update">

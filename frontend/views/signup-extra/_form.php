@@ -10,7 +10,7 @@ use yii\widgets\ActiveForm;
 
 <div class="signup-extra-form-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['id' => 'signup-extra-form', 'options' => ['enctype' => 'multipart/form-data']]); ?>
 
     <?= $form->field($model, 'nome')->textInput(['maxlength' => true,'value'=> $user->username]) ?>
     <?= $form->field($model, 'cognome')->textInput(['maxlength' => true,'value'=> $user->surname]) ?>
@@ -24,7 +24,15 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'googleplus')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'linkedin')->textInput(['maxlength' => true]) ?>
     <hr>
-    <?= $form->field($model, 'image')->label('Photo')->textInput() ?>
+    <?php
+        if(isset($model->image) && file_exists(Yii::getAlias('@webroot', $model->image)))
+        { 
+            echo Html::img($model->image, ['class'=>'img-responsive']);
+            echo $form->field($model,'del_img')->checkBox(['class'=>'span-1']);
+        }
+    ?>
+    <?= $form->field($model, 'file')->label('Photo')->fileInput() ?>
+<!--    < ? = $form->field($model, 'image')->label('Photo')->textInput() ? >-->
     <?= $form->field($model, 'note')->textarea(['rows' => 5]) ?>
     <hr><hr>
     <?= $form->field($model, 'purpos')->label('Purposes')->dropDownList(['Business'=>'Business','Non-profit'=>'Non-profit','Idea/Passion'=>'Idea/Passion']) ?>

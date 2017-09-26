@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\SignupExtraForm */
 
-$this->title = 'Create Signup Extra Form';
+$this->title = 'Create personal data';
 //$this->params['breadcrumbs'][] = ['label' => 'Signup Extra Forms', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
