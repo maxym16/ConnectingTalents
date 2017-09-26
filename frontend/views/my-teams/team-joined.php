@@ -11,54 +11,41 @@ $this->params['breadcrumbs'][]= ['label' => 'Insert opportunity', 'url' => '/ins
 $this->params['breadcrumbs'][]= ['label' => 'My opportunities', 'url' => '/my-opport'];
 $this->params['breadcrumbs'][]= ['label' => 'My teams', 'url' => '/my-teams'];
 $this->params['breadcrumbs'][]= ['label' => 'My team', 'url' => Url::previous()];
-$this->params['breadcrumbs'][] = 'Team joined';
+$this->params['breadcrumbs'][] = 'Manage experience rating';
 
 ?>
 <div class="team-requests">
     <div class="site-index">
         <div class="container">
-        <h2 class="text-center">Team joined</h2>
+        <h2 class="text-center">Manage experience rating</h2>
+        <p class="text-center">Opportunity owner to add feedback to the other team members</p>
         <br>
-        <div class="row col-lg-12">
-            <div class="thumbnail row">
-                <table class="table table-bordered">
-                <thead>
-                <tr>
-                    <th class="text-center">ID</th>
-                    <th class="text-center">Name</th>
-                    <th class="text-center">Join request date</th>
-                    <th class="text-center">Matching %</th>
-                    <th class="text-center">UTC matching</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
-                </tr>
-                <tr>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
-                </tr>
-                <tr>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
-                </tr>
-                </tbody>
-                </table>
-            </div>                    
-            <a href="<?= Url::to(['#']) ?>" class="btn btn-success">Accept the request</a>
-            <a href="<?= Url::to(['#']) ?>" class="btn btn-primary">Contact the users</a>
-        </div>
+            <div class="row col-lg-12">
+                <div class="thumbnail row">
+                    <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th class="text-center">Team members list</th>
+                        <th class="text-center">Leave your experience rating</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="text-center"></td>
+                        <td class="text-center"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"></td>
+                        <td class="text-center"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"></td>
+                        <td class="text-center"></td>
+                    </tr>
+                    </tbody>
+                    </table>
+                </div>                    
+            </div>
             
         </div>
     </div>        
