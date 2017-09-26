@@ -32,15 +32,42 @@ $this->params['breadcrumbs'][] = 'Manage experience rating';
                     <tbody>
                     <tr>
                         <td class="text-center"></td>
-                        <td class="text-center"></td>
+                        <td class="text-center">
+                        <div class="btn-group">
+                        <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle">Rating<span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">1</a></li>
+                          <li><a href="#">2</a></li>
+                          <li><a href="#">3</a></li>
+                        </ul>
+                        </div>
+                        </td>
                     </tr>
                     <tr>
                         <td class="text-center"></td>
-                        <td class="text-center"></td>
+                        <td class="text-center">
+                        <div class="btn-group">
+                        <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle">Rating<span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">1</a></li>
+                          <li><a href="#">2</a></li>
+                          <li><a href="#">3</a></li>
+                        </ul>
+                        </div>
+                        </td>
                     </tr>
                     <tr>
                         <td class="text-center"></td>
-                        <td class="text-center"></td>
+                        <td class="text-center">
+                        <div class="btn-group">
+                        <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle">Rating<span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">1</a></li>
+                          <li><a href="#">2</a></li>
+                          <li><a href="#">3</a></li>
+                        </ul>
+                        </div>
+                        </td>
                     </tr>
                     </tbody>
                     </table>
