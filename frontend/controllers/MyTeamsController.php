@@ -143,4 +143,44 @@ class MyTeamsController extends Controller
         ]);
     }
 
+    public function actionTeamMembers()
+    {
+        $model = new Team();
+        $user_id=\Yii::$app->user->id;
+
+        return $this->render('team-members', [
+            'model' => $model, 'user_id' => $user_id,
+        ]);
+    }
+
+    public function actionTeamServices()
+    {
+        $model = new Team();
+        $user_id=\Yii::$app->user->id;
+
+        return $this->render('team-services', [
+            'model' => $model, 'user_id' => $user_id,
+        ]);
+    }
+
+    public function actionTeamCoding()
+    {
+        $model = new Team();
+        $user_id=\Yii::$app->user->id;
+
+        return $this->render('team-coding', [
+            'model' => $model, 'user_id' => $user_id,
+        ]);
+    }
+
+    public function actionTeamJoined()
+    {
+        $model = new Team();
+        $user_id=\Yii::$app->user->id;
+
+        return $this->render('team-joined', [
+            'model' => $model, 'user_id' => $user_id,
+        ]);
+    }
+
 }

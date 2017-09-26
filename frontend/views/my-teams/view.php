@@ -29,9 +29,10 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
         <?= Html::a('Manage team incoming requests', ['team-requests'], ['class' => 'btn btn-success']) ?>
-        <a href="<?= Url::to([$model->id]) ?>" class="btn btn-success">Add/remove members</a>
-        <a href="<?= Url::to([$model->id]) ?>" class="btn btn-success">Request Team services</a>
-        <a href="<?= Url::to(['/my-teams/'.$model->id]) ?>" class="btn btn-success">Team Coding</a>
+        <?= Html::a('Add/remove members', ['team-members'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Buy Team services', ['team-services'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Team Coding', ['team-coding'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Team joined', ['team-joined'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= DetailView::widget([
