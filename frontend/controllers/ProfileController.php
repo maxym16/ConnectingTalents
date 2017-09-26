@@ -3,7 +3,8 @@
 namespace frontend\controllers;
 
 //use common\models\LoginForm;
-//use common\models\User;
+use common\models\User;
+use common\models\UserProfile;
 //use frontend\models\ContactForm;
 //use frontend\models\PasswordResetRequestForm;
 //use frontend\models\ResetPasswordForm;
@@ -25,9 +26,15 @@ class ProfileController extends Controller
     public function actionIndex()
     {
         if(!Yii::$app->user->isGuest)
-            {$username=Yii::$app->user->identity->username;} 
+        {
+        $username=Yii::$app->user->identity->username;
+        $user_id=Yii::$app->user->id;
+        } 
         else {$username=null;}
-        return $this->render('index',compact('username'));
+        $profile = UserProfile::find()->where(['user_id' =>$user_id])->one();
+//        debug($profile);
+//        debug($profile->nome);
+        return $this->render('index',compact('username','profile'));
     }
 
 }

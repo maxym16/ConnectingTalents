@@ -45,8 +45,10 @@ AppAsset::register($this);
         if(Yii::$app->user->id){
         if(common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_1'){
         $menuItems[] = ['label' => 'ExtraSignUp', 'url' => ['/signup-extra/create']];
-        }}
+        }
+        if(common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_2'){
         $menuItems[] = ['label' => Yii::$app->user->identity->username, 'url' => ['/profile']];
+        }}
         $menuItems[] = '<li>'
             . Html::beginForm(['/opport/logout'], 'post')
             . Html::submitButton(
