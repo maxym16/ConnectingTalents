@@ -40,12 +40,14 @@ $this->title = 'Connecting Talents | My teams';
                     <div class="thumbnail row" style="border: 2px solid #ee6633">
                         <div class="panel-heading text-center">My UTC</div>
                         <br>
-                        <img class="col-lg-3" src="img/photo.jpg" alt="Photo">
+                        <img class="col-lg-3" src="<?= $profile->image ?>" alt="Photo">
                         <div class="caption col-lg-8">
                             <ul class="list-group content">
-                                <li class="list-group-item">Name</li>
-                                <li class="list-group-item">Surname</li>
-                                <li class="list-group-item">Other data (TBD)</li>
+                                <li class="list-group-item">Name : <?= $user->username ?></li>
+                                <li class="list-group-item">Surname : <?= $user->surname ?></li>
+                                <li class="list-group-item">
+                                    <a href="<?= Url::to(['/profile']) ?>">Other data (TBD)</a>
+                                </li>
                             </ul>
                         </div>
                     </div>                    

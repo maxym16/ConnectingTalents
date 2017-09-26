@@ -8,6 +8,8 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use common\models\User;
+use common\models\UserProfile;
 
 /**
  * MyTeamsController implements the CRUD actions for Team model.
@@ -36,11 +38,18 @@ class MyTeamsController extends Controller
             'query' => Team::find(),
         ]);
         if(Yii::$app->user->identity->username)
-            {$username=Yii::$app->user->identity->username;} 
-        else {$username=null;}
+            {
+            $username=Yii::$app->user->identity->username;
+            $user_id=Yii::$app->user->id;
+            } 
+            else {$username=null;}
+
+        $user = User::find()->where(['id' =>$user_id])->one();
+        $profile = UserProfile::find()->where(['user_id' =>$user_id])->one();
 
         return $this->render('index', [
             'dataProvider' => $dataProvider, 'username' => $username,
+            'user' => $user, 'profile' => $profile,
         ]);
     }
 
