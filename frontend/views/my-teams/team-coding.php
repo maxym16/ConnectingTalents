@@ -19,46 +19,40 @@ $this->params['breadcrumbs'][] = 'Team Coding';
         <div class="container">
         <h2 class="text-center">Team Coding</h2>
         <br>
-        <div class="row col-lg-12">
-            <div class="thumbnail row">
-                <table class="table table-bordered">
-                <thead>
-                <tr>
-                    <th class="text-center">ID</th>
-                    <th class="text-center">Name</th>
-                    <th class="text-center">Join request date</th>
-                    <th class="text-center">Matching %</th>
-                    <th class="text-center">UTC matching</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
-                </tr>
-                <tr>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
-                </tr>
-                <tr>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
-                </tr>
-                </tbody>
-                </table>
-            </div>                    
-            <a href="<?= Url::to(['#']) ?>" class="btn btn-success">Accept the request</a>
-            <a href="<?= Url::to(['#']) ?>" class="btn btn-primary">Contact the users</a>
-        </div>
+            <div class="row col-lg-12">
+                <div class="thumbnail row">
+                    <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th class="text-center">Additional team service</th>
+                        <th class="text-center">Description</th>
+                        <th class="text-center">Link to payment gateway</th>
+                        <th class="text-center">Link to the service page (core service)</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="text-center"></td>
+                        <td class="text-center"></td>
+                        <td class="text-center"></td>
+                        <td class="text-center"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"></td>
+                        <td class="text-center"></td>
+                        <td class="text-center"></td>
+                        <td class="text-center"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"></td>
+                        <td class="text-center"></td>
+                        <td class="text-center"></td>
+                        <td class="text-center"></td>
+                    </tr>
+                    </tbody>
+                    </table>
+                </div>                    
+            </div>
             
         </div>
     </div>        
