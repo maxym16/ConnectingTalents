@@ -113,10 +113,29 @@ class SignupExtraController extends Controller
         if(\Yii::$app->user->identity->id){
           $user = User::findOne(\Yii::$app->user->identity->id);  
         }
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
+//        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+//            return $this->redirect(['/profile', 'id' => $model->id]);
+//        }
+        if ($model->load(Yii::$app->request->post())) {
+            if($model->validate()){
+//                debug($model); die;
+                if($user){
+//                $user->role='user_2';
+                $user->username=$model->nome;
+                $user->surname=$model->cognome;
+                $user->email=$model->email;
+                $user->password_hash=Yii::$app->security->generatePasswordHash($model->password);
+                $user->update();
+                }                
+            $model->user_id=\Yii::$app->user->id;
+            $model->save();
+            }
+            else {
+            return $this->redirect(['/signup-extra/update', 'id' => $model->id]);
+            }
+            return $this->redirect(['/profile', 'id' => $model->id]);
+        }        
+        else {
             return $this->render('update', [
                 'model' => $model, 'user' => $user,
             ]);

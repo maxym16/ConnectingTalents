@@ -31,10 +31,12 @@ class ProfileController extends Controller
         $user_id=Yii::$app->user->id;
         } 
         else {$username=null;}
+        $user = User::find()->where(['id' =>$user_id])->one();
         $profile = UserProfile::find()->where(['user_id' =>$user_id])->one();
 //        debug($profile);
 //        debug($profile->nome);
-        return $this->render('index',compact('username','profile'));
+//        debug($user);
+        return $this->render('index',compact('username','user','profile'));
     }
 
 }

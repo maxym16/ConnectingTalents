@@ -6,8 +6,12 @@
  */
 //use yii\helpers\Html;
 use yii\helpers\Url;
+use common\models\UserProfileRole;
+use common\models\UserProfileAgeGroup;
 
 /* @var $this yii\web\View */
+$upr1 = UserProfileRole::find()->where(['id' =>$profile->user_profile_role_id])->one();
+$upag1 = UserProfileAgeGroup::find()->where(['id' =>$profile->user_profile_age_group_id])->one();
 
 $this->title = 'Connecting Talents | '.$username;
 ?>
@@ -32,13 +36,23 @@ $this->title = 'Connecting Talents | '.$username;
                 <div class="thumbnail row" style="border: 2px solid #ee6633">
                     <div class="panel-heading text-center">My UTC</div>
                     <br>
-                    <img class="col-lg-3" src="img/photo.jpg" alt="Photo">
+                    <img class="col-lg-3" src="<?= $profile->image ?>" alt="Photo">
                     <div class="caption col-lg-8">
                         <ul class="list-group content">
-                            <li class="list-group-item">Name</li>
-                            <li class="list-group-item">Surname</li>
-                            <li class="list-group-item">Other data (TBD)</li>
+                            <li class="list-group-item">Name : <?= $user->username ?></li>
+                            <li class="list-group-item">Surname : <?= $user->surname ?></li>
+                            <li class="list-group-item">Sex : <?= $profile->sesso ?></li>
+                            <li class="list-group-item">Age : <?= $upag1->age_group ?></li>
+                            <li class="list-group-item">Contact details : <?php echo $profile->email_pec.'; '.$profile->telefono.'; '.$profile->facebook.'; '.$profile->googleplus.'; '.$profile->linkedin; ?></li>
+                            <li class="list-group-item">About me : <?= $profile->note ?></li>
+                            <li class="list-group-item">Purposes : <?= $profile->purpos ?></li>
+                            <li class="list-group-item">Explaination of purposes : <?= $profile->expl ?></li>
+                            <li class="list-group-item">Role : <?= $upr1->name ?></li>
+                            <li class="list-group-item">Remote work : <?= $profile->presentazione_breve ?></li>
+                            <li class="list-group-item">Effort : <?= $profile->presentazione_personale ?></li>
                         </ul>
+                        <a href="<?= Url::to(['/signup-extra/update?id='.$profile->id]) ?>" class="btn btn-primary">Edit</a>
+
                     </div>
                 </div>                    
             </div>
