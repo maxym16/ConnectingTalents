@@ -24,6 +24,7 @@ use common\models\User;
 class SignupForm extends Model
 {
     public $username;
+    public $surname;
     public $email;
     public $password;
 
@@ -38,6 +39,9 @@ class SignupForm extends Model
             ['username', 'required'],
             ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
             ['username', 'string', 'min' => 2, 'max' => 255],
+
+            ['surname', 'trim'],
+            ['surname', 'string', 'min' => 2, 'max' => 255],
 
             ['email', 'trim'],
             ['email', 'required'],
@@ -63,6 +67,7 @@ class SignupForm extends Model
         
         $user = new User();
         $user->username = $this->username;
+        $user->surname = $this->surname;
         $user->email = $this->email;
         $user->setPassword($this->password);
         $user->generateAuthKey();

@@ -12,17 +12,17 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(['id' => 'signup-extra-form', 'options' => ['enctype' => 'multipart/form-data']]); ?>
 
-    <?= $form->field($model, 'nome')->textInput(['maxlength' => true,'value'=> $user->username]) ?>
-    <?= $form->field($model, 'cognome')->textInput(['maxlength' => true,'value'=> $user->surname]) ?>
+    <?= $form->field($model, 'nome')->label('Name*')->textInput(['value'=> $user->username]) ?>
+    <?= $form->field($model, 'cognome')->label('Surname*')->textInput(['value'=> $user->surname]) ?>
     <?= $form->field($model, 'sesso')->dropDownList([ 'Male' => 'Male', 'Female' => 'Female', ], ['prompt' => '']) ?>
     <?= $form->field($model, 'user_profile_age_group_id')->dropDownList(['1'=>'18-25','2'=>'26-35','3'=>'36-45','4'=>'46-55','5'=>'56-65','6'=>'>65']) ?>
     <hr>
     <p>Contact details</p>
     <?= $form->field($model, 'email_pec')->label('E-mail')->input('email',['value'=> $user->email]) ?>
-    <?= $form->field($model, 'telefono')->label('Telephone')->textInput(['maxlength' => true]) ?>
-    <?= $form->field($model, 'facebook')->textInput(['maxlength' => true]) ?>
-    <?= $form->field($model, 'googleplus')->textInput(['maxlength' => true]) ?>
-    <?= $form->field($model, 'linkedin')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'telefono')->label('Telephone') ?>
+    <?= $form->field($model, 'facebook') ?>
+    <?= $form->field($model, 'googleplus') ?>
+    <?= $form->field($model, 'linkedin') ?>
     <hr>
     <?php
         if(isset($model->image) && file_exists(Yii::getAlias('@webroot', $model->image)))
@@ -44,8 +44,8 @@ use yii\widgets\ActiveForm;
     <hr>
     <?= $form->field($model, 'sharing')->dropDownList(['0'=>'No','1'=>'Yes']) ?>
     <hr>
-    <?= $form->field($model, 'email')->label('Change email')->input('email',['placeholder'=> $user->email]) ?>
-    <?= $form->field($model, 'password')->label('Change password')->passwordInput() ?>
+    <?= $form->field($model, 'email')->label('Change email (if you want)')->input('email',['value'=> $user->email]) ?>
+    <?= $form->field($model, 'password')->label('Change password (if you want)')->passwordInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

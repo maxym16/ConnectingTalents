@@ -40,11 +40,15 @@ class InsertOpportController extends Controller
         if(!Yii::$app->user->isGuest)
             {$username=Yii::$app->user->identity->username;} 
         else {$username=null;}
-        
+
+//        if (\Yii::$app->user->can('user_2'))
+//        {
         if($username){
         return $this->render('after',compact('username'));
         }
         return $this->render('index');
+//        }
+//        ren 
     }
 
     public function actionSummary()
