@@ -41,14 +41,15 @@ class InsertOpportController extends Controller
             {$username=Yii::$app->user->identity->username;} 
         else {$username=null;}
 
-//        if (\Yii::$app->user->can('user_2'))
-//        {
-        if($username){
-        return $this->render('after',compact('username'));
+        if (\Yii::$app->user->can('user_2'))
+        {
+            if($username){
+            return $this->render('after',compact('username'));
+            }
+            return $this->render('index');
         }
-        return $this->render('index');
-//        }
-//        ren 
+        return $this->redirect('/signup-extra/create');
+ 
     }
 
     public function actionSummary()
