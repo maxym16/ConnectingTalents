@@ -30,10 +30,10 @@ class Team extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'owner', 'owner_opport', 'description', 'date', 'type','joined_team_id', 'team_role_id', 'parent_id'], 'required'],
+            [['name', 'owner', 'description', 'date' ], 'required'],
             [['owner', 'owner_opport', 'type', 'team_role_id', 'parent_id', 'visible', 'status'], 'integer'],
             [['description','joined_team_id'], 'string'],
-            [['date'], 'safe'],
+            [['date'], 'string'],
             [['name'], 'string', 'max' => 100],
         ];
     }
