@@ -133,7 +133,7 @@ $this->title = 'Connecting Talents | My teams';
         <div class="row col-lg-12">
             <div class="col-lg-offset-2 bg-info">
                 <p>
-                <?= Html::a('Create Team', ['create'], ['class' => 'btn btn-success']) ?>
+                <?= Html::a('Create a Team', ['create'], ['class' => 'btn btn-success']) ?>
                 </p>
             </div>
             <div class="col-lg-offset-2 bg-info">
