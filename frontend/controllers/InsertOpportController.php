@@ -7,6 +7,7 @@ use yii\web\Controller;
 use frontend\models\Summary;
 use frontend\models\Lifecycle;
 use yii\filters\AccessControl;
+use common\models\User;
 
 class InsertOpportController extends Controller
 {
@@ -26,7 +27,7 @@ class InsertOpportController extends Controller
                     [
                         'allow' => true,
                         'actions' => ['index', 'summary', 'lifecycle', 'after'],
-                        'roles' => ['@'],
+                        'roles' => [User::ROLE_USER1],
                     ],
                 ],
             ]
