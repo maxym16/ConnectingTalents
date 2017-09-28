@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="team-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <p class="btn btn-warning"><a href="<?= Url::to(['#']) ?>">Invite internal member</a></p>
+    <p class="btn btn-warning"><a href="<?= Url::to(['/my-teams/invite-internal']) ?>">Invite internal member</a></p>
     <p class="btn btn-warning"><a href="<?= Url::to(['#']) ?>">Invite external member</a></p>
     <p class="btn btn-warning"><a href="<?= Url::to(['#']) ?>">Talent scouting</a></p>
     <br><br>

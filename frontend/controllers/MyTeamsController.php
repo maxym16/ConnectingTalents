@@ -183,4 +183,14 @@ class MyTeamsController extends Controller
         ]);
     }
 
+    public function actionInviteInternal()
+    {
+        $model = new Team();
+        $user_id=\Yii::$app->user->id;
+
+        return $this->render('invite-internal', [
+            'model' => $model, 'user_id' => $user_id,
+        ]);
+    }
+
 }
