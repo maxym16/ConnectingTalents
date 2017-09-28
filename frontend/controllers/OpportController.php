@@ -26,20 +26,34 @@ class OpportController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['index', 'summary', 'lifecycle', 'after'],
+                'only' => ['logout', 'signup'],
                 'rules' => [
-                    /*[
+                    [
+                        'actions' => ['signup'],
                         'allow' => true,
-                        'actions' => ['login', 'signup'],
                         'roles' => ['?'],
-                    ],*/
+                    ],
+                    [
+                        'actions' => ['logout'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
+/*                'only' => ['index', 'summary', 'lifecycle', 'after'],
+                'rules' => [
+                    //[
+                    //    'allow' => true,
+                    //    'actions' => ['login', 'signup'],
+                    //    'roles' => ['?'],
+                    //],
                     [
                         'allow' => true,
                         'actions' => ['index', 'summary', 'lifecycle', 'after'],
                         'roles' => ['@'],
                     ],
                 ],
-            ],
+            ],*/
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [

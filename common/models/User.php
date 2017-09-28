@@ -44,6 +44,7 @@ class User extends Record implements IdentityInterface
      */
     const STATUS_ACTIVE = 10;
     //roles
+//    const ROLE_GUEST = '?';
     const ROLE_GUEST = 'guest';
     const ROLE_USER1 = 'user_1';
     const ROLE_USER2 = 'user_2';

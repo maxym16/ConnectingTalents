@@ -47,6 +47,8 @@ class UserRoleRule extends Rule
  
                 case User::ROLE_GUEST:
                     return in_array($role, [User::ROLE_ADMIN, User::ROLE_ADMINCT, User::ROLE_USER3, User::ROLE_USER2, User::ROLE_USER1, User::ROLE_GUEST]);
+//                case 'guest':
+//                    return in_array($role, [User::ROLE_ADMIN, User::ROLE_ADMINCT, User::ROLE_USER3, User::ROLE_USER2, User::ROLE_USER1, User::ROLE_GUEST]);
             }
         }
 /*
@@ -93,7 +95,7 @@ class UserRoleRule extends Rule
         $user = Yii::$app->user;      
         if ($userId === null) {
             if ($user->isGuest) {
-                return Users::ROLE_GUEST;
+                return User::ROLE_GUEST;
             }
             return false;
         }
