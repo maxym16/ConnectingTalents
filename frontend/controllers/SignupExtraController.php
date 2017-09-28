@@ -107,7 +107,7 @@ class SignupExtraController extends Controller
                     $dir = Yii::getAlias('img/avatar/');
                     $fileName = $model->file->baseName . '.' . $model->file->extension;
                     $model->file->saveAs($dir . $fileName);
-                    $model->file = $fileName; // без этого ошибка
+                    $model->file = $fileName; // без цього помилка
                     $model->image = '/'.$dir . $fileName;
 // Для ресайза фотки до 800x800px по більшій стороні треба звертатись до функції Box() або widen, так як в обертках доступні тільки 5 простых функцій: crop, frame, getImagine, setImagine, text, thumbnail, watermark
                     $photo = Image::getImagine()->open($dir . $fileName);

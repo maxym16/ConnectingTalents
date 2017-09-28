@@ -33,17 +33,17 @@ $this->params['breadcrumbs'][] = 'Invite internal member';
                     <tr>
                         <td class="text-center"></td>
                         <td class="text-center"></td>
-                        <td class="text-center"><a href="<?= Url::to(['/my-teams/create']) ?>" class="btn btn-primary">Send</a></td>
+                        <td class="text-center"><a href="<?= Url::to(['/my-teams/create']) ?>" class="btn btn-primary">Send template</a></td>
                     </tr>
                     <tr>
                         <td class="text-center"></td>
                         <td class="text-center"></td>
-                        <td class="text-center"><a href="<?= Url::to(['/my-teams/create']) ?>" class="btn btn-primary">Send</a></td>
+                        <td class="text-center"><a href="<?= Url::to(['/my-teams/create']) ?>" class="btn btn-primary">Send template</a></td>
                     </tr>
                     <tr>
                         <td class="text-center"></td>
                         <td class="text-center"></td>
-                        <td class="text-center"><a href="<?= Url::to(['/my-teams/create']) ?>" class="btn btn-primary">Send</a></td>
+                        <td class="text-center"><a href="<?= Url::to(['/my-teams/create']) ?>" class="btn btn-primary">Send template</a></td>
                     </tr>
                     </tbody>
                     </table>

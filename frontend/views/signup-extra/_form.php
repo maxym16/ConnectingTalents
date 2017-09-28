@@ -11,7 +11,7 @@ use yii\widgets\ActiveForm;
 <div class="signup-extra-form-form">
 
     <?php $form = ActiveForm::begin(['id' => 'signup-extra-form', 'options' => ['enctype' => 'multipart/form-data']]); ?>
-
+    
     <?= $form->field($model, 'nome')->label('Name*')->textInput(['value'=> $user->username]) ?>
     <?= $form->field($model, 'cognome')->label('Surname*')->textInput(['value'=> $user->surname]) ?>
     <?= $form->field($model, 'sesso')->dropDownList([ 'Male' => 'Male', 'Female' => 'Female', ], ['prompt' => '']) ?>
@@ -32,7 +32,7 @@ use yii\widgets\ActiveForm;
         }
     ?>
     <?= $form->field($model, 'file')->label('Photo')->fileInput() ?>
-<!--    < ? = $form->field($model, 'image')->label('Photo')->textInput() ? >-->
+<!--    < ? = $form->field($model, 'image')->label('Photo')->textInput() ? > -->
     <?= $form->field($model, 'note')->textarea(['rows' => 5]) ?>
     <hr><hr>
     <?= $form->field($model, 'purpos')->label('Purposes')->dropDownList(['Business'=>'Business','Non-profit'=>'Non-profit','Idea/Passion'=>'Idea/Passion']) ?>
