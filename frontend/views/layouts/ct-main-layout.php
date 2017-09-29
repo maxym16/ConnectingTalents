@@ -79,6 +79,8 @@ CTAsset::register($this);
         </div>
         <nav class="nav" data-eui-bundle-outside >
             <div class="nav__inner">
+                <a class="nav__item" href="<?= Url::to(['#']) ?>">Help</a>
+                <a class="nav__item" href="<?= Url::to(['/community']) ?>">Community</a>
                 <a class="nav__item" href="<?= Url::to(['/talent']) ?>">I have a talent</a>
                 <a class="nav__item" href="<?= Url::to(['/opport']) ?>">I have an opportunity</a>
                 <a class="nav__item" href="<?= Url::to(['/site/login']) ?>">Login</a>
