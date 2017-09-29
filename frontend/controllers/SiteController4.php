@@ -66,9 +66,7 @@ class SiteController extends Controller
 /*        if (!\Yii::$app->user->can('user_1')) { 
             throw new \yii\web\ForbiddenHttpException('Access denied.'); 
         }
-*/
-        $this->layout = 'ct-main-layout';
-
+*/        
         return $this->render('index');
     }
 
@@ -78,8 +76,6 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
-        $this->layout = 'ct-main-layout';
-
         $serviceName = Yii::$app->getRequest()->getQueryParam('service');
         if (isset($serviceName)) {
             /** @var $eauth \nodge\eauth\ServiceBase */
@@ -223,8 +219,6 @@ class SiteController extends Controller
      */
     public function actionSignup()
     {
-        $this->layout = 'ct-main-layout';
-
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {

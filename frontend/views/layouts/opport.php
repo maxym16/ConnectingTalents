@@ -39,8 +39,8 @@ AppAsset::register($this);
         ['label' => 'I have a talent', 'url' => ['/talent']],
     ];
     if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Signup', 'url' => ['/opport/signup']];
-        $menuItems[] = ['label' => 'Login', 'url' => ['/opport/login']];
+        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
+        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
     } else {
         if(Yii::$app->user->id){
         if(common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_1'){
@@ -50,7 +50,7 @@ AppAsset::register($this);
         $menuItems[] = ['label' => Yii::$app->user->identity->username, 'url' => ['/profile']];
         }}
         $menuItems[] = '<li>'
-            . Html::beginForm(['/opport/logout'], 'post')
+            . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(
                 'Logout (' . Yii::$app->user->identity->username . ')',
                 ['class' => 'btn btn-link']
