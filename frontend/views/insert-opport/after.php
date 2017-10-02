@@ -118,7 +118,7 @@ $this->title = 'Connecting Talents | Insert opportunity';
                   <br>  
                   <p class="text-left"><a href="<?= Url::to(['#']) ?>">Showcase Opportunity in details</a></p>
                   <p class="text-left"><a href="<?= Url::to(['#']) ?>">Showcase Archipelagos in details</a></p>
-                  <p class="text-left"><a href="<?= Url::to(['#']) ?>">Sharing Platform</a></p>
+                  <p class="text-left"><a href="<?= Url::to(['/sharing']) ?>">Sharing Platform</a></p>
                   <p class="text-left"><a href="<?= Url::to(['/my-opport']) ?>">My Opportunities</a></p>
                   <br>  
                 </div>
