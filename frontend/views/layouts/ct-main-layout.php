@@ -2,6 +2,7 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+use common\widgets\CTMenuWidget;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
@@ -31,7 +32,7 @@ CTAsset::register($this);
 <div class="wrapper">
     <header class="header">
         <div class="left">
-            <a class="logo" href="<?= '' ?>">
+            <a class="logo" href="<?= Yii::$app->params['ctblog']['url']['main_page'] ?>">
                 <svg xmlns="http://www.w3.org/2000/svg" class="logo__image icon icon--middle" width="100" height="28" viewBox="0 0 140 40">
                     <rect width="100%" height="100%" x="0" y="0" fill="none" stroke="none"/>
                     <path fill="#262729" d="M44.108979101181035,20.00900170898438 c0.14500000000000005,0.14500000000000005 0.20900000000000005,0.3060000000000001 0.19300000000000006,0.4820000000000001 c-0.017000000000000008,0.17700000000000005 -0.08900000000000004,0.3460000000000002 -0.21800000000000005,0.507 c-0.273,0.3220000000000001 -0.6950000000000004,0.6360000000000002 -1.267,0.9410000000000002 c-0.5710000000000002,0.3050000000000001 -1.228,0.458 -1.967,0.458 c-0.7080000000000002,0 -1.331,-0.11600000000000003 -1.87,-0.3500000000000001 c-0.539,-0.232 -0.993,-0.547 -1.363,-0.9410000000000002 s-0.6480000000000002,-0.8560000000000002 -0.8320000000000002,-1.3880000000000001 c-0.18600000000000005,-0.531 -0.278,-1.086 -0.278,-1.665 v-2.654 c0,-0.5790000000000002 0.101,-1.135 0.3020000000000001,-1.665 c0.201,-0.531 0.4910000000000001,-0.994 0.8690000000000002,-1.3880000000000001 c0.3770000000000001,-0.3950000000000002 0.8320000000000002,-0.7080000000000002 1.363,-0.9410000000000002 c0.531,-0.232 1.134,-0.3500000000000001 1.81,-0.3500000000000001 c0.6590000000000003,0 1.246,0.11700000000000003 1.762,0.3500000000000001 c0.515,0.233 0.9410000000000002,0.519 1.278,0.8560000000000002 c0.14600000000000005,0.14600000000000005 0.21800000000000005,0.3140000000000001 0.21800000000000005,0.507 c0,0.19300000000000006 -0.07200000000000002,0.3620000000000001 -0.21800000000000005,0.508 l-0.458,0.458 c-0.3060000000000001,0.3060000000000001 -0.6360000000000002,0.2980000000000001 -0.989,-0.024000000000000007 c-0.17800000000000005,-0.16000000000000006 -0.406,-0.3020000000000001 -0.6880000000000004,-0.4220000000000001 c-0.2820000000000001,-0.12100000000000002 -0.5840000000000002,-0.18100000000000005 -0.905,-0.18100000000000005 c-0.772,0 -1.327,0.22900000000000006 -1.665,0.6870000000000004 c-0.3380000000000002,0.459 -0.507,0.994 -0.507,1.605 v2.654 c0,0.3070000000000001 0.03600000000000001,0.6000000000000002 0.10800000000000003,0.8810000000000002 s0.19300000000000006,0.527 0.3620000000000001,0.7360000000000002 c0.16900000000000007,0.21000000000000005 0.3900000000000001,0.3740000000000001 0.6630000000000003,0.4940000000000001 c0.273,0.12100000000000002 0.6190000000000002,0.18200000000000005 1.038,0.18200000000000005 s0.78,-0.08900000000000004 1.086,-0.266 s0.547,-0.3460000000000002 0.7240000000000002,-0.507 c0.3700000000000001,-0.3060000000000001 0.7090000000000002,-0.3060000000000001 1.014,0 L44.108979101181035,20.00900170898438 z"/>
@@ -62,30 +63,48 @@ CTAsset::register($this);
             </a>
         </div>
         <div class="right">
-            <a class="header__login js-modal" href="#register">sign in</a>
+            <?php if (Yii::$app->user->isGuest){ ?>
+                <a class="header__login" href="<?= Url::to(['/site/login']) ?>">Login</a>
+            <?php } ?>
+            <?php if(Yii::$app->user->id && (common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_2' || common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_3')) { ?>
+                <a class="header__login" href="<?= Url::to(['/profile']) ?>"><?= Yii::$app->user->identity->username ?></a>
+            <?php } ?>
             <button class="nav-trigger" data-eui-bundle-id="nav" data-eui-bundle-action="toggle" data-eui-other-bundles="true" data-eui-bundle data-eui-bundle-outside>
                 <span class="nav-trigger__bottom-line"></span>
             </button>
-            <div class="greeting js-greeting">
-                <p class="greeting__user">Hello, user</p>
-                <button class="greeting__close js-close-greeting">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--middle" width="24" height="24" viewBox="0 0 34 34" fill="currentColor">
-                        <rect width="100%" height="100%" x="0" y="0" fill="none" stroke="none"/>
-                        <line fill="none" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="2.5680007934570312" y1="31.433998107910156" x2="31.43199920654297" y2="2.5660018920898438" />
-                        <line fill="none" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="31.43199920654297" y1="31.433998107910156" x2="2.5680007934570312" y2="2.5660018920898438" />
-                    </svg>
-                </button>
-            </div>
         </div>
         <nav class="nav" data-eui-bundle-outside >
-            <div class="nav__inner">
-                <a class="nav__item" href="<?= Url::to(['#']) ?>">Help</a>
-                <a class="nav__item" href="<?= Url::to(['/community']) ?>">Community</a>
-                <a class="nav__item" href="<?= Url::to(['/talent']) ?>">I have a talent</a>
-                <a class="nav__item" href="<?= Url::to(['/opport']) ?>">I have an opportunity</a>
-                <a class="nav__item" href="<?= Url::to(['/site/login']) ?>">Login</a>
-                <a class="nav__item" href="<?= Url::to(['/site/signup']) ?>">SignUp</a>
-            </div>
+            <?php
+            $menuItems = [
+                ['label' => 'Help', 'url' => ['#']],
+                ['label' => 'Community', 'url' => ['/community']],
+            ];
+            if (Yii::$app->user->isGuest) {
+                $menuItems[] = ['label' => 'I have a talent', 'url' => ['/talent']];
+                $menuItems[] = ['label' => 'I have an opportunity', 'url' => ['/opport']];
+                $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+                $menuItems[] = ['label' => 'SignUp', 'url' => ['/site/signup']];
+            } else {
+                if(Yii::$app->user->id){
+                    if(common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_1'){
+                        $menuItems[] = ['label' => 'ExtraSignUp', 'url' => ['/signup-extra/create']];
+                    }
+                    if(common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_2' || common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_3'){
+                        $menuItems[] = ['label' => Yii::$app->user->identity->username, 'url' => ['/profile']];
+                    }}
+                $menuItems[] = '<div>'
+                    . Html::beginForm(['/site/logout'], 'post')
+                    . Html::submitButton(
+                        'Logout (' . Yii::$app->user->identity->username . ')',
+                        ['class' => 'nav__item']
+                    )
+                    . Html::endForm()
+                    . '</div>';
+            }
+            echo CTMenuWidget::widget([
+                'items' => $menuItems
+            ]);
+            ?>
         </nav>
     </header>
     <main class="main">

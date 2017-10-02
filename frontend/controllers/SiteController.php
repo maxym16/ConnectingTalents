@@ -68,6 +68,7 @@ class SiteController extends Controller
         }
 */
         $this->layout = 'ct-main-layout';
+//        $this->layout = 'main';
 
         return $this->render('index');
     }
@@ -95,7 +96,12 @@ class SiteController extends Controller
                     if ($user) {
                         Yii::$app->getUser()->login($user);
                         // special redirect with closing popup window
-                        $eauth->redirect(['/']);
+//                        $eauth->redirect(['/']);
+
+                        $eauth->redirect(
+                            Yii::$app->params['ctblog']['url']['main_page']
+                            .'?username='.Yii::$app->user->identity->username
+                        );
                     }
                 }
                 else {
