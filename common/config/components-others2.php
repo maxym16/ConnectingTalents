@@ -66,7 +66,6 @@ return [
         'enablePrettyUrl' => true,
         'rules' => array(
             'my-teams/<id:\d+>' => 'my-teams/view',
-            'api/<controller:[\w-]+>' => 'api/<controller>',
             'login/<service:google|facebook|linkedin_oauth2>' => 'site/login',
             '<module:[\w-]+>/<controller:[\w-]+>/<action:[\w-]+>/<id:\d+>] => <module>/<controller>/<action>',
         ),

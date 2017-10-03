@@ -11,8 +11,7 @@ use yii\helpers\Url;
 
 $this->title = 'Connecting Talents';
 ?>
-<?= $choice_block ?>
-<!--<div class="site-index">
+<div class="site-index">
    
     <div class="container">
         <h2 class="text-center">HOME</h2>
@@ -22,7 +21,7 @@ $this->title = 'Connecting Talents';
                 <div class="panel panel-success col-lg-11">
                   <div class="panel-body bg-success text-center">
                       <br> <br> <br> <br> <br> <br>  
-                      <p><a href="<?/*= Url::to(['/talent']) */?>">I have a talent</a></p>
+                      <p><a href="<?= Url::to(['/talent']) ?>">I have a talent</a></p>
                       <br> <br> <br> <br> <br> <br>  
                   </div>
                 </div>
@@ -32,7 +31,7 @@ $this->title = 'Connecting Talents';
                 <div class="panel panel-warning col-lg-11">
                   <div class="panel-body bg-warning text-center">
                       <br> <br> <br> <br> <br> <br>  
-                      <p><a href="<?/*= Url::to(['/opport']) */?>">I have an opportunity</a></p>
+                      <p><a href="<?= Url::to(['/opport']) ?>">I have an opportunity</a></p>
                       <br> <br> <br> <br> <br> <br>  
                   </div>
                 </div>
@@ -41,4 +40,3 @@ $this->title = 'Connecting Talents';
     </div>
     
 </div>
--->

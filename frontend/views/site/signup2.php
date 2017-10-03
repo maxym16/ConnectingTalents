@@ -35,12 +35,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?= Html::activeInput('password' ,$model, 'password', ['class'=>'form-field']); ?>
                     <?= Html::error($model, 'password'); ?>
                 </div>
-                <div class="form__captcha">
-                    <?php if(isset($_POST['g-recaptcha-response']) && $_POST['g-recaptcha-response'] == ''): ?>
-                    <p style="color: red;">Captcha error</p>
-                    <?php endif; ?>
+                <!--<div class="form__captcha">
                     <div id="register-captcha"></div>
-                </div>
+                </div>-->
                 <div class="form__table">
                     <div class="form__cell">
                         <button class="form__button" type="submit">Join now</button>
@@ -58,12 +55,6 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php ActiveForm::end(); ?>
             <div class="register__agreement">
                 By clicking Join now, you agree to Connecting Talent’s User<br />Agreement, Privacy Policy and Cookie Policy.
-            </div>
-            <div style="margin:1em 0">
-                If you forgot your password you can
-                <span style="text-decoration: underline">
-                    <?= Html::a('reset it', ['site/request-password-reset'], ['class'=>'form_button']) ?>
-                </span>
             </div>
         </div>
     </div>

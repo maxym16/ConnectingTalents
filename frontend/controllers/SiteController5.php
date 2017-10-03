@@ -68,16 +68,9 @@ class SiteController extends Controller
         }
 */
         $this->layout = 'ct-main-layout';
+//        $this->layout = 'main';
 
-        if( $curl = curl_init() ) {
-            curl_setopt($curl, CURLOPT_URL, Yii::$app->params['ctblog']['url']['main_page'].'/wp-admin/admin-ajax.php');
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($curl, CURLOPT_POST, true);
-            curl_setopt($curl, CURLOPT_POSTFIELDS, "action=block_loader");
-            $choice_block = curl_exec($curl);
-            curl_close($curl);
-        }
-        return $this->render('index',compact('choice_block'));
+        return $this->render('index');
     }
 
     /**
@@ -282,7 +275,6 @@ class SiteController extends Controller
      */
     public function actionRequestPasswordReset()
     {
-        $this->layout = 'ct-main-layout';
         $model = new PasswordResetRequestForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail()) {
@@ -307,7 +299,6 @@ class SiteController extends Controller
      */
     public function actionResetPassword($token)
     {
-        $this->layout = 'ct-main-layout';
         try {
             $model = new ResetPasswordForm($token);
         } catch (InvalidParamException $e) {

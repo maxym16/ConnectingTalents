@@ -41,12 +41,7 @@ return [
     'ctblog' => array(
         'url' => [
             'main_page' => 'http://openblog.connectingtalents.org'
-        ],
-        'api' => [
-            'yii2_integration_secret_key' => 'hiogt9mbsyfbryi8fgo5otbouesq9npj7gpzz8jzv6jvbga9rlaz1txb2tvegtxy'
         ]
-    ),
-    'captcha_secret' => '6LcI2jIUAAAAAKNezuGV1TOhT6Z7uv3A4LJC_Yc_'
-
+    )
 ];
 
