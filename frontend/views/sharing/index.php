@@ -29,7 +29,7 @@ $this->title = 'Connecting Talents | Access the Sharing Platform';
             <div class="col-lg-12">
                 <div class="panel-body bg-info">
                   <br> <br>  
-                  <p class="text-center"><a href="<?= Url::to(['#']) ?>">Payment</a></p>
+                  <p class="text-center"><a href="<?= Url::to(['/payment/create']) ?>">Payment</a></p>
                   <br> <br>  
                 </div>
             </div>
