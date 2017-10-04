@@ -42,6 +42,18 @@ return [
         'enableAutoLogin' => true,
         'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
     ],
+/*    'urlManager' => [
+        'class' => 'yii\web\UrlManager',
+        // Disable index.php
+        'showScriptName' => false,
+        // Disable r= routes
+        'enablePrettyUrl' => true,
+        'rules' => array(
+            'login/<service:google|facebook|linkedin_oauth2>' => 'site/login',
+            'admin/<controller:[\w-]+>/<action:[\w-]+>/<id:\d+>] => <controller>/<action>',
+            '<module:[\w-]+>/<controller:[\w-]+>/<action:[\w-]+>/<id:\d+>] => <module>/<controller>/<action>',
+        ),
+    ],*/
 /*    'authManager' => [
         'class' => 'yii\rbac\PhpManager',
         'defaultRoles' => \common\models\User::roleArray(),

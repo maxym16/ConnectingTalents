@@ -74,7 +74,7 @@ class SiteController extends Controller {
      * @inheritdoc
      */
     public function actions() {
-        $this->layout = '@vendor/lispa/amos-core/views/layouts/main';
+//        $this->layout = '@vendor/lispa/amos-core/views/layouts/main';
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',

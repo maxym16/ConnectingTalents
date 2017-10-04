@@ -57,8 +57,8 @@ return [
     'name' => 'Connecting Talents',
     'basePath' => dirname(__DIR__),
     'defaultRoute' => '/site/login',
-    'homeUrl' => '/dashboard',
-//    'homeUrl' => '/',
+//    'homeUrl' => '/dashboard',
+    'homeUrl' => '/site',
     'controllerNamespace' => 'backend\controllers',
     'as access' => [
         'class' => 'mdm\admin\components\AccessControl',

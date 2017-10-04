@@ -9,8 +9,8 @@ use yii\grid\GridView;
 $this->title = 'Blog';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="news-index">
-
+<div class="news-index color-admin">
+    <br>
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>

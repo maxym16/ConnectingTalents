@@ -68,6 +68,7 @@ return [
             'my-teams/<id:\d+>' => 'my-teams/view',
             'api/<controller:[\w-]+>' => 'api/<controller>',
             'login/<service:google|facebook|linkedin_oauth2>' => 'site/login',
+//            'admin/<controller:[\w-]+>/<action:[\w-]+>/<id:\d+>] => <controller>/<action>',
             '<module:[\w-]+>/<controller:[\w-]+>/<action:[\w-]+>/<id:\d+>] => <module>/<controller>/<action>',
         ),
     ],

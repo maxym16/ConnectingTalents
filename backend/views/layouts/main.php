@@ -34,9 +34,10 @@ AppAsset::register($this);
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
-    $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-    ];
+    $menuItems = [['label' => 'Home', 'url' => ['/site']],];
+    $menuItems[] = ['label' => 'Users', 'url' => ['/user']];
+    $menuItems[] = ['label' => 'Users profiles', 'url' => ['/user-profile']];
+    $menuItems[] = ['label' => 'Blog', 'url' => ['/blog']];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
     } else {
