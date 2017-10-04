@@ -69,7 +69,15 @@ class SiteController extends Controller
 */
         $this->layout = 'ct-main-layout';
 
-        return $this->render('index');
+        if( $curl = curl_init() ) {
+            curl_setopt($curl, CURLOPT_URL, Yii::$app->params['ctblog']['url']['main_page'].'/wp-admin/admin-ajax.php');
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($curl, CURLOPT_POST, true);
+            curl_setopt($curl, CURLOPT_POSTFIELDS, "action=block_loader");
+            $choice_block = curl_exec($curl);
+            curl_close($curl);
+        }
+        return $this->render('index',compact('choice_block'));
     }
 
     /**
@@ -95,8 +103,12 @@ class SiteController extends Controller
                     if ($user) {
                         Yii::$app->getUser()->login($user);
                         // special redirect with closing popup window
-                        $eauth->redirect(['/']);
+//                        $eauth->redirect(['/']);
 
+                        $eauth->redirect(
+                            Yii::$app->params['ctblog']['url']['main_page']
+                            .'?username='.Yii::$app->user->identity->username
+                        );
                     }
                 }
                 else {
