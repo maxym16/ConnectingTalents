@@ -11,7 +11,7 @@ $this->params['breadcrumbs'][] = ['label' => 'Blog', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="news-view color-admin">
-
+    <br>
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>

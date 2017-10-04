@@ -11,7 +11,7 @@ $this->params['breadcrumbs'][] = ['label' => 'User Profiles', 'url' => ['index']
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-profile-view color-admin">
-
+    <br>
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>

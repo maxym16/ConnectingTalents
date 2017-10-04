@@ -10,7 +10,7 @@ $this->title = 'Users';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-index color-admin">
-
+    <br>
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
