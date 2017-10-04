@@ -66,6 +66,9 @@ CTAsset::register($this);
             <?php if (Yii::$app->user->isGuest){ ?>
                 <a class="header__login" href="<?= Url::to(['/site/login']) ?>">Login</a>
             <?php } ?>
+            <?php if(Yii::$app->user->id && (common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_1' || common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_3')) { ?>
+                <a class="header__login">Hello <?= Yii::$app->user->identity->username ?></a>
+            <?php } ?>
             <?php if(Yii::$app->user->id && (common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_2' || common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_3')) { ?>
                 <a class="header__login" href="<?= Url::to(['/profile']) ?>"><?= Yii::$app->user->identity->username ?></a>
             <?php } ?>
