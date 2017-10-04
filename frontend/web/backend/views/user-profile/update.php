@@ -3,14 +3,14 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\News */
+/* @var $model common\models\UserProfile */
 
-$this->title = 'Update News: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Blog', 'url' => ['index']];
+$this->title = 'Update User Profile: ' . $model->id;
+$this->params['breadcrumbs'][] = ['label' => 'User Profiles', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
-<div class="news-update color-admin">
+<div class="user-profile-update">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

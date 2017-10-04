@@ -8,7 +8,7 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="news-form">
+<div class="news-form color-admin">
 
     <?php $form = ActiveForm::begin(); ?>
     <?= $form->field($model, 'slug')->textarea(['rows' => 6]) ?>
