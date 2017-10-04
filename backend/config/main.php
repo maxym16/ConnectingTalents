@@ -58,6 +58,7 @@ return [
     'basePath' => dirname(__DIR__),
     'defaultRoute' => '/site/login',
     'homeUrl' => '/dashboard',
+//    'homeUrl' => '/',
     'controllerNamespace' => 'backend\controllers',
     'as access' => [
         'class' => 'mdm\admin\components\AccessControl',

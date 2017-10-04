@@ -43,7 +43,15 @@ return [
         'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
     ],
 /*    'authManager' => [
+        'class' => 'yii\rbac\PhpManager',
+        'defaultRoles' => \common\models\User::roleArray(),
+//	'defaultRoles' => ['admin'], // your define roles
+    ],*/
+/*    'authManager' => [
         'class' => 'yii\rbac\DbManager',
-	'defaultRoles' => ['BASIC_USER'], // your define roles
+        'defaultRoles' => \common\models\User::roleArray(),
+//	'defaultRoles' => ['BASIC_USER'], // your define roles
+//	'defaultRoles' => ['admin'], // your define roles
+//	'defaultRoles' => ['ROLE_ADMIN'], // your define roles
     ],*/
 ];
