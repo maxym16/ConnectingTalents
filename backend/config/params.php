@@ -14,8 +14,8 @@
 $googleMapsApiKey = 'set_your_api_key';
 
 return [
-    'adminEmail' => 'admin@example.com',
-    'email-assistenza' => 'info@example.com',
+    'adminEmail' => 'kerry@connectingtalents.org',
+    'email-assistenza' => 'kerry@connectingtalents.org',
     'icon-framework' => 'am',    
     'google-maps' => [
         'key' => $googleMapsApiKey

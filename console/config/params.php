@@ -14,5 +14,5 @@
  */
 
 return [
-    'adminEmail' => 'admin@example.com',
+    'adminEmail' => 'kerry@connectingtalents.org',
 ];

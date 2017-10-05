@@ -1,51 +1,14 @@
 <?php
 
-
-
-/**
-
- * Lombardia Informatica S.p.A.
-
- * OPEN 2.0
-
- *
-
- * @see http://example.com Developers'community
-
- * @license GPLv3
-
- * @license https://opensource.org/licenses/gpl-3.0.html GNU General Public License version 3
-
- *
-
- * @package    lispa\amos\basic\template
-
- * @category   CategoryName
-
- * @author     Lombardia Informatica S.p.A.
-
- */
-
-
-
 /* @var $this yii\web\View */
-
 /* @var $form yii\bootstrap\ActiveForm */
-
 /* @var $model \frontend\models\PasswordResetRequestForm */
 
-
-
 use yii\helpers\Html;
-
 use yii\bootstrap\ActiveForm;
 
-
-
 $this->title = 'Request password reset';
-
 $this->params['breadcrumbs'][] = $this->title;
-
 ?>
 
 <div style="width:70%; margin: 0 auto">
@@ -59,12 +22,12 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?= Html::activeInput('email' ,$model, 'email', ['class'=>'form-field']); ?>
                     <?= Html::error($model, 'email'); ?>
                 </div>
-                <div class="form__captcha">
-                    <?php if(isset($_POST['g-recaptcha-response']) && $_POST['g-recaptcha-response'] == ''): ?>
+<!--                <div class="form__captcha">
+                    < ? php if(isset($_POST['g-recaptcha-response']) && $_POST['g-recaptcha-response'] == ''): ?>
                         <p style="color: red;">Captcha error</p>
-                    <?php endif; ?>
+                    < ? php endif; ?>
                     <div class="g-recaptcha" data-sitekey="6LcI2jIUAAAAAKIh7rZLgjSVwECzbKVWlwkAtNpb"></div>
-                </div>
+                </div>-->
                 <div class="form__table">
                     <div class="form__cell">
                         <button class="form__button" type="submit">Send</button>

@@ -284,20 +284,17 @@ class SiteController extends Controller
         $this->layout = 'ct-main-layout';
         $model = new PasswordResetRequestForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-/*            $user = User::findOne(['email'=>$model->email]);
-            $resetLink = Yii::$app->urlManager->createAbsoluteUrl(['site/reset-password', 'token' => $user->password_reset_token]);
-            Yii::$app->mailer->compose()
-                ->setTo($model->email)
-//                ->setTo('vitalykor@gmail.com')
-//                ->setFrom(['kerry@connetingtalents.org'])
-//                ->setFrom(['forever7@foreveridentity.com'])
-                ->setFrom(['forever7@foreveridentity.com' => Yii::$app->params['adminEmail']])
-                ->setSubject('From Connecting Talents')
-                ->setTextBody('If you forgot your password you can retrieve it from here : '.$resetLink)
-//                        . 'http://open.connectingtalents.org/site/reset-password?token='.$user->generatePasswordResetToken() )
-//                ->setTextBody('Your password : '.Yii::$app->getSecurity()->decryptByPassword($user->password_hash))
-                ->send();
-*/            
+            /*$model->sendEmail();
+            return $this->goHome();*/
+//            $user = User::findOne(['email'=>$model->email]);
+//            $resetLink = Yii::$app->urlManager->createAbsoluteUrl(['site/reset-password', 'token' => $user->password_reset_token]);
+//            $res = Yii::$app->mailer->compose()
+//                ->setTo($model->email)
+//                ->setFrom(['forever7@foreveridentity.com' => Yii::$app->params['adminEmail']])
+//                ->setSubject('From Connecting Talents')
+//                ->setTextBody('If you forgot your password you can retrieve it from here : '.$resetLink)
+//                ->send();
+            
             if ($model->sendEmail()) {
                 Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
                 return $this->goHome();

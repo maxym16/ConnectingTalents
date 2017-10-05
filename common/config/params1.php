@@ -3,8 +3,8 @@
 return [
 
     'adminEmail' => 'kerry@connectingtalents.org',
-    'supportEmail' => 'forever7@foreveridentity.com',
-    'myAplication' => 'Connecting Talents',
+
+    'supportEmail' => 'info@example.com',
     'user.passwordResetTokenExpire' => 86400,
     'loginTimeout' => 3600 * 3, //3 Hours
     'ctblog' => array(

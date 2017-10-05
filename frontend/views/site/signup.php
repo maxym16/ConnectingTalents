@@ -35,12 +35,12 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?= Html::activeInput('password' ,$model, 'password', ['class'=>'form-field']); ?>
                     <?= Html::error($model, 'password'); ?>
                 </div>
-                <div class="form__captcha">
-                    <?php if(isset($_POST['g-recaptcha-response']) && $_POST['g-recaptcha-response'] == ''): ?>
+<!--                <div class="form__captcha">
+                    < ? php if(isset($_POST['g-recaptcha-response']) && $_POST['g-recaptcha-response'] == ''): ?>
                     <p style="color: red;">Captcha error</p>
-                    <?php endif; ?>
+                    < ? php endif; ?>
                     <div class="g-recaptcha" data-sitekey="6LcI2jIUAAAAAKIh7rZLgjSVwECzbKVWlwkAtNpb"></div>
-                </div>
+                </div>-->
                 <div class="form__table">
                     <div class="form__cell">
                         <button class="form__button" type="submit">Join now</button>
