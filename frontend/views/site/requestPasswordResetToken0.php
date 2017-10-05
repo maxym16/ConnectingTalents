@@ -59,12 +59,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?= Html::activeInput('email' ,$model, 'email', ['class'=>'form-field']); ?>
                     <?= Html::error($model, 'email'); ?>
                 </div>
-                <div class="form__captcha">
-                    <?php if(isset($_POST['g-recaptcha-response']) && $_POST['g-recaptcha-response'] == ''): ?>
-                        <p style="color: red;">Captcha error</p>
-                    <?php endif; ?>
-                    <div class="g-recaptcha" data-sitekey="6LcI2jIUAAAAAKIh7rZLgjSVwECzbKVWlwkAtNpb"></div>
-                </div>
+                <!--<div class="form__captcha">
+                    <div id="register-captcha"></div>
+                </div>-->
                 <div class="form__table">
                     <div class="form__cell">
                         <button class="form__button" type="submit">Send</button>

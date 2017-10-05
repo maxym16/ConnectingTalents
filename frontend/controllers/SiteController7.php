@@ -15,7 +15,6 @@ use Yii;
 use yii\base\InvalidParamException;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
-use yii\helpers\Url;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\web\ForbiddenHttpException;
@@ -69,13 +68,6 @@ class SiteController extends Controller
         }
 */
         $this->layout = 'ct-main-layout';
-
-        if(!isset($_COOKIE['introduce'])){
-            $time = time()+72*3600;
-            $parse = parse_url(Url::to(['/']));
-//            setcookie("introduce", '1', $time, '/', $parse['host']);
-            $animation = false;
-        }
 
         return $this->render('index');
     }

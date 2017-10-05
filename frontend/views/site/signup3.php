@@ -39,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?php if(isset($_POST['g-recaptcha-response']) && $_POST['g-recaptcha-response'] == ''): ?>
                     <p style="color: red;">Captcha error</p>
                     <?php endif; ?>
-                    <div class="g-recaptcha" data-sitekey="6LcI2jIUAAAAAKIh7rZLgjSVwECzbKVWlwkAtNpb"></div>
+                    <div id="register-captcha"></div>
                 </div>
                 <div class="form__table">
                     <div class="form__cell">

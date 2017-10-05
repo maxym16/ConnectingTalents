@@ -9,14 +9,6 @@ use yii\widgets\ActiveForm;
 //var_dump($model);
 //echo '<pre>' . print_r($model, true) . '</pre>';
 //debug($model);
-
-$this->registerJsFile(
-    '@web/assets/js/full-register.js',
-    [
-        'depends' => [\frontend\assets\CTAsset::className()],
-        'position' => \yii\web\View::POS_END
-    ]
-);
 ?>
 <div class="site-signup-extra">
 

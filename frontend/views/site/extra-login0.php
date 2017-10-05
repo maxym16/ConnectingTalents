@@ -10,13 +10,6 @@ use yii\bootstrap\ActiveForm;
 $this->title = 'ExtraLogin';
 $this->params['breadcrumbs'][] = $this->title;
 var_dump(\Yii::$app->user->isGuest);
-$this->registerJsFile(
-    '@web/assets/js/full-register.js',
-    [
-        'depends' => [\frontend\assets\CTAsset::className()],
-        'position' => \yii\web\View::POS_END
-    ]
-);
 ?>
 <div class="site-login">
     <h1><?= Html::encode($this->title) ?></h1>

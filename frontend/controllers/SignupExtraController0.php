@@ -74,8 +74,6 @@ class SignupExtraController extends Controller
      */
     public function actionCreate()
     {
-        $this->layout = 'ct-main-layout';
-
         $model = new SignupExtraForm();
         $user = new User();
         if(\Yii::$app->user->identity->id){
