@@ -7,7 +7,9 @@ use yii\widgets\ActiveForm;
 /* @var $model frontend\models\SignupExtraForm */
 /* @var $form yii\widgets\ActiveForm */
 ?>
-<?php $form = ActiveForm::begin(['id' => 'signup-extra-form', 'options' => ['enctype' => 'multipart/form-data']]); ?>
+<?php
+    $form = ActiveForm::begin(['id' => 'signup-extra-form', 'options' => ['enctype' => 'multipart/form-data'], 'enableClientScript' => false]);
+?>
 <fieldset class="form">
 <div class="register__col">
     <div class="form-group">
@@ -41,7 +43,7 @@ use yii\widgets\ActiveForm;
                             $age_list = ['1'=>'18-25','2'=>'26-35','3'=>'36-45','4'=>'46-55','5'=>'56-65','6'=>'>65'];
                         ?>
                         <?php foreach($age_list as $key => $item) { ?>
-                            <input id="age-<?= $key ?>" class="none js-select-option" type="radio" name="SignupExtraForm[user_profile_age_group_id]" value="<?= $key ?>" />
+                            <input id="age-<?= $key ?>" class="none js-select-option" type="radio" name="SignupExtraForm[user_profile_age_group_id]" value="<?= $item ?>" />
                             <label class="select__option" for="age-<?= $key ?>"><?= $item ?></label>
                         <?php } ?>
                     </div>
@@ -114,7 +116,14 @@ use yii\widgets\ActiveForm;
         <label class="form-group__label" for="register-avatar">Your profile picture</label>
         <div class="upload-avatar">
             <div class="upload-avatar__container js-file-container">
-                <button id="upload-avatar" class="upload-avatar__button js-upload-avatar-button" type="button" style="background-size: contain">
+                <?php
+                $img_style = '';
+                if(isset($model->image) && file_exists(Yii::getAlias('@webroot', $model->image)))
+                {
+                    $img_style = 'background-image:url('.$model->image.')';
+                }
+                ?>
+                <button id="upload-avatar" class="upload-avatar__button js-upload-avatar-button" type="button" style="background-size: contain;<?=  $img_style ?>">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--middle" width="100" height="100" viewBox="0 0 100 100" fill="currentColor">
                         <line fill="none" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="50.002" y1="35.455" x2="50.002" y2="64.545"/>
                         <line fill="none" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="64.545" y1="50.003" x2="35.455" y2="50.003"/>
@@ -142,7 +151,7 @@ function readURL(input) {
     }
 }
 
-$("#imgInp").change(function(){
+jQuery("#imgInp").change(function(){
     readURL(this);
 });
 JS;

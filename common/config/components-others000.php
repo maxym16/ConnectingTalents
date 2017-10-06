@@ -103,4 +103,17 @@ return [
             ],
         ],
     ],
+    /*'mailer' => [
+        'class' => 'yii\swiftmailer\Mailer',
+        'viewPath' => '@common/mail',
+        'transport' => [
+            'class' => 'Swift_SmtpTransport',
+            'host' => 'mail.adm.tools',
+            'username' => 'test@rwd.in.ua',
+            'password' => 'PS04iL0Ovx1l',
+            'port' => 25,
+            'encryption' => 'tls',
+        ],
+        'useFileTransport' => false,
+    ],*/
 ];

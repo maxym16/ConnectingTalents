@@ -47,9 +47,9 @@ class PasswordResetRequestForm extends Model
 
     public function sendEmail()
     {
-        if(!$this->validateRecaptcha()){
-            return false;
-        }
+//        if(!$this->validateRecaptcha()){
+//            return false;
+//        }
 
         /* @var $user User */
         $user = User::findOne([

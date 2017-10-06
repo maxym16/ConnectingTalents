@@ -71,13 +71,12 @@ class SiteController extends Controller
 */
         $this->layout = 'ct-main-layout';
 
-        if(!isset($_COOKIE['introduce'])){
+/*        if(!isset($_COOKIE['introduce'])){
             $time = time()+72*3600;
             $parse = parse_url(Url::to(['/']));
-//            setcookie("introduce", '1', $time, '/', $parse['host']);
-            $animation = false;
+            setcookie("introduce", '1', $time, '/', $parse['host']);
         }
-
+*/
         return $this->render('index');
     }
 
@@ -104,7 +103,7 @@ class SiteController extends Controller
                     if ($user) {
                         Yii::$app->getUser()->login($user);
                         // special redirect with closing popup window
-                        $eauth->redirect(['/']);
+                        return $eauth->redirect(['/', 'alert' => 'login']);
 
                     }
                 }
@@ -129,8 +128,7 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-//            return $this->goBack();
-            return $this->redirect(['/']);
+            return $this->redirect(['/', 'alert' => 'login']);
         } else {
             return $this->render('login', [
                 'model' => $model,
@@ -238,8 +236,36 @@ class SiteController extends Controller
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {
+            Yii::$app->mailer->compose()
+                ->setTo($model->email)
+                ->setFrom(['forever7@foreveridentity.com' => Yii::$app->params['adminEmail']])
+                ->setSubject('From Connecting Talents')
+                ->setTextBody('Dear'.$model->username .',
+                Welcome to the Connecting Talents community.
+                What is next?
+                We invite you to provide more details about yourself, 
+                accessing your Profile page 
+                http://open.connectingtalents.org/signup-extra/create
+                
+                You can start discovering your talents 
+                with our Unique Talent Coding Tests, 
+                and see the Opportunities our community is cultivating.
+
+                    Thank you again for your registration. 
+                If you have any questions, 
+                please let us know using the feedback page !
+                http://open.connectingtalents.org/site/request-password-reset
+                
+                Kerry
+                Connecting Talents
+                Twitter: @ConnecTalents
+                Facebook: https://www.facebook.com/Connecting-Talents-299139017111407/
+                Email: kerry@connectingtalents.org
+                ')
+                ->send();
+                
                 if (Yii::$app->getUser()->login($user)) {
-                    return $this->goHome();
+                    return $this->redirect(['/', 'alert' => 'register']);
                 }
             }
         }
@@ -284,20 +310,6 @@ class SiteController extends Controller
         $this->layout = 'ct-main-layout';
         $model = new PasswordResetRequestForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-/*            $user = User::findOne(['email'=>$model->email]);
-            $resetLink = Yii::$app->urlManager->createAbsoluteUrl(['site/reset-password', 'token' => $user->password_reset_token]);
-            Yii::$app->mailer->compose()
-                ->setTo($model->email)
-//                ->setTo('vitalykor@gmail.com')
-//                ->setFrom(['kerry@connetingtalents.org'])
-//                ->setFrom(['forever7@foreveridentity.com'])
-                ->setFrom(['forever7@foreveridentity.com' => Yii::$app->params['adminEmail']])
-                ->setSubject('From Connecting Talents')
-                ->setTextBody('If you forgot your password you can retrieve it from here : '.$resetLink)
-//                        . 'http://open.connectingtalents.org/site/reset-password?token='.$user->generatePasswordResetToken() )
-//                ->setTextBody('Your password : '.Yii::$app->getSecurity()->decryptByPassword($user->password_hash))
-                ->send();
-*/            
             if ($model->sendEmail()) {
                 Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
                 return $this->goHome();

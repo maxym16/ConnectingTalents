@@ -54,10 +54,9 @@ class CTAsset extends AssetBundle
 
     public $jsOptions = ['position' => View::POS_END];
 
-    public $cssOptions = ['position' => View::POS_END];
 
     public $css = [
-        'assets/css/header.css',
+//        'assets/css/header.css',
         'assets/css/content.css',
         'assets/css/slick.min.css',
         'assets/css/fancybox.min.css',
@@ -66,7 +65,7 @@ class CTAsset extends AssetBundle
     public $js = [
         'assets/js/common.js',
         'assets/js/home-page.js',
-        'assets/js/user.js',
+        'assets/js/main.js',
     ];
 
     public $depends = [

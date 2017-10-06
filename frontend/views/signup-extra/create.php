@@ -11,7 +11,7 @@ $this->title = 'Create personal data';
 $this->params['breadcrumbs'][] = $this->title;
 
 $this->registerJsFile(
-    '@web/assets/js/full-register.js',
+    '@web/assets/js/full-register-page.js',
     [
         'depends' => [\frontend\assets\CTAsset::className()],
         'position' => \yii\web\View::POS_END

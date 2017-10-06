@@ -12,6 +12,8 @@ class MyOpportController extends Controller
 {
     public function actionIndex()
     {
+        $this->layout = 'ct-main-layout';
+
         if(Yii::$app->user->identity->username)
             {$username=Yii::$app->user->identity->username;} 
         else {$username=null;}

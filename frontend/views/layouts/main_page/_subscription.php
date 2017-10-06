@@ -1,3 +1,6 @@
+<?php
+use common\widgets\CTSubscription;
+?>
 <div class="subscription">
     <div class="subscription__inner">
         <div class="subscription__text">
@@ -6,15 +9,8 @@
             </p>
             <h2 class="subscription__title">Let's keep in touch!</h2>
         </div>
-        <form>
-            <fieldset class="subscription__form">
-                <input class="subscription__field" type="email" name="email" placeholder="Insert your best email" required="required" />
-                <div class="subscription__send">
-                    <button class="button button--default button--white" type="submit">
-                        <span class="button__text">Send</span>
-                    </button>
-                </div>
-            </fieldset>
-        </form>
+        <?= CTSubscription::widget([
+            'list_id' => '9ae41cf341' // if not set raise Error
+        ]) ?>
     </div>
 </div>
