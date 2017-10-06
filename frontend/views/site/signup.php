@@ -18,29 +18,29 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="form-group">
                     <?= Html::activeLabel($model, 'username',['class'=>'form-group__title']); ?>
                     <?= Html::activeTextInput($model, 'username', ['class'=>'form-field']); ?>
-                    <?= Html::error($model, 'username'); ?>
+                    <?= Html::error($model, 'username', ['class'=>'validation-notice']); ?>
                 </div>
                 <div class="form-group">
                     <?= Html::activeLabel($model, 'surname',['class'=>'form-group__title']); ?>
                     <?= Html::activeTextInput($model, 'surname', ['class'=>'form-field']); ?>
-                    <?= Html::error($model, 'surname'); ?>
+                    <?= Html::error($model, 'surname', ['class'=>'validation-notice']); ?>
                 </div>
                 <div class="form-group">
                     <?= Html::activeLabel($model, 'email',['class'=>'form-group__title']); ?>
                     <?= Html::activeInput('email' ,$model, 'email', ['class'=>'form-field']); ?>
-                    <?= Html::error($model, 'email'); ?>
+                    <?= Html::error($model, 'email', ['class'=>'validation-notice', 'encode' => false]); ?>
                 </div>
                 <div class="form-group">
                     <?= Html::activeLabel($model, 'password',['class'=>'form-group__title']); ?>
                     <?= Html::activeInput('password' ,$model, 'password', ['class'=>'form-field']); ?>
-                    <?= Html::error($model, 'password'); ?>
+                    <?= Html::error($model, 'password', ['class'=>'validation-notice']); ?>
                 </div>
-<!--                <div class="form__captcha">
-                    < ? php if(isset($_POST['g-recaptcha-response']) && $_POST['g-recaptcha-response'] == ''): ?>
-                    <p style="color: red;">Captcha error</p>
-                    < ? php endif; ?>
+                <div class="form__captcha">
+                    <?php if(isset($_POST['g-recaptcha-response']) && $_POST['g-recaptcha-response'] == ''): ?>
+                        <div class="validation-notice">Captcha error</div>
+                    <?php endif; ?>
                     <div class="g-recaptcha" data-sitekey="6LcI2jIUAAAAAKIh7rZLgjSVwECzbKVWlwkAtNpb"></div>
-                </div>-->
+                </div>
                 <div class="form__table">
                     <div class="form__cell">
                         <button class="form__button" type="submit">Join now</button>

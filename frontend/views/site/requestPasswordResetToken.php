@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div style="width:70%; margin: 0 auto">
     <div id="register" class="modal">
         <div class="modal__content modal__content--standalone register">
-            <p>Please fill out your email. A link to reset password will be sent there.</p>
+            <p>Please fill out your email. &nbsp;  A link to reset password will be sent there.</p>
             <?php $form = ActiveForm::begin(['id' => 'request-password-reset-form']); ?>
             <fieldset class="form">
                 <div class="form-group">
@@ -22,12 +22,12 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?= Html::activeInput('email' ,$model, 'email', ['class'=>'form-field']); ?>
                     <?= Html::error($model, 'email'); ?>
                 </div>
-<!--                <div class="form__captcha">
-                    < ? php if(isset($_POST['g-recaptcha-response']) && $_POST['g-recaptcha-response'] == ''): ?>
+                <div class="form__captcha">
+                    <?php if(isset($_POST['g-recaptcha-response']) && $_POST['g-recaptcha-response'] == ''): ?>
                         <p style="color: red;">Captcha error</p>
-                    < ? php endif; ?>
+                    <?php endif; ?>
                     <div class="g-recaptcha" data-sitekey="6LcI2jIUAAAAAKIh7rZLgjSVwECzbKVWlwkAtNpb"></div>
-                </div>-->
+                </div>
                 <div class="form__table">
                     <div class="form__cell">
                         <button class="form__button" type="submit">Send</button>

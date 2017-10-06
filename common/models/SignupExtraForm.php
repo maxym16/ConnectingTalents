@@ -35,7 +35,7 @@ class SignupExtraForm extends ActiveRecord
             ['email', 'trim'],
             ['email', 'email'],
             ['email', 'string', 'max' => 255],
-            ['email', 'exist', 'targetClass' => '\common\models\User', 'message' => 'This email address has already been taken.'],
+            ['email', 'exist', 'targetClass' => '\common\models\User', 'message' => 'This email address is already registered, access the login page to sign in.'],
 
 //            ['password', 'required'],
             ['password', 'string', 'min' => 6],
