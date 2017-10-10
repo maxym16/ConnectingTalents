@@ -103,4 +103,8 @@ return [
             ],
         ],
     ],
+    'jwt' => [
+        'class' => 'sizeg\jwt\Jwt',
+        'key' => 'GtWQMzG4alJGjfahqFGxR7ascaYVaQ',
+    ],
 ];

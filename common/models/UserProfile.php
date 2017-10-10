@@ -70,7 +70,8 @@ use yii\web\UploadedFile;
  * @property integer $user_profile_age_group_id
  * @property integer $prevalent_partnership_id
  * @property integer $user_id
- * @property string $created_at
+ * @property string $remote_work
+ * @property string $effort
  * @property string $updated_at
  * @property string $deleted_at
  * @property integer $created_by
@@ -111,7 +112,7 @@ class UserProfile extends \yii\db\ActiveRecord
         return [
             [['nome', 'cognome'], 'required'],
             [['sesso','image','expl', 'presentazione_personale', 'widgets_selected', 'nazionalita', 'altri_dati_contatto', 'note'], 'string'],
-            [['purpos'],'string'],
+            [['purpos','remote_work','effort'],'string'],
             [['nascita_data', 'ultimo_accesso', 'ultimo_logout', 'created_at', 'updated_at', 'deleted_at'], 'safe'],
             [['sharing','privacy', 'attivo', 'validato_almeno_una_volta', 'avatar_id', 'nascita_nazioni_id', 'nascita_province_id', 'nascita_comuni_id', 'user_profile_titoli_studio_id', 'user_profile_stati_civili_id', 'nazionalita_residenza_id', 'comune_residenza_id', 'provincia_residenza_id', 'domicilio_provincia_id', 'domicilio_comune_id', 'residenza_nazione_id', 'facilitatore_id', 'default_facilitatore', 'user_profile_area_id', 'user_profile_role_id', 'user_profile_age_group_id', 'prevalent_partnership_id', 'user_id', 'created_by', 'updated_by', 'deleted_by'], 'integer'],
             [['nome', 'cognome', 'presentazione_breve', 'indirizzo_residenza', 'numero_civico_residenza', 'domicilio_indirizzo', 'domicilio_localita', 'email_pec', 'telefono', 'cellulare', 'fax', 'status', 'facebook', 'twitter', 'linkedin', 'googleplus', 'user_profile_area_other', 'user_profile_role_other'], 'string', 'max' => 255],
@@ -194,6 +195,8 @@ class UserProfile extends \yii\db\ActiveRecord
             'user_profile_role_other' => 'User Profile Role Other',
             'prevalent_partnership_id' => 'Prevalent Partnership ID',
             'user_id' => 'User ID',
+            'remote_work' => 'Remote work',
+            'effort' => 'Effort',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
             'deleted_at' => 'Deleted At',

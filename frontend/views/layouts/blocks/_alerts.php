@@ -36,10 +36,10 @@ use yii\helpers\Url;
         </div>
     </div>
 <?php endif; ?>
-<?php if(isset($_GET['alert']) && $_GET['alert'] === 'login'): ?>
+<?php if(isset($_GET['alert']) && $_GET['alert'] === 'register'): ?>
     <div class="cookie clearfix js-cookie-banner custom-alert">
         <div class="cookie__text">
-            <p>Login is success</p>
+            <p>Dear User, you have been successfully registered in system !</p>
         </div>
         <div class="cookie__buttons">
             <div class="cookie__button">
@@ -50,10 +50,10 @@ use yii\helpers\Url;
         </div>
     </div>
 <?php endif; ?>
-<?php if(isset($_GET['alert']) && $_GET['alert'] === 'register'): ?>
+<?php if(isset($_GET['alert']) && $_GET['alert'] === 'password'): ?>
     <div class="cookie clearfix js-cookie-banner custom-alert">
         <div class="cookie__text">
-            <p>Register is success</p>
+            <p>Please check you email and reset the password.</p>
         </div>
         <div class="cookie__buttons">
             <div class="cookie__button">

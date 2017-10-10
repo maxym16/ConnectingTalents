@@ -78,7 +78,20 @@ class CTSubscription extends Widget
         }
 
         if(isset($message) && $message) {
-            echo Html::tag('div', $message, array('id' => 'subscribe-message', 'class' => 'alert '.$class));
+            ?>
+            <div class="cookie clearfix js-cookie-banner custom-alert">
+                <div class="cookie__text">
+                    <p><?= $message ?></p>
+                </div>
+                <div class="cookie__buttons">
+                    <div class="cookie__button">
+                        <button id="custom-alert" class="button button--small button--flat button--yellow" type="button">
+                            <span class="button__text button__text--small">close</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <?php
         }
 
         echo Html::beginForm();
@@ -91,7 +104,7 @@ class CTSubscription extends Widget
             echo Html::textInput('subscribe-last-name',(empty($post['subscribe-last-name']) ? '' : $post['subscribe-last-name']), array('id' => 'subscribe-last-name','placeholder'=> Yii::t('mailchimp', 'Last Name'), 'class'=> 'form-control'));
         }
 
-        echo Html::textInput('subscribe-email', (empty($post['subscribe-email']) ? '' : $post['subscribe-email']), array('id' => 'subscribe-email', 'type' => 'email','placeholder'=> 'Insert your best email', 'required' => 'required', 'class'=> 'subscription__field'));
+        echo Html::textInput('subscribe-email', '', array('id' => 'subscribe-email', 'type' => 'email','placeholder'=> 'Insert your best email', 'required' => 'required', 'class'=> 'subscription__field'));
 
         echo Html::beginTag('div', array('class'=> 'subscription__send'));
         echo Html::submitButton('<span class="button__text">Send</span>', array('id' => 'subscribe-submit', 'name' => 'subscribe-submit', 'class'=> 'button button--default button--white'));

@@ -1,78 +1,42 @@
 <?php
 
-
-
 namespace frontend\controllers;
 
-
-
 //use common\models\LoginForm;
-
 use common\models\User;
-
 use common\models\UserProfile;
-
 //use frontend\models\ContactForm;
-
 //use frontend\models\PasswordResetRequestForm;
-
 //use frontend\models\ResetPasswordForm;
-
 //use frontend\models\SignupForm;
-
 use Yii;
-
 //use yii\base\InvalidParamException;
-
 //use yii\filters\AccessControl;
-
 //use yii\filters\VerbFilter;
-
 //use yii\web\BadRequestHttpException;
-
 use yii\web\Controller;
 
-
-
 /**
-
  * Description of ProfileController
-
  */
-
 class ProfileController extends Controller 
-
 {
-
-    public $layout = 'ct-main-layout';
-
-
+    public $layout = 'profile';
 
     public function actionIndex()
     {
         if(!Yii::$app->user->isGuest)
-
         {
-
         $username=Yii::$app->user->identity->username;
-
         $user_id=Yii::$app->user->id;
-
         } 
-
         else {$username=null;}
-
         $user = User::find()->where(['id' =>$user_id])->one();
-
         $profile = UserProfile::find()->where(['user_id' =>$user_id])->one();
-
-        $token = ApiController::getStartUtcSurveyToken(2, 'EN', $user_id, 'CANDIDATE_'.$user_id, 'http://open.connectingtalents.org/profile');
-        
-        return $this->render('index',compact('username','user','profile', 'token'));
-
+//        debug($profile);
+//        debug($profile->nome);
+//        debug($user);
+        return $this->render('index',compact('username','user','profile'));
     }
 
-
-
 }
-

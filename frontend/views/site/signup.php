@@ -76,7 +76,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="row">
         <div class="col-lg-5">
-            <?php /*$form = ActiveForm::begin(['id' => 'form-signup']); */?>
+            < ? php /*$form = ActiveForm::begin(['id' => 'form-signup']); */?>
 
                 <?/*= $form->field($model, 'username')->label('Name*')->textInput(['autofocus' => true]) */?>
                 <?/*= $form->field($model, 'surname')->textInput() */?>
@@ -87,18 +87,18 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?/*= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) */?>
                 </div>
 
-            <?php /*ActiveForm::end(); */?>
+            < ? php /*ActiveForm::end(); */?>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-5">
-            <?php
+            < ? php
 /*            if (Yii::$app->getSession()->hasFlash('error')) {
                 echo '<div class="alert alert-danger">'.Yii::$app->getSession()->getFlash('error').'</div>';
             }
             */?>
             <p class="lead">Access with your Social network account</p>
-            <?php /*echo \nodge\eauth\Widget::widget(['action' => 'site/login']); */?>
+            < ? php /*echo \nodge\eauth\Widget::widget(['action' => 'site/login']); */?>
         </div>
     </div>
 

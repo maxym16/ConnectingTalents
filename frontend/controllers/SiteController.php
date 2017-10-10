@@ -67,12 +67,12 @@ class SiteController extends Controller
 */
         $this->layout = 'ct-main-layout';
 
-/*        if(!isset($_COOKIE['introduce'])){
+        if(!isset($_COOKIE['introduce'])){
             $time = time()+72*3600;
             $parse = parse_url(Url::to(['/']));
             setcookie("introduce", '1', $time, '/', $parse['host']);
         }
-*/
+
         return $this->render('index');
     }
 
@@ -238,6 +238,13 @@ class SiteController extends Controller
                 ->setSubject('From Connecting Talents')
                 ->setTextBody('Dear'.$model->username .',
                 Welcome to the Connecting Talents community.
+                
+                Your login data are:
+                Username: '.$model->username.' ;
+                Password: the password you choose at the sign up process
+                If you forgot your password you can retrieve it from here: 
+                http://open.connectingtalents.org/site/request-password-reset
+
                 What is next?
                 We invite you to provide more details about yourself, 
                 accessing your Profile page 
@@ -250,7 +257,6 @@ class SiteController extends Controller
                     Thank you again for your registration. 
                 If you have any questions, 
                 please let us know using the feedback page !
-                http://open.connectingtalents.org/site/request-password-reset
                 
                 Kerry
                 Connecting Talents
@@ -259,6 +265,7 @@ class SiteController extends Controller
                 Email: kerry@connectingtalents.org
                 ')
                 ->send();
+//                Yii::$app->getSession()->setFlash('success',"Dear User, you have been successfully registered in system !");
                 
                 if (Yii::$app->getUser()->login($user)) {
                     return $this->redirect(['/', 'alert' => 'register']);
@@ -301,19 +308,21 @@ class SiteController extends Controller
      */
     public function actionRequestPasswordReset()
     {
+//        Yii::$app->session->setFlash('success', 'Please check you email and reset the password.');
         $this->layout = 'ct-main-layout';
         $model = new PasswordResetRequestForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail()) {
                 Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
-                return $this->goHome();
+                //return $this->goHome();
+                return $this->redirect(['/site/login', 'alert' => 'password']);
             } else {
                 Yii::$app->session->setFlash('error', 'Sorry, we are unable to reset password for email provided.');
             }
         }
 
         return $this->render('requestPasswordResetToken', [
-            'model' => $model,
+            'model' => $model, 
         ]);
     }
 

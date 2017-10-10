@@ -26,9 +26,9 @@ use yii\widgets\ActiveForm;
         <div class="register__subgroup">
             <label class="form-group__label">Gender</label>
             <div>
-                <input id="male" class="none" type="radio" name="SignupExtraForm[sesso]" value="Mail" />
+                <input <?= $model->sesso === 'Male'?'checked':'' ?> id="male" class="none" type="radio" name="SignupExtraForm[sesso]" value="Male" />
                 <label class="register__radio radio" for="male">Male</label>
-                <input id="female" class="none" type="radio" name="SignupExtraForm[sesso]" value="Femail" />
+                <input <?= $model->sesso === 'Female'?'checked':'' ?> id="female" class="none" type="radio" name="SignupExtraForm[sesso]" value="Female" />
                 <label class="register__radio radio" for="female">Female</label>
             </div>
             <?= Html::error($model, 'sesso'); ?>
@@ -37,13 +37,13 @@ use yii\widgets\ActiveForm;
             <label class="form-group__label">Age</label>
             <div id="age" class="select js-select" data-eui-dropdown>
                 <div class="select__inner dd-eui-dropdown" data-eui-dropdown-depth="1">
-                    <div class="select__value js-select-value"></div>
+                    <?php
+                    $age_list = $model->ageGroup();
+                    ?>
+                    <div class="select__value js-select-value"><?= $age_list[$model->user_profile_age_group_id] ?></div>
                     <div class="select__items dd-eui-drop">
-                        <?php
-                            $age_list = ['1'=>'18-25','2'=>'26-35','3'=>'36-45','4'=>'46-55','5'=>'56-65','6'=>'>65'];
-                        ?>
                         <?php foreach($age_list as $key => $item) { ?>
-                            <input id="age-<?= $key ?>" class="none js-select-option" type="radio" name="SignupExtraForm[user_profile_age_group_id]" value="<?= $item ?>" />
+                            <input <?= $model->user_profile_age_group_id === $key?'checked':'' ?> id="age-<?= $key ?>" class="none js-select-option" type="radio" name="SignupExtraForm[user_profile_age_group_id]" data-text="<?= $item ?>" value="<?= $key ?>" />
                             <label class="select__option" for="age-<?= $key ?>"><?= $item ?></label>
                         <?php } ?>
                     </div>
@@ -129,11 +129,11 @@ use yii\widgets\ActiveForm;
                         <line fill="none" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="64.545" y1="50.003" x2="35.455" y2="50.003"/>
                     </svg>
                 </button>
-                <input id="imgInp" class="upload-avatar__trigger js-file" type="file" name="SignupExtraForm[file]" value="" accept="image/jpeg,image/png" data-max-size="5000000" data-min-res="600:600" />
+                <input id="imgInp" class="upload-avatar__trigger js-file" type="file" name="SignupExtraForm[file]" value="" accept="image/jpeg,image/png" data-max-size="5000000" data-min-res="300:300" />
                 <p class="upload-avatar__name js-upload-avatar-name"></p>
             </div>
             <p class="upload-avatar__title">Picture requirements:</p>
-            <p class="upload-avatar__desc">Dimension max: 5Mb, Res. min: 600x600 px</p>
+            <p class="upload-avatar__desc">Dimension max: 5Mb, Res. min: 300x300 px</p>
         </div>
 <?php
 $script = <<< JS
@@ -161,9 +161,9 @@ $this->registerJs($script, yii\web\View::POS_READY);
         <?= Html::error($model, 'file'); ?>
     </div>
     <div class="form-group">
-        <?= Html::activeLabel($model, 'note',['class'=>'form-group__label', 'value' => 'About me:']); ?>
-        <?= Html::activeTextarea($model, 'note', ['class'=>'input input--area', 'placeholder' => 'Write a small bio about you... (MAX 140 char.)', 'maxlength'=>'140']); ?>
-        <?= Html::error($model, 'note'); ?>
+        <?= Html::activeLabel($model, 'presentazione_personale',['class'=>'form-group__label', 'value' => 'About me:']); ?>
+        <?= Html::activeTextarea($model, 'presentazione_personale', ['class'=>'input input--area', 'placeholder' => 'Write a small bio about you... (MAX 140 char.)', 'maxlength'=>'140']); ?>
+        <?= Html::error($model, 'presentazione_personale'); ?>
 
     </div>
     <div class="form-group form-group--last">
@@ -171,13 +171,13 @@ $this->registerJs($script, yii\web\View::POS_READY);
             <label class="form-group__label">Remote work</label>
             <div id="remote-work" class="select js-select" data-eui-dropdown>
                 <div class="select__inner dd-eui-dropdown" data-eui-dropdown-depth="1">
-                    <div class="select__value js-select-value"></div>
+                    <div class="select__value js-select-value"><?= $model->remote_work ?></div>
                     <div class="select__items dd-eui-drop">
                         <?php
                         $work_list = ['Yes'=>'Yes','No'=>'No','Maybe'=>'Maybe'];
                         ?>
                         <?php foreach($work_list as $key => $item) { ?>
-                            <input id="effort-<?= $key ?>" class="none js-select-option" type="radio" name="SignupExtraForm[presentazione_breve]" value="<?= $key ?>" />
+                            <input <?= $model->remote_work === $key?'checked':'' ?> id="effort-<?= $key ?>" class="none js-select-option" type="radio" name="SignupExtraForm[remote_work]" value="<?= $key ?>" data-text="<?= $item ?>" />
                             <label class="select__option" for="effort-<?= $key ?>"><?= $item ?></label>
                         <?php } ?>
                     </div>
@@ -189,13 +189,13 @@ $this->registerJs($script, yii\web\View::POS_READY);
             <label class="form-group__label">Effort</label>
             <div id="effort" class="select js-select" data-eui-dropdown>
                 <div class="select__inner dd-eui-dropdown" data-eui-dropdown-depth="1">
-                    <div class="select__value js-select-value"></div>
+                    <div class="select__value js-select-value"><?= $model->effort ?></div>
                     <div class="select__items dd-eui-drop">
                         <?php
                         $work_list = ['full-time'=>'full-time','part time'=>'part time','occasional'=>'occasional'];
                         ?>
                         <?php foreach($work_list as $key => $item) { ?>
-                            <input id="effort-<?= $key ?>" class="none js-select-option" type="radio" name="SignupExtraForm[presentazione_personale]" value="<?= $key ?>" />
+                            <input <?= $model->effort === $key?'checked':'' ?>  id="effort-<?= $key ?>" class="none js-select-option" type="radio" name="SignupExtraForm[effort]" value="<?= $key ?>" data-text="<?= $item ?>" />
                             <label class="select__option" for="effort-<?= $key ?>"><?= $item ?></label>
                         <?php } ?>
 
@@ -282,4 +282,5 @@ $this->registerJs($script, yii\web\View::POS_READY);
     </div>
 </div>
 </fieldset>
+
 <?php ActiveForm::end(); ?>

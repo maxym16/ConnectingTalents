@@ -9,8 +9,8 @@ use common\widgets\CTSubscription;
             </p>
             <h2 class="subscription__title">Let's keep in touch!</h2>
         </div>
-        <?= CTSubscription::widget([
+<!--        < ? = CTSubscription::widget([
             'list_id' => '9ae41cf341' // if not set raise Error
-        ]) ?>
+        ]) ? > -->
     </div>
 </div>
