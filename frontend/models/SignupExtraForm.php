@@ -107,7 +107,9 @@ class SignupExtraForm extends ActiveRecord
 
             [['file'], 'file', 'extensions' => 'png, jpg'],
 
-            [['email_pec'], 'email'],
+            ['email_pec', 'email'],
+
+            ['email_pec', 'validateEmail'],
 
 
 //            ['email', 'exist', 'targetClass' => '\common\models\User', 'message' => 'This email address is already registered, access the login page to sign in.'],
@@ -158,7 +160,13 @@ class SignupExtraForm extends ActiveRecord
     }
 
 
-
+    public function validateEmail($attribute, $params){
+        $res = User::find()
+            ->where('id != :id and email = :email',['id'=>Yii::$app->user->id, 'email' => $this->$attribute])->one();
+        if($res){
+            $this->addError($attribute, 'Email already exist.');
+        }
+    }
     
 
     public function myName($attr){

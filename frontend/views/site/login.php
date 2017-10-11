@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
             <fieldset class="form">
                 <div class="form-group">
-                    <?= Html::activeLabel($model, 'username',['class'=>'form-group__title']); ?>
+                    <?= Html::activeLabel($model, 'username',['class'=>'form-group__title', 'value'=>'ssss']); ?>
                     <?= Html::activeTextInput($model, 'username', ['class'=>'form-field']); ?>
                     <?= Html::error($model, 'username', ['class'=>'validation-notice']); ?>
                 </div>
@@ -40,13 +40,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="form-group">
                     <?= Html::activeCheckbox($model, 'rememberMe', ['class'=>'']); ?>
                 </div>
-                <div class="form__captcha">
+<!--                <div class="form__captcha">
                     <div class="g-recaptcha" data-sitekey="6LcI2jIUAAAAAKIh7rZLgjSVwECzbKVWlwkAtNpb"></div>
-                    <?php if(isset($_POST['g-recaptcha-response']) && $_POST['g-recaptcha-response'] == ''): ?>
+                    < ?php if(isset($_POST['g-recaptcha-response']) && $_POST['g-recaptcha-response'] == ''): ?>
                         <div class="validation-notice">Captcha error</div>
-                    <?php endif; ?>
+                    < ?php endif; ?>
                 </div>
-                <div class="form__table">
+-->                <div class="form__table">
                     <div class="form__cell">
                         <button class="form__button" type="submit">Join now</button>
                     </div>

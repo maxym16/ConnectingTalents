@@ -67,12 +67,12 @@ class SiteController extends Controller
 */
         $this->layout = 'ct-main-layout';
 
-        if(!isset($_COOKIE['introduce'])){
+/*        if(!isset($_COOKIE['introduce'])){
             $time = time()+72*3600;
             $parse = parse_url(Url::to(['/']));
             setcookie("introduce", '1', $time, '/', $parse['host']);
         }
-
+*/
         return $this->render('index');
     }
 

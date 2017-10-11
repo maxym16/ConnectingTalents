@@ -14,12 +14,13 @@ use yii\widgets\ActiveForm;
 <div class="register__col">
     <div class="form-group">
         <?= Html::activeLabel($model, 'nome',['class'=>'form-group__label', 'value' => 'Name*']); ?>
-        <?= Html::activeTextInput($model, 'nome', ['class'=>'input', 'value'=> $user->username, 'placeholder' => 'Click to insert text']); ?>
+        <?= Html::activeTextInput($model, 'nome', ['class'=>'input', 'placeholder' => 'Click to insert text']); ?>
         <?= Html::error($model, 'nome'); ?>
     </div>
     <div class="form-group">
         <?= Html::activeLabel($model, 'cognome',['class'=>'form-group__label', 'value' => 'Last name']); ?>
-        <?= Html::activeTextInput($model, 'cognome', ['class'=>'input', 'value'=> $user->surname, 'placeholder' => 'Click to insert text']); ?>
+        <?php $surname = $model->cognome?:$user->surname; ?>
+        <?= Html::activeTextInput($model, 'cognome', ['class'=>'input', 'value'=> $surname, 'placeholder' => 'Click to insert text']); ?>
         <?= Html::error($model, 'cognome'); ?>
     </div>
     <div class="form-group">

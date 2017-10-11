@@ -31,8 +31,7 @@ $this->registerJsFile(
                 <div class="user">
                     <div class="user__section user__section--left">
                         <div class="user__text-info">
-                            <p class="user__name"><?= $user->username ?> <?= $user->surname ?></p>
-                            <p><?= $token ?></p>
+                            <p class="user__name"><?= $profile->nome ?> <?= $profile->cognome ?></p>
                             <a class="edit-link edit-link--white" href="<?= Url::to(['/signup-extra/update?id='.$profile->id]) ?>">
                                 <span class="edit-link__text">edit</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="edit-link__icon icon icon--middle" width="16" height="16" viewBox="0 0 84 84" fill="currentColor">
@@ -305,8 +304,8 @@ $this->registerJsFile(
                                         </div>
                                         <div class="level__buttons">
                                             <a class="button button--ultrasmall button--yellow"
-                                               href="http://services.connectingtalents.org/utc_survey?token=<?= $token ?>"
-                                            >
+                                               href="http://services.connectingtalents.org/test_survey?token=<?= urlencode($token) ?>">
+                                            <!--   href="http://services.connectingtalents.org/utc_survey?token=< ?= urlencode($token) ?>" -->
                                                 <span class="button__text button__text--ultrasmall">improve</span>
                                             </a>
                                         </div>

@@ -97,7 +97,7 @@ use yii\helpers\Url;
 $time = time()+72*3600;
 $path = parse_url(Url::to(['/']));
 
-$script_alert = <<< JS
+$script_alert = '';/*<<< JS
 $("#accept-cookie").click(function(){
     setCookie('accept-cookie', '1', {
         path: $path,
@@ -121,7 +121,7 @@ $(window).scroll(function(){
     }
 })
 
-JS;
+JS;*/
 //маркер конца строки, обязательно сразу, без пробелов и табуляции
 $this->registerJs($script_alert, yii\web\View::POS_READY);
 ?>
