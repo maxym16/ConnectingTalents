@@ -11,10 +11,8 @@ $this->title = 'Request password reset';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<div style="width:70%; margin: 0 auto">
-    <div id="register" class="modal">
-        <div class="modal__content modal__content--standalone register">
-            <p>Please fill out your email. &nbsp;  A link to reset password will be sent there.</p>
+<div class="form-container">
+            <p style="padding-bottom:20px;">Please fill out your email. A link to reset password will be sent there.</p>
             <?php $form = ActiveForm::begin(['id' => 'request-password-reset-form']); ?>
             <fieldset class="form">
                 <div class="form-group">
@@ -35,6 +33,4 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
             </fieldset>
             <?php ActiveForm::end(); ?>
-        </div>
-    </div>
 </div>

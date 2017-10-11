@@ -47,9 +47,7 @@ $this->title = 'Reset password';
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
-<div style="width:70%; margin: 0 auto">
-    <div id="register" class="modal">
-        <div class="modal__content modal__content--standalone register">
+<div class="form-container">
             <?php $form = ActiveForm::begin(['id' => 'reset-password-form']); ?>
             <fieldset class="form">
                 <div class="form-group">
@@ -67,6 +65,4 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
             </fieldset>
             <?php ActiveForm::end(); ?>
-        </div>
-    </div>
 </div>

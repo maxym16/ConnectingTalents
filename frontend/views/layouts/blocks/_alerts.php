@@ -2,7 +2,7 @@
 use yii\helpers\Url;
 ?>
 <?php if(!isset($_COOKIE['accept-cookie'])): ?>
-<div class="cookie clearfix js-cookie-banner">
+<div class="cookie clearfix js-cookie-banner custom-alert">
     <div class="cookie__text">
         <p>We have placed cookies on our computer to hel make this website better.</p>
         <p>You can <a class="underline" href="#">change your cookie settings</a> at any time. Please, click on the button or scroll down to continue.</p>
@@ -25,11 +25,11 @@ use yii\helpers\Url;
 <?php if(isset($_GET['alert']) && $_GET['alert'] === 'login'): ?>
     <div class="cookie clearfix js-cookie-banner custom-alert">
         <div class="cookie__text">
-            <p>Login is success</p>
+            <p>You successfully logged in</p>
         </div>
         <div class="cookie__buttons">
             <div class="cookie__button">
-                <button id="custom-alert" class="button button--small button--flat button--yellow" type="button">
+                <button class="custom-alert-button button button--small button--flat button--yellow" type="button">
                     <span class="button__text button__text--small">close</span>
                 </button>
             </div>
@@ -43,7 +43,7 @@ use yii\helpers\Url;
         </div>
         <div class="cookie__buttons">
             <div class="cookie__button">
-                <button id="custom-alert" class="button button--small button--flat button--yellow" type="button">
+                <button class="custom-alert-button button button--small button--flat button--yellow" type="button">
                     <span class="button__text button__text--small">close</span>
                 </button>
             </div>
@@ -53,11 +53,39 @@ use yii\helpers\Url;
 <?php if(isset($_GET['alert']) && $_GET['alert'] === 'password'): ?>
     <div class="cookie clearfix js-cookie-banner custom-alert">
         <div class="cookie__text">
-            <p>Please check you email and reset the password.</p>
+            <p>Password has been reset successfully</p>
         </div>
         <div class="cookie__buttons">
             <div class="cookie__button">
-                <button id="custom-alert" class="button button--small button--flat button--yellow" type="button">
+                <button class="custom-alert-button button button--small button--flat button--yellow" type="button">
+                    <span class="button__text button__text--small">close</span>
+                </button>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+<?php if(isset($_GET['alert']) && $_GET['alert'] === 'reset_password'): ?>
+    <div class="cookie clearfix js-cookie-banner custom-alert">
+        <div class="cookie__text">
+            <p>You will receive an email, shortly, with the reset password link</p>
+        </div>
+        <div class="cookie__buttons">
+            <div class="cookie__button">
+                <button class="custom-alert-button button button--small button--flat button--yellow" type="button">
+                    <span class="button__text button__text--small">close</span>
+                </button>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+<?php if(isset($_GET['alert']) && $_GET['alert'] === 'change_password'): ?>
+    <div class="cookie clearfix js-cookie-banner custom-alert">
+        <div class="cookie__text">
+            <p>Password has been reset successfully</p>
+        </div>
+        <div class="cookie__buttons">
+            <div class="cookie__button">
+                <button class="custom-alert-button button button--small button--flat button--yellow" type="button">
                     <span class="button__text button__text--small">close</span>
                 </button>
             </div>
@@ -78,9 +106,21 @@ $("#accept-cookie").click(function(){
     $('.js-scroll-cookie').click();
     
 });
-$("#custom-alert").click(function() {
+$(".custom-alert").click(function() {
   $(".custom-alert").hide();
 });
+$(window).scroll(function(){
+    if ( $("html").scrollTop() > 70 ){
+        $(".custom-alert").hide();
+        if($('*').is('#accept-cookie')) {
+            setCookie('accept-cookie', '1', {
+                path: $path,
+                time: $time
+            });
+        }
+    }
+})
+
 JS;
 //маркер конца строки, обязательно сразу, без пробелов и табуляции
 $this->registerJs($script_alert, yii\web\View::POS_READY);

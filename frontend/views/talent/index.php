@@ -23,9 +23,15 @@ $this->title = 'Connecting Talents | Talent';
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.
                     </div>
                     <div class="talent__register">
-                        <a class="button button--default button--white" href="<?= Url::to(['/profile']) ?>">
-                            <span class="button__text">register</span>
-                        </a>
+                        <?php if (Yii::$app->user->isGuest) { ?>
+                            <a class="button button--default button--white" href="<?= Url::to(['/site/signup']) ?>">
+                                <span class="button__text">register</span>
+                            </a>
+                        <?php }else{ ?>
+                            <a class="button button--default button--white" href="<?= Url::to(['/profile']) ?>">
+                                <span class="button__text">discover yourself</span>
+                            </a>
+                        <?php } ?>
                     </div>
                 </div>
             </div>

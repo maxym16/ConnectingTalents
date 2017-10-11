@@ -265,10 +265,9 @@ class SiteController extends Controller
                 Email: kerry@connectingtalents.org
                 ')
                 ->send();
-//                Yii::$app->getSession()->setFlash('success',"Dear User, you have been successfully registered in system !");
                 
                 if (Yii::$app->getUser()->login($user)) {
-                    return $this->redirect(['/', 'alert' => 'register']);
+                    return $this->redirect(['/profile', 'alert' => 'register']);
                 }
             }
         }
@@ -313,9 +312,7 @@ class SiteController extends Controller
         $model = new PasswordResetRequestForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail()) {
-                Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
-                //return $this->goHome();
-                return $this->redirect(['/site/login', 'alert' => 'password']);
+                return $this->redirect(['/site/login', 'alert' => 'reset_password']);
             } else {
                 Yii::$app->session->setFlash('error', 'Sorry, we are unable to reset password for email provided.');
             }
@@ -342,13 +339,37 @@ class SiteController extends Controller
         }
 
         if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
-            Yii::$app->session->setFlash('success', 'New password was saved.');
-
-            return $this->goHome();
+            return $this->redirect(['/site/login', 'alert' => 'change_password']);
         }
-
         return $this->render('resetPassword', [
             'model' => $model,
         ]);
+    }
+
+    /**
+     * Agreement policy page
+     * @return string
+     */
+    public function actionAgreement(){
+        $this->layout = 'ct-main-layout';
+        return $this->render('agreement');
+    }
+
+    /**
+     * Cookie policy page
+     * @return string
+     */
+    public function actionCookie(){
+        $this->layout = 'ct-main-layout';
+        return $this->render('cookie');
+    }
+
+    /**
+     * Privacy policy page
+     * @return string
+     */
+    public function actionPrivacy(){
+        $this->layout = 'ct-main-layout';
+        return $this->render('privacy');
     }
 }

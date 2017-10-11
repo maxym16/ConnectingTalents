@@ -304,7 +304,9 @@ $this->registerJsFile(
                                             Description of the current level Lorem ipsum dolo sit amet Description Lorem ipsum dolo sit amet lorem ipsum
                                         </div>
                                         <div class="level__buttons">
-                                            <a class="button button--ultrasmall button--yellow" href="#">
+                                            <a class="button button--ultrasmall button--yellow"
+                                               href="http://services.connectingtalents.org/utc_survey?token=<?= $token ?>"
+                                            >
                                                 <span class="button__text button__text--ultrasmall">improve</span>
                                             </a>
                                         </div>

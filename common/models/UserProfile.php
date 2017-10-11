@@ -16,6 +16,9 @@ use yii\web\UploadedFile;
  * @property string $image
  * @property string $purpos
  * @property string $expl
+ * @property string $sharing_purpos
+ * @property string $sharing_expl
+ * @property string $sharing_role
  * @property integer $sharing
  * @property string $presentazione_breve
  * @property string $presentazione_personale
@@ -139,6 +142,9 @@ class UserProfile extends \yii\db\ActiveRecord
             'sesso' => 'Sex',
             'purpos' => 'Purposes',
             'expl' => 'Explaination',
+            'sharing_purpos' => 'Purposes',
+            'sharing_expl' => 'Explaination',
+            'sharing_role' => 'Your role',
             'sharing' => 'Sharing platform',
             'user_profile_age_group_id' => 'Age',
             'telefono' => 'Telephone',

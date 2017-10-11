@@ -19,34 +19,33 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use yii\helpers\Url;
 
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div style="width:70%; margin: 0 auto">
-<div id="register" class="modal">
-    <div class="modal__content modal__content--standalone register">
+<div class="form-container">
         <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
             <fieldset class="form">
                 <div class="form-group">
                     <?= Html::activeLabel($model, 'username',['class'=>'form-group__title']); ?>
                     <?= Html::activeTextInput($model, 'username', ['class'=>'form-field']); ?>
-                    <?= Html::error($model, 'username'); ?>
+                    <?= Html::error($model, 'username', ['class'=>'validation-notice']); ?>
                 </div>
                 <div class="form-group">
                     <?= Html::activeLabel($model, 'password',['class'=>'form-group__title']); ?>
                     <?= Html::activeInput('password' ,$model, 'password', ['class'=>'form-field']); ?>
-                    <?= Html::error($model, 'password'); ?>
+                    <?= Html::error($model, 'password', ['class'=>'validation-notice']); ?>
                 </div>
                 <div class="form-group">
                     <?= Html::activeCheckbox($model, 'rememberMe', ['class'=>'']); ?>
                 </div>
-<!--                <div class="form__captcha">
-                    < ? php if(isset($_POST['g-recaptcha-response']) && $_POST['g-recaptcha-response'] == ''): ? >
-                        <p style="color: red;">Captcha error</p>
-                    < ? php endif; ? >
+                <div class="form__captcha">
                     <div class="g-recaptcha" data-sitekey="6LcI2jIUAAAAAKIh7rZLgjSVwECzbKVWlwkAtNpb"></div>
-                </div>-->
+                    <?php if(isset($_POST['g-recaptcha-response']) && $_POST['g-recaptcha-response'] == ''): ?>
+                        <div class="validation-notice">Captcha error</div>
+                    <?php endif; ?>
+                </div>
                 <div class="form__table">
                     <div class="form__cell">
                         <button class="form__button" type="submit">Join now</button>
@@ -56,21 +55,25 @@ $this->params['breadcrumbs'][] = $this->title;
                     </div>
                     <div class="form__cell">
                         <div class="form__socials">
-                            <?= \nodge\eauth\Widget::widget(['action' => 'site/login']); ?>
+                            <?= \common\widgets\Social::widget(['action' => 'site/login']); ?>
                         </div>
                     </div>
                 </div>
             </fieldset>
         <?php ActiveForm::end(); ?>
         <div class="register__agreement">
-            By clicking Join now, you agree to Connecting Talent’s User<br />Agreement, Privacy Policy and Cookie Policy.
+            By clicking Join now, you agree to Connecting Talent’s User<br />
+            <a href="<?= Url::to(['site/agreement']) ?>"><span class="bold underline">Agreement</span></a>
+            ,
+            <a href="<?= Url::to(['site/privacy']) ?>"><span class="bold underline nowrap">Privacy Policy</span></a>
+            and
+            <a href="<?= Url::to(['site/cookie']) ?>"><span class="bold underline nowrap">Cookie Policy</span></a>
+            .
         </div>
-        <div style="margin:1em 0">
-            If you forgot your password you can
-            <span style="text-decoration: underline">
-                <?= Html::a('reset it', ['site/request-password-reset'], ['class'=>'form_button']) ?>
-            </span>
+        <div class="register__password-remind">
+                <span class="light">
+                    If you forgot your password you can
+                    <?= Html::a('reset it', ['site/request-password-reset'], ['class'=>'underline']) ?>
+                </span>
         </div>
-    </div>
-</div>
 </div>

@@ -90,6 +90,19 @@ class SignupExtraController extends Controller
                 $model->effort =
                     isset($post['effort'])?$post['effort']:'';
 
+                /** Sharing fields */
+                    $model->sharing =
+                        isset($post['sharing'])?$post['sharing']:'0';
+                    if($model->sharing){
+                        $model->sharing_role =
+                            isset($post['sharing_role'])?$post['sharing_role']:'';
+                        $model->sharing_purpose =
+                            isset($post['sharing_purpose'])?$post['sharing_purpose']:'';
+                        $model->sharing_expl =
+                            isset($post['sharing_expl'])?$post['sharing_expl']:'';
+                    }
+                /** end */
+
                 $file = UploadedFile::getInstance($model, 'file');
                 if ($file && $file->tempName) {
                     if ($model->validate(['file'])) {
@@ -162,6 +175,19 @@ class SignupExtraController extends Controller
                     isset($post['remote_work'])?$post['remote_work']:'';
                 $model->effort =
                     isset($post['effort'])?$post['effort']:'';
+
+                /** Sharing fields */
+                $model->sharing =
+                    isset($post['sharing'])?$post['sharing']:'0';
+                if($model->sharing){
+                    $model->sharing_role =
+                        isset($post['sharing_role'])?$post['sharing_role']:'';
+                    $model->sharing_purpose =
+                        isset($post['sharing_purpose'])?$post['sharing_purpose']:'';
+                    $model->sharing_expl =
+                        isset($post['sharing_expl'])?$post['sharing_expl']:'';
+                }
+                /** end */
 
                 $file = UploadedFile::getInstance($model, 'file');
                 if ($file && $file->tempName) {

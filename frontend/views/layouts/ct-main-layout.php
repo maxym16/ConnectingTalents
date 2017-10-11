@@ -2,13 +2,10 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+
 use common\widgets\CTMenuWidget;
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
 use frontend\assets\CTAsset;
-use common\widgets\Alert;
 use yii\helpers\Url;
 
 CTAsset::register($this);
@@ -24,18 +21,23 @@ CTAsset::register($this);
     <style>
         a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font:inherit;font-size:100%;vertical-align:baseline}html{line-height:1}ol,ul{list-style:none}table{border-collapse:collapse;border-spacing:0}caption,td,th{text-align:left;font-weight:400;vertical-align:middle}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:"";content:none}a img{border:none}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}button,input,optgroup,select,textarea{background:0 0;border:0;padding:0;margin:0;font:inherit;color:inherit;box-shadow:none}button{height:auto;cursor:pointer}button:focus{outline:0}button::-moz-focus-inner{outline:0;border:0;padding:0}
     </style>
+
     <?php $this->head() ?>
+    
     <script src='https://www.google.com/recaptcha/api.js'></script>
+    
 </head>
-<!-- <body < ? php if(!isset($_COOKIE['introduce'])): ? > eui-body--hidden < ? php endif; ? > > -->
-<body>
+<body class="<?php if(!isset($_COOKIE['introduce'])): ?> eui-body--hidden <?php endif; ?>">
 <?php $this->beginBody() ?>
 
 <div class="wrapper">
+    <?php if(!isset($_COOKIE['introduce'])): ?>
+        <?= $this->render('../layouts/main_page/intro') ?>
+    <?php endif; ?>
     <header class="header">
         <div class="left">
             <a class="logo" href="<?= Url::to(['/']) ?>">
-<!--                <svg xmlns="http://www.w3.org/2000/svg" class="logo__image icon icon--middle" width="100" height="28" viewBox="0 0 140 40">
+                <svg xmlns="http://www.w3.org/2000/svg" class="logo__image icon icon--middle" width="100" height="28" viewBox="0 0 140 40">
                     <rect width="100%" height="100%" x="0" y="0" fill="none" stroke="none"/>
                     <path fill="#262729" d="M44.108979101181035,20.00900170898438 c0.14500000000000005,0.14500000000000005 0.20900000000000005,0.3060000000000001 0.19300000000000006,0.4820000000000001 c-0.017000000000000008,0.17700000000000005 -0.08900000000000004,0.3460000000000002 -0.21800000000000005,0.507 c-0.273,0.3220000000000001 -0.6950000000000004,0.6360000000000002 -1.267,0.9410000000000002 c-0.5710000000000002,0.3050000000000001 -1.228,0.458 -1.967,0.458 c-0.7080000000000002,0 -1.331,-0.11600000000000003 -1.87,-0.3500000000000001 c-0.539,-0.232 -0.993,-0.547 -1.363,-0.9410000000000002 s-0.6480000000000002,-0.8560000000000002 -0.8320000000000002,-1.3880000000000001 c-0.18600000000000005,-0.531 -0.278,-1.086 -0.278,-1.665 v-2.654 c0,-0.5790000000000002 0.101,-1.135 0.3020000000000001,-1.665 c0.201,-0.531 0.4910000000000001,-0.994 0.8690000000000002,-1.3880000000000001 c0.3770000000000001,-0.3950000000000002 0.8320000000000002,-0.7080000000000002 1.363,-0.9410000000000002 c0.531,-0.232 1.134,-0.3500000000000001 1.81,-0.3500000000000001 c0.6590000000000003,0 1.246,0.11700000000000003 1.762,0.3500000000000001 c0.515,0.233 0.9410000000000002,0.519 1.278,0.8560000000000002 c0.14600000000000005,0.14600000000000005 0.21800000000000005,0.3140000000000001 0.21800000000000005,0.507 c0,0.19300000000000006 -0.07200000000000002,0.3620000000000001 -0.21800000000000005,0.508 l-0.458,0.458 c-0.3060000000000001,0.3060000000000001 -0.6360000000000002,0.2980000000000001 -0.989,-0.024000000000000007 c-0.17800000000000005,-0.16000000000000006 -0.406,-0.3020000000000001 -0.6880000000000004,-0.4220000000000001 c-0.2820000000000001,-0.12100000000000002 -0.5840000000000002,-0.18100000000000005 -0.905,-0.18100000000000005 c-0.772,0 -1.327,0.22900000000000006 -1.665,0.6870000000000004 c-0.3380000000000002,0.459 -0.507,0.994 -0.507,1.605 v2.654 c0,0.3070000000000001 0.03600000000000001,0.6000000000000002 0.10800000000000003,0.8810000000000002 s0.19300000000000006,0.527 0.3620000000000001,0.7360000000000002 c0.16900000000000007,0.21000000000000005 0.3900000000000001,0.3740000000000001 0.6630000000000003,0.4940000000000001 c0.273,0.12100000000000002 0.6190000000000002,0.18200000000000005 1.038,0.18200000000000005 s0.78,-0.08900000000000004 1.086,-0.266 s0.547,-0.3460000000000002 0.7240000000000002,-0.507 c0.3700000000000001,-0.3060000000000001 0.7090000000000002,-0.3060000000000001 1.014,0 L44.108979101181035,20.00900170898438 z"/>
                     <path fill="#FFCE00" d="M51.80697910118103,22.398001708984374 c-0.789,0 -1.524,-0.14800000000000005 -2.208,-0.4460000000000001 c-0.6850000000000004,-0.2980000000000001 -1.283,-0.7030000000000002 -1.798,-1.219 c-0.516,-0.515 -0.921,-1.114 -1.219,-1.798 s-0.4460000000000001,-1.42 -0.4460000000000001,-2.208 s0.14800000000000005,-1.524 0.4460000000000001,-2.208 s0.7030000000000002,-1.283 1.219,-1.798 c0.515,-0.515 1.113,-0.921 1.798,-1.219 c0.6840000000000004,-0.2980000000000001 1.419,-0.4460000000000001 2.208,-0.4460000000000001 c0.788,0 1.5230000000000001,0.14800000000000005 2.208,0.4460000000000001 c0.6840000000000004,0.2980000000000001 1.283,0.7040000000000002 1.798,1.219 c0.514,0.515 0.921,1.114 1.219,1.798 c0.2970000000000001,0.6840000000000004 0.4460000000000001,1.42 0.4460000000000001,2.208 s-0.14900000000000005,1.524 -0.4460000000000001,2.208 c-0.2980000000000001,0.6840000000000004 -0.7050000000000002,1.283 -1.219,1.798 c-0.515,0.516 -1.114,0.921 -1.798,1.219 C53.33097910118103,22.250001708984378 52.594979101181025,22.398001708984374 51.80697910118103,22.398001708984374 "/>
@@ -62,7 +64,7 @@ CTAsset::register($this);
                     <path fill="#FFCE00" d="M35.85197910118103,8.252001708984373 c0.3120000000000001,0.012000000000000004 0.6150000000000002,-0.03600000000000001 0.907,-0.14600000000000005 c0.2900000000000001,-0.10800000000000003 0.546,-0.265 0.7670000000000002,-0.4700000000000001 c0.22000000000000006,-0.20400000000000001 0.4,-0.4470000000000001 0.541,-0.7290000000000002 c0.14,-0.281 0.21700000000000005,-0.5880000000000002 0.22900000000000006,-0.92 c0.014000000000000004,-0.3320000000000002 -0.040000000000000015,-0.6450000000000002 -0.15800000000000006,-0.936 c-0.11900000000000004,-0.2900000000000001 -0.28,-0.546 -0.4840000000000001,-0.7680000000000002 c-0.20400000000000001,-0.21900000000000006 -0.4470000000000001,-0.3950000000000002 -0.7290000000000002,-0.526 c-0.2820000000000001,-0.131 -0.5800000000000002,-0.202 -0.8930000000000002,-0.21400000000000005 c-0.3140000000000001,-0.013000000000000006 -0.6170000000000002,0.03700000000000001 -0.907,0.14600000000000005 c-0.2910000000000001,0.10900000000000003 -0.547,0.267 -0.7670000000000002,0.4700000000000001 c-0.22100000000000006,0.20500000000000004 -0.401,0.4480000000000001 -0.541,0.7290000000000002 c-0.14100000000000001,0.281 -0.21700000000000005,0.5890000000000002 -0.22900000000000006,0.92 c-0.014000000000000004,0.3330000000000002 0.039000000000000014,0.6450000000000002 0.15800000000000006,0.936 c0.11700000000000003,0.2910000000000001 0.279,0.547 0.4830000000000001,0.7680000000000002 s0.4470000000000001,0.3960000000000002 0.7290000000000002,0.526 C35.24097910118103,8.169001708984375 35.53797910118103,8.240001708984373 35.85197910118103,8.252001708984373 "/>
                     <polyline fill="none" stroke="#000000" stroke-dashoffset="" fill-rule="nonzero" marker-start="" marker-mid="" marker-end="" points="72.16216123217299,27.83783747907799 72.16216123217299,27.83783747907799 " style="color: rgb(0, 0, 0);"/><polyline fill="none" stroke="#000000" stroke-dashoffset="" fill-rule="nonzero" marker-start="" marker-mid="" marker-end="" points="76.48648550076763,19.189188941888688 76.48648550076763,19.729729475463017 75.94594496719327,20.270270009037375 " style="color: rgb(0, 0, 0);" class=""/><polyline fill="none" stroke="#000000" stroke-dashoffset="" fill-rule="nonzero" marker-start="" marker-mid="" marker-end="" 1 points="75.94594496719327,20.270270009037375 75.94594496719327,20.270270009037375 " style="color: rgb(0, 0, 0);"/>
                 </svg>
--->            </a>
+            </a>
         </div>
         <div class="right">
             <?php if (Yii::$app->user->isGuest){ ?>
@@ -115,10 +117,12 @@ CTAsset::register($this);
     <main class="main">
     <?= $content ?>
     </main>
+    <?= $this->render('blocks/_alerts') ?>
     <footer class="footer clearfix">
         <div class="footer__pages">
-            <a class="footer__page" href="http://openblog.connectingtalents.org/polices/">Polices</a>
-            <a class="footer__page" href="http://openblog.connectingtalents.org/cookie/">Cookie</a>
+            <a class="footer__page" href="<?= Url::to(['site/agreement']) ?>">User Agreement</a>
+            <a class="footer__page" href="<?= Url::to(['site/privacy']) ?>">Privacy Policy</a>
+            <a class="footer__page" href="<?= Url::to(['site/cookie']) ?>">Cookie Policy</a>
         </div>
         <div class="left">
             <div class="footer__intro">
@@ -183,12 +187,18 @@ CTAsset::register($this);
             </div>
         </div>
     </footer>
-<!--    < ? php if(!isset($_COOKIE['introduce'])): ? >
-        < ? = $this->render('../layouts/main_page/intro') ? >
-    < ? php endif; ? >-->
 </div>
-
+<?php
+$this->registerCssFile(
+    '@web/assets/css/header.css'
+);
+?>
 <?php $this->endBody() ?>
+<!-- CSS file here -->
+<!--<link rel="stylesheet" href="<?/*= Url::to('@web/assets/css/content.css') */?>">
+<link rel="stylesheet" href="<?/*= Url::to('@web/assets/css/slick.min.css') */?>">
+<link rel="stylesheet" href="<?/*= Url::to('@web/assets/css/fancybox.min.css') */?>">-->
+
 </body>
 </html>
 <?php $this->endPage() ?>

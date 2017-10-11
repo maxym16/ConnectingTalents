@@ -135,29 +135,7 @@ use yii\widgets\ActiveForm;
             <p class="upload-avatar__title">Picture requirements:</p>
             <p class="upload-avatar__desc">Dimension max: 5Mb, Res. min: 300x300 px</p>
         </div>
-<?php
-$script = <<< JS
-function readURL(input) {
 
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-
-        reader.onload = function (e) {
-            // $('#blah').attr('src', e.target.result);
-            document.getElementById('upload-avatar').style.backgroundImage = "url('"+e.target.result+"')";
-        }
-
-        reader.readAsDataURL(input.files[0]);
-    }
-}
-
-jQuery("#imgInp").change(function(){
-    readURL(this);
-});
-JS;
-        //маркер конца строки, обязательно сразу, без пробелов и табуляции
-$this->registerJs($script, yii\web\View::POS_READY);
-?>
         <?= Html::error($model, 'file'); ?>
     </div>
     <div class="form-group">
@@ -209,69 +187,81 @@ $this->registerJs($script, yii\web\View::POS_READY);
 <div class="register__col register__col--last">
     <div class="sharing-platform">
         <p class="sharing-platform__title">Sharing platform</p>
+        <?php if(!$model->sharing): ?>
         <button class="sharing-platform__open" type="button" data-eui-bundle-id="sharing-platform" data-eui-bundle-action="toggle" data-eui-bundle data-eui-bundle-outside></button>
-        <div class="sharing-platform__inner" data-eui-bundle-outside>
+        <?php endif; ?>
+        <input type="hidden" id="sharing-value" name="SignupExtraForm[sharing]" value="<?= $model->sharing ?>">
+        <div class="sharing-platform__inner <?= $model->sharing == 1?'bundle-eui-container--active':'' ?>" data-eui-bundle-outside>
             <div class="form-group">
                 <label class="form-group__label">Purpose</label>
                 <div id="purpose" class="select js-select" data-eui-dropdown>
                     <div class="select__inner dd-eui-dropdown" data-eui-dropdown-depth="1">
-                        <div class="select__value js-select-value"></div>
+                        <div class="select__value js-select-value"><?= $model->sharing_purpose ?></div>
                         <div class="select__items dd-eui-drop">
-                            <input id="purpose-1" class="none js-select-option" type="radio" name="purpose" value="Purpose 1" />
-                            <label class="select__option" for="purpose-1">Purpose 1</label>
-                            <input id="purpose-2" class="none js-select-option" type="radio" name="purpose" value="Purpose 2" />
-                            <label class="select__option" for="purpose-2">Purpose 2</label>
-                            <input id="purpose-3" class="none js-select-option" type="radio" name="purpose" value="Purpose 3" />
-                            <label class="select__option" for="purpose-3">Purpose 3</label>
+                            <?php
+                            $purpose_list = [
+                                'Business',
+                                'Non-profit',
+                                'Idea/Passion',
+                            ];
+                            ?>
+                            <?php foreach($purpose_list as $key => $item) { ?>
+                                <input <?= $model->sharing_purpose === $item?'checked':'' ?>  id="purpose-<?= $key ?>" class="none js-select-option" type="radio" name="SignupExtraForm[sharing_purpose]" value="<?= $item ?>" data-text="<?= $item ?>" />
+                                <label class="select__option" for="purpose-<?= $key ?>"><?= $item ?></label>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="form-group">
                 <label class="form-group__label">
-  <span class="relative">
-    Your role
-    <button class="form-group__info" type="button">
-      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--top" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M0 0h24v24H0z" fill="none"/>
-        <path d="M11 17h2v-6h-2v6zm1-15C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zM11 9h2V7h-2v2z"/>
-      </svg>
-    </button>
-    <span class="tip">
-      <span class="tip__item">
-        <span class="bold">Role 1: </span>short definition
-      </span>
-      <span class="tip__item">
-        <span class="bold">Role 2: </span>short definition
-      </span>
-      <span class="tip__item">
-        <span class="bold">Role 3: </span>short definition
-      </span>
-      <span class="tip__item">
-        <span class="bold">Role 4: </span>short definition
-      </span>
-    </span>
-  </span>
+                      <span class="relative">
+                        Your role
+                        <button class="form-group__info" type="button">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--top" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M11 17h2v-6h-2v6zm1-15C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zM11 9h2V7h-2v2z"/>
+                          </svg>
+                        </button>
+                        <span class="tip">
+                          <span class="tip__item">
+                            <span class="bold">Partner: </span>short definition
+                          </span>
+                          <span class="tip__item">
+                            <span class="bold">Contributor: </span>short definition
+                          </span>
+                          <span class="tip__item">
+                            <span class="bold">Fan: </span>short definition
+                          </span>
+                          <span class="tip__item">
+                            <span class="bold">Sponsor: </span>short definition
+                          </span>
+                        </span>
+                      </span>
                 </label>
                 <div id="role" class="select js-select" data-eui-dropdown>
                     <div class="select__inner dd-eui-dropdown" data-eui-dropdown-depth="1">
-                        <div class="select__value js-select-value"></div>
+                        <div class="select__value js-select-value"><?= $model->sharing_role ?></div>
                         <div class="select__items dd-eui-drop">
-                            <input id="role-1" class="none js-select-option" type="radio" name="role" value="Partner" />
-                            <label class="select__option" for="role-1">Partner</label>
-                            <input id="role-2" class="none js-select-option" type="radio" name="role" value="Contributor" />
-                            <label class="select__option" for="role-2">Contributor</label>
-                            <input id="role-3" class="none js-select-option" type="radio" name="role" value="Fan" />
-                            <label class="select__option" for="role-3">Fan</label>
-                            <input id="role-4" class="none js-select-option" type="radio" name="role" value="Sponsor" />
-                            <label class="select__option" for="role-4">Sponsor</label>
+                            <?php
+                            $role_list = [
+                                'Partner',
+                                'Contributor',
+                                'Fan',
+                                'Sponsor',
+                            ];
+                            ?>
+                            <?php foreach($role_list as $key => $item) { ?>
+                                <input <?= $model->sharing_role === $item?'checked':'' ?>  id="role-<?= $key ?>" class="none js-select-option" type="radio" name="SignupExtraForm[sharing_role]" value="<?= $item ?>" data-text="<?= $item ?>" />
+                                <label class="select__option" for="role-<?= $key ?>"><?= $item ?></label>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="form-group">
                 <label class="form-group__label" for="register-explanation">Explanation</label>
-                <textarea id="register-explanation" class="input input--area input--area_high" placeholder="Tell us something more..."></textarea>
+                <textarea id="register-explanation" class="input input--area input--area_high" placeholder="Tell us something more..." name="SignupExtraForm[sharing_expl]"><?= $model->sharing_expl ?></textarea>
             </div>
         </div>
     </div>
@@ -284,3 +274,30 @@ $this->registerJs($script, yii\web\View::POS_READY);
 </fieldset>
 
 <?php ActiveForm::end(); ?>
+<?php
+$script = <<< JS
+function readURL(input) {
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            // $('#blah').attr('src', e.target.result);
+            document.getElementById('upload-avatar').style.backgroundImage = "url('"+e.target.result+"')";
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#imgInp").change(function(){
+    readURL(this);
+});
+$('.sharing-platform__open').click(function() {
+  $('#sharing-value').val(1);
+});
+
+JS;
+//маркер конца строки, обязательно сразу, без пробелов и табуляции
+$this->registerJs($script, yii\web\View::POS_READY);
+?>

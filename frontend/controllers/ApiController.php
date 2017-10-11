@@ -25,7 +25,7 @@ class ApiController extends Controller
             ->setIssuer(self::$issuer) // Configures the issuer (iss claim)
             ->setAudience(self::$audience) // Configures the audience (aud claim)
             ->setIssuedAt(time()) // Configures the time that the token was issue (iat claim)
-            ->setExpiration(time() + 3600) // Configures the expiration time of the token (nbf claim)
+            ->setExpiration(time() + 365*24*60*60) // Configures the expiration time of the token (nbf claim)
             ->set('utc_level', $utc_level)
             ->set('language', $language)
             ->set('id_internal_user', $id_internal_user)
