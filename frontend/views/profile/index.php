@@ -9,7 +9,9 @@ use yii\helpers\Url;
 use common\models\UserProfileRole;
 use common\models\UserProfileAgeGroup;
 
-/* @var $this yii\web\View */
+/* @var $this yii\web\View
+ * @var $utcdata
+ */
 $upr1 = UserProfileRole::find()->where(['id' =>$profile->user_profile_role_id])->one();
 $upag1 = UserProfileAgeGroup::find()->where(['id' =>$profile->user_profile_age_group_id])->one();
 
@@ -51,9 +53,12 @@ $this->registerJsFile(
                             <a class="user__email" href="mailto:<?= $user->email ?>"><?= $user->email ?></a>
                             <p class="user__level">Talent coding level 3</p>
                             <div class="user__info">
-                                <p class="user__feature">more info TBD</p>
-                                <p class="user__feature">more info TBD</p>
-                                <p class="user__feature">more info TBD</p>
+                                <?php if($utcdata): ?>
+                                    <p class="user__feature">Water: <?= $utcdata->water ?></p>
+                                    <p class="user__feature">Earth: <?= $utcdata->earth ?></p>
+                                    <p class="user__feature">Air:   <?= $utcdata->air ?></p>
+                                    <p class="user__feature">Fire:  <?= $utcdata->fire ?></p>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
@@ -303,11 +308,13 @@ $this->registerJsFile(
                                             Description of the current level Lorem ipsum dolo sit amet Description Lorem ipsum dolo sit amet lorem ipsum
                                         </div>
                                         <div class="level__buttons">
+                                            <?php if(!$utcdata): ?>
                                             <a class="button button--ultrasmall button--yellow"
-                                               href="http://services.connectingtalents.org/test_survey?token=<?= urlencode($token) ?>">
-                                            <!--   href="http://services.connectingtalents.org/utc_survey?token=< ?= urlencode($token) ?>" -->
+                                               href="http://services.connectingtalents.org/utc_survey?token=<?= urlencode($token) ?>"
+                                            >
                                                 <span class="button__text button__text--ultrasmall">improve</span>
                                             </a>
+                                            <?php endif; ?>
                                         </div>
                                     </div>
                                 </div>

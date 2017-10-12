@@ -15,6 +15,7 @@ use yii\db\Query;
  * User model
  *
  * @property integer $id
+ * @property string $internal_user_id
  * @property string $username
  * @property string $surname
  * @property string $password_hash
@@ -123,7 +124,7 @@ class User extends Record implements IdentityInterface
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
             ['email', 'email'],
-            [['username', 'surname', 'role'], 'string'],
+            [['username', 'surname', 'role', 'internal_user_id'], 'string'],
             [['email'], 'unique'],
             [['email'], 'required'],
         ];
@@ -334,6 +335,17 @@ class User extends Record implements IdentityInterface
             ->from(self::tableName())
             ->where(['id' => $id])
             ->scalar();
-    }    
-    
+    }
+
+    /**
+     * Отношение для связи с таблицей для работы с BB API данными
+     * @return null|\yii\db\ActiveQuery
+     */
+    public function getUserapidata(){
+        //if (\Yii::$app->db->getTableSchema('user_api_data', true) !== NULL) {
+            return $this->hasOne(UserApiData::className(), ['id' => 'user_id']);
+        //} else {
+        //    return NULL;
+        //}
+    }
 }

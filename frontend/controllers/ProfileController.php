@@ -3,6 +3,7 @@
 namespace frontend\controllers;
 
 use common\models\User;
+use common\models\UserApiData;
 use common\models\UserProfile;
 use Yii;
 use yii\filters\AccessControl;
@@ -39,15 +40,21 @@ class ProfileController extends Controller
     {
         if(!Yii::$app->user->isGuest)
         {
-        $username=Yii::$app->user->identity->username;
-        $user_id=Yii::$app->user->id;
-        } 
-
+            $username=Yii::$app->user->identity->username;
+            $user_id=Yii::$app->user->id;
+        }
         else {$username=null;}
+
         $user = User::find()->where(['id' =>$user_id])->one();
         $profile = UserProfile::find()->where(['user_id' =>$user_id])->one();
-        $token = ApiController::getStartUtcSurveyToken(2, 'EN', $user_id, 'CANDIDATE_'.$user_id);
-        return $this->render('index',compact('username','user','profile', 'token'));
+        $token = ApiController::getStartUtcSurveyToken(2, 'EN', $user->internal_user_id, 'external_'.$user_id);
+
+        $utcdata = UserApiData::findOne(['user_id' => $user_id]);
+        if($utcdata){
+            $utcdata = json_decode(ApiController::getUTCData($utcdata->utc_id));
+        }
+
+        return $this->render('index',compact('username','user','profile', 'token', 'utcdata'));
     }
 }
 

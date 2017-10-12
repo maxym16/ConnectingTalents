@@ -60,19 +60,14 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        
-/*        if (!\Yii::$app->user->can('user_1')) { 
-            throw new \yii\web\ForbiddenHttpException('Access denied.'); 
-        }
-*/
         $this->layout = 'ct-main-layout';
 
-/*        if(!isset($_COOKIE['introduce'])){
+        if(!isset($_COOKIE['introduce'])){
             $time = time()+72*3600;
             $parse = parse_url(Url::to(['/']));
             setcookie("introduce", '1', $time, '/', $parse['host']);
         }
-*/
+
         return $this->render('index');
     }
 
@@ -98,9 +93,10 @@ class SiteController extends Controller
 
                     if ($user) {
                         Yii::$app->getUser()->login($user);
+                        /** TODO убрать на релизе после того как уберуться тестовые пользователи */
+ //                       $this->addInternalIdToRegisterUser($user);
                         // special redirect with closing popup window
                         return $eauth->redirect(['/', 'alert' => 'login']);
-
                     }
                 }
                 else {
@@ -124,11 +120,24 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            /** TODO убрать на релизе после того как уберуться тестовые пользователи */
+            $this->addInternalIdToRegisterUser(User::findOne([Yii::$app->user->id]));
             return $this->redirect(['/', 'alert' => 'login']);
         } else {
             return $this->render('login', [
                 'model' => $model,
             ]);
+        }
+    }
+
+    /**
+     * Временная функция для добавления internal_id пользователю
+     * @var User $user
+     */
+    public function addInternalIdToRegisterUser($user){
+        if($user->internal_user_id === ''){
+            $user->internal_user_id = md5($user->id.$user->password_hash.$user->auth_key.SignupForm::INTERNAL_ID_SOLT);
+            $user->save();
         }
     }
 

@@ -57,6 +57,7 @@ class SignupForm extends Model
 
     public $password;
 
+    const INTERNAL_ID_SOLT = '2f38c4a57c4487bb96d8faabbe936b14';
     /**
 
      * @inheritdoc
@@ -147,10 +148,13 @@ class SignupForm extends Model
 
         $user->generateAuthKey();
 
-        
+        if($user->save()){
+            $user->internal_user_id = md5($user->id.$user->password_hash.$user->auth_key.$this::INTERNAL_ID_SOLT);
+            $user->save();
+            return $user;
+        }
 
-        return $user->save() ? $user : null;
-
+        return null;
     }
 
 }

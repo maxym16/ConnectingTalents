@@ -119,7 +119,7 @@ return [
 
     'mailchimp' => [
         'class' => 'cinghie\mailchimp\Mailchimp',
-        'apiKey' => '291fa4192ac02ef53df9e9a9dcedc4af-us13',
+        'apiKey' => 'c247b7300c065b56da1fe2284a992943-us13',
         'showFirstname' => false,
         'showLastname' => false
     ]
