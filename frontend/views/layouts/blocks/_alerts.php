@@ -4,7 +4,7 @@ use yii\helpers\Url;
 <?php if(!isset($_COOKIE['accept-cookie'])): ?>
 <div class="cookie clearfix js-cookie-banner custom-alert">
     <div class="cookie__text">
-        <p>We have placed cookies on our computer to hel make this website better.</p>
+        <p>We have placed cookies on our computer to help make this website better.</p>
         <p>You can <a class="underline" href="#">change your cookie settings</a> at any time. Please, click on the button or scroll down to continue.</p>
     </div>
     <div class="cookie__buttons">
@@ -135,7 +135,7 @@ use yii\helpers\Url;
 $time = time()+72*3600;
 $path = parse_url(Url::to(['/']));
 
-$script_alert = '';/*<<< JS
+$script_alert ='';/* <<< JS
 $("#accept-cookie").click(function(){
     setCookie('accept-cookie', '1', {
         path: $path,

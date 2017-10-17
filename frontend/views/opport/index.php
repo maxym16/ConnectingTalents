@@ -33,15 +33,15 @@ $this->title = 'Connecting Talents | Opportunity';
             <div class="opportunity__bubbles-inner">
                 <button class="opportunity__bubble opportunity__bubble--big" type="button">
                     <span class="opportunity__bubble-count">110</span>
-                    <span class="opportunity__bubble-name">Design<br/ >Opportunities</span>
+                    <span class="opportunity__bubble-name">Design<br/>Opportunities</span>
                 </button>
                 <button class="opportunity__bubble opportunity__bubble--medium" type="button">
                     <span class="opportunity__bubble-count">56</span>
-                    <span class="opportunity__bubble-name">Business<br/ >Opportunities</span>
+                    <span class="opportunity__bubble-name">Business<br/>Opportunities</span>
                 </button>
                 <button class="opportunity__bubble opportunity__bubble--small" type="button">
                     <span class="opportunity__bubble-count">23</span>
-                    <span class="opportunity__bubble-name">Art and craft<br/ >Opportunities</span>
+                    <span class="opportunity__bubble-name">Art and craft<br/>Opportunities</span>
                 </button>
             </div>
         </div>
