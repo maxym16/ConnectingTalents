@@ -17,7 +17,7 @@ use yii\helpers\Url;
       <div class="intro__box">
         <img src="<?= Url::to('@web/assets/images/intro-slide-3.png') ?>" alt="" />
         <p class="intro__phrase intro__phrase--1">
-          Discover your<br />unique <span class="bold">Talent</span>
+          Discover your <span class="bold">Talent</span>
         </p>
       </div>
     </div>
@@ -25,7 +25,7 @@ use yii\helpers\Url;
       <div class="intro__box">
         <img src="<?= Url::to('@web/assets/images/intro-slide-4.png') ?>" alt="" />
         <p class="intro__phrase intro__phrase--2">
-          Cultivate your<br /><span class="bold">Passions</span>
+          Unlock your <span class="bold">POTENTIAL</span>
         </p>
       </div>
     </div>
@@ -33,7 +33,7 @@ use yii\helpers\Url;
       <div class="intro__box">
         <img src="<?= Url::to('@web/assets/images/intro-slide-5.png') ?>" alt="" />
         <p class="intro__phrase intro__phrase--3">
-          Invest in the right<br /><span class="bold">Skills</span>
+          Explore new <span class="bold">OPPORTUNITIES</span>
         </p>
       </div>
     </div>
@@ -41,7 +41,7 @@ use yii\helpers\Url;
       <div class="intro__box">
         <img src="<?= Url::to('@web/assets/images/intro-slide-6.png') ?>" alt="" />
         <p class="intro__phrase intro__phrase--4">
-          Find the right <span class="bold">Opportunity</span>
+          Turn your <span class="bold">TALENT</span> into <span class="bold">OPPORTUNITY</span>
         </p>
       </div>
     </div>
@@ -49,7 +49,7 @@ use yii\helpers\Url;
       <div class="intro__box">
         <img src="<?= Url::to('@web/assets/images/intro-slide-7.png') ?>" alt="" />
         <p class="intro__phrase intro__phrase--5">
-          <span class="bold">Connect</span> with<br />other Tallents
+          <span class="bold">Follow</span> your <span class="bold">PASSIONS</span>
         </p>
       </div>
     </div>

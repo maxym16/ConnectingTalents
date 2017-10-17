@@ -191,7 +191,7 @@ use yii\widgets\ActiveForm;
         <?php if(!$model->sharing): ?>
         <button class="sharing-platform__open" type="button" data-eui-bundle-id="sharing-platform" data-eui-bundle-action="toggle" data-eui-bundle data-eui-bundle-outside></button>
         <?php endif; ?>
-        <input type="hidden" id="sharing-value" name="SignupExtraForm[sharing]" value="<?= $model->sharing ?>">
+        <input type="hidden" id="sharing-value" name="SignupExtraForm[sharing]" value="<?= $model->sharing?:0 ?>">
         <div class="sharing-platform__inner <?= $model->sharing == 1?'bundle-eui-container--active':'' ?>" data-eui-bundle-outside>
             <div class="form-group">
                 <label class="form-group__label">Purpose</label>

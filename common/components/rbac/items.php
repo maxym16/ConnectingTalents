@@ -30,7 +30,7 @@ return [
         'children' => [
             'guest',
             'extra_registration',
-            'profile_view',
+            //'profile_view',
         ],
     ],
     'user_2' => [

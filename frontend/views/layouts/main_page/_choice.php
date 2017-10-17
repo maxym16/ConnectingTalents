@@ -5,12 +5,12 @@ use yii\helpers\Url;
     <div class="choice__item">
         <div class="choice__inner">
             <h2 class="choice__title">
-                I have a<br /><span class="text-yellow transition">Talent</span>
+                Discover your<br /><span class="text-yellow transition">Talent</span>
             </h2>
             <div class="choice__table">
                 <div class="choice__cell">
                     <div class="choice__desc">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed esse, voluptatum distinctio magni fugit.
+                        Find out what makes you energised at work: this is the key to your success. Understand the special contributions that you make within a team. Leverage your strengths by unlocking your Unique Talent Code.
                     </div>
                 </div>
                 <div class="choice__cell choice__cell--icon choice__cell--icon_right choice__cell--talent">
@@ -31,12 +31,12 @@ use yii\helpers\Url;
     <div class="choice__item">
         <div class="choice__inner">
             <h2 class="choice__title choice__title--right">
-                I have an<br /><span class="text-yellow transition">Opportunity</span>
+                Grow your<br /><span class="text-yellow transition">Opportunity</span>
             </h2>
             <div class="choice__table">
                 <div class="choice__cell">
                     <div class="choice__desc choice__desc--right">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed esse, voluptatum distinctio magni fugit.
+                        On our platform you can connect with our Talent network through our smart matching algorithm. Whether you are an Opportunity Owner or an Opportunity Seeker here you will find your best team.
                     </div>
                 </div>
                 <div class="choice__cell choice__cell--icon choice__cell--icon_left choice__cell--icon_small choice__cell--opportunity">

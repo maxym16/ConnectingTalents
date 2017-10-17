@@ -20,7 +20,7 @@ $this->title = 'Connecting Talents | Opportunity';
                 </h1>
                 <p class="opportunity__subtitle">Opportunity seeker</p>
                 <div class="opportunity__desc">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi. Catchy phrase: find your opportunity now!
+                    Finding great opportunities can feel like a maze. Our smart algorithm helps lead the way. It allows us to match your Unique Talent Code to Opportunities that fit you best. Creating communities of opportunity. Explore our platform to find yours.
                 </div>
                 <div class="opportunity__find">
                     <a class="button button--default button--white" href="#">
@@ -52,7 +52,7 @@ $this->title = 'Connecting Talents | Opportunity';
         <div class="owner__text">
             <h2 class="owner__title">Opportunity owner</h2>
             <div class="owner__desc">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut Catchy phrase: insert your opportunity now!
+                Good ideas die mainly because of loneliness. Finding the right people to grow your idea can be a nightmare. Our platform helps you find potential team members with the same goals. We will match your Opportunity with Talents that have the best mix of Drivers, Passions and Skills. No need to waste time in endless profile searches; we can identify the optimum team members based on your specific needs. Give your idea a chance to grow!
             </div>
             <div class="owner__button">
                 <a class="button button--default button--white" href="<?= Url::to(['/insert-opport']) ?>">
@@ -850,7 +850,7 @@ $this->title = 'Connecting Talents | Opportunity';
     <div class="driver__inner">
         <h2 class="driver__title">Why choose Connecting Talents?</h2>
         <div class="driver__desc">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.
+            We take a unique approach to help you grow your opportunities. It starts with finding that intricate composition of a winning team. By surrounding yourself with the right people and forming an environment that brings together a diverse mix of creative energies and practical skills you create the fertile grounds upon which you can grow....
         </div>
     </div>
 </div>
@@ -881,7 +881,7 @@ $this->title = 'Connecting Talents | Opportunity';
             </div>
             <h3 class="opportunities__title">Ideation</h3>
             <div class="opportunities__desc">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                Be inspired by comparing your ideas with those of other Talents like you
             </div>
         </div>
         <div class="opportunities__item opportunities__item--align_right">
@@ -900,7 +900,7 @@ $this->title = 'Connecting Talents | Opportunity';
             </div>
             <h3 class="opportunities__title">Collaboration</h3>
             <div class="opportunities__desc">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                Grow your collaboration skills by sharing your talents in a safe environment
             </div>
         </div>
         <div class="opportunities__item">
@@ -913,7 +913,7 @@ $this->title = 'Connecting Talents | Opportunity';
             </div>
             <h3 class="opportunities__title">Realization</h3>
             <div class="opportunities__desc">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                Realize your Opportunities with the support of your talent community and our dedicated mentors
             </div>
         </div>
     </div>

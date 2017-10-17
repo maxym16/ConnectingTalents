@@ -177,7 +177,7 @@ class SignupExtraController extends Controller
                     isset($post['effort'])?$post['effort']:'';
 
                 /** Sharing fields */
-                $model->sharing =
+                /*$model->sharing =
                     isset($post['sharing'])?$post['sharing']:'0';
                 if($model->sharing){
                     $model->sharing_role =
@@ -186,7 +186,7 @@ class SignupExtraController extends Controller
                         isset($post['sharing_purpose'])?$post['sharing_purpose']:'';
                     $model->sharing_expl =
                         isset($post['sharing_expl'])?$post['sharing_expl']:'';
-                }
+                }*/
                 /** end */
 
                 $file = UploadedFile::getInstance($model, 'file');
@@ -218,14 +218,12 @@ class SignupExtraController extends Controller
                 return $this->redirect(['/profile']);
             }
             else {
-                return $this->redirect(['/signup-extra/update', 'id' => $model->id]);
+                return $this->redirect(['/profile']);
             }
 
         }
         else {
-            return $this->render('update', [
-                'model' => $model, 'user' => $user,
-            ]);
+            return $this->redirect('/profile');
         }
         /** end */
     }

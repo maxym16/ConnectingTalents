@@ -34,6 +34,7 @@ class MyTeamsController extends Controller
      */
     public function actionIndex()
     {
+//        $this->layout = 'ct-main-layout';
         $dataProvider = new ActiveDataProvider([
             'query' => Team::find(),
         ]);

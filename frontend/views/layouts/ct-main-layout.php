@@ -3,6 +3,7 @@
 /* @var $content string */
 
 
+use common\models\UserProfile;
 use common\widgets\CTMenuWidget;
 use yii\helpers\Html;
 use frontend\assets\CTAsset;
@@ -21,9 +22,8 @@ CTAsset::register($this);
     <style>
         a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font:inherit;font-size:100%;vertical-align:baseline}html{line-height:1}ol,ul{list-style:none}table{border-collapse:collapse;border-spacing:0}caption,td,th{text-align:left;font-weight:400;vertical-align:middle}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:"";content:none}a img{border:none}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}button,input,optgroup,select,textarea{background:0 0;border:0;padding:0;margin:0;font:inherit;color:inherit;box-shadow:none}button{height:auto;cursor:pointer}button:focus{outline:0}button::-moz-focus-inner{outline:0;border:0;padding:0}
     </style>
-
     <?php $this->head() ?>
-    
+
     <script src='https://www.google.com/recaptcha/api.js'></script>
     
 </head>
@@ -68,13 +68,15 @@ CTAsset::register($this);
         </div>
         <div class="right">
             <?php if (Yii::$app->user->isGuest){ ?>
-                <a class="header__login" href="<?= Url::to(['/site/login']) ?>">Login</a>
+                <a class="header__login" >Welcome, Talent</a>
             <?php } ?>
             <?php if(Yii::$app->user->id && (common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_1' || common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_3')) { ?>
-                <a class="header__login">Hello <?= Yii::$app->user->identity->username ?></a>
+                <a class="header__login">Welcome, <?= Yii::$app->user->identity->username ?></a>
             <?php } ?>
-            <?php if(Yii::$app->user->id && (common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_2' || common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_3')) { ?>
-                <a class="header__login" href="<?= Url::to(['/profile']) ?>"><?= Yii::$app->user->identity->username ?></a>
+            <?php if(Yii::$app->user->id && (common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_2' || common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_3')) { 
+                $profile = UserProfile::findOne(['user_id'=>Yii::$app->user->id]);
+                ?>
+                <a class="header__login" href="<?= Url::to(['/profile']) ?>">Welcome, <?= $profile->nome ?></a>
             <?php } ?>
             <button class="nav-trigger" data-eui-bundle-id="nav" data-eui-bundle-action="toggle" data-eui-other-bundles="true" data-eui-bundle data-eui-bundle-outside>
                 <span class="nav-trigger__bottom-line"></span>
@@ -84,6 +86,8 @@ CTAsset::register($this);
             <?php
             $menuItems = [
                 ['label' => 'Help', 'url' => ['#']],
+                ['label' => 'About', 'url' => ['site/about']],
+                ['label' => 'Feedback', 'url' => ['site/feedback']],
                 ['label' => 'Community', 'url' => ['/community']],
             ];
             if (Yii::$app->user->isGuest) {
@@ -132,7 +136,7 @@ CTAsset::register($this);
             <div class="footer__address">
                 <!-- TODO заменить на динамику -->
                 <p>2nd Floor, Victory House 99-101</p>
-                <p>Regent Street London, UK W18 4EZ</p>
+                <p>Regent Street London, UK W1B 4EZ</p>
             </div>
         </div>
         <div class="right">

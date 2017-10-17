@@ -5,12 +5,15 @@
  * @package    lispa\amos\basic\template
  */
 //use yii\helpers\Html;
+use frontend\models\SignupExtraForm;
 use yii\helpers\Url;
 use common\models\UserProfileRole;
 use common\models\UserProfileAgeGroup;
 
 /* @var $this yii\web\View
  * @var $utcdata
+ * @var $model
+ * @var $talents
  */
 $upr1 = UserProfileRole::find()->where(['id' =>$profile->user_profile_role_id])->one();
 $upag1 = UserProfileAgeGroup::find()->where(['id' =>$profile->user_profile_age_group_id])->one();
@@ -24,6 +27,18 @@ $this->registerJsFile(
         'position' => \yii\web\View::POS_END
     ]
 );
+$this->registerJsFile('@web/assets/js/d3.js', [ 'position' => \yii\web\View::POS_BEGIN ] );
+$this->registerJsFile('@web/assets/js/radarChart.js', [ 'position' => \yii\web\View::POS_BEGIN ] );
+
+$this->registerCssFile('@web/assets/js/radarChart.js');
+
+$is_water = $is_earth = $is_air = $is_fire = false;
+if($utcdata){
+    $is_water = ($utcdata->water > $utcdata->earth) && ($utcdata->water > $utcdata->air) &&($utcdata->water > $utcdata->fire);
+    $is_earth = ($utcdata->earth > $utcdata->water) && ($utcdata->earth > $utcdata->air) &&($utcdata->earth > $utcdata->fire);
+    $is_air   = ($utcdata->air > $utcdata->water) && ($utcdata->air > $utcdata->earth) &&($utcdata->air > $utcdata->fire);
+    $is_fire   = ($utcdata->fire > $utcdata->water) && ($utcdata->fire > $utcdata->earth) &&($utcdata->fire > $utcdata->air);
+}
 
 ?>
 <div class="profile">
@@ -34,7 +49,7 @@ $this->registerJsFile(
                     <div class="user__section user__section--left">
                         <div class="user__text-info">
                             <p class="user__name"><?= $profile->nome ?> <?= $profile->cognome ?></p>
-                            <a class="edit-link edit-link--white" href="<?= Url::to(['/signup-extra/update?id='.$profile->id]) ?>">
+                            <a class="edit-link edit-link--white js-modal" href="#edit-profile">
                                 <span class="edit-link__text">edit</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="edit-link__icon icon icon--middle" width="16" height="16" viewBox="0 0 84 84" fill="currentColor">
                                     <path fill="none" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" d="M42,2c1.1,0,2.3,0.2,3.6,0.2c1.3,0.1,2.8,2.2,3.5,3.7c0.7,1.8,0.6,3.9,0.9,5.9c0.6,4.6,3.9,6.1,7.6,3.5
@@ -53,12 +68,12 @@ $this->registerJsFile(
                             <a class="user__email" href="mailto:<?= $user->email ?>"><?= $user->email ?></a>
                             <p class="user__level">Talent coding level 3</p>
                             <div class="user__info">
-                                <?php if($utcdata): ?>
-                                    <p class="user__feature">Water: <?= $utcdata->water ?></p>
-                                    <p class="user__feature">Earth: <?= $utcdata->earth ?></p>
-                                    <p class="user__feature">Air:   <?= $utcdata->air ?></p>
-                                    <p class="user__feature">Fire:  <?= $utcdata->fire ?></p>
-                                <?php endif; ?>
+                                <?php /*if($utcdata): */?><!--
+                                    <p class="user__feature">Water: <?/*= $utcdata->water */?></p>
+                                    <p class="user__feature">Earth: <?/*= $utcdata->earth */?></p>
+                                    <p class="user__feature">Air:   <?/*= $utcdata->air */?></p>
+                                    <p class="user__feature">Fire:  <?/*= $utcdata->fire */?></p>
+                                --><?php /*endif; */?>
                             </div>
                         </div>
                     </div>
@@ -84,12 +99,64 @@ $this->registerJsFile(
                             </svg>
                             <span class="user__title-text uppercase">Drivers</span>
                         </p>
-                        <div class="avatar">
+
+                        <div class="avatar" style="height:180px;width:267.25px">
+                            <?php if($utcdata): ?>
+                                <style>
+                                    .radar-chart .area {
+                                        fill-opacity: 0.9;
+                                    }
+                                    .radar-chart.focus .area {
+                                        fill-opacity: 0.6;
+                                    }
+                                    .radar-chart.focus .area.focused {
+                                        fill-opacity: 0.9;
+                                    }
+                                    .area.radar, .radar .circle {
+                                        fill: #f4c38d;
+                                        stroke: none;
+                                    }
+                                </style>
+                                <div class="chart-container" style="position: absolute;z-index: 11;margin-top: -3px;margin-left: 41px;"></div>
+                                <script>
+                                    RadarChart.defaultConfig.color = function() {};
+                                    RadarChart.defaultConfig.radius = 0;
+                                    RadarChart.defaultConfig.w = 186;
+                                    RadarChart.defaultConfig.h = 186;
+                                    RadarChart.defaultConfig.maxValue = 1.95;
+                                    RadarChart.defaultConfig.circles = false;
+                                    RadarChart.defaultConfig.axisLine = false;
+                                    RadarChart.defaultConfig.axisText = false;
+                                    RadarChart.defaultConfig.levels = false;
+                                </script>
+                                <script>
+                                    var data = [
+                                        {
+                                            className: 'radar', // optional can be used for styling
+                                            axes: [
+                                                {axis: "Earth", value: <?= $utcdata->earth + 0.99 ?>},
+                                                {axis: "1", value: 0.95},
+                                                {axis: "1", value: 0.95},
+                                                {axis: "Water", value: <?= $utcdata->water + 0.99 ?>},
+                                                {axis: "2", value: 0.95},
+                                                {axis: "2", value: 0.95},
+                                                {axis: "Air", value: <?= $utcdata->air+0.99 ?>},
+                                                {axis: "3", value: 0.95},
+                                                {axis: "3", value: 0.95},
+                                                {axis: "Fire", value: <?= $utcdata->fire +0.99?>},
+                                                {axis: "4", value: 0.95},
+                                                {axis: "4", value: 0.95},
+                                            ]
+                                        }
+                                    ];
+                                    RadarChart.draw(".chart-container", data);
+                                </script>
+                            <?php endif; ?>
                             <div class="avatar__inner">
-                                <div class="avatar__image bg-image" style="background-image: url('<?= Url::to($profile->image) ?>');"></div>
+                                <div class="avatar__image bg-image" style="z-index:12;background-image: url('<?= Url::to($profile->image) ?>');"></div>
                                 <span class="avatar__circles avatar__circles--1"></span>
                                 <span class="avatar__circles avatar__circles--2"></span>
-                        <span class="avatar__element avatar__element--position_top">
+                        <span class="avatar__element <?= $is_earth?'avatar__element--active':''; ?> avatar__element--position_top">
                           <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 99 99">
                             <circle fill-rule="evenodd" clip-rule="evenodd" fill="#F9C778" cx="49.5" cy="49.5" r="49.5"/>
                             <path fill="#FFFFFF" d="M77.5,46.8c-0.1-0.6-0.3-1.2-0.4-1.8c-0.3-1.3-0.5-2.7-1-4c-3.9-11-11.7-17.5-23.2-19.3
@@ -126,7 +193,7 @@ $this->registerJsFile(
                             <span class="bold">Earth: </span><span class="italic">a definition of driver features and related behaviours</span>
                           </span>
                         </span>
-                        <span class="avatar__element avatar__element--active avatar__element--position_right">
+                        <span class="avatar__element <?= $is_fire?'avatar__element--active':''; ?> avatar__element--position_right">
                           <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 99 99">
                             <circle fill-rule="evenodd" clip-rule="evenodd" fill="#F9C778" cx="49.5" cy="49.5" r="49.5"/>
                             <path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M74.3,50c-1-5.2-2.8-10.2-5.7-14.8c-1.3-2-3-3.6-4.7-5.5c0.2,1.6,0.4,3,0.5,4.4c0.2,2.1,0.2,4.3-0.6,6.3
@@ -153,7 +220,7 @@ $this->registerJsFile(
                             <span class="bold">Fire: </span><span class="italic">a definition of driver features and related behaviours</span>
                           </span>
                         </span>
-                        <span class="avatar__element avatar__element--position_bottom">
+                        <span class="avatar__element <?= $is_air?'avatar__element--active':''; ?> avatar__element--position_bottom">
                           <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 99 99">
                             <circle fill-rule="evenodd" clip-rule="evenodd" fill="#F9C778" cx="49.5" cy="49.5" r="49.5"/>
                             <path fill="#FFFFFF" d="M73.9,36.5c-2.7-0.6-5,0.1-6.8,2c-2.1,2.2-2.1,5.9-0.1,7.9c0.7,0.7,1.7,0.7,2.4,0.1c0.8-0.6,0.9-1.6,0.3-2.5
@@ -174,7 +241,7 @@ $this->registerJsFile(
                             <span class="bold">Air: </span><span class="italic">a definition of driver features and related behaviours</span>
                           </span>
                         </span>
-                        <span class="avatar__element avatar__element--position_left">
+                        <span class="avatar__element <?= $is_water?'avatar__element--active':''; ?> avatar__element--position_left">
                           <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 99 99">
                             <circle fill-rule="evenodd" clip-rule="evenodd" fill="#F9C778" cx="49.5" cy="49.5" r="49.5"/>
                             <path fill="#FFFFFF" d="M65.4,50.9c-1.4-2.5-3.1-4.8-4.8-7.1c-0.4-0.6-0.9-1.2-1.3-1.9l-0.3-0.4C57,38.8,55,36,53.4,32.9
@@ -310,7 +377,7 @@ $this->registerJsFile(
                                         <div class="level__buttons">
                                             <?php if(!$utcdata): ?>
                                             <a class="button button--ultrasmall button--yellow"
-                                               href="http://services.connectingtalents.org/utc_survey?token=<?= urlencode($token) ?>"
+                                               href="<?= $base_utc_url ?>"
                                             >
                                                 <span class="button__text button__text--ultrasmall">improve</span>
                                             </a>
@@ -413,11 +480,20 @@ $this->registerJsFile(
                         <button class="showcase__variant showcase__variant--opportunity" type="button">Opportunities</button>
                     </div>
                     <!-- Ширина состоит из суммы диаметров кругов -->
-                    <div class="showcase__controls" style="width: 232px;">
-                        <button class="showcase__control showcase__control--talent js-showcase-control" type="button" data-total="58" data-phrase="talents" data-count="Talents: 58" data-block=".js-circles-talents" style="width: 157px; height: 157px;">58</button>
-                        <button class="showcase__control showcase__control--opportunity js-showcase-control" type="button" data-total="7" data-phrase="opportunities" data-count="Opportunities: 7" data-block=".js-circles-opportunities" style="width: 75px; height: 75px;">7</button>
+                    <?php
+                        $talents_count = isset($talents['total'])?$talents['total']:0;
+                        $opportunity_count = 0;
+
+                        $max = $talents_count > $opportunity_count?$talents_count:$opportunity_count;
+
+                        $talents_size = 30+$talents_count*140/$max;
+                        $opportunity_size = 30+$opportunity_count*140/$max;
+                    ?>
+                    <div class="showcase__controls" style="width: <?= $talents_size+$opportunity_size+5 ?>px;">
+                        <button class="showcase__control showcase__control--talent js-showcase-control" type="button" data-total="<?= $talents_count ?>" data-phrase="talents" data-count="Talents: <?= $talents_count ?>" data-block=".js-circles-talents" style="width: <?= $talents_size ?>px; height: <?= $talents_size ?>px;"><?= $talents_count ?></button>
+                        <button class="showcase__control showcase__control--opportunity js-showcase-control" type="button" data-total="<?= $opportunity_count ?>" data-phrase="opportunities" data-count="Opportunities: <?= $opportunity_count ?>" data-block=".js-circles-opportunities" style="width: <?= $opportunity_size ?>px; height: <?= $opportunity_size ?>px;"><?= $opportunity_count ?></button>
                     </div>
-                    <div class="showcase__count js-showcase-count">Talents: 58</div>
+                    <div class="showcase__count js-showcase-count">Talents: <?= $talents_count ?></div>
                     <div class="showcase__desc js-showcase-desc">total number of <span class="js-showcase-phrase">talents</span> in the platform</div>
                     <div class="showcase__informer js-showcase-informer">Go ovet the bubbles to discover more</div>
                     <div class="circles js-circles js-circles-talents none">
@@ -425,27 +501,27 @@ $this->registerJsFile(
                         <table class="circles__table">
                             <tbody class="circles__body">
                             <tr class="circles__row">
-                                <td class="circles__cell">
+                                <?php
+                                    $talents_age_group = isset($talents['age_group'])?$talents['age_group']:[];
+                                    $age_ids = SignupExtraForm::ageGroup();
+                                    $max_child = 0;
+                                    foreach ($talents_age_group as $item){
+                                        $max_child = $max_child < $item?$item:$max_child;
+                                    }
+                                ?>
+                                <?php foreach ($age_ids as $key => $item): ?>
+                                    <?php if(isset($talents_age_group[$key])):
+                                        $size = 10+$talents_age_group[$key]*41/$max_child;
+                                        ?>
+                                <td class="circles__cell" style="width: auto !important;">
                                     <div class="circles__container" style="height: 61px;line-height: 61px;">
-                                        <div class="circles__item circles__item--cherry" style="width: 46px;height: 46px; opacity: 0.75;"></div>
+                                        <div class="circles__item circles__item--cherry" style="width: <?= $size ?>px;height: <?= $size ?>px; opacity: 0.<?= rand(35, 99) ?>;"></div>
                                     </div>
-                                    <p class="circles__age">15-25</p>
-                                    <p class="circles__count">(19)</p>
+                                    <p class="circles__age"><?= $item ?></p>
+                                    <p class="circles__count">(<?= $talents_age_group[$key] ?>)</p>
                                 </td>
-                                <td class="circles__cell">
-                                    <div class="circles__container" style="height: 61px;line-height: 61px;">
-                                        <div class="circles__item circles__item--cherry" style="width: 61px;height: 61px;"></div>
-                                    </div>
-                                    <p class="circles__age">26-55</p>
-                                    <p class="circles__count">(30)</p>
-                                </td>
-                                <td class="circles__cell">
-                                    <div class="circles__container" style="height: 61px;line-height: 61px;">
-                                        <div class="circles__item circles__item--cherry" style="width: 35px;height: 35px; opacity: 0.5;"></div>
-                                    </div>
-                                    <p class="circles__age">55+</p>
-                                    <p class="circles__count">(9)</p>
-                                </td>
+                                        <?php endif; ?>
+                                <?php endforeach; ?>
                             </tr>
                             </tbody>
                         </table>
@@ -898,3 +974,4 @@ $this->registerJsFile(
         </div>
     </div>
 </div>
+<?= $this->render('_form', ['model' => $model, 'user' => $user]) ?>

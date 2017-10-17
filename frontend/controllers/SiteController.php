@@ -7,6 +7,7 @@ use common\models\User;
 use common\models\UserProfile;
 use common\models\UserSocial;
 use frontend\models\ContactForm;
+use frontend\models\FeedbackForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
@@ -61,13 +62,13 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $this->layout = 'ct-main-layout';
-
+/*
         if(!isset($_COOKIE['introduce'])){
             $time = time()+72*3600;
             $parse = parse_url(Url::to(['/']));
             setcookie("introduce", '1', $time, '/', $parse['host']);
         }
-
+*/
         return $this->render('index');
     }
 
@@ -94,7 +95,7 @@ class SiteController extends Controller
                     if ($user) {
                         Yii::$app->getUser()->login($user);
                         /** TODO убрать на релизе после того как уберуться тестовые пользователи */
- //                       $this->addInternalIdToRegisterUser($user);
+                        $this->addInternalIdToRegisterUser($user);
                         // special redirect with closing popup window
                         return $eauth->redirect(['/', 'alert' => 'login']);
                     }
@@ -227,6 +228,7 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
+        $this->layout = 'ct-main-layout';
         return $this->render('about');
     }
 
@@ -276,7 +278,7 @@ class SiteController extends Controller
                 ->send();
                 
                 if (Yii::$app->getUser()->login($user)) {
-                    return $this->redirect(['/profile', 'alert' => 'register']);
+                    return $this->redirect(['/', 'alert' => 'register']);
                 }
             }
         }
@@ -380,5 +382,24 @@ class SiteController extends Controller
     public function actionPrivacy(){
         $this->layout = 'ct-main-layout';
         return $this->render('privacy');
+    }
+    /**
+     * Feedback policy page
+     * @return string
+     */
+    public function actionFeedback(){
+        $this->layout = 'ct-main-layout';
+
+        $model = new FeedbackForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            if ($model->sendEmail()) {
+                $model->clear();
+                Yii::$app->session->setFlash('feedback_ok', 'Mail sending is success.');
+            } else {
+                Yii::$app->session->setFlash('feedback_error', 'Sorry, mail sending is failed.');
+            }
+        }
+
+        return $this->render('feedback', compact('model'));
     }
 }

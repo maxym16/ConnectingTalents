@@ -18,9 +18,12 @@ $this->title = 'Connecting Talents | Talent';
         <div class="talent__wrap">
             <div class="talent__intro">
                 <div class="talent__text">
-                    <h1 class="talent__title">Discover your title</h1>
+                    <h1 class="talent__title">Discover your talents</h1>
                     <div class="talent__desc">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.
+                        You are a Talent. You might have difficulty defining what that means. You probably  have heard people around you use the concept of talent.
+
+                        We believe Talent is that mix of inner strenths that makes us unique. It is not just about your capabilities and degrees;  it is about what drives you and it clearly shows in your passions.
+
                     </div>
                     <div class="talent__register">
                         <?php if (Yii::$app->user->isGuest) { ?>
@@ -97,7 +100,7 @@ $this->title = 'Connecting Talents | Talent';
     <div class="driver__inner">
         <h2 class="driver__title">Which is your Driver</h2>
         <div class="driver__desc">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.
+            Your driver relates to the innermost source of motivation.  It shows in those things you do most naturally, that give you a profound satisfaction.
         </div>
     </div>
 </div>

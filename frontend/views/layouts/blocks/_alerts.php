@@ -78,10 +78,48 @@ use yii\helpers\Url;
         </div>
     </div>
 <?php endif; ?>
+<?php if(isset($_GET['alert']) && ( $_GET['alert'] == 'basic_utc_failed' || $_GET['alert'] == 'basic_utc_success' )): ?>
+    <div class="cookie clearfix js-cookie-banner custom-alert">
+        <div class="cookie__text">
+            <?php if( $_GET['alert'] == 'basic_utc_success'): ?>
+                <p>Basic UTC is been successful</p>
+            <?php endif; ?>
+            <?php if( $_GET['alert'] == 'basic_utc_failed'): ?>
+                <p>Basic UTC is been failed</p>
+            <?php endif; ?>
+        </div>
+        <div class="cookie__buttons">
+            <div class="cookie__button">
+                <button class="custom-alert-button button button--small button--flat button--yellow" type="button">
+                    <span class="button__text button__text--small">close</span>
+                </button>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
 <?php if(isset($_GET['alert']) && $_GET['alert'] === 'change_password'): ?>
     <div class="cookie clearfix js-cookie-banner custom-alert">
         <div class="cookie__text">
             <p>Password has been reset successfully</p>
+        </div>
+        <div class="cookie__buttons">
+            <div class="cookie__button">
+                <button class="custom-alert-button button button--small button--flat button--yellow" type="button">
+                    <span class="button__text button__text--small">close</span>
+                </button>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+<?php if(Yii::$app->session->getFlash('feedback_error') || Yii::$app->session->getFlash('feedback_ok')): ?>
+    <div class="cookie clearfix js-cookie-banner custom-alert">
+        <div class="cookie__text">
+            <p>
+                <?php
+                    echo Yii::$app->session->getFlash('feedback_ok')?:'';
+                    echo Yii::$app->session->getFlash('feedback_error')?:'';
+                ?>
+            </p>
         </div>
         <div class="cookie__buttons">
             <div class="cookie__button">

@@ -39,8 +39,8 @@ class ApiController extends Controller
             )
             {
                 $user = User::findOne(['internal_user_id'=>$internal_user_id, 'status' => User::STATUS_ACTIVE]);
-                $api_data = UserApiData::findOne(['uder_id'=>$user->id]);
-                if($user && !$api_data){
+//                $api_data = UserApiData::findOne(['uder_id'=>$user->id]);
+                if($user){
                     $model = new UserApiData();
                     $model->candidate_id = $candidate_id;
                     $model->survey_id = $survey_id;
@@ -113,6 +113,16 @@ class ApiController extends Controller
      * Function get user utc data
      */
     public static function getUTCData($utc_id){
+
+//        return Yii::$app->cache->getOrSet('utc'.$utc_id,function () use ($utc_id){
+//            return self::getApiData(
+//                'GET',
+//                self::getApiPath(self::API_METHOD_UTC).'/'.$utc_id
+//            );
+//        }, 600);
+
+
+
         return self::getApiData(
             'GET',
             self::getApiPath(self::API_METHOD_UTC).'/'.$utc_id
