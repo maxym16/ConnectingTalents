@@ -49,7 +49,7 @@ class FeedbackForm extends Model
         return Yii::$app->mailer->compose(['text' => $template], ['model'=>$this])
             ->setFrom([Yii::$app->params['supportEmail']=>$this->email])
             ->setTo(Yii::$app->params[$email])
-            ->setSubject($subject . Yii::$app->params['myAplication'])
+            ->setSubject($subject . Yii::$app->params['myApplication'])
             ->send();
     }
 

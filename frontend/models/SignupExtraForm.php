@@ -154,6 +154,7 @@ class SignupExtraForm extends ActiveRecord
             'presentazione_breve' => 'Remote work',
 
             'presentazione_personale' => 'Effort',
+            'email_pec' => 'Email / Pec'
 
         ];
 
@@ -240,7 +241,7 @@ class SignupExtraForm extends ActiveRecord
         return Yii::$app->mailer->compose(['text' => 'userExtraRegister-text'],['user' => $user])
             ->setFrom([Yii::$app->params['supportEmail']=>Yii::$app->params['adminEmail']])
             ->setTo($user->email)
-            ->setSubject('From Connecting Talents ' . Yii::$app->params['myAplication'])
+            ->setSubject('From Connecting Talents ' . Yii::$app->params['myApplication'])
             ->send();
     }
 }

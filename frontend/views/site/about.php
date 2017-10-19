@@ -1,40 +1,8 @@
 <?php
-
-
-
-/**
-
- * Lombardia Informatica S.p.A.
-
- * OPEN 2.0
-
- *
-
- * @see http://example.com Developers'community
-
- * @license GPLv3
-
- * @license https://opensource.org/licenses/gpl-3.0.html GNU General Public License version 3
-
- *
-
- * @package    lispa\amos\basic\template
-
- * @category   CategoryName
-
- * @author     Lombardia Informatica S.p.A.
-
- */
-
-
-
 /* @var $this yii\web\View */
 
-
-
 use yii\helpers\Html;
-
-
+use yii\helpers\Url;
 
 $this->title = 'About';
 
@@ -66,108 +34,68 @@ $this->registerJsFile(
         <h2 class="about-text__title">Team</h2>
         <h3 class="about-text__subtitle">Our team turns diversity into reality</h3>
         <div class="about-text__desc about-text__desc--weight_light">
-            Reshape the text of this section without bullets. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+            Our team has a rich variety of backgrounds in terms of culture and education. We have different professional paths and cumulate over 100 years of diverse work experience. Our focus today is Europe, but tomorrow…
         </div>
     </div>
 </div>
 <div class="team-members">
     <div class="team-members__inner">
+        <?php
+            $members = [
+                [
+                    'img' => 'linda.jpg',
+                    'name' => 'Linda van Andel',
+                    'position' => 'team builder',
+                    'linkedin' => 'http://it.linkedin.com/in/linda-van-andel-71821a',
+                    'description' => 'I have a passion for connecting ideas and people. This mix of interests has fostered my curiosity for the new, for the different, for the unusual. My European background has given me the wings to explore many different jobs in different places. This way I now have a broad base of experience and skills, some very business, but mostly related to the behaviour of people in teams.'
+                ],
+                [
+                    'img' => 'dario.jpg',
+                    'name' => 'Dario Montebugnoli',
+                    'position' => 'opportunity builder',
+                    'linkedin' => 'http://it.linkedin.com/in/dariomontebugnolihttp://it.linkedin.com/in/dariomontebugnoli',
+                    'description' => 'I am continuously expanding my horizons. I started my professional roadmap with a passion in Chemistry, then moved from the lab to large corporation with a significant intermezzo at a large consulting firm.  I like to use my scientific skills and business acumen to invent new opportunities. This way I can act as a catalyst for opportunities by mixing and matching my knowledge'
+                ],
+                [
+                    'img' => 'femke.jpg',
+                    'name' => 'Femke Ohn',
+                    'position' => 'talent architect',
+                    'linkedin' => 'http://nl.linkedin.com/in/femkeohm',
+                    'description' => 'As a social psychologist, my biggest passions are Talent development and group dynamics in teams. I have been working since 1999 as a trainer for different organizations and I have identified the key factors for successful collaboration in teams. Guiding people to become self aware and grow their Talent is exactly what makes me happy.'
+                ],
+                [
+                    'img' => 'jonathan.jpg',
+                    'name' => 'Jonathan Ambrogi',
+                    'position' => 'multiculture talent',
+                    'linkedin' => 'http://www.connectingtalents.org/#',
+                    'description' => 'I am interested in internationalization and multiculturality. I am a motivated travelling University student, I love the exposure to different languages and cultures and I am passionate about personal Talent growth in a multinational context. Today I am also exploring South Amerca’s talents.'
+                ],
+                [
+                    'img' => 'stephen.jpg',
+                    'name' => 'Stephen Welch',
+                    'position' => 'communication talent',
+                    'linkedin' => 'https://www.linkedin.com/in/stephenwelch11',
+                    'description' => 'I love seeing people grow and develop new Talents they didn’t know they had, especially when they access new opportunities as a result. I work in the liminal space between HR and Communications, helping individuals and companies get their message across in a compelling way.  I like seeking out new challenges and new experiences, and to take a chance.'
+                ],
+            ];
+        ?>
+        <?php foreach($members as $member): ?>
         <div class="team-member">
             <div class="team-member__inner">
-                <div class="team-member__ava bg-image" style="background-image: url('./tmp_images/avatar.jpg');"></div>
+                <div class="team-member__ava bg-image" style="background-image: url(<?= Url::to('@web/assets/images/'.$member['img']) ?>);"></div>
                 <div class="team-member__info">
-                    <p class="team-member__name">Name Surname</p>
-                    <p class="team-member__post">(senior partner)</p>
-                    <div class="team-member__desc">
-                        Lorem ipsum dolo sit amet Description Lorem ipsum dolo sit amet lorem Lorem ipsum dolo sit amet Description Lorem ipsum dolo sit amet lorem
-                    </div>
+                    <p class="team-member__name"><?= $member['name'] ?></p>
+                    <p class="team-member__post">(<?= $member['position'] ?>)</p>
+                    <p class="team-member__name">
+                        <a href="<?= $member['linkedin'] ?>">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                    </p>
+                    <div class="team-member__desc"><?= $member['description'] ?></div>
                 </div>
             </div>
         </div>
-        <div class="team-member">
-            <div class="team-member__inner">
-                <div class="team-member__ava bg-image" style="background-image: url('./tmp_images/avatar.jpg');"></div>
-                <div class="team-member__info">
-                    <p class="team-member__name">Name Surname</p>
-                    <p class="team-member__post">(senior partner)</p>
-                    <div class="team-member__desc">
-                        Lorem ipsum dolo sit amet Description Lorem ipsum dolo sit amet lorem Lorem ipsum dolo sit amet Description Lorem ipsum dolo sit amet lorem
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="team-member">
-            <div class="team-member__inner">
-                <div class="team-member__ava bg-image" style="background-image: url('./tmp_images/avatar.jpg');"></div>
-                <div class="team-member__info">
-                    <p class="team-member__name">Name Surname</p>
-                    <p class="team-member__post">(senior partner)</p>
-                    <div class="team-member__desc">
-                        Lorem ipsum dolo sit amet Description Lorem ipsum dolo sit amet lorem Lorem ipsum dolo sit amet Description Lorem ipsum dolo sit amet lorem
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="team-member">
-            <div class="team-member__inner">
-                <div class="team-member__ava bg-image" style="background-image: url('./tmp_images/avatar.jpg');"></div>
-                <div class="team-member__info">
-                    <p class="team-member__name">Name Surname</p>
-                    <p class="team-member__post">(senior partner)</p>
-                    <div class="team-member__desc">
-                        Lorem ipsum dolo sit amet Description Lorem ipsum dolo sit amet lorem Lorem ipsum dolo sit amet Description Lorem ipsum dolo sit amet lorem
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="team-member">
-            <div class="team-member__inner">
-                <div class="team-member__ava bg-image" style="background-image: url('./tmp_images/avatar.jpg');"></div>
-                <div class="team-member__info">
-                    <p class="team-member__name">Name Surname</p>
-                    <p class="team-member__post">(senior partner)</p>
-                    <div class="team-member__desc">
-                        Lorem ipsum dolo sit amet Description Lorem ipsum dolo sit amet lorem Lorem ipsum dolo sit amet Description Lorem ipsum dolo sit amet lorem
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="team-member">
-            <div class="team-member__inner">
-                <div class="team-member__ava bg-image" style="background-image: url('./tmp_images/avatar.jpg');"></div>
-                <div class="team-member__info">
-                    <p class="team-member__name">Name Surname</p>
-                    <p class="team-member__post">(senior partner)</p>
-                    <div class="team-member__desc">
-                        Lorem ipsum dolo sit amet Description Lorem ipsum dolo sit amet lorem Lorem ipsum dolo sit amet Description Lorem ipsum dolo sit amet lorem
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="team-member">
-            <div class="team-member__inner">
-                <div class="team-member__ava bg-image" style="background-image: url('./tmp_images/avatar.jpg');"></div>
-                <div class="team-member__info">
-                    <p class="team-member__name">Name Surname</p>
-                    <p class="team-member__post">(senior partner)</p>
-                    <div class="team-member__desc">
-                        Lorem ipsum dolo sit amet Description Lorem ipsum dolo sit amet lorem Lorem ipsum dolo sit amet Description Lorem ipsum dolo sit amet lorem
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="team-member">
-            <div class="team-member__inner">
-                <div class="team-member__ava bg-image" style="background-image: url('./tmp_images/avatar.jpg');"></div>
-                <div class="team-member__info">
-                    <p class="team-member__name">Name Surname</p>
-                    <p class="team-member__post">(senior partner)</p>
-                    <div class="team-member__desc">
-                        Lorem ipsum dolo sit amet Description Lorem ipsum dolo sit amet lorem Lorem ipsum dolo sit amet Description Lorem ipsum dolo sit amet lorem
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php endforeach; ?>
     </div>
 </div>
 <div class="members">

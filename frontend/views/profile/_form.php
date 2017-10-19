@@ -14,7 +14,8 @@ use yii\widgets\ActiveForm;
                     <div class="edit__col">
                         <div class="form-group">
                             <?= Html::activeLabel($model, 'nome',['class'=>'form-group__label', 'value' => 'Name*']); ?>
-                            <?= Html::activeTextInput($model, 'nome', ['class'=>'input', 'placeholder' => 'Click to insert text']); ?>
+                            <?php $username = $model->nome?:$user->username; ?>
+                            <?= Html::activeTextInput($model, 'nome', ['class'=>'input', 'value'=>$username, 'placeholder' => 'Click to insert text']); ?>
                             <?= Html::error($model, 'nome'); ?>
                         </div>
                         <div class="form-group">

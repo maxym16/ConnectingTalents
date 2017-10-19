@@ -16,8 +16,8 @@ $this->registerJsFile(
     <div id="feedback-tabs" class="feedback__inner" data-eui-tabs>
         <p class="feedback__title">Got a feedback?</p>
         <div class="feedback__nav">
-            <button class="feedback__nav-item t-eui-tab-nav-item t-eui-tab-nav-item--active" type="button" data-eui-tab="1">Add a new idea</button>
-            <button class="feedback__nav-item t-eui-tab-nav-item" type="button" data-eui-tab="2">Report a bug</button>
+            <button class="feedback__nav-item t-eui-tab-nav-item t-eui-tab-nav-item--active" type="button" data-eui-tab="1">Share your questions and ideas</button>
+            <button class="feedback__nav-item t-eui-tab-nav-item" type="button" data-eui-tab="2">Tell us what you (don’t) like</button>
         </div>
         <div class="feedback__content">
             <div class="feedback__tab t-eui-tab-item t-eui-tab-item--active" data-eui-tab="1">
@@ -29,7 +29,7 @@ $this->registerJsFile(
                                 <?= Html::activeTextInput($model, 'title', ['id'=>'feedback-idea-title', 'class'=>'input', 'placeholder' => 'Click to insert text']); ?>
                             </div>
                             <div class="form-group">
-                                <label class="form-group__title" for="feedback-idea">Description of the idea</label>
+                                <label class="form-group__title" for="feedback-idea">Description</label>
                                 <?= Html::activeTextarea($model, 'description', ['id'=>'feedback-idea', 'class'=>'input input--area', 'placeholder' => 'Click to insert text']); ?>
                             </div>
                             <div class="form-group form-group--last">
@@ -50,10 +50,11 @@ $this->registerJsFile(
                 <div class="feedback__notice">
                     <p class="feedback__notice-title">Add a new idea</p>
                     <p class="feedback__notice-sentence">
-                        We would like to get your ideas on how our website should be improved. Tell us about new features we should consider or how we can improve existing features.
+                        Did you visit our website and still have questions? Thank you for telling us where we can improve our clarity. This can also trigger new ideas.
+                        Feel free to share! We may get in touch with questions.
                     </p>
                     <p class="feedback__notice-sentence">
-                        Best regards: ConnectingTalents.com
+                        Help us improve your experience with Connecting Talents.
                     </p>
                 </div>
             </div>
@@ -66,7 +67,7 @@ $this->registerJsFile(
                                 <?= Html::activeTextInput($model, 'title', ['id'=>'feedback-problem-title', 'class'=>'input', 'placeholder' => 'Click to insert text']); ?>
                             </div>
                             <div class="form-group">
-                                <label class="form-group__title" for="feedback-problem">Description of the problem</label>
+                                <label class="form-group__title" for="feedback-problem">Description</label>
                                 <?= Html::activeTextarea($model, 'description', ['id'=>'feedback-problem', 'class'=>'input input--area', 'placeholder' => 'Click to insert text']); ?>
                             </div>
                             <div class="form-group form-group--last">
@@ -87,10 +88,10 @@ $this->registerJsFile(
                 <div class="feedback__notice">
                     <p class="feedback__notice-title">Waht is the problem?</p>
                     <p class="feedback__notice-sentence">
-                        Describe what happen to you, what you didn’t understand.
+                        Tell us what you like and/or what you would like to have differently. We love critical thinkers and all contributions are welcome. We may get in touh with you in case we need clarifications.
                     </p>
                     <p class="feedback__notice-sentence">
-                        Help us to improve your experience with Connecting Talents!
+                        Help us improve your experience with Connecting Talents.
                     </p>
                 </div>
             </div>

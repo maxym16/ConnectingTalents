@@ -122,7 +122,7 @@ class SignupExtraController extends Controller
 
                 /** Update user table data */
                 $user->role='user_2';
-//                $user->username=$model->nome;
+                $user->username=$model->nome;
                 $user->surname=$model->cognome;
                 $user->email=$model->email_pec;
                 $user->update();
@@ -207,7 +207,7 @@ class SignupExtraController extends Controller
                 $model->update();
 
                 /** Update user table data */
-//                $user->username = $model->nome;
+                $user->username = $model->nome;
                 $user->surname = $model->cognome;
                 $user->email = $model->email_pec;
                 $user->update();

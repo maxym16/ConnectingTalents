@@ -28,11 +28,16 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
             <fieldset class="form">
                 <div class="form-group">
-                    <?= Html::activeLabel($model, 'username',['class'=>'form-group__title', 'value'=>'ssss']); ?>
-                    <?= Html::activeTextInput($model, 'username', ['class'=>'form-field']); ?>
-                    <?= Html::error($model, 'username', ['class'=>'validation-notice']); ?>
+                    <?= Html::activeLabel($model, 'email',['class'=>'form-group__title']); ?>
+                    <?= Html::activeInput('email' ,$model, 'email', ['class'=>'form-field']); ?>
+                    <?= Html::error($model, 'email', ['class'=>'validation-notice', 'encode' => false]); ?>
                 </div>
-                <div class="form-group">
+<!--                <div class="form-group">
+                    < ?= Html::activeLabel($model, 'username',['class'=>'form-group__title', 'value'=>'ssss']); ?>
+                    < ?= Html::activeTextInput($model, 'username', ['class'=>'form-field']); ?>
+                    < ?= Html::error($model, 'username', ['class'=>'validation-notice']); ?>
+                </div>
+-->                <div class="form-group">
                     <?= Html::activeLabel($model, 'password',['class'=>'form-group__title']); ?>
                     <?= Html::activeInput('password' ,$model, 'password', ['class'=>'form-field']); ?>
                     <?= Html::error($model, 'password', ['class'=>'validation-notice']); ?>
@@ -45,8 +50,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     < ?php if(isset($_POST['g-recaptcha-response']) && $_POST['g-recaptcha-response'] == ''): ?>
                         <div class="validation-notice">Captcha error</div>
                     < ?php endif; ?>
-                </div>
--->                <div class="form__table">
+                </div>-->
+                <div class="form__table">
                     <div class="form__cell">
                         <button class="form__button" type="submit">Join now</button>
                     </div>

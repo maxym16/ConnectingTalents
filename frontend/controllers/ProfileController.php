@@ -60,18 +60,31 @@ class ProfileController extends Controller
         if($utcdata){
             //print_r(Yii::$app->cache->get('utc'.$utcdata->utc_id)); die;
             $utcdata = json_decode(ApiController::getUTCData($utcdata->utc_id));
-
-            
         }
 
         /** token for basic utc url */
         $token = ApiController::getStartUtcSurveyToken(2, 'EN', $user->internal_user_id, 'external_'.$user_id);
-        $base_utc_url = 'http://services.connectingtalents.org/test_survey?token='.urlencode($token);
+        $base_utc_url = 'http://services.connectingtalents.org/utc_survey?token='.urlencode($token);
 
         /** Oportunities platform data  */
         $talents = PlatformDataController::getTalents();
 
-        return $this->render('index',compact('username','user','profile', 'base_utc_url', 'utcdata', 'model', 'talents'));
+        $talent_coding_level = 2;
+
+        if($user->role == 'user_2' && $utcdata) $talent_coding_level = 3;
+
+        return $this->render('index',
+            compact(
+                'username',
+                'user',
+                'profile',
+                'base_utc_url',
+                'utcdata',
+                'model',
+                'talents',
+                'talent_coding_level'
+            )
+        );
     }
 }
 

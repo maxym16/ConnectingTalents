@@ -5,9 +5,11 @@ return [
     'adminEmail' => 'kerry@connectingtalents.org',
     'supportEmail' => 'forever7@foreveridentity.com',
 
-    'feedbackEmail' => 'rudenko.programmer@gmail.com',
+    'feedbackEmail' => 'kerry@connectingtalents.org',
     'bugEmail'      => 'rudenko.programmer@gmail.com',
-
+    
+    'myApplication' => 'Connecting Talents',
+    
     'user.passwordResetTokenExpire' => 86400,
     'loginTimeout' => 3600 * 3, //3 Hours
     'ctblog' => array(

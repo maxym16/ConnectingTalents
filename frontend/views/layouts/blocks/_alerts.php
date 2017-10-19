@@ -135,11 +135,11 @@ use yii\helpers\Url;
 $time = time()+72*3600;
 $path = parse_url(Url::to(['/']));
 
-$script_alert ='';/* <<< JS
+$script_alert = <<< JS
 $("#accept-cookie").click(function(){
-    setCookie('accept-cookie', '1', {
-        path: $path,
-        time: $time
+    $.cookie('accept-cookie', '1', {
+        path: '/',
+        expires: $time
     });
     $('.js-scroll-cookie').click();
     
@@ -147,19 +147,22 @@ $("#accept-cookie").click(function(){
 $(".custom-alert").click(function() {
   $(".custom-alert").hide();
 });
+
 $(window).scroll(function(){
-    if ( $("html").scrollTop() > 70 ){
+    if ( $(this).scrollTop() > 50 ){
         $(".custom-alert").hide();
         if($('*').is('#accept-cookie')) {
-            setCookie('accept-cookie', '1', {
-                path: $path,
-                time: $time
-            });
+            $.cookie('accept-cookie', '1', {
+                path: '/',
+                expires: $time
+            })
         }
     }
 })
 
-JS;*/
+JS;
 //маркер конца строки, обязательно сразу, без пробелов и табуляции
-$this->registerJs($script_alert, yii\web\View::POS_READY);
+$this->registerJsFile('@web/assets/js/jquery.js', ['position' => \yii\web\View::POS_END ]);
+$this->registerJsFile('@web/assets/js/jquery.cookie.js', ['position' => \yii\web\View::POS_END ]);
+$this->registerJs($script_alert, yii\web\View::POS_END);
 ?>

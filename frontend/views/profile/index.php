@@ -14,6 +14,7 @@ use common\models\UserProfileAgeGroup;
  * @var $utcdata
  * @var $model
  * @var $talents
+ * @var $talent_coding_level
  */
 $upr1 = UserProfileRole::find()->where(['id' =>$profile->user_profile_role_id])->one();
 $upag1 = UserProfileAgeGroup::find()->where(['id' =>$profile->user_profile_age_group_id])->one();
@@ -66,7 +67,7 @@ if($utcdata){
                                 </svg>
                             </a>
                             <a class="user__email" href="mailto:<?= $user->email ?>"><?= $user->email ?></a>
-                            <p class="user__level">Talent coding level 3</p>
+                            <p class="user__level">Talent coding level <?= $talent_coding_level ?></p>
                             <div class="user__info">
                                 <?php /*if($utcdata): */?><!--
                                     <p class="user__feature">Water: <?/*= $utcdata->water */?></p>
@@ -374,15 +375,57 @@ if($utcdata){
                                         <div class="level__desc">
                                             Description of the current level Lorem ipsum dolo sit amet Description Lorem ipsum dolo sit amet lorem ipsum
                                         </div>
-                                        <div class="level__buttons">
+
                                             <?php if(!$utcdata): ?>
+                                            <div class="level__buttons">
                                             <a class="button button--ultrasmall button--yellow"
                                                href="<?= $base_utc_url ?>"
                                             >
-                                                <span class="button__text button__text--ultrasmall">improve</span>
+                                                <span class="button__text button__text--ultrasmall">start your test</span>
                                             </a>
+                                            </div>
+                                            <?php else: ?>
+                                            <div class="level__buttons">
+                                            <div class="level__button cell cell--middle">
+                                                <a class="button button--ultrasmall button--yellow"
+                                                   href="#"
+                                                >
+                                                    <span class="button__text button__text--ultrasmall">new test</span>
+                                                </a>
+                                            </div>
+                                            <div class="level__button cell cell--middle">
+                                                <a class="button button--ultrasmall button--yellow"
+                                                   href="#"
+                                                >
+                                                    <span class="button__text button__text--ultrasmall">add skills & passions</span>
+                                                </a>
+                                            </div>
+                                            </div>
+                                            <div class="level__buttons">
+                                            <div class="level__button cell cell--middle">
+                                                    <a class="level__read" href="#">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--middle" width="18" height="23" viewBox="0 0 24 30.5" fill="currentColor">
+                                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M1.8,0c2.5,0,5,0,7.5,0c2.4,0,4.7,0,7.1,0c2.4,2.4,4.9,4.9,7.3,7.3C23.9,7.5,24,7.7,24,8c0,6.8,0,13.6,0,20.4
+                                        c0,1.1-0.6,1.9-1.8,2.1c-0.4,0-0.9,0-1.3,0c-6.1,0-12.2,0-18.4,0c-0.2,0-0.5,0-0.7,0c-1.2-0.3-1.8-1-1.8-2.2c0-8.7,0-17.4,0-26.1
+                                        C0,1,0.6,0.3,1.8,0z M2.2,15.2c0,3.6,0,7.2,0,10.8c0,1.4,0.9,2.3,2.2,2.3c5.1,0,10.1,0,15.2,0c1.3,0,2.2-0.9,2.2-2.2
+                                        c0-5.3,0-10.5,0-15.8c0-0.4-0.1-0.5-0.5-0.5c-1.6,0-3.2,0-4.8,0c-1.5,0-2.4-0.9-2.4-2.4c0-1.6,0-3.1,0-4.7c0-0.4-0.1-0.6-0.6-0.6
+                                        c-3,0-6,0-9,0C3,2.2,2.2,3,2.2,4.6C2.2,8.2,2.2,11.7,2.2,15.2z"/>
+                                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12,21.8c-2.1,0-4.1,0-6.2,0c-0.3,0-0.6,0-0.8-0.1c-0.4-0.2-0.7-0.5-0.6-1c0-0.5,0.2-0.8,0.7-1
+                                        c0.2-0.1,0.5-0.1,0.7-0.1c4.2,0,8.3,0,12.5,0c0.1,0,0.2,0,0.4,0c0.6,0.1,1,0.6,1,1.1c0,0.5-0.4,1-1,1.1c-0.2,0-0.4,0-0.5,0
+                                        C16.1,21.8,14,21.8,12,21.8z"/>
+                                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12,17.4c-2.1,0-4.2,0-6.3,0c-0.8,0-1.3-0.4-1.3-1.1c0-0.7,0.5-1.1,1.3-1.1c4.3,0,8.5,0,12.8,0
+                                        c0.8,0,1.3,0.5,1.3,1.1c0,0.6-0.5,1.1-1.3,1.1C16.3,17.4,14.1,17.4,12,17.4z"/>
+                                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12,26.1c-2.2,0-4.3,0-6.5,0c-0.6,0-1-0.3-1.1-0.9c-0.1-0.5,0.1-0.9,0.6-1.2C5.2,24,5.4,24,5.6,24
+                                        c4.3,0,8.5,0,12.8,0c0.8,0,1.2,0.4,1.3,1.1c0,0.7-0.5,1.1-1.3,1.1C16.2,26.1,14.1,26.1,12,26.1z"/>
+                                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.1,13.1c-0.8,0-1.7,0-2.5,0c-0.8,0-1.3-0.5-1.3-1.1c0-0.6,0.5-1.1,1.3-1.1c1.7,0,3.5,0,5.2,0
+                                        c0.8,0,1.2,0.5,1.2,1.1c0,0.7-0.5,1.1-1.2,1.1C9.9,13.1,9,13.1,8.1,13.1z"/>
+                                                        </svg>
+                                                        <span class="level__read-text">Read your Report</span>
+                                                    </a>
+                                                </div>
+                                            </div>
                                             <?php endif; ?>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>

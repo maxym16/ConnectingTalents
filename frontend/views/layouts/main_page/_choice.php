@@ -5,7 +5,7 @@ use yii\helpers\Url;
     <div class="choice__item">
         <div class="choice__inner">
             <h2 class="choice__title">
-                Discover your<br /><span class="text-yellow transition">Talent</span>
+                Discover your<br /><span class="text-yellow transition">Talents</span>
             </h2>
             <div class="choice__table">
                 <div class="choice__cell">
@@ -31,7 +31,7 @@ use yii\helpers\Url;
     <div class="choice__item">
         <div class="choice__inner">
             <h2 class="choice__title choice__title--right">
-                Grow your<br /><span class="text-yellow transition">Opportunity</span>
+                Grow your<br /><span class="text-yellow transition">Opportunities</span>
             </h2>
             <div class="choice__table">
                 <div class="choice__cell">
