@@ -107,4 +107,10 @@ return [
         'class' => 'sizeg\jwt\Jwt',
         'key' => 'GtWQMzG4alJGjfahqFGxR7ascaYVaQ',
     ],
+    'reCaptcha' => [
+        'name' => 'reCaptcha',
+        'class' => 'himiklab\yii2\recaptcha\ReCaptcha',
+        'siteKey' => '6LcI2jIUAAAAAKIh7rZLgjSVwECzbKVWlwkAtNpb',
+        'secret' => '6LcI2jIUAAAAAKNezuGV1TOhT6Z7uv3A4LJC_Yc_',
+    ],
 ];

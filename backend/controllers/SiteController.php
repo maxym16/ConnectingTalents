@@ -19,7 +19,7 @@ use common\models\FirstAccessForm;
 use common\models\ForgotPasswordForm;
 use common\models\LoginForm;
 use common\models\User;
-use lispa\amos\admin\models\UserProfile;
+use common\models\UserProfile;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
@@ -40,19 +40,24 @@ class SiteController extends Controller {
             'access' => [
                 'class' => AccessControl::className(),
                 'rules' => [
+//                    [
+//                        'actions' => [
+//                            'login',
+//                            'error',
+//                            'login_error',
+//                            'insert-auth-data',
+//                            'inserisci-dati-autenticazione',
+//                            'forgot-password',
+//                            'expired-login',
+//                            'language',
+//                            'privacy'
+//                        ],
+//                        'allow' => true,
+//                    ],
                     [
-                        'actions' => [
-                            'login',
-                            'error',
-                            'login_error',
-                            'insert-auth-data',
-                            'inserisci-dati-autenticazione',
-                            'forgot-password',
-                            'expired-login',
-                            'language',
-                            'privacy'
-                        ],
+                        'actions' => ['login'],
                         'allow' => true,
+//                        'roles' => ['?'],
                     ],
                     [
                         'actions' => ['logout', 'index'],
@@ -88,6 +93,17 @@ class SiteController extends Controller {
      * @return string
      */
     public function actionIndex() {
+
+        $this->layout = 'ubold-pages-layout';
+
+//        if (!Yii::$app->user->isGuest) {
+//
+////            $user_data = User::findOne(Yii::$app->user->id);
+////            $user_profile = UserProfile::findOne(['user_id' => $user_data->id]);
+//
+//            $this->render('index', compact('user_data', 'user_profile'));
+//        }
+
         return $this->render('index');
     }
 
@@ -97,29 +113,30 @@ class SiteController extends Controller {
      * @return string
      */
     public function actionLogin() {
-        $this->layout = '@vendor/lispa/amos-core/views/layouts/login';
+//        $this->layout = '@vendor/lispa/amos-core/views/layouts/login';
+        $this->layout = 'ubold-login-layout';
 
-        if (\Yii::$app->params['template-amos']) {
+        /*if (\Yii::$app->params['template-amos']) {
             $this->run('/build/default/crea-dashboard');
-        }
+        }*/
+
 
         if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
+            return $this->redirect(['site/index']);
         }
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-
             /* per amos */
-            if (\Yii::$app->params['template-amos']) {
+            /*if (\Yii::$app->params['template-amos']) {
                 $ruolo = \Yii::$app->authManager->getRole($model->ruolo);
                 $userId = \Yii::$app->getUser()->getId();
                 \Yii::$app->authManager->revokeAll($userId);
                 \Yii::$app->authManager->assign($ruolo, $userId);
-            }
+            }*/
             /* per amos */
 
-            return $this->goBack();
+            return $this->redirect(['site/index']);
         } else {
             return $this->render('login', [
                         'model' => $model,
@@ -137,11 +154,11 @@ class SiteController extends Controller {
 
         Yii::$app->user->logout();
 
-        if (\Yii::$app->params['template-amos']) {
+        /*if (\Yii::$app->params['template-amos']) {
             $ids = \lispa\amos\dashboard\models\AmosUserDashboards::find()->andWhere(['user_id' => $userId])->select('id');
             \lispa\amos\dashboard\models\AmosUserDashboardsWidgetMm::deleteAll(['IN', 'amos_user_dashboards_id', $ids]);
             \lispa\amos\dashboard\models\AmosUserDashboards::deleteAll(['user_id' => $userId]);
-        }
+        }*/
 
         return $this->goHome();
     }

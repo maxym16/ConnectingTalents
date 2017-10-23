@@ -35,10 +35,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= Html::error($model, 'password', ['class'=>'validation-notice']); ?>
             </div>
             <div class="form__captcha">
-                <?php if(isset($_POST['g-recaptcha-response']) && $_POST['g-recaptcha-response'] == ''): ?>
-                    <div class="validation-notice">Captcha error</div>
-                <?php endif; ?>
-                <div class="g-recaptcha" data-sitekey="6LcI2jIUAAAAAKIh7rZLgjSVwECzbKVWlwkAtNpb"></div>
+                <?= \himiklab\yii2\recaptcha\ReCaptcha::widget(['name' => 'reCaptcha']) ?>
+                <?= Html::error($model, 'reCaptcha', ['class'=>'validation-notice']); ?>
             </div>
             <div class="form__table">
                 <div class="form__cell">

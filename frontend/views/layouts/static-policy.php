@@ -11,6 +11,7 @@ $url = Yii::$app->request->url;
             <aside class="page__nav">
                 <a href="<?= Url::to(['site/privacy']) ?>" class="page__nav-item <?php if($url === '/site/privacy'): ?> t-eui-tab-nav-item--active<?php endif; ?>" type="button">Privacy Policy</a>
                 <a href="<?= Url::to(['site/cookie']) ?>" class="page__nav-item <?php if($url === '/site/cookie'): ?> t-eui-tab-nav-item--active<?php endif; ?>" type="button"> Cookie Policy</a>
+                <a href="<?= Url::to(['site/agreement']) ?>" class="page__nav-item <?php if($url === '/site/agreement'): ?> t-eui-tab-nav-item--active<?php endif; ?>" type="button"> User Agreement</a>
             </aside>
             <div class="page__text">
                 <div class="page__section t-eui-tab-item--active">

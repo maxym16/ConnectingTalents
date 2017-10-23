@@ -191,7 +191,7 @@ if($utcdata){
                                 C51.2,53.6,51.3,53.5,51.5,53.5z M51.2,56.5C51.2,56.5,51.2,56.5,51.2,56.5L51.2,56.5L51.2,56.5z"/>
                           </svg>
                           <span class="avatar__tip avatar__tip--earth">
-                            <span class="bold">Earth: </span><span class="italic">a definition of driver features and related behaviours</span>
+                            <span class="bold">Earth </span><span class="italic">represents the drive to act and to structure, and to be reliable</span>
                           </span>
                         </span>
                         <span class="avatar__element <?= $is_fire?'avatar__element--active':''; ?> avatar__element--position_right">
@@ -218,7 +218,7 @@ if($utcdata){
                                 c1.1,3.1,3.2,5.5,5.3,7.9c2,2.2,4.1,4.3,5.9,6.7c1.1,1.4,1.8,3.1,2.5,4.7C62.8,64.5,62.5,66.6,61.5,68.6z"/>
                           </svg>
                           <span class="avatar__tip avatar__tip--fire">
-                            <span class="bold">Fire: </span><span class="italic">a definition of driver features and related behaviours</span>
+                            <span class="bold">Fire </span><span class="italic">is the drive to reach a goal and to take on a challenge</span>
                           </span>
                         </span>
                         <span class="avatar__element <?= $is_air?'avatar__element--active':''; ?> avatar__element--position_bottom">
@@ -239,7 +239,7 @@ if($utcdata){
                               c-0.4,0-0.9,0.1-1.2,0.2c-0.7,0.3-1.1,1.1-0.9,2c0.2,0.8,0.9,1.4,1.9,1.4c2.1,0,4.1,0,6.2,0l6.9,0L41.1,42.8z"/>
                           </svg>
                           <span class="avatar__tip avatar__tip--air">
-                            <span class="bold">Air: </span><span class="italic">a definition of driver features and related behaviours</span>
+                            <span class="bold">Air: </span><span class="italic">is the drive to think, analyse and explore new possibilities</span>
                           </span>
                         </span>
                         <span class="avatar__element <?= $is_water?'avatar__element--active':''; ?> avatar__element--position_left">
@@ -259,7 +259,7 @@ if($utcdata){
                               C45.8,66.7,43.8,64.3,42.5,61.3z"/>
                           </svg>
                           <span class="avatar__tip avatar__tip--water">
-                            <span class="bold">Water: </span><span class="italic">a definition of driver features and related behaviours</span>
+                            <span class="bold">Water: </span><span class="italic">is the drive to connect with others and to focus on harmony</span>
                           </span>
                         </span>
                             </div>
@@ -358,13 +358,13 @@ if($utcdata){
                     </div>
                     <div id="levels" class="levels clearfix" data-eui-tabs>
                         <p class="user__title">
-                            <span class="user__title-text">UTC Levels</span>
+                            <span class="user__title-text">Unique Talent Code (UTC) levels</span>
                         </p>
                         <div class="levels__nav">
                             <button class="levels__link levels__link--active levels__link--outer t-eui-tab-nav-item t-eui-tab-nav-item--desktop t-eui-tab-nav-item--active t-eui-tab-nav-item--active_desktop" data-eui-tab="1">Basic</button>
                             <button class="levels__link levels__link--outer t-eui-tab-nav-item t-eui-tab-nav-item--desktop" data-eui-tab="2">Extended</button>
-                            <button class="levels__link levels__link--outer t-eui-tab-nav-item t-eui-tab-nav-item--desktop" data-eui-tab="3">Advanced</button>
-                            <button class="levels__link levels__link--outer t-eui-tab-nav-item t-eui-tab-nav-item--desktop" data-eui-tab="4">Human</button>
+                            <button class="levels__link levels__link--outer t-eui-tab-nav-item t-eui-tab-nav-item--desktop" data-eui-tab="3">Full</button>
+                            <button class="levels__link levels__link--outer t-eui-tab-nav-item t-eui-tab-nav-item--desktop" data-eui-tab="4">Deepdive</button>
                         </div>
                         <div class="levels__content">
                             <button class="levels__link levels__link--active levels__link--inner t-eui-tab-nav-item t-eui-tab-nav-item--mobile t-eui-tab-nav-item--active t-eui-tab-nav-item--active_mobile" type="button" data-eui-tab="1">Basic</button>
@@ -373,7 +373,7 @@ if($utcdata){
                                     <div class="level">
                                         <p class="level__title">Basic UTC</p>
                                         <div class="level__desc">
-                                            Description of the current level Lorem ipsum dolo sit amet Description Lorem ipsum dolo sit amet lorem ipsum
+                                            Discover your most important drivers which are the roots of your unique talents. You will receive insight in the behaviours and situations that give your energy. Find out what you need to be in your element.
                                         </div>
 
                                             <?php if(!$utcdata): ?>
@@ -381,7 +381,7 @@ if($utcdata){
                                             <a class="button button--ultrasmall button--yellow"
                                                href="<?= $base_utc_url ?>"
                                             >
-                                                <span class="button__text button__text--ultrasmall">start your test</span>
+                                                <span class="button__text button__text--ultrasmall">Discover how</span>
                                             </a>
                                             </div>
                                             <?php else: ?>
@@ -403,7 +403,7 @@ if($utcdata){
                                             </div>
                                             <div class="level__buttons">
                                             <div class="level__button cell cell--middle">
-                                                    <a class="level__read" href="#">
+                                                    <a class="level__read" href="<?= Url::to(['profile/report']) ?>">
                                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--middle" width="18" height="23" viewBox="0 0 24 30.5" fill="currentColor">
                                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M1.8,0c2.5,0,5,0,7.5,0c2.4,0,4.7,0,7.1,0c2.4,2.4,4.9,4.9,7.3,7.3C23.9,7.5,24,7.7,24,8c0,6.8,0,13.6,0,20.4
                                         c0,1.1-0.6,1.9-1.8,2.1c-0.4,0-0.9,0-1.3,0c-6.1,0-12.2,0-18.4,0c-0.2,0-0.5,0-0.7,0c-1.2-0.3-1.8-1-1.8-2.2c0-8.7,0-17.4,0-26.1
@@ -435,13 +435,13 @@ if($utcdata){
                                     <div class="level">
                                         <p class="level__title">Extended UTC</p>
                                         <div class="level__desc">
-                                            Description of the current level Lorem ipsum dolo sit amet Description Lorem ipsum dolo sit amet lorem ipsum
-                                        </div>
+                                            The way you perceive yourself is often quite different from how others see you. Many times, people around you will see your unique talents before you do. Gather structured feedback from people that know you and gain deeper insights into your talent portfolio.
+                                       </div>
                                         <div class="level__buttons">
                                             <div class="table">
                                                 <div class="level__button cell cell--middle">
                                                     <a class="button button--ultrasmall button--light" href="#">
-                                                        <span class="button__text button__text--ultrasmall">improve</span>
+                                                        <span class="button__text button__text--ultrasmall">Discover how</span>
                                                     </a>
                                                 </div>
                                                 <div class="level__button cell cell--middle">
@@ -474,13 +474,13 @@ if($utcdata){
                             <div class="levels__item t-eui-tab-item" data-eui-tab="3">
                                 <div class="levels__inner">
                                     <div class="level">
-                                        <p class="level__title">Advanced UTC</p>
+                                        <p class="level__title">Full UTC</p>
                                         <div class="level__desc">
-                                            Description of the current level Lorem ipsum dolo sit amet Description Lorem ipsum dolo sit amet lorem ipsum
+                                            Get a more complete picture of your unique talent portfolio and understand what links your drivers to your passions and your skills. This will allow you to make better decisions about your professional path and to improve the way you present yourself to others in a professional context.
                                         </div>
                                         <div class="level__buttons">
                                             <a class="button button--ultrasmall button--yellow" href="#">
-                                                <span class="button__text button__text--ultrasmall">improve</span>
+                                                <span class="button__text button__text--ultrasmall">Discover how</span>
                                             </a>
                                         </div>
                                     </div>
@@ -490,9 +490,9 @@ if($utcdata){
                             <div class="levels__item t-eui-tab-item" data-eui-tab="4">
                                 <div class="levels__inner">
                                     <div class="level">
-                                        <p class="level__title">Human UTC</p>
+                                        <p class="level__title">Deepdive</p>
                                         <div class="level__desc">
-                                            Description of the current level Lorem ipsum dolo sit amet Description Lorem ipsum dolo sit amet lorem ipsum
+                                            You can deepdive into your Talents Portfolio with a coach certified by us. You can request a review of your Full UTC receiving a personal opinion about you and tips and tricks to find your path. Or you can set-up a video meeting with a coach to receive professional support for your Talent Discovery and Development.
                                         </div>
                                         <div class="level__buttons">
                                             <div class="table">
@@ -503,7 +503,7 @@ if($utcdata){
                                                 </div>
                                                 <div class="level__button cell cell--middle">
                                                     <a class="button button--ultrasmall button--yellow" href="#">
-                                                        <span class="button__text button__text--ultrasmall">consultancy</span>
+                                                        <span class="button__text button__text--ultrasmall">coaching</span>
                                                     </a>
                                                 </div>
                                             </div>
@@ -638,383 +638,383 @@ if($utcdata){
                             </table>
                         </div>
                     </div>
-                    <div class="showcase__text">small description of the sharing platform of connecting talents lorem ipsum dolor sit amet</div>
-                    <div class="showcase__join">
-                        <a class="button button--medium button--yellow" href="#">
-                            <span class="button__text button__text--ultrasmall">join</span>
-                        </a>
-                    </div>
+                    <div class="showcase__text">Explore our platform and see the opportunities that are growing. There is at least one waiting just for you.</div>
+<!--                    <div class="showcase__join">-->
+<!--                        <a class="button button--medium button--yellow" href="#">-->
+<!--                            <span class="button__text button__text--ultrasmall">join</span>-->
+<!--                        </a>-->
+<!--                    </div>-->
                 </div>
             </div>
         </div>
-        <div class="profile__row">
-            <div class="profile__section profile__section--opportunities">
-                <h2 class="profile__title">My Opportunities</h2>
-                <div class="opps">
-                    <a class="edit-link edit-link--cherry" href="#">
-                        <span class="edit-link__text">edit</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="edit-link__icon icon icon--middle" width="16" height="16" viewBox="0 0 84 84" fill="currentColor">
-                            <path fill="none" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" d="M42,2c1.1,0,2.3,0.2,3.6,0.2c1.3,0.1,2.8,2.2,3.5,3.7c0.7,1.8,0.6,3.9,0.9,5.9c0.6,4.6,3.9,6.1,7.6,3.5
-                        c1.9-1.3,3.8-2.7,5.7-4.1c1.7-1.2,3.3-1.1,4.8,0.4c6.6,6.6,7.4,6,1.7,13.5c-0.7,0.9-1.3,1.8-1.9,2.7c-1.2,1.9,0.2,5.3,2.4,5.8
-                        c1.1,0.3,2.2,0.4,3.3,0.5c9.9,0.6,8.4,3,8.4,10.9c0,2.4-1.4,3.9-3.8,4.3c-2.4,0.4-4.9,0.6-7.3,1c-3.2,0.5-4.2,2.7-2.5,5.4
-                        c0.5,0.8,1.1,1.7,1.7,2.5c4.5,6.7,3.8,10-3.2,14.1c-1.2,0.7-3.4,0.3-4.9-0.2c-1.2-0.4-2-1.7-3-2.6c-1.3-1.2-2.2-3-4.7-2
-                        c-2.5,1-4.4,2.1-4.1,5.1c0,0.3-0.1,0.7-0.1,1C48.9,81.8,48,82,42,82c-6,0-6.9-0.2-7.8-8.3c0-0.3-0.2-0.7-0.1-1
-                        c0.3-3-1.6-4.1-4.1-5.1c-2.6-1.1-3.4,0.8-4.7,2c-1,0.9-1.9,2.2-3,2.6c-1.5,0.5-3.7,0.9-4.9,0.2c-7.1-4.1-7.7-7.4-3.2-14.1
-                        c0.6-0.8,1.1-1.7,1.7-2.5c1.7-2.7,0.6-4.9-2.5-5.4c-2.4-0.4-4.9-0.6-7.3-1C3.5,49,2.1,47.5,2.1,45c0-7.9-1.5-10.4,8.4-10.9
-                        c1.1-0.1,2.2-0.2,3.3-0.5c2.1-0.5,3.5-4,2.4-5.8c-0.6-0.9-1.3-1.8-1.9-2.7c-5.6-7.4-4.9-6.9,1.7-13.5c1.5-1.5,3.1-1.6,4.8-0.4
-                        c1.9,1.4,3.8,2.7,5.7,4.1c3.7,2.6,7,1.1,7.6-3.5c0.3-2,0.1-4.1,0.9-5.9c0.6-1.5,2.2-3.6,3.5-3.7C39.7,2.2,40.9,2,42,2z"/>
-                            <path fill="none" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" d="M41.9,30.8c-6.4,0-11.5,5.1-11.5,11.4c0.1,6.2,5.2,11.2,11.5,11.1c6.3,0,11.5-4.9,11.5-11.1
-                        c0.1-6.3-5-11.4-11.5-11.4H41.9z"/>
-                        </svg>
-                    </a>
-                    <div class="opps__desc">
-                        <div class="opps__desc-col">
-                            <div class="opps__desc-item">
-                        <span class="opps__desc-icon">
-                          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--middle text-yellow" width="18" height="16" viewBox="0 0 40 35.1" fill="currentColor">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M20.3,0c0.1,0,0.2,0.1,0.3,0.1C21.5,0.4,22.1,1,22.3,2c0.2,0.9-0.3,1.9-1.1,2.3c-0.3,0.2-0.3,0.3-0.3,0.7
-                              c0.6,2.6,1.2,5.3,1.8,7.9c0.2,1,0.8,1.7,1.9,1.9c1,0.2,1.8-0.2,2.4-1c0.5-0.7,1-1.3,1.5-2c-0.5-0.4-0.8-0.9-0.9-1.6
-                              c-0.2-1.3,0.8-2.5,2-2.6C30.8,7.5,32,8.4,32,9.8c0.1,1.3-1,2.4-2.3,2.4c-0.3,0-0.4,0.1-0.5,0.4c-0.1,1.1-0.4,2.1-0.5,3.1
-                              c-0.1,1,0.2,1.8,1,2.3c0.8,0.6,1.7,0.6,2.5,0.1c0.1-0.1,0.3-0.2,0.4-0.3c1.1-0.8,2.1-1.6,3.2-2.4c-0.4-0.7-0.6-1.4-0.3-2.1
-                              c0.1-0.5,0.4-0.9,0.9-1.2c0.8-0.6,2-0.6,2.7,0.1c0.8,0.7,1.1,1.8,0.7,2.8c-0.5,1.1-1.4,1.5-2.9,1.3c-0.1,0.1-0.1,0.3-0.2,0.4
-                              c-1.2,3.4-2.4,6.8-3.5,10.2c-0.1,0.3-0.2,0.5-0.6,0.5c-8.4,0-16.9,0-25.3,0c-0.3,0-0.4-0.1-0.5-0.4c-1.2-3.4-2.4-6.8-3.6-10.2
-                              c-0.1-0.1-0.1-0.3-0.2-0.4c-1.6,0.1-2.5-0.3-2.9-1.4c-0.4-1,0-2.1,0.8-2.7c0.8-0.6,2-0.5,2.7,0.1C4.6,13,4.8,14,4.2,15.5
-                              c0.2,0.2,0.5,0.4,0.7,0.5c0.9,0.6,1.7,1.3,2.6,1.9c0.8,0.6,1.8,0.7,2.7,0.2c0.8-0.5,1.3-1.4,1.1-2.5c-0.2-1.2-0.4-2.3-0.6-3.5
-                              c-0.8,0.1-1.5-0.1-2.1-0.7C8.2,11.1,8,10.6,8,10.1C7.9,9,8.5,8,9.5,7.7c1-0.3,2,0,2.6,0.9c0.7,1,0.5,2.1-0.5,3.3
-                              c0.6,0.8,1.1,1.7,1.8,2.4c1.2,1.3,3.4,0.7,3.8-1c0.5-2,0.9-4,1.3-6c0.2-0.8,0.3-1.6,0.5-2.3c0-0.2,0-0.3-0.2-0.5
-                              C18,3.9,17.6,3,17.7,2c0.2-1,0.8-1.7,1.8-1.9c0,0,0.1,0,0.1-0.1C19.9,0,20.1,0,20.3,0z"/>
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.9,35.1c0-1.5,0-3.1,0-4.6c8.7,0,17.4,0,26.2,0c0,1.5,0,3.1,0,4.6C24.4,35.1,15.6,35.1,6.9,35.1z"/>
-                          </svg>
-                        </span>
-                                <span class="opps__desc-text">Owner</span>
-                            </div>
-                            <div class="opps__desc-item">
-                        <span class="opps__desc-icon">
-                          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--middle text-yellow" width="13" height="17" viewBox="0 0 40 53.5" fill="currentColor">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M4.5,48.9c0-1.8-0.1-3.5,0-5.1c0.3-5.8,3-10.2,8.2-13c1.7-0.9,2.8-2.1,2.8-4c0-2.1-1.1-3.2-2.8-4.2
-                              c-5.2-2.8-7.9-7.3-8.2-13.2c-0.1-1.5,0-3.1,0-4.8c-0.8,0-1.4-0.1-2-0.1C1,4.4,0,3.8,0,2.1C0.1,0.6,1.1,0,2.5,0c3.6,0,7.2,0,10.9,0
-                              c7.7,0,15.5,0,23.2,0c2.3,0,3.2,0.7,3.2,2.2c0,1.5-0.9,2.2-3.2,2.3c-0.2,0-0.5,0-0.7,0.1c-0.1,0-0.2,0.1-0.5,0.3
-                              c0,1.4,0.1,3,0,4.5c-0.2,6-3,10.5-8.3,13.3c-1.7,0.9-2.7,2.1-2.7,4.1c0,1.9,0.9,3.1,2.6,4c5.4,2.9,8.2,7.5,8.4,13.6
-                              c0,1.4,0,2.9,0,4.4c0.5,0.1,1,0.2,1.4,0.2c2.2,0.1,3.3,0.9,3.2,2.5c-0.1,1.5-1.1,2.1-3.4,2.1c-5.4,0-10.9,0-16.3,0
-                              c-5.6,0-11.1,0-16.7,0c-0.6,0-1.1,0-1.7-0.1c-1.3-0.2-2-1-2-2.3c0.1-1.2,0.8-1.9,2-2.1C2.7,49,3.5,49,4.5,48.9z M8.8,4.4
-                              c0,1.3,0,2.5,0,3.6c0,5,2.1,8.7,6.7,11c2,1,3.1,2.7,3.9,4.6c0.2,0.4,0.3,0.9,0.6,1.5c1.1-3.3,2.2-5,4.1-5.9
-                              c5.8-2.6,7.9-7.9,6.8-14.8C23.7,4.4,16.4,4.4,8.8,4.4z M31.2,48.8c0-1.7,0.1-3.3,0-4.8c-0.2-3.8-1.8-7-5.2-8.8
-                              c-2.9-1.6-5.1-3.6-6-7.4c-0.9,3-1.9,5.2-4.4,6.4c-5.6,2.6-7.7,7.7-6.6,14.6C16.4,48.8,23.7,48.8,31.2,48.8z"/>
-                          </svg>
-                        </span>
-                                <span class="opps__desc-text">Waiting for acceptance</span>
-                            </div>
-                            <div class="opps__desc-item">
-                        <span class="opps__desc-icon">
-                          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--middle text-yellow" width="17" height="22" viewBox="0 0 74 92" fill="currentColor">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M46.4,38.3c-0.3-0.2-0.5-0.3-0.8-0.4c-5.7-2.5-12.5-1.3-17.1,3c-1,0.9-2,1.9-2.9,2.9c-7,7-14,14-21,21
-                              c-4,4.1-5.5,9-4.2,14.6c1.3,6,5.1,10,10.9,11.7c5.9,1.7,11.3,0.4,15.7-4c7.8-7.7,15.5-15.5,23.3-23.2c3.5-3.5,5.2-7.7,4.8-12.7
-                              c-0.1-2-0.7-3.9-1.6-5.8c-1.7,1.7-3.3,3.3-4.9,4.9c-0.2,0.2-0.2,0.5-0.2,0.8c0.4,3-0.5,5.7-2.6,7.9C38,66.8,30,74.7,22.1,82.6
-                              c-2.3,2.3-5.2,3.1-8.4,2.5c-3.5-0.7-5.8-2.9-6.8-6.3c-1-3.5-0.2-6.6,2.3-9.2c7.8-7.9,15.7-15.8,23.6-23.6c2.2-2.2,4.9-3,7.9-2.7
-                              c0.2,0,0.6,0,0.7-0.1C43.1,41.6,44.7,39.9,46.4,38.3z"/>
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M60.2,0.2c0.6,0.2,1.3,0.3,1.9,0.5c11.7,3.1,15.9,17.5,7.5,26.2C61.6,35,53.6,43,45.5,50.9
-                              c-4.8,4.7-10.6,5.5-16.8,3.2c-0.3-0.1-0.6-0.3-1.1-0.5c1.6-1.6,3.2-3.2,4.7-4.7c0.2-0.2,0.6-0.2,0.8-0.1c3.2,0.4,5.8-0.7,8.1-3
-                              c7.7-7.8,15.5-15.5,23.2-23.3c3.8-3.8,3.8-9.7,0-13.3c-3.5-3.3-9-3.4-12.6,0c-1.2,1.1-2.2,2.2-3.4,3.3
-                              C41.7,19.5,34.9,26.2,28.1,33c-2.3,2.3-3.2,5-2.8,8.1c0,0.2,0,0.6-0.2,0.7c-1.5,1.6-3.1,3.1-4.7,4.7c-1-2-1.6-4.1-1.7-6.2
-                              c-0.2-4.7,1.4-8.7,4.7-12.1c7.8-7.9,15.7-15.7,23.6-23.6c2.4-2.3,5.2-3.8,8.5-4.3c0.2,0,0.3-0.1,0.5-0.2
-                              C57.4,0.2,58.8,0.2,60.2,0.2z"/>
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M46.4,38.3c-1.7,1.7-3.3,3.3-4.9,4.9c-0.1,0.1-0.5,0.1-0.7,0.1c-3.1-0.3-5.7,0.5-7.9,2.7
-                              c-7.9,7.9-15.8,15.7-23.6,23.6c-2.5,2.6-3.3,5.7-2.3,9.2c1,3.4,3.3,5.5,6.8,6.3c3.2,0.7,6.1-0.2,8.4-2.5
-                              c8-7.9,15.9-15.8,23.8-23.7c2.2-2.2,3-4.8,2.6-7.9c0-0.3,0-0.6,0.2-0.8c1.6-1.6,3.2-3.2,4.9-4.9c1,1.9,1.5,3.8,1.6,5.8
-                              c0.3,5-1.3,9.2-4.8,12.7C42.5,71.5,34.8,79.3,27,87c-4.4,4.4-9.8,5.7-15.7,4c-5.8-1.7-9.6-5.7-10.9-11.7
-                              c-1.2-5.6,0.2-10.5,4.2-14.6c7-7,14-14,21-21c1-1,1.9-2,2.9-2.9c4.5-4.3,11.3-5.5,17.1-3C45.9,38,46.1,38.1,46.4,38.3z"/>
-                          </svg>
-                        </span>
-                                <span class="opps__desc-text">Joined in</span>
-                            </div>
-                        </div>
-                        <div class="opps__desc-col">
-                            <div class="opps__desc-item">
-                        <span class="opps__desc-icon">
-                          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--middle text-yellow" width="20" height="17" viewBox="0 0 40 33.8" fill="currentColor">
-                            <path d="M24.6,33.8c-0.3,0-0.6,0-0.8,0c-1.3,0-2.5,0-3.7-0.1c-0.4,0-0.9,0-1.3-0.1c-0.5,0-0.9-0.2-1.2-0.5
-                              c-0.3-0.3-0.3-0.8-0.2-1.3c0.5-2.3,0.3-4.6-0.8-6.8c-0.6-1.1-1.3-2.1-2.2-2.9c-0.4-0.4-0.6-0.8-0.5-1.2c0.1-0.4,0.4-0.8,0.9-1
-                              c1.3-0.5,2.6-1.1,3.9-1.8c-0.4-0.6-0.7-1.3-0.9-2.1c0-0.1,0-0.1-0.1-0.1c-1.4-1.6-2-3.3-1.9-5.2c0-0.4,0.1-1.1,0.6-1.6
-                              c0-0.3,0-0.6,0-0.9c0-0.6,0-1.2,0.1-1.9c0.3-3.2,2.2-5.4,5.1-6.1C22.4,0.1,23.2,0,24,0c1.4,0,2.8,0.3,4,1c1.9,1,3,2.8,3.3,5.1
-                              c0.1,0.8,0.1,1.6,0.1,2.3c0,0.2,0,0.4,0,0.6c0.6,0.5,0.6,1.2,0.6,1.5l0,0.1c0.1,1.8-0.4,3.5-1.8,5.1C30.1,15.8,30,15.9,30,16
-                              c-0.2,0.8-0.5,1.4-0.9,2c1.2,0.6,2.4,1.2,3.5,1.7c0.8,0.4,1.6,0.7,2.4,1.1c1.2,0.6,2.2,1.4,2.9,2.5c1.1,1.8,1.8,3.9,2,6.2
-                              c0.1,0.6-0.1,1.8-1.5,2.5c-0.9,0.4-1.8,0.5-2.6,0.7c-2.2,0.4-4,0.6-5.6,0.8c-0.7,0.1-1.6,0.1-2.5,0.2c-0.3,0-0.6,0-0.9,0
-                              C26.1,33.8,25.3,33.8,24.6,33.8z M23.8,31.7L23.8,31.7c0.9,0,1.9,0,2.8,0c0.3,0,0.6,0,1,0c0.9,0,1.7-0.1,2.4-0.2
-                              c1.6-0.2,3.4-0.4,5.5-0.8c0.8-0.1,1.5-0.3,2.2-0.6c0.2-0.1,0.2-0.1,0.2-0.1c0,0,0-0.1,0-0.1c-0.2-2-0.8-3.7-1.7-5.3
-                              c-0.5-0.8-1.1-1.3-2-1.7c-0.8-0.4-1.6-0.7-2.4-1.1c-1.4-0.6-2.9-1.3-4.3-2.1c-0.3-0.2-0.8-0.4-0.9-1c-0.1-0.6,0.2-1,0.4-1.2
-                              c0.4-0.5,0.7-1.2,1-1.9c0.1-0.4,0.3-0.8,0.6-1.1c1-1.2,1.4-2.3,1.3-3.6l0-0.1c0,0,0-0.1,0-0.1c-0.6-0.5-0.6-1.1-0.6-1.3
-                              c0-0.3,0-0.5,0-0.8c0-0.7,0-1.4-0.1-2.1c-0.2-1.7-0.9-2.8-2.2-3.5c-1.4-0.8-3-0.9-5-0.5c-2,0.4-3.3,1.9-3.5,4.2
-                              c-0.1,0.5-0.1,1.1-0.1,1.7c0,0.4,0,0.8,0,1.1c0,0.7-0.3,1.1-0.6,1.2c0,0.1,0,0.1,0,0.2c-0.1,1.3,0.3,2.4,1.3,3.6
-                              c0.2,0.3,0.4,0.6,0.5,1c0.2,0.8,0.5,1.4,1,2c0.2,0.3,0.5,0.7,0.4,1.3c-0.1,0.6-0.5,0.8-0.9,1c-1.2,0.7-2.4,1.3-3.6,1.8
-                              c0.7,0.8,1.4,1.7,1.9,2.7c1.2,2.4,1.6,4.9,1.1,7.4c0.2,0,0.4,0,0.6,0C21.4,31.6,22.6,31.7,23.8,31.7L23.8,31.7z"/>
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.5,26.3c0,0.3,0,0.6,0,0.9c0,0.2,0,0.4-0.2,0.5c-0.2,0.1-0.4,0-0.5-0.1c-1.3-0.9-2.6-1.8-3.9-2.7
-                              c-0.8-0.5-1.6-1.1-2.4-1.7c-0.5-0.3-0.5-0.6,0-0.9c2.1-1.4,4.2-2.7,6.3-4.1c0.2-0.1,0.3-0.2,0.5-0.1c0.2,0.1,0.2,0.3,0.2,0.5
-                              c0,0.5,0,1.1,0,1.6c0,0.3,0.1,0.4,0.4,0.4c2.1,0.1,3.9,1,5.4,2.4c1.4,1.4,2.2,3,2.4,5c0.2,1.6-0.1,3.1-0.7,4.6
-                              c-0.1,0.1-0.1,0.3-0.2,0.4c-0.1,0.1-0.2,0.2-0.4,0.2c-0.2-0.1-0.3-0.2-0.3-0.4c0-0.3,0-0.6,0-0.9c-0.1-2.6-1.3-4.6-3.4-6.1
-                              c-0.8-0.6-1.7-0.9-2.7-1.1c-0.3-0.1-0.4,0-0.4,0.3C7.5,25.7,7.5,26,7.5,26.3z"/>
-                          </svg>
-                        </span>
-                                <span class="opps__desc-text">Request to join</span>
-                            </div>
-                            <div class="opps__desc-item">
-                        <span class="opps__desc-icon">
-                          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--middle text-yellow" width="19" height="17" viewBox="0 0 40 34.8" fill="currentColor">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M40,13c-0.6,1.9-1.1,3.9-2,5.6c-1.7,3.3-4.4,5.9-7.2,8.2c-3.2,2.6-6.6,5-9.9,7.5c-0.6,0.4-1.1,0.5-1.7,0.1
-                              C13.9,31,8.7,27.1,4.5,22.2c-2.3-2.6-3.9-5.5-4.4-9c0,0-0.1-0.1-0.1-0.1c0-0.8,0-1.7,0-2.5c0-0.1,0.1-0.2,0.1-0.3
-                              c1.3-8.6,10.6-13,18-8.4c0.7,0.4,1.3,0.9,1.9,1.4c0.2-0.1,0.3-0.2,0.4-0.3c6.3-5.4,15.8-3,18.7,4.7c0.4,1,0.5,2,0.8,3.1
-                              C40,11.5,40,12.3,40,13z M2.3,11.7c0,2.7,1,5.3,3.2,8.1c3.9,4.9,9,8.7,14.1,12.2c0.2,0.1,0.6,0,0.8-0.1c4-2.7,7.8-5.5,11.2-8.9
-                              c2.5-2.5,4.9-5.2,5.7-8.9c1-4.2-0.8-8.6-4.6-10.6c-3.9-2.1-8.6-1.4-11.5,1.8c-1,1.1-1.5,1.1-2.5,0C16.1,2.5,12,1.6,8.4,2.9
-                              C4.7,4.4,2.3,7.9,2.3,11.7z"/>
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M21.2,16.2c1.5,0,2.9,0,4.3,0c1,0,1.5,0.4,1.5,1.1c0,0.7-0.5,1.2-1.4,1.2c-1.4,0-2.7,0-4.1,0c0,0-0.1,0-0.2,0
-                              c0,1.3,0,2.5,0,3.8c0,1.3-0.4,1.9-1.2,1.9c-0.8,0-1.1-0.6-1.1-1.9c0-1.2,0-2.5,0-3.9c-1.5,0-2.9,0-4.4,0c-0.4,0-0.9-0.2-1.2-0.5
-                              c-0.2-0.2-0.3-0.9-0.2-1.1c0.2-0.3,0.7-0.7,1.1-0.7c1.5-0.1,3,0,4.6,0c0-1.5-0.1-3,0-4.4c0-0.4,0.4-1,0.7-1.2
-                              c0.8-0.4,1.5,0.2,1.5,1.2C21.2,13.2,21.2,14.7,21.2,16.2z"/>
-                          </svg>
-                        </span>
-                                <span class="opps__desc-text">Wishlist</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="opps__inner">
-                        <!-- Если нет opportunities -->
-                        <!-- <div class="opp opp--empty">
-                          <div class="opp__inner">
-                            <div class="opp__message">
-                              Upload your idea and find the best fitting Talents to realize it!
-                            </div>
-                          </div>
-                          <div class="opp__button">
-                            <a class="button button--small button--yellow" href="#">
-                              <span class="button__text button__text--ultrasmall">upload</span>
-                            </a>
-                          </div>
-                        </div> -->
-                        <div class="opp opp--active">
-                            <a class="opp__inner" href="#">
-                                <p class="opp__title">Title 1</p>
-                                <div class="opp__icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="24" viewBox="0 0 40 35.1" fill="currentColor">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M20.3,0c0.1,0,0.2,0.1,0.3,0.1C21.5,0.4,22.1,1,22.3,2c0.2,0.9-0.3,1.9-1.1,2.3c-0.3,0.2-0.3,0.3-0.3,0.7
-                              c0.6,2.6,1.2,5.3,1.8,7.9c0.2,1,0.8,1.7,1.9,1.9c1,0.2,1.8-0.2,2.4-1c0.5-0.7,1-1.3,1.5-2c-0.5-0.4-0.8-0.9-0.9-1.6
-                              c-0.2-1.3,0.8-2.5,2-2.6C30.8,7.5,32,8.4,32,9.8c0.1,1.3-1,2.4-2.3,2.4c-0.3,0-0.4,0.1-0.5,0.4c-0.1,1.1-0.4,2.1-0.5,3.1
-                              c-0.1,1,0.2,1.8,1,2.3c0.8,0.6,1.7,0.6,2.5,0.1c0.1-0.1,0.3-0.2,0.4-0.3c1.1-0.8,2.1-1.6,3.2-2.4c-0.4-0.7-0.6-1.4-0.3-2.1
-                              c0.1-0.5,0.4-0.9,0.9-1.2c0.8-0.6,2-0.6,2.7,0.1c0.8,0.7,1.1,1.8,0.7,2.8c-0.5,1.1-1.4,1.5-2.9,1.3c-0.1,0.1-0.1,0.3-0.2,0.4
-                              c-1.2,3.4-2.4,6.8-3.5,10.2c-0.1,0.3-0.2,0.5-0.6,0.5c-8.4,0-16.9,0-25.3,0c-0.3,0-0.4-0.1-0.5-0.4c-1.2-3.4-2.4-6.8-3.6-10.2
-                              c-0.1-0.1-0.1-0.3-0.2-0.4c-1.6,0.1-2.5-0.3-2.9-1.4c-0.4-1,0-2.1,0.8-2.7c0.8-0.6,2-0.5,2.7,0.1C4.6,13,4.8,14,4.2,15.5
-                              c0.2,0.2,0.5,0.4,0.7,0.5c0.9,0.6,1.7,1.3,2.6,1.9c0.8,0.6,1.8,0.7,2.7,0.2c0.8-0.5,1.3-1.4,1.1-2.5c-0.2-1.2-0.4-2.3-0.6-3.5
-                              c-0.8,0.1-1.5-0.1-2.1-0.7C8.2,11.1,8,10.6,8,10.1C7.9,9,8.5,8,9.5,7.7c1-0.3,2,0,2.6,0.9c0.7,1,0.5,2.1-0.5,3.3
-                              c0.6,0.8,1.1,1.7,1.8,2.4c1.2,1.3,3.4,0.7,3.8-1c0.5-2,0.9-4,1.3-6c0.2-0.8,0.3-1.6,0.5-2.3c0-0.2,0-0.3-0.2-0.5
-                              C18,3.9,17.6,3,17.7,2c0.2-1,0.8-1.7,1.8-1.9c0,0,0.1,0,0.1-0.1C19.9,0,20.1,0,20.3,0z"/>
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M6.9,35.1c0-1.5,0-3.1,0-4.6c8.7,0,17.4,0,26.2,0c0,1.5,0,3.1,0,4.6C24.4,35.1,15.6,35.1,6.9,35.1z"/>
-                                    </svg>
-                                </div>
-                                <div class="opp__desc">
-                                    lorem ipsum dolor sit amet onsectetur adipiscing elit quia adsupe cum volit
-                                </div>
-                            </a>
-                        </div>
-                        <div class="opp">
-                            <a class="opp__inner" href="#">
-                                <p class="opp__title">Title 2</p>
-                                <div class="opp__icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="25" viewBox="0 0 40 53.5" fill="currentColor">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.5,48.9c0-1.8-0.1-3.5,0-5.1c0.3-5.8,3-10.2,8.2-13c1.7-0.9,2.8-2.1,2.8-4c0-2.1-1.1-3.2-2.8-4.2
-                              c-5.2-2.8-7.9-7.3-8.2-13.2c-0.1-1.5,0-3.1,0-4.8c-0.8,0-1.4-0.1-2-0.1C1,4.4,0,3.8,0,2.1C0.1,0.6,1.1,0,2.5,0c3.6,0,7.2,0,10.9,0
-                              c7.7,0,15.5,0,23.2,0c2.3,0,3.2,0.7,3.2,2.2c0,1.5-0.9,2.2-3.2,2.3c-0.2,0-0.5,0-0.7,0.1c-0.1,0-0.2,0.1-0.5,0.3
-                              c0,1.4,0.1,3,0,4.5c-0.2,6-3,10.5-8.3,13.3c-1.7,0.9-2.7,2.1-2.7,4.1c0,1.9,0.9,3.1,2.6,4c5.4,2.9,8.2,7.5,8.4,13.6
-                              c0,1.4,0,2.9,0,4.4c0.5,0.1,1,0.2,1.4,0.2c2.2,0.1,3.3,0.9,3.2,2.5c-0.1,1.5-1.1,2.1-3.4,2.1c-5.4,0-10.9,0-16.3,0
-                              c-5.6,0-11.1,0-16.7,0c-0.6,0-1.1,0-1.7-0.1c-1.3-0.2-2-1-2-2.3c0.1-1.2,0.8-1.9,2-2.1C2.7,49,3.5,49,4.5,48.9z M8.8,4.4
-                              c0,1.3,0,2.5,0,3.6c0,5,2.1,8.7,6.7,11c2,1,3.1,2.7,3.9,4.6c0.2,0.4,0.3,0.9,0.6,1.5c1.1-3.3,2.2-5,4.1-5.9
-                              c5.8-2.6,7.9-7.9,6.8-14.8C23.7,4.4,16.4,4.4,8.8,4.4z M31.2,48.8c0-1.7,0.1-3.3,0-4.8c-0.2-3.8-1.8-7-5.2-8.8
-                              c-2.9-1.6-5.1-3.6-6-7.4c-0.9,3-1.9,5.2-4.4,6.4c-5.6,2.6-7.7,7.7-6.6,14.6C16.4,48.8,23.7,48.8,31.2,48.8z"/>
-                                    </svg>
-                                </div>
-                                <div class="opp__desc">
-                                    lorem ipsum dolor sit amet onsectetur adipiscing elit quia adsupe cum volit
-                                </div>
-                            </a>
-                        </div>
-                        <div class="opp">
-                            <a class="opp__inner" href="#">
-                                <p class="opp__title">Title 3</p>
-                                <div class="opp__icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="32" viewBox="0 0 74 92" fill="currentColor">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M46.4,38.3c-0.3-0.2-0.5-0.3-0.8-0.4c-5.7-2.5-12.5-1.3-17.1,3c-1,0.9-2,1.9-2.9,2.9c-7,7-14,14-21,21
-                              c-4,4.1-5.5,9-4.2,14.6c1.3,6,5.1,10,10.9,11.7c5.9,1.7,11.3,0.4,15.7-4c7.8-7.7,15.5-15.5,23.3-23.2c3.5-3.5,5.2-7.7,4.8-12.7
-                              c-0.1-2-0.7-3.9-1.6-5.8c-1.7,1.7-3.3,3.3-4.9,4.9c-0.2,0.2-0.2,0.5-0.2,0.8c0.4,3-0.5,5.7-2.6,7.9C38,66.8,30,74.7,22.1,82.6
-                              c-2.3,2.3-5.2,3.1-8.4,2.5c-3.5-0.7-5.8-2.9-6.8-6.3c-1-3.5-0.2-6.6,2.3-9.2c7.8-7.9,15.7-15.8,23.6-23.6c2.2-2.2,4.9-3,7.9-2.7
-                              c0.2,0,0.6,0,0.7-0.1C43.1,41.6,44.7,39.9,46.4,38.3z"/>
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M60.2,0.2c0.6,0.2,1.3,0.3,1.9,0.5c11.7,3.1,15.9,17.5,7.5,26.2C61.6,35,53.6,43,45.5,50.9
-                              c-4.8,4.7-10.6,5.5-16.8,3.2c-0.3-0.1-0.6-0.3-1.1-0.5c1.6-1.6,3.2-3.2,4.7-4.7c0.2-0.2,0.6-0.2,0.8-0.1c3.2,0.4,5.8-0.7,8.1-3
-                              c7.7-7.8,15.5-15.5,23.2-23.3c3.8-3.8,3.8-9.7,0-13.3c-3.5-3.3-9-3.4-12.6,0c-1.2,1.1-2.2,2.2-3.4,3.3
-                              C41.7,19.5,34.9,26.2,28.1,33c-2.3,2.3-3.2,5-2.8,8.1c0,0.2,0,0.6-0.2,0.7c-1.5,1.6-3.1,3.1-4.7,4.7c-1-2-1.6-4.1-1.7-6.2
-                              c-0.2-4.7,1.4-8.7,4.7-12.1c7.8-7.9,15.7-15.7,23.6-23.6c2.4-2.3,5.2-3.8,8.5-4.3c0.2,0,0.3-0.1,0.5-0.2
-                              C57.4,0.2,58.8,0.2,60.2,0.2z"/>
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M46.4,38.3c-1.7,1.7-3.3,3.3-4.9,4.9c-0.1,0.1-0.5,0.1-0.7,0.1c-3.1-0.3-5.7,0.5-7.9,2.7
-                              c-7.9,7.9-15.8,15.7-23.6,23.6c-2.5,2.6-3.3,5.7-2.3,9.2c1,3.4,3.3,5.5,6.8,6.3c3.2,0.7,6.1-0.2,8.4-2.5
-                              c8-7.9,15.9-15.8,23.8-23.7c2.2-2.2,3-4.8,2.6-7.9c0-0.3,0-0.6,0.2-0.8c1.6-1.6,3.2-3.2,4.9-4.9c1,1.9,1.5,3.8,1.6,5.8
-                              c0.3,5-1.3,9.2-4.8,12.7C42.5,71.5,34.8,79.3,27,87c-4.4,4.4-9.8,5.7-15.7,4c-5.8-1.7-9.6-5.7-10.9-11.7
-                              c-1.2-5.6,0.2-10.5,4.2-14.6c7-7,14-14,21-21c1-1,1.9-2,2.9-2.9c4.5-4.3,11.3-5.5,17.1-3C45.9,38,46.1,38.1,46.4,38.3z"/>
-                                    </svg>
-                                </div>
-                                <div class="opp__desc">
-                                    lorem ipsum dolor sit amet onsectetur adipiscing elit quia adsupe cum volit
-                                </div>
-                            </a>
-                        </div>
-                        <div class="opp">
-                            <a class="opp__inner" href="#">
-                                <p class="opp__title">Title 4</p>
-                                <div class="opp__icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 40 33.8" fill="currentColor">
-                                        <path d="M24.6,33.8c-0.3,0-0.6,0-0.8,0c-1.3,0-2.5,0-3.7-0.1c-0.4,0-0.9,0-1.3-0.1c-0.5,0-0.9-0.2-1.2-0.5
-                              c-0.3-0.3-0.3-0.8-0.2-1.3c0.5-2.3,0.3-4.6-0.8-6.8c-0.6-1.1-1.3-2.1-2.2-2.9c-0.4-0.4-0.6-0.8-0.5-1.2c0.1-0.4,0.4-0.8,0.9-1
-                              c1.3-0.5,2.6-1.1,3.9-1.8c-0.4-0.6-0.7-1.3-0.9-2.1c0-0.1,0-0.1-0.1-0.1c-1.4-1.6-2-3.3-1.9-5.2c0-0.4,0.1-1.1,0.6-1.6
-                              c0-0.3,0-0.6,0-0.9c0-0.6,0-1.2,0.1-1.9c0.3-3.2,2.2-5.4,5.1-6.1C22.4,0.1,23.2,0,24,0c1.4,0,2.8,0.3,4,1c1.9,1,3,2.8,3.3,5.1
-                              c0.1,0.8,0.1,1.6,0.1,2.3c0,0.2,0,0.4,0,0.6c0.6,0.5,0.6,1.2,0.6,1.5l0,0.1c0.1,1.8-0.4,3.5-1.8,5.1C30.1,15.8,30,15.9,30,16
-                              c-0.2,0.8-0.5,1.4-0.9,2c1.2,0.6,2.4,1.2,3.5,1.7c0.8,0.4,1.6,0.7,2.4,1.1c1.2,0.6,2.2,1.4,2.9,2.5c1.1,1.8,1.8,3.9,2,6.2
-                              c0.1,0.6-0.1,1.8-1.5,2.5c-0.9,0.4-1.8,0.5-2.6,0.7c-2.2,0.4-4,0.6-5.6,0.8c-0.7,0.1-1.6,0.1-2.5,0.2c-0.3,0-0.6,0-0.9,0
-                              C26.1,33.8,25.3,33.8,24.6,33.8z M23.8,31.7L23.8,31.7c0.9,0,1.9,0,2.8,0c0.3,0,0.6,0,1,0c0.9,0,1.7-0.1,2.4-0.2
-                              c1.6-0.2,3.4-0.4,5.5-0.8c0.8-0.1,1.5-0.3,2.2-0.6c0.2-0.1,0.2-0.1,0.2-0.1c0,0,0-0.1,0-0.1c-0.2-2-0.8-3.7-1.7-5.3
-                              c-0.5-0.8-1.1-1.3-2-1.7c-0.8-0.4-1.6-0.7-2.4-1.1c-1.4-0.6-2.9-1.3-4.3-2.1c-0.3-0.2-0.8-0.4-0.9-1c-0.1-0.6,0.2-1,0.4-1.2
-                              c0.4-0.5,0.7-1.2,1-1.9c0.1-0.4,0.3-0.8,0.6-1.1c1-1.2,1.4-2.3,1.3-3.6l0-0.1c0,0,0-0.1,0-0.1c-0.6-0.5-0.6-1.1-0.6-1.3
-                              c0-0.3,0-0.5,0-0.8c0-0.7,0-1.4-0.1-2.1c-0.2-1.7-0.9-2.8-2.2-3.5c-1.4-0.8-3-0.9-5-0.5c-2,0.4-3.3,1.9-3.5,4.2
-                              c-0.1,0.5-0.1,1.1-0.1,1.7c0,0.4,0,0.8,0,1.1c0,0.7-0.3,1.1-0.6,1.2c0,0.1,0,0.1,0,0.2c-0.1,1.3,0.3,2.4,1.3,3.6
-                              c0.2,0.3,0.4,0.6,0.5,1c0.2,0.8,0.5,1.4,1,2c0.2,0.3,0.5,0.7,0.4,1.3c-0.1,0.6-0.5,0.8-0.9,1c-1.2,0.7-2.4,1.3-3.6,1.8
-                              c0.7,0.8,1.4,1.7,1.9,2.7c1.2,2.4,1.6,4.9,1.1,7.4c0.2,0,0.4,0,0.6,0C21.4,31.6,22.6,31.7,23.8,31.7L23.8,31.7z"/>
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.5,26.3c0,0.3,0,0.6,0,0.9c0,0.2,0,0.4-0.2,0.5c-0.2,0.1-0.4,0-0.5-0.1c-1.3-0.9-2.6-1.8-3.9-2.7
-                              c-0.8-0.5-1.6-1.1-2.4-1.7c-0.5-0.3-0.5-0.6,0-0.9c2.1-1.4,4.2-2.7,6.3-4.1c0.2-0.1,0.3-0.2,0.5-0.1c0.2,0.1,0.2,0.3,0.2,0.5
-                              c0,0.5,0,1.1,0,1.6c0,0.3,0.1,0.4,0.4,0.4c2.1,0.1,3.9,1,5.4,2.4c1.4,1.4,2.2,3,2.4,5c0.2,1.6-0.1,3.1-0.7,4.6
-                              c-0.1,0.1-0.1,0.3-0.2,0.4c-0.1,0.1-0.2,0.2-0.4,0.2c-0.2-0.1-0.3-0.2-0.3-0.4c0-0.3,0-0.6,0-0.9c-0.1-2.6-1.3-4.6-3.4-6.1
-                              c-0.8-0.6-1.7-0.9-2.7-1.1c-0.3-0.1-0.4,0-0.4,0.3C7.5,25.7,7.5,26,7.5,26.3z"/>
-                                    </svg>
-                                </div>
-                                <div class="opp__desc">
-                                    lorem ipsum dolor sit amet onsectetur adipiscing elit quia adsupe cum volit
-                                </div>
-                            </a>
-                        </div>
-                        <div class="opp opp--wished">
-                            <a class="opp__inner" href="#">
-                                <p class="opp__title">Title 5</p>
-                                <div class="opp__icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="25" viewBox="0 0 40 34.8" fill="currentColor">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M40,13c-0.6,1.9-1.1,3.9-2,5.6c-1.7,3.3-4.4,5.9-7.2,8.2c-3.2,2.6-6.6,5-9.9,7.5c-0.6,0.4-1.1,0.5-1.7,0.1
-                              C13.9,31,8.7,27.1,4.5,22.2c-2.3-2.6-3.9-5.5-4.4-9c0,0-0.1-0.1-0.1-0.1c0-0.8,0-1.7,0-2.5c0-0.1,0.1-0.2,0.1-0.3
-                              c1.3-8.6,10.6-13,18-8.4c0.7,0.4,1.3,0.9,1.9,1.4c0.2-0.1,0.3-0.2,0.4-0.3c6.3-5.4,15.8-3,18.7,4.7c0.4,1,0.5,2,0.8,3.1
-                              C40,11.5,40,12.3,40,13z M2.3,11.7c0,2.7,1,5.3,3.2,8.1c3.9,4.9,9,8.7,14.1,12.2c0.2,0.1,0.6,0,0.8-0.1c4-2.7,7.8-5.5,11.2-8.9
-                              c2.5-2.5,4.9-5.2,5.7-8.9c1-4.2-0.8-8.6-4.6-10.6c-3.9-2.1-8.6-1.4-11.5,1.8c-1,1.1-1.5,1.1-2.5,0C16.1,2.5,12,1.6,8.4,2.9
-                              C4.7,4.4,2.3,7.9,2.3,11.7z"/>
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M21.2,16.2c1.5,0,2.9,0,4.3,0c1,0,1.5,0.4,1.5,1.1c0,0.7-0.5,1.2-1.4,1.2c-1.4,0-2.7,0-4.1,0c0,0-0.1,0-0.2,0
-                              c0,1.3,0,2.5,0,3.8c0,1.3-0.4,1.9-1.2,1.9c-0.8,0-1.1-0.6-1.1-1.9c0-1.2,0-2.5,0-3.9c-1.5,0-2.9,0-4.4,0c-0.4,0-0.9-0.2-1.2-0.5
-                              c-0.2-0.2-0.3-0.9-0.2-1.1c0.2-0.3,0.7-0.7,1.1-0.7c1.5-0.1,3,0,4.6,0c0-1.5-0.1-3,0-4.4c0-0.4,0.4-1,0.7-1.2
-                              c0.8-0.4,1.5,0.2,1.5,1.2C21.2,13.2,21.2,14.7,21.2,16.2z"/>
-                                    </svg>
-                                </div>
-                                <div class="opp__desc">
-                                    lorem ipsum dolor sit amet onsectetur adipiscing elit quia adsupe cum volit
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="profile__section profile__section--teams">
-                <h2 class="profile__title">My teams</h2>
-                <div class="teams">
-                    <a class="edit-link edit-link--cherry" href="#">
-                        <span class="edit-link__text">edit</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="edit-link__icon icon icon--middle" width="16" height="16" viewBox="0 0 84 84" fill="currentColor">
-                            <path fill="none" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" d="M42,2c1.1,0,2.3,0.2,3.6,0.2c1.3,0.1,2.8,2.2,3.5,3.7c0.7,1.8,0.6,3.9,0.9,5.9c0.6,4.6,3.9,6.1,7.6,3.5
-                        c1.9-1.3,3.8-2.7,5.7-4.1c1.7-1.2,3.3-1.1,4.8,0.4c6.6,6.6,7.4,6,1.7,13.5c-0.7,0.9-1.3,1.8-1.9,2.7c-1.2,1.9,0.2,5.3,2.4,5.8
-                        c1.1,0.3,2.2,0.4,3.3,0.5c9.9,0.6,8.4,3,8.4,10.9c0,2.4-1.4,3.9-3.8,4.3c-2.4,0.4-4.9,0.6-7.3,1c-3.2,0.5-4.2,2.7-2.5,5.4
-                        c0.5,0.8,1.1,1.7,1.7,2.5c4.5,6.7,3.8,10-3.2,14.1c-1.2,0.7-3.4,0.3-4.9-0.2c-1.2-0.4-2-1.7-3-2.6c-1.3-1.2-2.2-3-4.7-2
-                        c-2.5,1-4.4,2.1-4.1,5.1c0,0.3-0.1,0.7-0.1,1C48.9,81.8,48,82,42,82c-6,0-6.9-0.2-7.8-8.3c0-0.3-0.2-0.7-0.1-1
-                        c0.3-3-1.6-4.1-4.1-5.1c-2.6-1.1-3.4,0.8-4.7,2c-1,0.9-1.9,2.2-3,2.6c-1.5,0.5-3.7,0.9-4.9,0.2c-7.1-4.1-7.7-7.4-3.2-14.1
-                        c0.6-0.8,1.1-1.7,1.7-2.5c1.7-2.7,0.6-4.9-2.5-5.4c-2.4-0.4-4.9-0.6-7.3-1C3.5,49,2.1,47.5,2.1,45c0-7.9-1.5-10.4,8.4-10.9
-                        c1.1-0.1,2.2-0.2,3.3-0.5c2.1-0.5,3.5-4,2.4-5.8c-0.6-0.9-1.3-1.8-1.9-2.7c-5.6-7.4-4.9-6.9,1.7-13.5c1.5-1.5,3.1-1.6,4.8-0.4
-                        c1.9,1.4,3.8,2.7,5.7,4.1c3.7,2.6,7,1.1,7.6-3.5c0.3-2,0.1-4.1,0.9-5.9c0.6-1.5,2.2-3.6,3.5-3.7C39.7,2.2,40.9,2,42,2z"/>
-                            <path fill="none" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" d="M41.9,30.8c-6.4,0-11.5,5.1-11.5,11.4c0.1,6.2,5.2,11.2,11.5,11.1c6.3,0,11.5-4.9,11.5-11.1
-                        c0.1-6.3-5-11.4-11.5-11.4H41.9z"/>
-                        </svg>
-                    </a>
-                    <div class="teams__inner">
-                        <!-- Если нет teams -->
-                        <!-- <div class="team team--empty">
-                          <div class="team__inner">
-                            <div class="team__image">
-                              <div class="team__ava team__ava--empty">
-                                <div class="team__message">
-                                  You don't have a team yet.<br />Read about our Testimonials!
-                                </div>
-                              </div>
-                              <button class="team__count team__count--empty" type="button">0</button>
-                            </div>
-                            <div class="text-center">
-                              <a class="button button--small button--yellow" href="#">
-                                <span class="button__text button__text--ultrasmall">read</span>
-                              </a>
-                            </div>
-                          </div>
-                        </div> -->
-                        <div class="team">
-                            <a class="team__inner" href="#">
-                                <div class="team__image">
-                                    <div class="team__ava team__ava--default bg-image" style="background-image: url('./tmp_images/avatar.jpg');"></div>
-                                    <button class="team__count team__count--default" type="button">+4</button>
-                                </div>
-                                <p class="team__name">Opportunity 1</p>
-                            </a>
-                        </div>
-                        <div class="team">
-                            <a class="team__inner" href="#">
-                                <div class="team__image">
-                                    <div class="team__ava team__ava--default bg-image" style="background-image: url('./tmp_images/avatar.jpg');"></div>
-                                    <button class="team__count team__count--default" type="button">+2</button>
-                                </div>
-                                <p class="team__name">Opportunity 2</p>
-                            </a>
-                        </div>
-                        <div class="team">
-                            <a class="team__inner" href="#">
-                                <div class="team__image">
-                                    <div class="team__ava team__ava--default bg-image" style="background-image: url('./tmp_images/avatar.jpg');"></div>
-                                    <button class="team__count team__count--default" type="button">+7</button>
-                                </div>
-                                <p class="team__name">Opportunity 3</p>
-                            </a>
-                        </div>
-                        <div class="team">
-                            <a class="team__inner" href="#">
-                                <div class="team__image">
-                                    <div class="team__ava team__ava--default bg-image" style="background-image: url('./tmp_images/avatar.jpg');"></div>
-                                    <button class="team__count team__count--default" type="button">+4</button>
-                                </div>
-                                <p class="team__name">Opportunity 4</p>
-                            </a>
-                        </div>
-                        <div class="team">
-                            <a class="team__inner" href="#">
-                                <div class="team__image">
-                                    <div class="team__ava team__ava--default bg-image" style="background-image: url('./tmp_images/avatar.jpg');"></div>
-                                    <button class="team__count team__count--default" type="button">+2</button>
-                                </div>
-                                <p class="team__name">Opportunity 4</p>
-                            </a>
-                        </div>
-                        <div class="team">
-                            <a class="team__inner" href="#">
-                                <div class="team__image">
-                                    <div class="team__ava team__ava--default bg-image" style="background-image: url('./tmp_images/avatar.jpg');"></div>
-                                    <button class="team__count team__count--default" type="button">+7</button>
-                                </div>
-                                <p class="team__name">Opportunity 4</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!--        <div class="profile__row">-->
+<!--            <div class="profile__section profile__section--opportunities">-->
+<!--                <h2 class="profile__title">My Opportunities</h2>-->
+<!--                <div class="opps">-->
+<!--                    <a class="edit-link edit-link--cherry" href="#">-->
+<!--                        <span class="edit-link__text">edit</span>-->
+<!--                        <svg xmlns="http://www.w3.org/2000/svg" class="edit-link__icon icon icon--middle" width="16" height="16" viewBox="0 0 84 84" fill="currentColor">-->
+<!--                            <path fill="none" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" d="M42,2c1.1,0,2.3,0.2,3.6,0.2c1.3,0.1,2.8,2.2,3.5,3.7c0.7,1.8,0.6,3.9,0.9,5.9c0.6,4.6,3.9,6.1,7.6,3.5-->
+<!--                        c1.9-1.3,3.8-2.7,5.7-4.1c1.7-1.2,3.3-1.1,4.8,0.4c6.6,6.6,7.4,6,1.7,13.5c-0.7,0.9-1.3,1.8-1.9,2.7c-1.2,1.9,0.2,5.3,2.4,5.8-->
+<!--                        c1.1,0.3,2.2,0.4,3.3,0.5c9.9,0.6,8.4,3,8.4,10.9c0,2.4-1.4,3.9-3.8,4.3c-2.4,0.4-4.9,0.6-7.3,1c-3.2,0.5-4.2,2.7-2.5,5.4-->
+<!--                        c0.5,0.8,1.1,1.7,1.7,2.5c4.5,6.7,3.8,10-3.2,14.1c-1.2,0.7-3.4,0.3-4.9-0.2c-1.2-0.4-2-1.7-3-2.6c-1.3-1.2-2.2-3-4.7-2-->
+<!--                        c-2.5,1-4.4,2.1-4.1,5.1c0,0.3-0.1,0.7-0.1,1C48.9,81.8,48,82,42,82c-6,0-6.9-0.2-7.8-8.3c0-0.3-0.2-0.7-0.1-1-->
+<!--                        c0.3-3-1.6-4.1-4.1-5.1c-2.6-1.1-3.4,0.8-4.7,2c-1,0.9-1.9,2.2-3,2.6c-1.5,0.5-3.7,0.9-4.9,0.2c-7.1-4.1-7.7-7.4-3.2-14.1-->
+<!--                        c0.6-0.8,1.1-1.7,1.7-2.5c1.7-2.7,0.6-4.9-2.5-5.4c-2.4-0.4-4.9-0.6-7.3-1C3.5,49,2.1,47.5,2.1,45c0-7.9-1.5-10.4,8.4-10.9-->
+<!--                        c1.1-0.1,2.2-0.2,3.3-0.5c2.1-0.5,3.5-4,2.4-5.8c-0.6-0.9-1.3-1.8-1.9-2.7c-5.6-7.4-4.9-6.9,1.7-13.5c1.5-1.5,3.1-1.6,4.8-0.4-->
+<!--                        c1.9,1.4,3.8,2.7,5.7,4.1c3.7,2.6,7,1.1,7.6-3.5c0.3-2,0.1-4.1,0.9-5.9c0.6-1.5,2.2-3.6,3.5-3.7C39.7,2.2,40.9,2,42,2z"/>-->
+<!--                            <path fill="none" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" d="M41.9,30.8c-6.4,0-11.5,5.1-11.5,11.4c0.1,6.2,5.2,11.2,11.5,11.1c6.3,0,11.5-4.9,11.5-11.1-->
+<!--                        c0.1-6.3-5-11.4-11.5-11.4H41.9z"/>-->
+<!--                        </svg>-->
+<!--                    </a>-->
+<!--                    <div class="opps__desc">-->
+<!--                        <div class="opps__desc-col">-->
+<!--                            <div class="opps__desc-item">-->
+<!--                        <span class="opps__desc-icon">-->
+<!--                          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--middle text-yellow" width="18" height="16" viewBox="0 0 40 35.1" fill="currentColor">-->
+<!--                            <path fill-rule="evenodd" clip-rule="evenodd" d="M20.3,0c0.1,0,0.2,0.1,0.3,0.1C21.5,0.4,22.1,1,22.3,2c0.2,0.9-0.3,1.9-1.1,2.3c-0.3,0.2-0.3,0.3-0.3,0.7-->
+<!--                              c0.6,2.6,1.2,5.3,1.8,7.9c0.2,1,0.8,1.7,1.9,1.9c1,0.2,1.8-0.2,2.4-1c0.5-0.7,1-1.3,1.5-2c-0.5-0.4-0.8-0.9-0.9-1.6-->
+<!--                              c-0.2-1.3,0.8-2.5,2-2.6C30.8,7.5,32,8.4,32,9.8c0.1,1.3-1,2.4-2.3,2.4c-0.3,0-0.4,0.1-0.5,0.4c-0.1,1.1-0.4,2.1-0.5,3.1-->
+<!--                              c-0.1,1,0.2,1.8,1,2.3c0.8,0.6,1.7,0.6,2.5,0.1c0.1-0.1,0.3-0.2,0.4-0.3c1.1-0.8,2.1-1.6,3.2-2.4c-0.4-0.7-0.6-1.4-0.3-2.1-->
+<!--                              c0.1-0.5,0.4-0.9,0.9-1.2c0.8-0.6,2-0.6,2.7,0.1c0.8,0.7,1.1,1.8,0.7,2.8c-0.5,1.1-1.4,1.5-2.9,1.3c-0.1,0.1-0.1,0.3-0.2,0.4-->
+<!--                              c-1.2,3.4-2.4,6.8-3.5,10.2c-0.1,0.3-0.2,0.5-0.6,0.5c-8.4,0-16.9,0-25.3,0c-0.3,0-0.4-0.1-0.5-0.4c-1.2-3.4-2.4-6.8-3.6-10.2-->
+<!--                              c-0.1-0.1-0.1-0.3-0.2-0.4c-1.6,0.1-2.5-0.3-2.9-1.4c-0.4-1,0-2.1,0.8-2.7c0.8-0.6,2-0.5,2.7,0.1C4.6,13,4.8,14,4.2,15.5-->
+<!--                              c0.2,0.2,0.5,0.4,0.7,0.5c0.9,0.6,1.7,1.3,2.6,1.9c0.8,0.6,1.8,0.7,2.7,0.2c0.8-0.5,1.3-1.4,1.1-2.5c-0.2-1.2-0.4-2.3-0.6-3.5-->
+<!--                              c-0.8,0.1-1.5-0.1-2.1-0.7C8.2,11.1,8,10.6,8,10.1C7.9,9,8.5,8,9.5,7.7c1-0.3,2,0,2.6,0.9c0.7,1,0.5,2.1-0.5,3.3-->
+<!--                              c0.6,0.8,1.1,1.7,1.8,2.4c1.2,1.3,3.4,0.7,3.8-1c0.5-2,0.9-4,1.3-6c0.2-0.8,0.3-1.6,0.5-2.3c0-0.2,0-0.3-0.2-0.5-->
+<!--                              C18,3.9,17.6,3,17.7,2c0.2-1,0.8-1.7,1.8-1.9c0,0,0.1,0,0.1-0.1C19.9,0,20.1,0,20.3,0z"/>-->
+<!--                            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.9,35.1c0-1.5,0-3.1,0-4.6c8.7,0,17.4,0,26.2,0c0,1.5,0,3.1,0,4.6C24.4,35.1,15.6,35.1,6.9,35.1z"/>-->
+<!--                          </svg>-->
+<!--                        </span>-->
+<!--                                <span class="opps__desc-text">Owner</span>-->
+<!--                            </div>-->
+<!--                            <div class="opps__desc-item">-->
+<!--                        <span class="opps__desc-icon">-->
+<!--                          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--middle text-yellow" width="13" height="17" viewBox="0 0 40 53.5" fill="currentColor">-->
+<!--                            <path fill-rule="evenodd" clip-rule="evenodd" d="M4.5,48.9c0-1.8-0.1-3.5,0-5.1c0.3-5.8,3-10.2,8.2-13c1.7-0.9,2.8-2.1,2.8-4c0-2.1-1.1-3.2-2.8-4.2-->
+<!--                              c-5.2-2.8-7.9-7.3-8.2-13.2c-0.1-1.5,0-3.1,0-4.8c-0.8,0-1.4-0.1-2-0.1C1,4.4,0,3.8,0,2.1C0.1,0.6,1.1,0,2.5,0c3.6,0,7.2,0,10.9,0-->
+<!--                              c7.7,0,15.5,0,23.2,0c2.3,0,3.2,0.7,3.2,2.2c0,1.5-0.9,2.2-3.2,2.3c-0.2,0-0.5,0-0.7,0.1c-0.1,0-0.2,0.1-0.5,0.3-->
+<!--                              c0,1.4,0.1,3,0,4.5c-0.2,6-3,10.5-8.3,13.3c-1.7,0.9-2.7,2.1-2.7,4.1c0,1.9,0.9,3.1,2.6,4c5.4,2.9,8.2,7.5,8.4,13.6-->
+<!--                              c0,1.4,0,2.9,0,4.4c0.5,0.1,1,0.2,1.4,0.2c2.2,0.1,3.3,0.9,3.2,2.5c-0.1,1.5-1.1,2.1-3.4,2.1c-5.4,0-10.9,0-16.3,0-->
+<!--                              c-5.6,0-11.1,0-16.7,0c-0.6,0-1.1,0-1.7-0.1c-1.3-0.2-2-1-2-2.3c0.1-1.2,0.8-1.9,2-2.1C2.7,49,3.5,49,4.5,48.9z M8.8,4.4-->
+<!--                              c0,1.3,0,2.5,0,3.6c0,5,2.1,8.7,6.7,11c2,1,3.1,2.7,3.9,4.6c0.2,0.4,0.3,0.9,0.6,1.5c1.1-3.3,2.2-5,4.1-5.9-->
+<!--                              c5.8-2.6,7.9-7.9,6.8-14.8C23.7,4.4,16.4,4.4,8.8,4.4z M31.2,48.8c0-1.7,0.1-3.3,0-4.8c-0.2-3.8-1.8-7-5.2-8.8-->
+<!--                              c-2.9-1.6-5.1-3.6-6-7.4c-0.9,3-1.9,5.2-4.4,6.4c-5.6,2.6-7.7,7.7-6.6,14.6C16.4,48.8,23.7,48.8,31.2,48.8z"/>-->
+<!--                          </svg>-->
+<!--                        </span>-->
+<!--                                <span class="opps__desc-text">Waiting for acceptance</span>-->
+<!--                            </div>-->
+<!--                            <div class="opps__desc-item">-->
+<!--                        <span class="opps__desc-icon">-->
+<!--                          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--middle text-yellow" width="17" height="22" viewBox="0 0 74 92" fill="currentColor">-->
+<!--                            <path fill-rule="evenodd" clip-rule="evenodd" d="M46.4,38.3c-0.3-0.2-0.5-0.3-0.8-0.4c-5.7-2.5-12.5-1.3-17.1,3c-1,0.9-2,1.9-2.9,2.9c-7,7-14,14-21,21-->
+<!--                              c-4,4.1-5.5,9-4.2,14.6c1.3,6,5.1,10,10.9,11.7c5.9,1.7,11.3,0.4,15.7-4c7.8-7.7,15.5-15.5,23.3-23.2c3.5-3.5,5.2-7.7,4.8-12.7-->
+<!--                              c-0.1-2-0.7-3.9-1.6-5.8c-1.7,1.7-3.3,3.3-4.9,4.9c-0.2,0.2-0.2,0.5-0.2,0.8c0.4,3-0.5,5.7-2.6,7.9C38,66.8,30,74.7,22.1,82.6-->
+<!--                              c-2.3,2.3-5.2,3.1-8.4,2.5c-3.5-0.7-5.8-2.9-6.8-6.3c-1-3.5-0.2-6.6,2.3-9.2c7.8-7.9,15.7-15.8,23.6-23.6c2.2-2.2,4.9-3,7.9-2.7-->
+<!--                              c0.2,0,0.6,0,0.7-0.1C43.1,41.6,44.7,39.9,46.4,38.3z"/>-->
+<!--                            <path fill-rule="evenodd" clip-rule="evenodd" d="M60.2,0.2c0.6,0.2,1.3,0.3,1.9,0.5c11.7,3.1,15.9,17.5,7.5,26.2C61.6,35,53.6,43,45.5,50.9-->
+<!--                              c-4.8,4.7-10.6,5.5-16.8,3.2c-0.3-0.1-0.6-0.3-1.1-0.5c1.6-1.6,3.2-3.2,4.7-4.7c0.2-0.2,0.6-0.2,0.8-0.1c3.2,0.4,5.8-0.7,8.1-3-->
+<!--                              c7.7-7.8,15.5-15.5,23.2-23.3c3.8-3.8,3.8-9.7,0-13.3c-3.5-3.3-9-3.4-12.6,0c-1.2,1.1-2.2,2.2-3.4,3.3-->
+<!--                              C41.7,19.5,34.9,26.2,28.1,33c-2.3,2.3-3.2,5-2.8,8.1c0,0.2,0,0.6-0.2,0.7c-1.5,1.6-3.1,3.1-4.7,4.7c-1-2-1.6-4.1-1.7-6.2-->
+<!--                              c-0.2-4.7,1.4-8.7,4.7-12.1c7.8-7.9,15.7-15.7,23.6-23.6c2.4-2.3,5.2-3.8,8.5-4.3c0.2,0,0.3-0.1,0.5-0.2-->
+<!--                              C57.4,0.2,58.8,0.2,60.2,0.2z"/>-->
+<!--                            <path fill-rule="evenodd" clip-rule="evenodd" d="M46.4,38.3c-1.7,1.7-3.3,3.3-4.9,4.9c-0.1,0.1-0.5,0.1-0.7,0.1c-3.1-0.3-5.7,0.5-7.9,2.7-->
+<!--                              c-7.9,7.9-15.8,15.7-23.6,23.6c-2.5,2.6-3.3,5.7-2.3,9.2c1,3.4,3.3,5.5,6.8,6.3c3.2,0.7,6.1-0.2,8.4-2.5-->
+<!--                              c8-7.9,15.9-15.8,23.8-23.7c2.2-2.2,3-4.8,2.6-7.9c0-0.3,0-0.6,0.2-0.8c1.6-1.6,3.2-3.2,4.9-4.9c1,1.9,1.5,3.8,1.6,5.8-->
+<!--                              c0.3,5-1.3,9.2-4.8,12.7C42.5,71.5,34.8,79.3,27,87c-4.4,4.4-9.8,5.7-15.7,4c-5.8-1.7-9.6-5.7-10.9-11.7-->
+<!--                              c-1.2-5.6,0.2-10.5,4.2-14.6c7-7,14-14,21-21c1-1,1.9-2,2.9-2.9c4.5-4.3,11.3-5.5,17.1-3C45.9,38,46.1,38.1,46.4,38.3z"/>-->
+<!--                          </svg>-->
+<!--                        </span>-->
+<!--                                <span class="opps__desc-text">Joined in</span>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="opps__desc-col">-->
+<!--                            <div class="opps__desc-item">-->
+<!--                        <span class="opps__desc-icon">-->
+<!--                          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--middle text-yellow" width="20" height="17" viewBox="0 0 40 33.8" fill="currentColor">-->
+<!--                            <path d="M24.6,33.8c-0.3,0-0.6,0-0.8,0c-1.3,0-2.5,0-3.7-0.1c-0.4,0-0.9,0-1.3-0.1c-0.5,0-0.9-0.2-1.2-0.5-->
+<!--                              c-0.3-0.3-0.3-0.8-0.2-1.3c0.5-2.3,0.3-4.6-0.8-6.8c-0.6-1.1-1.3-2.1-2.2-2.9c-0.4-0.4-0.6-0.8-0.5-1.2c0.1-0.4,0.4-0.8,0.9-1-->
+<!--                              c1.3-0.5,2.6-1.1,3.9-1.8c-0.4-0.6-0.7-1.3-0.9-2.1c0-0.1,0-0.1-0.1-0.1c-1.4-1.6-2-3.3-1.9-5.2c0-0.4,0.1-1.1,0.6-1.6-->
+<!--                              c0-0.3,0-0.6,0-0.9c0-0.6,0-1.2,0.1-1.9c0.3-3.2,2.2-5.4,5.1-6.1C22.4,0.1,23.2,0,24,0c1.4,0,2.8,0.3,4,1c1.9,1,3,2.8,3.3,5.1-->
+<!--                              c0.1,0.8,0.1,1.6,0.1,2.3c0,0.2,0,0.4,0,0.6c0.6,0.5,0.6,1.2,0.6,1.5l0,0.1c0.1,1.8-0.4,3.5-1.8,5.1C30.1,15.8,30,15.9,30,16-->
+<!--                              c-0.2,0.8-0.5,1.4-0.9,2c1.2,0.6,2.4,1.2,3.5,1.7c0.8,0.4,1.6,0.7,2.4,1.1c1.2,0.6,2.2,1.4,2.9,2.5c1.1,1.8,1.8,3.9,2,6.2-->
+<!--                              c0.1,0.6-0.1,1.8-1.5,2.5c-0.9,0.4-1.8,0.5-2.6,0.7c-2.2,0.4-4,0.6-5.6,0.8c-0.7,0.1-1.6,0.1-2.5,0.2c-0.3,0-0.6,0-0.9,0-->
+<!--                              C26.1,33.8,25.3,33.8,24.6,33.8z M23.8,31.7L23.8,31.7c0.9,0,1.9,0,2.8,0c0.3,0,0.6,0,1,0c0.9,0,1.7-0.1,2.4-0.2-->
+<!--                              c1.6-0.2,3.4-0.4,5.5-0.8c0.8-0.1,1.5-0.3,2.2-0.6c0.2-0.1,0.2-0.1,0.2-0.1c0,0,0-0.1,0-0.1c-0.2-2-0.8-3.7-1.7-5.3-->
+<!--                              c-0.5-0.8-1.1-1.3-2-1.7c-0.8-0.4-1.6-0.7-2.4-1.1c-1.4-0.6-2.9-1.3-4.3-2.1c-0.3-0.2-0.8-0.4-0.9-1c-0.1-0.6,0.2-1,0.4-1.2-->
+<!--                              c0.4-0.5,0.7-1.2,1-1.9c0.1-0.4,0.3-0.8,0.6-1.1c1-1.2,1.4-2.3,1.3-3.6l0-0.1c0,0,0-0.1,0-0.1c-0.6-0.5-0.6-1.1-0.6-1.3-->
+<!--                              c0-0.3,0-0.5,0-0.8c0-0.7,0-1.4-0.1-2.1c-0.2-1.7-0.9-2.8-2.2-3.5c-1.4-0.8-3-0.9-5-0.5c-2,0.4-3.3,1.9-3.5,4.2-->
+<!--                              c-0.1,0.5-0.1,1.1-0.1,1.7c0,0.4,0,0.8,0,1.1c0,0.7-0.3,1.1-0.6,1.2c0,0.1,0,0.1,0,0.2c-0.1,1.3,0.3,2.4,1.3,3.6-->
+<!--                              c0.2,0.3,0.4,0.6,0.5,1c0.2,0.8,0.5,1.4,1,2c0.2,0.3,0.5,0.7,0.4,1.3c-0.1,0.6-0.5,0.8-0.9,1c-1.2,0.7-2.4,1.3-3.6,1.8-->
+<!--                              c0.7,0.8,1.4,1.7,1.9,2.7c1.2,2.4,1.6,4.9,1.1,7.4c0.2,0,0.4,0,0.6,0C21.4,31.6,22.6,31.7,23.8,31.7L23.8,31.7z"/>-->
+<!--                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.5,26.3c0,0.3,0,0.6,0,0.9c0,0.2,0,0.4-0.2,0.5c-0.2,0.1-0.4,0-0.5-0.1c-1.3-0.9-2.6-1.8-3.9-2.7-->
+<!--                              c-0.8-0.5-1.6-1.1-2.4-1.7c-0.5-0.3-0.5-0.6,0-0.9c2.1-1.4,4.2-2.7,6.3-4.1c0.2-0.1,0.3-0.2,0.5-0.1c0.2,0.1,0.2,0.3,0.2,0.5-->
+<!--                              c0,0.5,0,1.1,0,1.6c0,0.3,0.1,0.4,0.4,0.4c2.1,0.1,3.9,1,5.4,2.4c1.4,1.4,2.2,3,2.4,5c0.2,1.6-0.1,3.1-0.7,4.6-->
+<!--                              c-0.1,0.1-0.1,0.3-0.2,0.4c-0.1,0.1-0.2,0.2-0.4,0.2c-0.2-0.1-0.3-0.2-0.3-0.4c0-0.3,0-0.6,0-0.9c-0.1-2.6-1.3-4.6-3.4-6.1-->
+<!--                              c-0.8-0.6-1.7-0.9-2.7-1.1c-0.3-0.1-0.4,0-0.4,0.3C7.5,25.7,7.5,26,7.5,26.3z"/>-->
+<!--                          </svg>-->
+<!--                        </span>-->
+<!--                                <span class="opps__desc-text">Request to join</span>-->
+<!--                            </div>-->
+<!--                            <div class="opps__desc-item">-->
+<!--                        <span class="opps__desc-icon">-->
+<!--                          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--middle text-yellow" width="19" height="17" viewBox="0 0 40 34.8" fill="currentColor">-->
+<!--                            <path fill-rule="evenodd" clip-rule="evenodd" d="M40,13c-0.6,1.9-1.1,3.9-2,5.6c-1.7,3.3-4.4,5.9-7.2,8.2c-3.2,2.6-6.6,5-9.9,7.5c-0.6,0.4-1.1,0.5-1.7,0.1-->
+<!--                              C13.9,31,8.7,27.1,4.5,22.2c-2.3-2.6-3.9-5.5-4.4-9c0,0-0.1-0.1-0.1-0.1c0-0.8,0-1.7,0-2.5c0-0.1,0.1-0.2,0.1-0.3-->
+<!--                              c1.3-8.6,10.6-13,18-8.4c0.7,0.4,1.3,0.9,1.9,1.4c0.2-0.1,0.3-0.2,0.4-0.3c6.3-5.4,15.8-3,18.7,4.7c0.4,1,0.5,2,0.8,3.1-->
+<!--                              C40,11.5,40,12.3,40,13z M2.3,11.7c0,2.7,1,5.3,3.2,8.1c3.9,4.9,9,8.7,14.1,12.2c0.2,0.1,0.6,0,0.8-0.1c4-2.7,7.8-5.5,11.2-8.9-->
+<!--                              c2.5-2.5,4.9-5.2,5.7-8.9c1-4.2-0.8-8.6-4.6-10.6c-3.9-2.1-8.6-1.4-11.5,1.8c-1,1.1-1.5,1.1-2.5,0C16.1,2.5,12,1.6,8.4,2.9-->
+<!--                              C4.7,4.4,2.3,7.9,2.3,11.7z"/>-->
+<!--                            <path fill-rule="evenodd" clip-rule="evenodd" d="M21.2,16.2c1.5,0,2.9,0,4.3,0c1,0,1.5,0.4,1.5,1.1c0,0.7-0.5,1.2-1.4,1.2c-1.4,0-2.7,0-4.1,0c0,0-0.1,0-0.2,0-->
+<!--                              c0,1.3,0,2.5,0,3.8c0,1.3-0.4,1.9-1.2,1.9c-0.8,0-1.1-0.6-1.1-1.9c0-1.2,0-2.5,0-3.9c-1.5,0-2.9,0-4.4,0c-0.4,0-0.9-0.2-1.2-0.5-->
+<!--                              c-0.2-0.2-0.3-0.9-0.2-1.1c0.2-0.3,0.7-0.7,1.1-0.7c1.5-0.1,3,0,4.6,0c0-1.5-0.1-3,0-4.4c0-0.4,0.4-1,0.7-1.2-->
+<!--                              c0.8-0.4,1.5,0.2,1.5,1.2C21.2,13.2,21.2,14.7,21.2,16.2z"/>-->
+<!--                          </svg>-->
+<!--                        </span>-->
+<!--                                <span class="opps__desc-text">Wishlist</span>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="opps__inner">-->
+<!--                        <!-- Если нет opportunities -->-->
+<!--                        <!-- <div class="opp opp--empty">-->
+<!--                          <div class="opp__inner">-->
+<!--                            <div class="opp__message">-->
+<!--                              Upload your idea and find the best fitting Talents to realize it!-->
+<!--                            </div>-->
+<!--                          </div>-->
+<!--                          <div class="opp__button">-->
+<!--                            <a class="button button--small button--yellow" href="#">-->
+<!--                              <span class="button__text button__text--ultrasmall">upload</span>-->
+<!--                            </a>-->
+<!--                          </div>-->
+<!--                        </div> -->-->
+<!--                        <div class="opp opp--active">-->
+<!--                            <a class="opp__inner" href="#">-->
+<!--                                <p class="opp__title">Title 1</p>-->
+<!--                                <div class="opp__icon">-->
+<!--                                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="24" viewBox="0 0 40 35.1" fill="currentColor">-->
+<!--                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M20.3,0c0.1,0,0.2,0.1,0.3,0.1C21.5,0.4,22.1,1,22.3,2c0.2,0.9-0.3,1.9-1.1,2.3c-0.3,0.2-0.3,0.3-0.3,0.7-->
+<!--                              c0.6,2.6,1.2,5.3,1.8,7.9c0.2,1,0.8,1.7,1.9,1.9c1,0.2,1.8-0.2,2.4-1c0.5-0.7,1-1.3,1.5-2c-0.5-0.4-0.8-0.9-0.9-1.6-->
+<!--                              c-0.2-1.3,0.8-2.5,2-2.6C30.8,7.5,32,8.4,32,9.8c0.1,1.3-1,2.4-2.3,2.4c-0.3,0-0.4,0.1-0.5,0.4c-0.1,1.1-0.4,2.1-0.5,3.1-->
+<!--                              c-0.1,1,0.2,1.8,1,2.3c0.8,0.6,1.7,0.6,2.5,0.1c0.1-0.1,0.3-0.2,0.4-0.3c1.1-0.8,2.1-1.6,3.2-2.4c-0.4-0.7-0.6-1.4-0.3-2.1-->
+<!--                              c0.1-0.5,0.4-0.9,0.9-1.2c0.8-0.6,2-0.6,2.7,0.1c0.8,0.7,1.1,1.8,0.7,2.8c-0.5,1.1-1.4,1.5-2.9,1.3c-0.1,0.1-0.1,0.3-0.2,0.4-->
+<!--                              c-1.2,3.4-2.4,6.8-3.5,10.2c-0.1,0.3-0.2,0.5-0.6,0.5c-8.4,0-16.9,0-25.3,0c-0.3,0-0.4-0.1-0.5-0.4c-1.2-3.4-2.4-6.8-3.6-10.2-->
+<!--                              c-0.1-0.1-0.1-0.3-0.2-0.4c-1.6,0.1-2.5-0.3-2.9-1.4c-0.4-1,0-2.1,0.8-2.7c0.8-0.6,2-0.5,2.7,0.1C4.6,13,4.8,14,4.2,15.5-->
+<!--                              c0.2,0.2,0.5,0.4,0.7,0.5c0.9,0.6,1.7,1.3,2.6,1.9c0.8,0.6,1.8,0.7,2.7,0.2c0.8-0.5,1.3-1.4,1.1-2.5c-0.2-1.2-0.4-2.3-0.6-3.5-->
+<!--                              c-0.8,0.1-1.5-0.1-2.1-0.7C8.2,11.1,8,10.6,8,10.1C7.9,9,8.5,8,9.5,7.7c1-0.3,2,0,2.6,0.9c0.7,1,0.5,2.1-0.5,3.3-->
+<!--                              c0.6,0.8,1.1,1.7,1.8,2.4c1.2,1.3,3.4,0.7,3.8-1c0.5-2,0.9-4,1.3-6c0.2-0.8,0.3-1.6,0.5-2.3c0-0.2,0-0.3-0.2-0.5-->
+<!--                              C18,3.9,17.6,3,17.7,2c0.2-1,0.8-1.7,1.8-1.9c0,0,0.1,0,0.1-0.1C19.9,0,20.1,0,20.3,0z"/>-->
+<!--                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M6.9,35.1c0-1.5,0-3.1,0-4.6c8.7,0,17.4,0,26.2,0c0,1.5,0,3.1,0,4.6C24.4,35.1,15.6,35.1,6.9,35.1z"/>-->
+<!--                                    </svg>-->
+<!--                                </div>-->
+<!--                                <div class="opp__desc">-->
+<!--                                    lorem ipsum dolor sit amet onsectetur adipiscing elit quia adsupe cum volit-->
+<!--                                </div>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                        <div class="opp">-->
+<!--                            <a class="opp__inner" href="#">-->
+<!--                                <p class="opp__title">Title 2</p>-->
+<!--                                <div class="opp__icon">-->
+<!--                                    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="25" viewBox="0 0 40 53.5" fill="currentColor">-->
+<!--                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.5,48.9c0-1.8-0.1-3.5,0-5.1c0.3-5.8,3-10.2,8.2-13c1.7-0.9,2.8-2.1,2.8-4c0-2.1-1.1-3.2-2.8-4.2-->
+<!--                              c-5.2-2.8-7.9-7.3-8.2-13.2c-0.1-1.5,0-3.1,0-4.8c-0.8,0-1.4-0.1-2-0.1C1,4.4,0,3.8,0,2.1C0.1,0.6,1.1,0,2.5,0c3.6,0,7.2,0,10.9,0-->
+<!--                              c7.7,0,15.5,0,23.2,0c2.3,0,3.2,0.7,3.2,2.2c0,1.5-0.9,2.2-3.2,2.3c-0.2,0-0.5,0-0.7,0.1c-0.1,0-0.2,0.1-0.5,0.3-->
+<!--                              c0,1.4,0.1,3,0,4.5c-0.2,6-3,10.5-8.3,13.3c-1.7,0.9-2.7,2.1-2.7,4.1c0,1.9,0.9,3.1,2.6,4c5.4,2.9,8.2,7.5,8.4,13.6-->
+<!--                              c0,1.4,0,2.9,0,4.4c0.5,0.1,1,0.2,1.4,0.2c2.2,0.1,3.3,0.9,3.2,2.5c-0.1,1.5-1.1,2.1-3.4,2.1c-5.4,0-10.9,0-16.3,0-->
+<!--                              c-5.6,0-11.1,0-16.7,0c-0.6,0-1.1,0-1.7-0.1c-1.3-0.2-2-1-2-2.3c0.1-1.2,0.8-1.9,2-2.1C2.7,49,3.5,49,4.5,48.9z M8.8,4.4-->
+<!--                              c0,1.3,0,2.5,0,3.6c0,5,2.1,8.7,6.7,11c2,1,3.1,2.7,3.9,4.6c0.2,0.4,0.3,0.9,0.6,1.5c1.1-3.3,2.2-5,4.1-5.9-->
+<!--                              c5.8-2.6,7.9-7.9,6.8-14.8C23.7,4.4,16.4,4.4,8.8,4.4z M31.2,48.8c0-1.7,0.1-3.3,0-4.8c-0.2-3.8-1.8-7-5.2-8.8-->
+<!--                              c-2.9-1.6-5.1-3.6-6-7.4c-0.9,3-1.9,5.2-4.4,6.4c-5.6,2.6-7.7,7.7-6.6,14.6C16.4,48.8,23.7,48.8,31.2,48.8z"/>-->
+<!--                                    </svg>-->
+<!--                                </div>-->
+<!--                                <div class="opp__desc">-->
+<!--                                    lorem ipsum dolor sit amet onsectetur adipiscing elit quia adsupe cum volit-->
+<!--                                </div>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                        <div class="opp">-->
+<!--                            <a class="opp__inner" href="#">-->
+<!--                                <p class="opp__title">Title 3</p>-->
+<!--                                <div class="opp__icon">-->
+<!--                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="32" viewBox="0 0 74 92" fill="currentColor">-->
+<!--                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M46.4,38.3c-0.3-0.2-0.5-0.3-0.8-0.4c-5.7-2.5-12.5-1.3-17.1,3c-1,0.9-2,1.9-2.9,2.9c-7,7-14,14-21,21-->
+<!--                              c-4,4.1-5.5,9-4.2,14.6c1.3,6,5.1,10,10.9,11.7c5.9,1.7,11.3,0.4,15.7-4c7.8-7.7,15.5-15.5,23.3-23.2c3.5-3.5,5.2-7.7,4.8-12.7-->
+<!--                              c-0.1-2-0.7-3.9-1.6-5.8c-1.7,1.7-3.3,3.3-4.9,4.9c-0.2,0.2-0.2,0.5-0.2,0.8c0.4,3-0.5,5.7-2.6,7.9C38,66.8,30,74.7,22.1,82.6-->
+<!--                              c-2.3,2.3-5.2,3.1-8.4,2.5c-3.5-0.7-5.8-2.9-6.8-6.3c-1-3.5-0.2-6.6,2.3-9.2c7.8-7.9,15.7-15.8,23.6-23.6c2.2-2.2,4.9-3,7.9-2.7-->
+<!--                              c0.2,0,0.6,0,0.7-0.1C43.1,41.6,44.7,39.9,46.4,38.3z"/>-->
+<!--                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M60.2,0.2c0.6,0.2,1.3,0.3,1.9,0.5c11.7,3.1,15.9,17.5,7.5,26.2C61.6,35,53.6,43,45.5,50.9-->
+<!--                              c-4.8,4.7-10.6,5.5-16.8,3.2c-0.3-0.1-0.6-0.3-1.1-0.5c1.6-1.6,3.2-3.2,4.7-4.7c0.2-0.2,0.6-0.2,0.8-0.1c3.2,0.4,5.8-0.7,8.1-3-->
+<!--                              c7.7-7.8,15.5-15.5,23.2-23.3c3.8-3.8,3.8-9.7,0-13.3c-3.5-3.3-9-3.4-12.6,0c-1.2,1.1-2.2,2.2-3.4,3.3-->
+<!--                              C41.7,19.5,34.9,26.2,28.1,33c-2.3,2.3-3.2,5-2.8,8.1c0,0.2,0,0.6-0.2,0.7c-1.5,1.6-3.1,3.1-4.7,4.7c-1-2-1.6-4.1-1.7-6.2-->
+<!--                              c-0.2-4.7,1.4-8.7,4.7-12.1c7.8-7.9,15.7-15.7,23.6-23.6c2.4-2.3,5.2-3.8,8.5-4.3c0.2,0,0.3-0.1,0.5-0.2-->
+<!--                              C57.4,0.2,58.8,0.2,60.2,0.2z"/>-->
+<!--                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M46.4,38.3c-1.7,1.7-3.3,3.3-4.9,4.9c-0.1,0.1-0.5,0.1-0.7,0.1c-3.1-0.3-5.7,0.5-7.9,2.7-->
+<!--                              c-7.9,7.9-15.8,15.7-23.6,23.6c-2.5,2.6-3.3,5.7-2.3,9.2c1,3.4,3.3,5.5,6.8,6.3c3.2,0.7,6.1-0.2,8.4-2.5-->
+<!--                              c8-7.9,15.9-15.8,23.8-23.7c2.2-2.2,3-4.8,2.6-7.9c0-0.3,0-0.6,0.2-0.8c1.6-1.6,3.2-3.2,4.9-4.9c1,1.9,1.5,3.8,1.6,5.8-->
+<!--                              c0.3,5-1.3,9.2-4.8,12.7C42.5,71.5,34.8,79.3,27,87c-4.4,4.4-9.8,5.7-15.7,4c-5.8-1.7-9.6-5.7-10.9-11.7-->
+<!--                              c-1.2-5.6,0.2-10.5,4.2-14.6c7-7,14-14,21-21c1-1,1.9-2,2.9-2.9c4.5-4.3,11.3-5.5,17.1-3C45.9,38,46.1,38.1,46.4,38.3z"/>-->
+<!--                                    </svg>-->
+<!--                                </div>-->
+<!--                                <div class="opp__desc">-->
+<!--                                    lorem ipsum dolor sit amet onsectetur adipiscing elit quia adsupe cum volit-->
+<!--                                </div>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                        <div class="opp">-->
+<!--                            <a class="opp__inner" href="#">-->
+<!--                                <p class="opp__title">Title 4</p>-->
+<!--                                <div class="opp__icon">-->
+<!--                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 40 33.8" fill="currentColor">-->
+<!--                                        <path d="M24.6,33.8c-0.3,0-0.6,0-0.8,0c-1.3,0-2.5,0-3.7-0.1c-0.4,0-0.9,0-1.3-0.1c-0.5,0-0.9-0.2-1.2-0.5-->
+<!--                              c-0.3-0.3-0.3-0.8-0.2-1.3c0.5-2.3,0.3-4.6-0.8-6.8c-0.6-1.1-1.3-2.1-2.2-2.9c-0.4-0.4-0.6-0.8-0.5-1.2c0.1-0.4,0.4-0.8,0.9-1-->
+<!--                              c1.3-0.5,2.6-1.1,3.9-1.8c-0.4-0.6-0.7-1.3-0.9-2.1c0-0.1,0-0.1-0.1-0.1c-1.4-1.6-2-3.3-1.9-5.2c0-0.4,0.1-1.1,0.6-1.6-->
+<!--                              c0-0.3,0-0.6,0-0.9c0-0.6,0-1.2,0.1-1.9c0.3-3.2,2.2-5.4,5.1-6.1C22.4,0.1,23.2,0,24,0c1.4,0,2.8,0.3,4,1c1.9,1,3,2.8,3.3,5.1-->
+<!--                              c0.1,0.8,0.1,1.6,0.1,2.3c0,0.2,0,0.4,0,0.6c0.6,0.5,0.6,1.2,0.6,1.5l0,0.1c0.1,1.8-0.4,3.5-1.8,5.1C30.1,15.8,30,15.9,30,16-->
+<!--                              c-0.2,0.8-0.5,1.4-0.9,2c1.2,0.6,2.4,1.2,3.5,1.7c0.8,0.4,1.6,0.7,2.4,1.1c1.2,0.6,2.2,1.4,2.9,2.5c1.1,1.8,1.8,3.9,2,6.2-->
+<!--                              c0.1,0.6-0.1,1.8-1.5,2.5c-0.9,0.4-1.8,0.5-2.6,0.7c-2.2,0.4-4,0.6-5.6,0.8c-0.7,0.1-1.6,0.1-2.5,0.2c-0.3,0-0.6,0-0.9,0-->
+<!--                              C26.1,33.8,25.3,33.8,24.6,33.8z M23.8,31.7L23.8,31.7c0.9,0,1.9,0,2.8,0c0.3,0,0.6,0,1,0c0.9,0,1.7-0.1,2.4-0.2-->
+<!--                              c1.6-0.2,3.4-0.4,5.5-0.8c0.8-0.1,1.5-0.3,2.2-0.6c0.2-0.1,0.2-0.1,0.2-0.1c0,0,0-0.1,0-0.1c-0.2-2-0.8-3.7-1.7-5.3-->
+<!--                              c-0.5-0.8-1.1-1.3-2-1.7c-0.8-0.4-1.6-0.7-2.4-1.1c-1.4-0.6-2.9-1.3-4.3-2.1c-0.3-0.2-0.8-0.4-0.9-1c-0.1-0.6,0.2-1,0.4-1.2-->
+<!--                              c0.4-0.5,0.7-1.2,1-1.9c0.1-0.4,0.3-0.8,0.6-1.1c1-1.2,1.4-2.3,1.3-3.6l0-0.1c0,0,0-0.1,0-0.1c-0.6-0.5-0.6-1.1-0.6-1.3-->
+<!--                              c0-0.3,0-0.5,0-0.8c0-0.7,0-1.4-0.1-2.1c-0.2-1.7-0.9-2.8-2.2-3.5c-1.4-0.8-3-0.9-5-0.5c-2,0.4-3.3,1.9-3.5,4.2-->
+<!--                              c-0.1,0.5-0.1,1.1-0.1,1.7c0,0.4,0,0.8,0,1.1c0,0.7-0.3,1.1-0.6,1.2c0,0.1,0,0.1,0,0.2c-0.1,1.3,0.3,2.4,1.3,3.6-->
+<!--                              c0.2,0.3,0.4,0.6,0.5,1c0.2,0.8,0.5,1.4,1,2c0.2,0.3,0.5,0.7,0.4,1.3c-0.1,0.6-0.5,0.8-0.9,1c-1.2,0.7-2.4,1.3-3.6,1.8-->
+<!--                              c0.7,0.8,1.4,1.7,1.9,2.7c1.2,2.4,1.6,4.9,1.1,7.4c0.2,0,0.4,0,0.6,0C21.4,31.6,22.6,31.7,23.8,31.7L23.8,31.7z"/>-->
+<!--                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.5,26.3c0,0.3,0,0.6,0,0.9c0,0.2,0,0.4-0.2,0.5c-0.2,0.1-0.4,0-0.5-0.1c-1.3-0.9-2.6-1.8-3.9-2.7-->
+<!--                              c-0.8-0.5-1.6-1.1-2.4-1.7c-0.5-0.3-0.5-0.6,0-0.9c2.1-1.4,4.2-2.7,6.3-4.1c0.2-0.1,0.3-0.2,0.5-0.1c0.2,0.1,0.2,0.3,0.2,0.5-->
+<!--                              c0,0.5,0,1.1,0,1.6c0,0.3,0.1,0.4,0.4,0.4c2.1,0.1,3.9,1,5.4,2.4c1.4,1.4,2.2,3,2.4,5c0.2,1.6-0.1,3.1-0.7,4.6-->
+<!--                              c-0.1,0.1-0.1,0.3-0.2,0.4c-0.1,0.1-0.2,0.2-0.4,0.2c-0.2-0.1-0.3-0.2-0.3-0.4c0-0.3,0-0.6,0-0.9c-0.1-2.6-1.3-4.6-3.4-6.1-->
+<!--                              c-0.8-0.6-1.7-0.9-2.7-1.1c-0.3-0.1-0.4,0-0.4,0.3C7.5,25.7,7.5,26,7.5,26.3z"/>-->
+<!--                                    </svg>-->
+<!--                                </div>-->
+<!--                                <div class="opp__desc">-->
+<!--                                    lorem ipsum dolor sit amet onsectetur adipiscing elit quia adsupe cum volit-->
+<!--                                </div>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                        <div class="opp opp--wished">-->
+<!--                            <a class="opp__inner" href="#">-->
+<!--                                <p class="opp__title">Title 5</p>-->
+<!--                                <div class="opp__icon">-->
+<!--                                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="25" viewBox="0 0 40 34.8" fill="currentColor">-->
+<!--                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M40,13c-0.6,1.9-1.1,3.9-2,5.6c-1.7,3.3-4.4,5.9-7.2,8.2c-3.2,2.6-6.6,5-9.9,7.5c-0.6,0.4-1.1,0.5-1.7,0.1-->
+<!--                              C13.9,31,8.7,27.1,4.5,22.2c-2.3-2.6-3.9-5.5-4.4-9c0,0-0.1-0.1-0.1-0.1c0-0.8,0-1.7,0-2.5c0-0.1,0.1-0.2,0.1-0.3-->
+<!--                              c1.3-8.6,10.6-13,18-8.4c0.7,0.4,1.3,0.9,1.9,1.4c0.2-0.1,0.3-0.2,0.4-0.3c6.3-5.4,15.8-3,18.7,4.7c0.4,1,0.5,2,0.8,3.1-->
+<!--                              C40,11.5,40,12.3,40,13z M2.3,11.7c0,2.7,1,5.3,3.2,8.1c3.9,4.9,9,8.7,14.1,12.2c0.2,0.1,0.6,0,0.8-0.1c4-2.7,7.8-5.5,11.2-8.9-->
+<!--                              c2.5-2.5,4.9-5.2,5.7-8.9c1-4.2-0.8-8.6-4.6-10.6c-3.9-2.1-8.6-1.4-11.5,1.8c-1,1.1-1.5,1.1-2.5,0C16.1,2.5,12,1.6,8.4,2.9-->
+<!--                              C4.7,4.4,2.3,7.9,2.3,11.7z"/>-->
+<!--                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M21.2,16.2c1.5,0,2.9,0,4.3,0c1,0,1.5,0.4,1.5,1.1c0,0.7-0.5,1.2-1.4,1.2c-1.4,0-2.7,0-4.1,0c0,0-0.1,0-0.2,0-->
+<!--                              c0,1.3,0,2.5,0,3.8c0,1.3-0.4,1.9-1.2,1.9c-0.8,0-1.1-0.6-1.1-1.9c0-1.2,0-2.5,0-3.9c-1.5,0-2.9,0-4.4,0c-0.4,0-0.9-0.2-1.2-0.5-->
+<!--                              c-0.2-0.2-0.3-0.9-0.2-1.1c0.2-0.3,0.7-0.7,1.1-0.7c1.5-0.1,3,0,4.6,0c0-1.5-0.1-3,0-4.4c0-0.4,0.4-1,0.7-1.2-->
+<!--                              c0.8-0.4,1.5,0.2,1.5,1.2C21.2,13.2,21.2,14.7,21.2,16.2z"/>-->
+<!--                                    </svg>-->
+<!--                                </div>-->
+<!--                                <div class="opp__desc">-->
+<!--                                    lorem ipsum dolor sit amet onsectetur adipiscing elit quia adsupe cum volit-->
+<!--                                </div>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="profile__section profile__section--teams">-->
+<!--                <h2 class="profile__title">My teams</h2>-->
+<!--                <div class="teams">-->
+<!--                    <a class="edit-link edit-link--cherry" href="#">-->
+<!--                        <span class="edit-link__text">edit</span>-->
+<!--                        <svg xmlns="http://www.w3.org/2000/svg" class="edit-link__icon icon icon--middle" width="16" height="16" viewBox="0 0 84 84" fill="currentColor">-->
+<!--                            <path fill="none" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" d="M42,2c1.1,0,2.3,0.2,3.6,0.2c1.3,0.1,2.8,2.2,3.5,3.7c0.7,1.8,0.6,3.9,0.9,5.9c0.6,4.6,3.9,6.1,7.6,3.5-->
+<!--                        c1.9-1.3,3.8-2.7,5.7-4.1c1.7-1.2,3.3-1.1,4.8,0.4c6.6,6.6,7.4,6,1.7,13.5c-0.7,0.9-1.3,1.8-1.9,2.7c-1.2,1.9,0.2,5.3,2.4,5.8-->
+<!--                        c1.1,0.3,2.2,0.4,3.3,0.5c9.9,0.6,8.4,3,8.4,10.9c0,2.4-1.4,3.9-3.8,4.3c-2.4,0.4-4.9,0.6-7.3,1c-3.2,0.5-4.2,2.7-2.5,5.4-->
+<!--                        c0.5,0.8,1.1,1.7,1.7,2.5c4.5,6.7,3.8,10-3.2,14.1c-1.2,0.7-3.4,0.3-4.9-0.2c-1.2-0.4-2-1.7-3-2.6c-1.3-1.2-2.2-3-4.7-2-->
+<!--                        c-2.5,1-4.4,2.1-4.1,5.1c0,0.3-0.1,0.7-0.1,1C48.9,81.8,48,82,42,82c-6,0-6.9-0.2-7.8-8.3c0-0.3-0.2-0.7-0.1-1-->
+<!--                        c0.3-3-1.6-4.1-4.1-5.1c-2.6-1.1-3.4,0.8-4.7,2c-1,0.9-1.9,2.2-3,2.6c-1.5,0.5-3.7,0.9-4.9,0.2c-7.1-4.1-7.7-7.4-3.2-14.1-->
+<!--                        c0.6-0.8,1.1-1.7,1.7-2.5c1.7-2.7,0.6-4.9-2.5-5.4c-2.4-0.4-4.9-0.6-7.3-1C3.5,49,2.1,47.5,2.1,45c0-7.9-1.5-10.4,8.4-10.9-->
+<!--                        c1.1-0.1,2.2-0.2,3.3-0.5c2.1-0.5,3.5-4,2.4-5.8c-0.6-0.9-1.3-1.8-1.9-2.7c-5.6-7.4-4.9-6.9,1.7-13.5c1.5-1.5,3.1-1.6,4.8-0.4-->
+<!--                        c1.9,1.4,3.8,2.7,5.7,4.1c3.7,2.6,7,1.1,7.6-3.5c0.3-2,0.1-4.1,0.9-5.9c0.6-1.5,2.2-3.6,3.5-3.7C39.7,2.2,40.9,2,42,2z"/>-->
+<!--                            <path fill="none" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" d="M41.9,30.8c-6.4,0-11.5,5.1-11.5,11.4c0.1,6.2,5.2,11.2,11.5,11.1c6.3,0,11.5-4.9,11.5-11.1-->
+<!--                        c0.1-6.3-5-11.4-11.5-11.4H41.9z"/>-->
+<!--                        </svg>-->
+<!--                    </a>-->
+<!--                    <div class="teams__inner">-->
+<!--                        <!-- Если нет teams -->-->
+<!--                        <!-- <div class="team team--empty">-->
+<!--                          <div class="team__inner">-->
+<!--                            <div class="team__image">-->
+<!--                              <div class="team__ava team__ava--empty">-->
+<!--                                <div class="team__message">-->
+<!--                                  You don't have a team yet.<br />Read about our Testimonials!-->
+<!--                                </div>-->
+<!--                              </div>-->
+<!--                              <button class="team__count team__count--empty" type="button">0</button>-->
+<!--                            </div>-->
+<!--                            <div class="text-center">-->
+<!--                              <a class="button button--small button--yellow" href="#">-->
+<!--                                <span class="button__text button__text--ultrasmall">read</span>-->
+<!--                              </a>-->
+<!--                            </div>-->
+<!--                          </div>-->
+<!--                        </div> -->-->
+<!--                        <div class="team">-->
+<!--                            <a class="team__inner" href="#">-->
+<!--                                <div class="team__image">-->
+<!--                                    <div class="team__ava team__ava--default bg-image" style="background-image: url('./tmp_images/avatar.jpg');"></div>-->
+<!--                                    <button class="team__count team__count--default" type="button">+4</button>-->
+<!--                                </div>-->
+<!--                                <p class="team__name">Opportunity 1</p>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                        <div class="team">-->
+<!--                            <a class="team__inner" href="#">-->
+<!--                                <div class="team__image">-->
+<!--                                    <div class="team__ava team__ava--default bg-image" style="background-image: url('./tmp_images/avatar.jpg');"></div>-->
+<!--                                    <button class="team__count team__count--default" type="button">+2</button>-->
+<!--                                </div>-->
+<!--                                <p class="team__name">Opportunity 2</p>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                        <div class="team">-->
+<!--                            <a class="team__inner" href="#">-->
+<!--                                <div class="team__image">-->
+<!--                                    <div class="team__ava team__ava--default bg-image" style="background-image: url('./tmp_images/avatar.jpg');"></div>-->
+<!--                                    <button class="team__count team__count--default" type="button">+7</button>-->
+<!--                                </div>-->
+<!--                                <p class="team__name">Opportunity 3</p>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                        <div class="team">-->
+<!--                            <a class="team__inner" href="#">-->
+<!--                                <div class="team__image">-->
+<!--                                    <div class="team__ava team__ava--default bg-image" style="background-image: url('./tmp_images/avatar.jpg');"></div>-->
+<!--                                    <button class="team__count team__count--default" type="button">+4</button>-->
+<!--                                </div>-->
+<!--                                <p class="team__name">Opportunity 4</p>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                        <div class="team">-->
+<!--                            <a class="team__inner" href="#">-->
+<!--                                <div class="team__image">-->
+<!--                                    <div class="team__ava team__ava--default bg-image" style="background-image: url('./tmp_images/avatar.jpg');"></div>-->
+<!--                                    <button class="team__count team__count--default" type="button">+2</button>-->
+<!--                                </div>-->
+<!--                                <p class="team__name">Opportunity 4</p>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                        <div class="team">-->
+<!--                            <a class="team__inner" href="#">-->
+<!--                                <div class="team__image">-->
+<!--                                    <div class="team__ava team__ava--default bg-image" style="background-image: url('./tmp_images/avatar.jpg');"></div>-->
+<!--                                    <button class="team__count team__count--default" type="button">+7</button>-->
+<!--                                </div>-->
+<!--                                <p class="team__name">Opportunity 4</p>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
     </div>
 </div>
 <?= $this->render('_form', ['model' => $model, 'user' => $user]) ?>

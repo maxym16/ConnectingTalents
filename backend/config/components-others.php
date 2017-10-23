@@ -37,10 +37,23 @@ return [
         'name' => 'advanced-backend',
     ],
     'user' => [
-        'class' => 'lispa\amos\core\user\AmosUser',
-        'identityClass' => 'lispa\amos\core\user\User',
+        'identityClass' => 'common\models\User',
+//        'class' => 'lispa\amos\core\user\AmosUser',
+//        'identityClass' => 'lispa\amos\core\user\User',
         'enableAutoLogin' => true,
         'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
+    ],
+
+    'authManager' => [
+        'class' => 'yii\rbac\PhpManager',
+        'defaultRoles' => ['admin', 'admin_ct', 'admin_email',
+            'user_1','user_2','user_3'],
+    ],
+    'urlManagerFrontend' => [
+        'class' => 'yii\web\urlManager',
+        'baseUrl' => 'http://connectingtalents.org',
+        'enablePrettyUrl' => true,
+        'showScriptName' => false,
     ],
 /*    'urlManager' => [
         'class' => 'yii\web\UrlManager',

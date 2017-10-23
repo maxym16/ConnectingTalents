@@ -29,7 +29,7 @@ $resetLink = Yii::$app->urlManager->createAbsoluteUrl(['site/reset-password', 't
     </p>
     <p>
     We invite you to provide more details about yourself, 
-    accessing your Profile page http://open.connectingtalents.org/signup-extra/create
+    accessing your Profile page http://connectingtalents.org/signup-extra/create
     </p>
     <p>
     You can start discovering your talents with our Unique Talent Coding Tests, 

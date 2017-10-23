@@ -22,11 +22,11 @@ $this->title = 'Connecting Talents | Opportunity';
                 <div class="opportunity__desc">
                     Finding great opportunities can feel like a maze. Our smart algorithm helps lead the way. It allows us to match your Unique Talent Code to Opportunities that fit you best. Creating communities of opportunity. Explore our platform to find yours.
                 </div>
-                <div class="opportunity__find">
+                <!--<div class="opportunity__find">
                     <a class="button button--default button--white" href="#">
                         <span class="button__text">Find it!</span>
                     </a>
-                </div>
+                </div>-->
             </div>
         </div>
         <div class="opportunity__bubbles">
@@ -54,11 +54,11 @@ $this->title = 'Connecting Talents | Opportunity';
             <div class="owner__desc">
                 Good ideas die mainly because of loneliness. Finding the right people to grow your idea can be a nightmare. Our platform helps you find potential team members with the same goals. We will match your Opportunity with Talents that have the best mix of Drivers, Passions and Skills. No need to waste time in endless profile searches; we can identify the optimum team members based on your specific needs. Give your idea a chance to grow!
             </div>
-            <div class="owner__button">
-                <a class="button button--default button--white" href="<?= Url::to(['/insert-opport']) ?>">
+            <!--<div class="owner__button">
+                <a class="button button--default button--white" href="<?/*= Url::to(['/insert-opport']) */?>">
                     <span class="button__text">Insert</span>
                 </a>
-            </div>
+            </div>-->
         </div>
         <div class="owner__icon owner__icon--mobile">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="238" height="1585" viewBox="0 0 272.6 1824.5">

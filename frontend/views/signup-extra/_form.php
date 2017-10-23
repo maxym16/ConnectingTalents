@@ -41,8 +41,9 @@ use yii\widgets\ActiveForm;
                 <div class="select__inner dd-eui-dropdown" data-eui-dropdown-depth="1">
                     <?php
                     $age_list = $model->ageGroup();
+                    $age_value = isset($age_list[$model->user_profile_age_group_id])?$age_list[$model->user_profile_age_group_id]:'';
                     ?>
-                    <div class="select__value js-select-value"><?= $age_list[$model->user_profile_age_group_id] ?></div>
+                    <div class="select__value js-select-value"><?= $age_value ?></div>
                     <div class="select__items dd-eui-drop">
                         <?php foreach($age_list as $key => $item) { ?>
                             <input <?= $model->user_profile_age_group_id === $key?'checked':'' ?> id="age-<?= $key ?>" class="none js-select-option" type="radio" name="SignupExtraForm[user_profile_age_group_id]" data-text="<?= $item ?>" value="<?= $key ?>" />
@@ -52,6 +53,31 @@ use yii\widgets\ActiveForm;
                 </div>
             </div>
             <?= Html::error($model, 'user_profile_age_group_id'); ?>
+        </div>
+        <div class="register__subgroup">
+            <label class="form-group__label">Country</label>
+            <div id="country" class="select js-select" data-eui-dropdown>
+                <div class="select__inner dd-eui-dropdown" data-eui-dropdown-depth="1">
+                    <?php
+                    $country_list = \frontend\models\CountriesList::countries;
+                    $country_value = isset($country_list[$model->country])?$country_list[$model->country]:'';
+                    ?>
+                    <div class="select__value js-select-value"><?= $country_value ?></div>
+                    <div class="select__items dd-eui-drop">
+                        <?php foreach($country_list as $key => $item) { ?>
+                            <input <?= $model->country === $key?'checked':'' ?> id="country-<?= $key ?>" class="none js-select-option" type="radio" name="SignupExtraForm[country]" data-text="<?= $item ?>" value="<?= $key ?>" />
+                            <label class="select__option" for="country-<?= $key ?>"><?= $item ?></label>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>
+            <?= Html::error($model, 'country'); ?>
+        </div>
+        <div class="form-group">
+            <?= Html::activeLabel($model, 'city',['class'=>'form-group__label']); ?>
+            <?php $city = $model->city?:''; ?>
+            <?= Html::activeTextInput($model, 'city', ['class'=>'input', 'value'=> $city, 'placeholder' => 'Click to insert text']); ?>
+            <?= Html::error($model, 'city'); ?>
         </div>
     </div>
     <div class="form-group">

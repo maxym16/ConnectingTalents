@@ -27,7 +27,7 @@ class ProfileController extends Controller
                 //'only' => ['index'],
                 'rules' => [
                     [
-                        'actions' => ['index'],
+                        'actions' => ['index', 'report'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -85,6 +85,11 @@ class ProfileController extends Controller
                 'talent_coding_level'
             )
         );
+    }
+
+    public function actionReport(){
+        if (!\Yii::$app->user->can('profile_view')) return $this->redirect(['/']);
+        return $this->render('report');
     }
 }
 

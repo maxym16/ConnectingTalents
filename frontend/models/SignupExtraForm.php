@@ -97,7 +97,7 @@ class SignupExtraForm extends ActiveRecord
 
             [['nome', 'cognome'], 'required'],
 
-            [['sesso'], 'string'],
+            [['sesso','country', 'city'], 'string'],
 
             [['user_profile_age_group_id'], 'integer'],
 
@@ -135,6 +135,10 @@ class SignupExtraForm extends ActiveRecord
 
             'purpos' => 'Purposes',
 
+            'country' => 'Country',
+
+            'city' => 'City',
+
             'expl' => 'Explaination',
 
             'sharing' => 'Sharing platform',
@@ -154,6 +158,7 @@ class SignupExtraForm extends ActiveRecord
             'presentazione_breve' => 'Remote work',
 
             'presentazione_personale' => 'Effort',
+
             'email_pec' => 'Email / Pec'
 
         ];

@@ -7,7 +7,6 @@ use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
-use lispa\amos\admin\models\UserProfile;
 use lispa\amos\core\record\Record;
 use yii\db\Query;
 
@@ -16,6 +15,7 @@ use yii\db\Query;
  *
  * @property integer $id
  * @property string $internal_user_id
+ * @property string $utc_level
  * @property string $username
  * @property string $surname
  * @property string $password_hash
@@ -124,8 +124,11 @@ class User extends Record implements IdentityInterface
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
             ['email', 'email'],
-            [['username', 'surname', 'role', 'internal_user_id'], 'string'],
-            [['email'], 'unique'],
+            [['username', 'surname', 'role'], 'string'],
+            [['email'], 'unique' ,'when' => function($model){
+                if(!User::findOne($model->id)) return true;
+                return User::findOne($model->id)->email != $model->email;
+            }],
             [['email'], 'required'],
         ];
     }
@@ -293,25 +296,25 @@ class User extends Record implements IdentityInterface
      * Get User profile
      * @return null|\yii\db\ActiveQuery
      */
-    public function getUserProfile() 
+    public function getMyprofile()
     {
-        if (\Yii::$app->db->getTableSchema('user_profile', true) !== NULL) {
-            return $this->hasOne(UserProfile::className(), ['id' => 'id']);
-        } else
-            return NULL;
+//        if (\Yii::$app->db->getTableSchema('user_profile', true) !== NULL) {
+            return $this->hasOne(UserProfile::className(), ['user_id' => 'id']);
+//        } else
+//            return NULL;
     }
 
     /**
      * Get User profile
      * @return array|null|ActiveRecord
      */
-    public function getProfile() 
-    {
-        if (\Yii::$app->db->getTableSchema('user_profile', true) !== NULL) {
-            return $this->getUserProfile()->one();
-        } else
-            return NULL;
-    }
+//    public function getProfile()
+//    {
+//        if (\Yii::$app->db->getTableSchema('user_profile', true) !== NULL) {
+//            return $this->getUserProfile()->one();
+//        } else
+//            return NULL;
+//    }
 
     /**
      * Повертає роль користувача або `null`.
@@ -341,11 +344,11 @@ class User extends Record implements IdentityInterface
      * Отношение для связи с таблицей для работы с BB API данными
      * @return null|\yii\db\ActiveQuery
      */
-    public function getUserapidata(){
-        //if (\Yii::$app->db->getTableSchema('user_api_data', true) !== NULL) {
+    public function getUserApiData(){
+        if (\Yii::$app->db->getTableSchema('user_api_data', true) !== NULL) {
             return $this->hasOne(UserApiData::className(), ['id' => 'user_id']);
-        //} else {
-        //    return NULL;
-        //}
+        } else {
+            return NULL;
+        }
     }
 }

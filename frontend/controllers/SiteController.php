@@ -62,13 +62,13 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $this->layout = 'ct-main-layout';
-/*   //
+ //
         if(!isset($_COOKIE['introduce'])){
             $time = time()+72*3600;
             $parse = parse_url(Url::to(['/']));
             setcookie("introduce", '1', $time, '/', $parse['host']);
         }
-*/  //
+ //
         return $this->render('index');
     }
 
@@ -254,12 +254,12 @@ class SiteController extends Controller
                 Username: '.$model->username.' ;
                 Password: the password you choose at the sign up process
                 If you forgot your password you can retrieve it from here: 
-                http://open.connectingtalents.org/site/request-password-reset
+                http://connectingtalents.org/site/request-password-reset
 
                 What is next?
                 We invite you to provide more details about yourself, 
                 accessing your Profile page 
-                http://open.connectingtalents.org/signup-extra/create
+                http://connectingtalents.org/signup-extra/create
                 
                 You can start discovering your talents 
                 with our Unique Talent Coding Tests, 

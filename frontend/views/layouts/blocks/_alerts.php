@@ -39,7 +39,7 @@ use yii\helpers\Url;
 <?php if(isset($_GET['alert']) && $_GET['alert'] === 'register'): ?>
     <div class="cookie clearfix js-cookie-banner custom-alert">
         <div class="cookie__text">
-            <p>Dear User, you have been successfully registered in system !</p>
+            <p>Dear <?= Yii::$app->user->identity->username ?>, you have been successfully registered in system !</p>
         </div>
         <div class="cookie__buttons">
             <div class="cookie__button">

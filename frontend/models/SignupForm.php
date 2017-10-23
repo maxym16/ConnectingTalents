@@ -58,6 +58,8 @@ class SignupForm extends Model
     public $password;
 
     const INTERNAL_ID_SOLT = '2f38c4a57c4487bb96d8faabbe936b14';
+
+    public $reCaptcha;
     /**
 
      * @inheritdoc
@@ -74,11 +76,7 @@ class SignupForm extends Model
 
             ['username', 'required'],
 
-            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
-
             ['username', 'string', 'min' => 2, 'max' => 255],
-
-
 
             ['surname', 'trim'],
 
@@ -102,15 +100,10 @@ class SignupForm extends Model
 
             ['password', 'string', 'min' => 6],
 
+            [['reCaptcha'], \himiklab\yii2\recaptcha\ReCaptchaValidator::className(), 'message' => 'Please confirm that you are not a bot.']
         ];
 
     }
-
-    public function validateRecaptcha(){
-        return (isset($_POST['g-recaptcha-response']) && $_POST['g-recaptcha-response'] != '')?
-        true: false;
-    }
-
 
     public function attributeLabels()
 
@@ -142,11 +135,6 @@ class SignupForm extends Model
             return null;
         }
 
-        if (!$this->validateRecaptcha()) {
-            return null;
-        }
-
-        
 
         $user = new User();
 

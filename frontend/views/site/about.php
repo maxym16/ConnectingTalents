@@ -77,6 +77,13 @@ $this->registerJsFile(
                     'linkedin' => 'https://www.linkedin.com/in/stephenwelch11',
                     'description' => 'I love seeing people grow and develop new Talents they didn’t know they had, especially when they access new opportunities as a result. I work in the liminal space between HR and Communications, helping individuals and companies get their message across in a compelling way.  I like seeking out new challenges and new experiences, and to take a chance.'
                 ],
+//                [
+//                    'img' => 'nicole.jpg',
+//                    'name' => '',
+//                    'position' => '',
+//                    'linkedin' => '',
+//                    'description' => ''
+//                ],
             ];
         ?>
         <?php foreach($members as $member): ?>
@@ -100,44 +107,44 @@ $this->registerJsFile(
 </div>
 <div class="members">
     <div class="members__inner">
+        <?php
+            $archipelago = [
+                [
+                    'name' => 'Federica Barberis',
+                    'img' => 'Federica_Barberis.jpg'
+                ],
+                [
+                    'name' => 'Ivan Volianik ',
+                    'img' => 'Ivan_Volianik.jpg'
+                ],
+                [
+                    'name' => 'Ludovico Pincini',
+                    'img' => 'Ludovico_Pincini.jpg'
+                ],
+                [
+                    'name' => 'Simone Chiani',
+                    'img' => 'Simone_Chiani.jpg'
+                ],
+                [
+                    'name' => 'Stefano Barzaghi',
+                    'img' => 'Stefano_Barzaghi.jpg'
+                ],
+                [
+                    'name' => 'Marco Guaita',
+                    'img' => 'Marco_Guaita.jpg'
+                ],
+            ]
+        ?>
         <h2 class="members__title">Members of our Archipelago</h2>
         <div class="members__items">
+            <?php foreach($archipelago as $item): ?>
             <div class="member">
                 <div class="member__inner">
-                    <div class="member__image"></div>
-                    <p class="member__name">Name</p>
+                    <div class="member__image" style="background-image: url(<?= Url::to('@web/assets/images/'.$item['img']) ?>);background-position: center;background-size: cover;"></div>
+                    <p class="member__name"><?= $item['name'] ?></p>
                 </div>
             </div>
-            <div class="member">
-                <div class="member__inner">
-                    <div class="member__image"></div>
-                    <p class="member__name">Name</p>
-                </div>
-            </div>
-            <div class="member">
-                <div class="member__inner">
-                    <div class="member__image"></div>
-                    <p class="member__name">Name</p>
-                </div>
-            </div>
-            <div class="member">
-                <div class="member__inner">
-                    <div class="member__image"></div>
-                    <p class="member__name">Name</p>
-                </div>
-            </div>
-            <div class="member">
-                <div class="member__inner">
-                    <div class="member__image"></div>
-                    <p class="member__name">Name</p>
-                </div>
-            </div>
-            <div class="member">
-                <div class="member__inner">
-                    <div class="member__image"></div>
-                    <p class="member__name">Name</p>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </div>

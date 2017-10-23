@@ -62,7 +62,7 @@ return [
         'class' => 'kartik\social\Module',
         // the global settings for the google analytic plugin widget
         'googleAnalytics' => [
-            'id' => 'UA-88133453-2',
+            'id' => 'UA-108297365-1',
             'domain' => 'appdemoweb.org',
         ],
     ],

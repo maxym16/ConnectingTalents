@@ -35,7 +35,7 @@ Click the link below to reset your password:
 
     What's next?
     We invite you to provide more details about yourself, 
-    accessing your Profile page http://open.connectingtalents.org/signup-extra/create
+    accessing your Profile page http://connectingtalents.org/signup-extra/create
 
     You can start discovering your talents with our Unique Talent Coding Tests, 
     and see the Opportunities our community is cultivating.

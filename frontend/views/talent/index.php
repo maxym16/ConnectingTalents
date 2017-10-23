@@ -116,15 +116,15 @@ $this->title = 'Connecting Talents | Talent';
                 <div class="talent__definition">
                     Our Unique Talent Coding system (UTC) allows you to discover what really shapes your decisions and points towards what engages you at work.
                 </div>
-                <p class="talent__phrase">Play our free game to try it out!</p>
+<!--                <p class="talent__phrase">Play our free game to try it out!</p> -->
             </div>
         </div>
     </div>
     <div class="talent__cta">CTA to play the game</div>
-    <a class="talent__play" href="#">
+<!--    <a class="talent__play" href="#">
         <span class="talent__play-text">Play</span>
     </a>
-    <div class="talent__play-image bg-image"></div>
+-->    <div class="talent__play-image bg-image"></div>
 </div>
 <div class="driver">
     <div class="driver__inner">
@@ -151,7 +151,7 @@ $this->title = 'Connecting Talents | Talent';
         </svg>
         <p class="element__title element__title--align_right">Water</p>
         <div class="element__desc">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            Water is eager to work in a team with other persons and feels happy when helping others and creating a good atmosphere around. With good listening and communication Water is an appreciated team member for the support to others.
         </div>
     </div>
     <div class="element element--align_left">
@@ -187,7 +187,7 @@ $this->title = 'Connecting Talents | Talent';
       C30.3,32.1,30.4,32,30.5,31.9z M30.2,34.9C30.2,34.9,30.2,34.9,30.2,34.9L30.2,34.9L30.2,34.9z"/>
         </svg>
         <div class="element__desc">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            Earth likes practical action and working with your hands, getting things done, preferably in a structured way. In a team the EARTH driver often guarantees that agreed actions are executed.
         </div>
     </div>
     <div class="element element--align_right">
@@ -213,7 +213,7 @@ $this->title = 'Connecting Talents | Talent';
         </svg>
         <p class="element__title element__title--align_right">Fire</p>
         <div class="element__desc">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            FIRE likes a fast paced environment, a competitive atmosphere, setting challenging goals gives and taking decisions. In a team setting, FIRE makes sure that the focus stays on the results to be reached.
         </div>
     </div>
     <div class="element element--align_left">
@@ -234,7 +234,7 @@ $this->title = 'Connecting Talents | Talent';
       c-0.4,0-0.9,0.1-1.2,0.2c-0.7,0.3-1.1,1.1-0.9,2c0.2,0.8,0.9,1.4,1.9,1.4c2.1,0,4.1,0,6.2,0l6.9,0L21.6,16.8z"/>
         </svg>
         <div class="element__desc">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            Air likes the possibility to  solve complex problems, autonomy and organising your own work agenda as well as tasks that involve investigating. You have a strong potential for creativity so Air can contribute substantially to brainstorming sessions.
         </div>
     </div>
 </div>
@@ -244,7 +244,16 @@ $this->title = 'Connecting Talents | Talent';
     </div>
     <p class="discover__phrase extrabold">Discover now!</p>
     <div class="text-center">
-        <a class="button button--default button--default_bigger button--white" href="#">
+            <?php if(Yii::$app->user->isGuest) { ?>
+                <a class="button button--default button--default_bigger button--white" href="<?= Url::to(['/site/login']) ?>">
+            <?php }
+                  else { 
+                    if(common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_1'){ ?>
+                <a class="button button--default button--default_bigger button--white" href="<?= Url::to(['/signup-extra/create']) ?>">
+                    <?php } else { ?>
+                <a class="button button--default button--default_bigger button--white" href="<?= Url::to(['/profile']) ?>">
+            <?php } }?>
+<!--        <a class="button button--default button--default_bigger button--white" href="#">-->
             <span class="button__text button__text--to-big">Discover</span>
         </a>
     </div>

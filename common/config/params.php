@@ -14,7 +14,7 @@ return [
     'loginTimeout' => 3600 * 3, //3 Hours
     'ctblog' => array(
         'url' => [
-            'main_page' => 'http://openblog.connectingtalents.org'
+            'main_page' => 'http://openblog.connectingtalents.org/style-masonry-blog/'
         ],
         'api' => [
             'yii2_integration_secret_key' => 'hiogt9mbsyfbryi8fgo5otbouesq9npj7gpzz8jzv6jvbga9rlaz1txb2tvegtxy'

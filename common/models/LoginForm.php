@@ -10,7 +10,7 @@ use yii\base\Model;
  * Login form
  */
 class LoginForm extends Model {
-//    public $username;
+    public $username;
     public $password;
     public $email;
 
@@ -26,6 +26,8 @@ class LoginForm extends Model {
 
     private $_user;
 
+    public $reCaptcha;
+
     /**
      * Define Properties rules
      * @inheritdoc
@@ -35,7 +37,7 @@ class LoginForm extends Model {
         return [
             // username and password are both required
             [['password'], 'required'],
-//            ['username', 'string', 'min' => 2, 'max' => 255],
+            ['username', 'string', 'min' => 2, 'max' => 255],
             ['ruolo', 'required', 'when' => function($model) { // TODO Translate
 
                     return (isset(\Yii::$app->params['template-amos']) && \Yii::$app->params['template-amos']);
@@ -50,7 +52,7 @@ class LoginForm extends Model {
             ['email', 'email'],
             ['email', 'string', 'max' => 255],
 //            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This email address is already registered, access the '.Html::a('login page to sign in',['site/login'], ['style'=>'font-weight:bold'])],
-
+///            [['reCaptcha'], \himiklab\yii2\recaptcha\ReCaptchaValidator::className(), 'message' => 'Please confirm that you are not a bot.']
 
         ];
 
@@ -59,7 +61,7 @@ class LoginForm extends Model {
     public function attributeLabels()
     {
         return [
-//            'username' => 'Username',
+            'username' => 'Username',
             'email' => 'Email',
             'password' => 'Password',
         ];
@@ -96,7 +98,7 @@ class LoginForm extends Model {
      */
     public function login() {
 
-        if ($this->validate() && $this->validateRecaptcha()) {
+        if ($this->validate() /*&& $this->validateRecaptcha()*/) {
             $loginTimeout = Yii::$app->params['loginTimeout'];
 
             return Yii::$app->user->login($this->getUser(), $this->rememberMe ? $loginTimeout : 0);
@@ -109,25 +111,19 @@ class LoginForm extends Model {
 
     /**
      * Finds user by [[email]]
-     *
      * @return User|null
      */
     protected function getUser() {
-//debug(User::findByEmail($this->email));
-//die;
         if ($this->_user === null) {
-//            if (filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
-                $this->_user = User::findByEmail($this->email);
-//            }
-//            else{
-//                $this->_user = User::findByUsername($this->username);
-//            }
+            $this->_user = User::findByEmail($this->email);
+        }
+        if ($this->_user === null) {
+         $this->_user = User::findByUsername($this->username);
+        }
+        return $this->_user;
         }
 
-        return $this->_user;
-    }
-
-
+    
 
 }
 
