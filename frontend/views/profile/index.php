@@ -67,7 +67,7 @@ if($utcdata){
                                 </svg>
                             </a>
                             <a class="user__email" href="mailto:<?= $user->email ?>"><?= $user->email ?></a>
-                            <p class="user__level">Talent coding level <?= $talent_coding_level ?></p>
+<!--                            <p class="user__level">Talent coding level < ?= $talent_coding_level ?></p>-->
                             <div class="user__info">
                                 <?php /*if($utcdata): */?><!--
                                     <p class="user__feature">Water: <?/*= $utcdata->water */?></p>
@@ -388,7 +388,7 @@ if($utcdata){
                                             <div class="level__buttons">
                                             <div class="level__button cell cell--middle">
                                                 <a class="button button--ultrasmall button--yellow"
-                                                   href="#"
+                                                   href="<?= $base_utc_url ?>"
                                                 >
                                                     <span class="button__text button__text--ultrasmall">new test</span>
                                                 </a>
@@ -525,7 +525,7 @@ if($utcdata){
                     <!-- Ширина состоит из суммы диаметров кругов -->
                     <?php
                         $talents_count = isset($talents['total'])?$talents['total']:0;
-                        $opportunity_count = 0;
+                        $opportunity_count = 7;
 
                         $max = $talents_count > $opportunity_count?$talents_count:$opportunity_count;
 
@@ -575,27 +575,28 @@ if($utcdata){
                             <table class="circles__table">
                                 <tbody class="circles__body">
                                 <tr class="circles__row">
-                                    <td class="circles__cell">
-                                        <div class="circles__container" style="height: 61px;line-height: 61px;">
-                                            <div class="circles__item circles__item--gold" style="width: 35px;height: 35px; opacity: 0.5;"></div>
-                                        </div>
-                                        <p class="circles__name">business</p>
-                                        <p class="circles__count">(2)</p>
-                                    </td>
-                                    <td class="circles__cell">
-                                        <div class="circles__container" style="height: 61px;line-height: 61px;">
-                                            <div class="circles__item circles__item--gold" style="width: 61px;height: 61px;"></div>
-                                        </div>
-                                        <p class="circles__name">non profit</p>
-                                        <p class="circles__count">(4)</p>
-                                    </td>
-                                    <td class="circles__cell">
-                                        <div class="circles__container" style="height: 61px;line-height: 61px;">
-                                            <div class="circles__item circles__item--gold" style="width: 17px;height: 17px; opacity: 0.2;"></div>
-                                        </div>
-                                        <p class="circles__name">passion</p>
-                                        <p class="circles__count">(1)</p>
-                                    </td>
+                                    <?php
+                                        $purpose_list = [
+                                            'business' => 1,
+                                            'non profit' => 1,
+                                            'passion' => 1
+                                        ];
+                                        $max_child = 0;
+                                        foreach ($purpose_list as $item){
+                                            $max_child = $max_child < $item?$item:$max_child;
+                                        }
+                                    ?>
+                                    <?php foreach ($purpose_list as $key => $item):
+                                        $size = $max_child?10+$item*41/$max_child:10;
+                                        ?>
+                                        <td class="circles__cell">
+                                            <div class="circles__container" style="height: <?= $size ?>px;line-height: <?= $size ?>px;">
+                                                <div class="circles__item circles__item--gold" style="width: <?= $size ?>px;height: <?= $size ?>px; opacity: 0.<?= rand(35, 99) ?>;"></div>
+                                            </div>
+                                            <p class="circles__name"><?= $key ?></p>
+                                            <p class="circles__count">(<?= $item ?>)</p>
+                                        </td>
+                                    <?php endforeach; ?>
                                 </tr>
                                 </tbody>
                             </table>
@@ -605,40 +606,36 @@ if($utcdata){
                             <table class="circles__table">
                                 <tbody class="circles__body">
                                 <tr class="circles__row">
+                                    <?php
+                                        $lifecycle_list = [
+                                                'idea generation' => 1,
+                                                'prototype' => 1,
+                                                'early adopters' => 1,
+                                                'paying users' => 1
+                                        ];
+                                        $max_child = 0;
+                                        foreach ($lifecycle_list as $item){
+                                            $max_child = $max_child < $item?$item:$max_child;
+                                        }
+                                    ?>
+                                    <?php foreach ($lifecycle_list as $key => $item):
+                                          $size = $max_child?10+$item*41/$max_child:10;
+                                    ?>
                                     <td class="circles__cell circles__cell--4">
-                                        <div class="circles__container" style="height: 61px;line-height: 61px;">
-                                            <div class="circles__item circles__item--yellow" style="width: 35px;height: 35px; opacity: 0.5;"></div>
+                                        <div class="circles__container" style="height: <?= $size ?>px;line-height: <?= $size ?>px;">
+                                            <div class="circles__item circles__item--yellow" style="width: <?= $size ?>px;height: <?= $size ?>px; opacity: 0.<?= rand(35, 99) ?>;"></div>
                                         </div>
-                                        <p class="circles__name">idea generation</p>
-                                        <p class="circles__count">(1)</p>
+                                        <p class="circles__name"><?= $key ?></p>
+                                        <p class="circles__count">(<?= $item ?>)</p>
                                     </td>
-                                    <td class="circles__cell circles__cell--4">
-                                        <div class="circles__container" style="height: 61px;line-height: 61px;">
-                                            <div class="circles__item circles__item--yellow" style="width: 61px;height: 61px;"></div>
-                                        </div>
-                                        <p class="circles__name">prototype</p>
-                                        <p class="circles__count">(3)</p>
-                                    </td>
-                                    <td class="circles__cell circles__cell--4">
-                                        <div class="circles__container" style="height: 61px;line-height: 61px;">
-                                            <div class="circles__item circles__item--yellow" style="width: 46px;height: 46px; opacity: 0.75;"></div>
-                                        </div>
-                                        <p class="circles__name">early adopters</p>
-                                        <p class="circles__count">(2)</p>
-                                    </td>
-                                    <td class="circles__cell circles__cell--4">
-                                        <div class="circles__container" style="height: 61px;line-height: 61px;">
-                                            <div class="circles__item circles__item--yellow" style="width: 35px;height: 35px; opacity: 0.5;"></div>
-                                        </div>
-                                        <p class="circles__name">paying users</p>
-                                        <p class="circles__count">(2)</p>
-                                    </td>
+                                    <?php endforeach; ?>
                                 </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                     <div class="showcase__text">Explore our platform and see the opportunities that are growing. There is at least one waiting just for you.</div>
+                    <br>
 <!--                    <div class="showcase__join">-->
 <!--                        <a class="button button--medium button--yellow" href="#">-->
 <!--                            <span class="button__text button__text--ultrasmall">join</span>-->

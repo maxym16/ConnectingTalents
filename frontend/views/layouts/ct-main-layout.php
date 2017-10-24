@@ -94,7 +94,7 @@ CTAsset::register($this);
             <?php
             $menuItems = [
             //    ['label' => 'Help', 'url' => ['#']],
-                ['label' => 'Blog', 'url' => Yii::$app->params['ctblog']['url']['main_page'].'/blog'],
+                ['label' => 'Blog', 'url' => Yii::$app->params['ctblog']['url']['main_page']],
                 ['label' => 'About', 'url' => ['site/about']],
                 ['label' => 'Feedback', 'url' => ['site/feedback']],
             //    ['label' => 'Community', 'url' => ['/community']],
@@ -133,11 +133,13 @@ CTAsset::register($this);
     </header>
     <main class="main">
     <?= $content ?>
+    <br>
     </main>
     <?= $this->render('blocks/_alerts') ?>
     <footer class="footer clearfix">
         <div class="footer__pages">
             <a class="footer__page" href="<?= Url::to(['site/agreement']) ?>">User Agreement</a>
+<!--            <a class="footer__page" href="< ?= Url::to(Yii::$app->params['agreement']) ?>">User Agreement</a>-->
             <a class="footer__page" href="<?= Url::to(['site/privacy']) ?>">Privacy Policy</a>
             <a class="footer__page" href="<?= Url::to(['site/cookie']) ?>">Cookie Policy</a>
         </div>

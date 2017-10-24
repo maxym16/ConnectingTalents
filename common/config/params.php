@@ -12,6 +12,7 @@ return [
     
     'user.passwordResetTokenExpire' => 86400,
     'loginTimeout' => 3600 * 3, //3 Hours
+    'agreement' => 'site/agreement',
     'ctblog' => array(
         'url' => [
             'main_page' => 'http://openblog.connectingtalents.org/style-masonry-blog/'

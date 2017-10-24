@@ -168,7 +168,7 @@ use yii\widgets\ActiveForm;
     </div>
     <div class="form-group">
         <?= Html::activeLabel($model, 'presentazione_personale',['class'=>'form-group__label', 'value' => 'About me:']); ?>
-        <?= Html::activeTextarea($model, 'presentazione_personale', ['class'=>'input input--area', 'placeholder' => 'Write a small bio about you... (MAX 140 char.)', 'maxlength'=>'140']); ?>
+        <?= Html::activeTextarea($model, 'presentazione_personale', ['class'=>'input input--area', 'placeholder' => 'Write a small bio about you... (MAX 500 char.)', 'maxlength'=>'500']); ?>
         <?= Html::error($model, 'presentazione_personale'); ?>
 
     </div>
@@ -192,7 +192,7 @@ use yii\widgets\ActiveForm;
             <?= Html::error($model, 'presentazione_breve'); ?>
         </div>
         <div class="register__subgroup">
-            <label class="form-group__label">Effort</label>
+            <label class="form-group__label">Available Time</label>
             <div id="effort" class="select js-select" data-eui-dropdown>
                 <div class="select__inner dd-eui-dropdown" data-eui-dropdown-depth="1">
                     <div class="select__value js-select-value"><?= $model->effort ?></div>

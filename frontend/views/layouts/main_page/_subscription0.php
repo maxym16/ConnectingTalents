@@ -10,7 +10,7 @@ use common\widgets\CTSubscription;
             <h2 class="subscription__title">Let's keep in touch!</h2>
         </div>
         <?= CTSubscription::widget([
-            'list_id' => 'b69479c6f1' // if not set raise Error
+            'list_id' => '9ae41cf341' // if not set raise Error
         ]) ?>
     </div>
 </div>

@@ -20,10 +20,8 @@ $this->title = 'Connecting Talents | Talent';
                 <div class="talent__text">
                     <h1 class="talent__title">Discover your talents</h1>
                     <div class="talent__desc">
-                        You are a Talent. You might have difficulty defining what that means. You probably  have heard people around you use the concept of talent.
-
-                        We believe Talent is that mix of inner strenths that makes us unique. It is not just about your capabilities and degrees;  it is about what drives you and it clearly shows in your passions.
-
+                        You are a <span class="extrabold">Talent</span>. You might have difficulty defining what that means. You probably  have heard people around you use the concept of talent.
+                        We believe <span class="extrabold">Talent</span> is that mix of inner strenths that makes us <span class="extrabold">unique</span>. It is not just about your capabilities and degrees;  it is about what drives you and it clearly shows in your passions.
                     </div>
                     <div class="talent__register">
                         <?php if (Yii::$app->user->isGuest) { ?>
@@ -128,7 +126,7 @@ $this->title = 'Connecting Talents | Talent';
 </div>
 <div class="driver">
     <div class="driver__inner">
-        <h2 class="driver__title">These are your Drivers</h2>
+        <h2 class="driver__title">Which is your Driver</h2>
         <div class="driver__desc">
             Your driver relates to the innermost source of motivation.  It shows in those things you do most naturally, that give you a profound satisfaction.
         </div>
@@ -240,7 +238,7 @@ $this->title = 'Connecting Talents | Talent';
 </div>
 <div class="discover">
     <div class="discover__desc">
-        By understanding your <span class="extrabold">unique talent</span> you can increase your opportunities and take ownership of your future.
+        By understanding <span class="extrabold">your unique talent</span></b> you can increase your opportunities and take ownership of your future.
     </div>
     <p class="discover__phrase extrabold">Discover now!</p>
     <div class="text-center">

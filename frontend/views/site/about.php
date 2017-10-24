@@ -53,12 +53,12 @@ $this->registerJsFile(
                     'img' => 'dario.jpg',
                     'name' => 'Dario Montebugnoli',
                     'position' => 'opportunity builder',
-                    'linkedin' => 'http://it.linkedin.com/in/dariomontebugnolihttp://it.linkedin.com/in/dariomontebugnoli',
+                    'linkedin' => 'https://www.linkedin.com/in/dariomontebugnoli/',
                     'description' => 'I am continuously expanding my horizons. I started my professional roadmap with a passion in Chemistry, then moved from the lab to large corporation with a significant intermezzo at a large consulting firm.  I like to use my scientific skills and business acumen to invent new opportunities. This way I can act as a catalyst for opportunities by mixing and matching my knowledge'
                 ],
                 [
                     'img' => 'femke.jpg',
-                    'name' => 'Femke Ohn',
+                    'name' => 'Femke Ohm',
                     'position' => 'talent architect',
                     'linkedin' => 'http://nl.linkedin.com/in/femkeohm',
                     'description' => 'As a social psychologist, my biggest passions are Talent development and group dynamics in teams. I have been working since 1999 as a trainer for different organizations and I have identified the key factors for successful collaboration in teams. Guiding people to become self aware and grow their Talent is exactly what makes me happy.'
@@ -67,7 +67,7 @@ $this->registerJsFile(
                     'img' => 'jonathan.jpg',
                     'name' => 'Jonathan Ambrogi',
                     'position' => 'multiculture talent',
-                    'linkedin' => 'http://www.connectingtalents.org/#',
+                    'linkedin' => 'https://www.linkedin.com/in/jonathan-ambrogi-b44aa6128/',
                     'description' => 'I am interested in internationalization and multiculturality. I am a motivated travelling University student, I love the exposure to different languages and cultures and I am passionate about personal Talent growth in a multinational context. Today I am also exploring South Amerca’s talents.'
                 ],
                 [
