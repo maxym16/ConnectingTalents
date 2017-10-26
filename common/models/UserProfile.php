@@ -16,6 +16,8 @@ use yii\web\UploadedFile;
  * @property string $image
  * @property string $purpos
  * @property string $expl
+ * @property string $city
+ * @property string $country
  * @property string $sharing_purpos
  * @property string $sharing_expl
  * @property string $sharing_role
@@ -115,7 +117,7 @@ class UserProfile extends \yii\db\ActiveRecord
         return [
             [['nome', 'cognome'], 'required'],
             [['sesso','image','expl', 'presentazione_personale', 'widgets_selected', 'nazionalita', 'altri_dati_contatto', 'note'], 'string'],
-            [['purpos','remote_work','effort'],'string'],
+            [['purpos','remote_work','effort','city','country'],'string'],
             [['nascita_data', 'ultimo_accesso', 'ultimo_logout', 'created_at', 'updated_at', 'deleted_at'], 'safe'],
             [['sharing','privacy', 'attivo', 'validato_almeno_una_volta', 'avatar_id', 'nascita_nazioni_id', 'nascita_province_id', 'nascita_comuni_id', 'user_profile_titoli_studio_id', 'user_profile_stati_civili_id', 'nazionalita_residenza_id', 'comune_residenza_id', 'provincia_residenza_id', 'domicilio_provincia_id', 'domicilio_comune_id', 'residenza_nazione_id', 'facilitatore_id', 'default_facilitatore', 'user_profile_area_id', 'user_profile_role_id', 'user_profile_age_group_id', 'prevalent_partnership_id', 'user_id', 'created_by', 'updated_by', 'deleted_by'], 'integer'],
             [['nome', 'cognome', 'presentazione_breve', 'indirizzo_residenza', 'numero_civico_residenza', 'domicilio_indirizzo', 'domicilio_localita', 'email_pec', 'telefono', 'cellulare', 'fax', 'status', 'facebook', 'twitter', 'linkedin', 'googleplus', 'user_profile_area_other', 'user_profile_role_other'], 'string', 'max' => 255],
@@ -139,8 +141,10 @@ class UserProfile extends \yii\db\ActiveRecord
             'nome' => 'Name',
             'email' => 'E-mail',
             'cognome' => 'Surname',
-            'sesso' => 'Sex',
+            'sesso' => 'Gender',
             'purpos' => 'Purposes',
+            'country' => 'Country',
+            'city' => 'City',
             'expl' => 'Explaination',
             'sharing_purpos' => 'Purposes',
             'sharing_expl' => 'Explaination',
@@ -152,7 +156,7 @@ class UserProfile extends \yii\db\ActiveRecord
             'note' => 'About me',
             'user_profile_role_id' => 'Role',
             'presentazione_breve' => 'Remote work',
-            'presentazione_personale' => 'Effort',
+            'presentazione_personale' => 'About me',
             
             'codice_fiscale' => 'Codice Fiscale',
             'nascita_data' => 'Nascita Data',

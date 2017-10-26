@@ -133,7 +133,6 @@ CTAsset::register($this);
     </header>
     <main class="main">
     <?= $content ?>
-    <br>
     </main>
     <?= $this->render('blocks/_alerts') ?>
     <footer class="footer clearfix">

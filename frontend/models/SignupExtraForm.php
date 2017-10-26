@@ -1,36 +1,21 @@
 <?php
 
-
-
 namespace frontend\models;
-
-
 
 use Imagine\Image\Box;
 use Yii;
 use yii\base\Model;
-
 use common\models\User;
-
 use common\models\UserProfile;
-
 use common\models\UserProfileRole;
-
 use yii\db\ActiveRecord;
-
 use yii\imagine\Image;
 use yii\web\UploadedFile;
 
-
-
 /**
-
  * Signup form
-
  */
-
 class SignupExtraForm extends ActiveRecord
-
 {
 //    /** имя @var $nome */
 //    public $nome;
@@ -60,14 +45,12 @@ class SignupExtraForm extends ActiveRecord
 //    public $remote_work;
 //    /** усилие @var  $effort */
 //    public $effort;
-
+//    public $country;
+//    public $city;
 
     public static function tableName(){
-
         return 'user_profile';
-
     }
-
 
     /**
      * user group role array
@@ -85,86 +68,45 @@ class SignupExtraForm extends ActiveRecord
     }
 
     /**
-
      * @inheritdoc
-
      */
     public function rules()
-
     {
-
         return [
-
             [['nome', 'cognome'], 'required'],
-
-            [['sesso','country', 'city'], 'string'],
-
+            [['sesso', 'presentazione_personale', 'note','country', 'city','purpos','expl'], 'string'],
             [['user_profile_age_group_id'], 'integer'],
-
             [['nome', 'cognome', 'presentazione_breve', 'telefono'/*, 'status'*/, 'facebook', 'linkedin', 'googleplus'], 'string', 'max' => 255],
-
             ['telefono', 'unique', 'message' => 'This phono has already been taken.'],
-
             [['file'], 'file', 'extensions' => 'png, jpg'],
-
             ['email_pec', 'email'],
-
             ['email_pec', 'validateEmail'],
-
-
 //            ['email', 'exist', 'targetClass' => '\common\models\User', 'message' => 'This email address is already registered, access the login page to sign in.'],
-
-
         ];
-
     }
-
-
 
         public function attributeLabels(){
-
         return [
-
             'nome' => 'Name',
-
             'email' => 'E-mail',
-
             'cognome' => 'Surname',
-
-            'sesso' => 'Sex',
-
+            'sesso' => 'Gender',
             'purpos' => 'Purposes',
-
             'country' => 'Country',
-
             'city' => 'City',
-
             'expl' => 'Explaination',
-
             'sharing' => 'Sharing platform',
-
             'user_profile_age_group_id' => 'Age',
-
             'telefono' => 'Telephone',
-
             'image' => 'Photo',
-
             'avatar_id' => 'Photo',
-
             'note' => 'About me',
-
             'user_profile_role_id' => 'Role',
-
             'presentazione_breve' => 'Remote work',
-
-            'presentazione_personale' => 'Effort',
-
+            'presentazione_personale' => 'About me',
             'email_pec' => 'Email / Pec'
-
         ];
-
     }
-
 
     public function validateEmail($attribute, $params){
         $res = User::find()
@@ -176,59 +118,33 @@ class SignupExtraForm extends ActiveRecord
     
 
     public function myName($attr){
-
         $user = new User();
-
         if(!in_array($this->$attr, [$user->username])){
-
             $this->addError($attr, 'You can not change the name !');
-
         }
-
     }
 
 
-
     /**
-
      * Signs user up.
-
      * @return User|null the saved model or null if saving fails
-
      */
-
     public function signupExt()
-
     {
-
         if (!$this->validate()) {
-
             return null;
-
         }
 
-        
-
         $user1 = new User();
-
         $user2 = new UserProfile();
-
         $user2->nome = $this->nome;
-
         $user2->cognome = $this->cognome;
-
         $user2->sesso = $this->sesso;
-
         $user1->email = $this->email;
-
         $user1->setPassword($this->password);
-
         $user1->generateAuthKey();
 
-        
-
         return $user2->save() ? $user2 : null;
-
     }
 
     public function sendEmail()

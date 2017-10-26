@@ -52,7 +52,7 @@ class LoginForm extends Model {
             ['email', 'email'],
             ['email', 'string', 'max' => 255],
 //            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This email address is already registered, access the '.Html::a('login page to sign in',['site/login'], ['style'=>'font-weight:bold'])],
-///            [['reCaptcha'], \himiklab\yii2\recaptcha\ReCaptchaValidator::className(), 'message' => 'Please confirm that you are not a bot.']
+////            [['reCaptcha'], \himiklab\yii2\recaptcha\ReCaptchaValidator::className(), 'message' => 'Please confirm that you are not a bot.']
 
         ];
 

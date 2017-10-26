@@ -119,7 +119,8 @@ return [
 
     'mailchimp' => [
         'class' => 'cinghie\mailchimp\Mailchimp',
-        'apiKey' => '50f8afa0152fda55b9f7f2a211952ab3-us16',
+//        'apiKey' => '50f8afa0152fda55b9f7f2a211952ab3-us16',
+        'apiKey' => 'dc585151fe26a88886a8d9b0190e6d58-us16',
         'showFirstname' => false,
         'showLastname' => false
     ]

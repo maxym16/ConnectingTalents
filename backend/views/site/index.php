@@ -11,12 +11,12 @@
                 <p>Users</p>
                 <p><a class="btn btn-default" href="/user">Users &raquo;</a></p>
             </div>
-            <div class="col-lg-4 color-grey">
+<!--            <div class="col-lg-4 color-grey">
                 <h2>Users profiles</h2>
                 <p>Users profiles</p>
                 <p><a class="btn btn-default" href="/user-profile">Users Profiles &raquo;</a></p>
             </div>
-            <div class="col-lg-4 color-grey">
+-->            <div class="col-lg-4 color-grey">
                 <h2>Blog</h2>
                 <p>Blog</p>
                 <p><a class="btn btn-default" href="/blog">Blog &raquo;</a></p>

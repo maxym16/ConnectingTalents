@@ -1,0 +1,24 @@
+RewriteEngine on
+
+# If a directory or a file exists, use it directly
+
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Otherwise forward it to index.php
+
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule . index.php
+RewriteCond %{HTTP_HOST} ^open\.connectingtalents\.org$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.open\.connectingtalents\.org$
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^/?$ "https\:\/\/connectingtalents\.org\/" [R=301,L]
+
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteCond %{HTTP_HOST} ^www.connectingtalents.org [NC]
+RewriteRule ^(.*)$ https://connectingtalents.org/$1 [L,R=301]

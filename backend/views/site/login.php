@@ -49,6 +49,9 @@ $this->title = 'Login';
                             < ?= Html::activeCheckbox($model, 'rememberMe', ['id'=>'checkbox-signup']); ?>
                         </div>
 -->
+                    <div>
+                        <?= Html::activeCheckbox($model, 'rememberMe', ['class'=>'']); ?>
+                    </div>
                     </div>
                 </div>
 

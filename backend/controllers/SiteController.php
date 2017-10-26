@@ -121,7 +121,10 @@ class SiteController extends Controller {
         }*/
 
 
-        if (!Yii::$app->user->isGuest) {
+//        if (!Yii::$app->user->isGuest) {
+//            return $this->redirect(['site/index']);
+//        }
+        if (Yii::$app->user->can('admin')) {
             return $this->redirect(['site/index']);
         }
 
@@ -135,8 +138,11 @@ class SiteController extends Controller {
                 \Yii::$app->authManager->assign($ruolo, $userId);
             }*/
             /* per amos */
-
+        if (Yii::$app->user->can('admin')) {
             return $this->redirect(['site/index']);
+        }
+
+            return $this->redirect(['site/login']);
         } else {
             return $this->render('login', [
                         'model' => $model,

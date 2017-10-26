@@ -13,13 +13,9 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'nome')->textInput(['maxlength' => true]) ?>
-
     <?= $form->field($model, 'cognome')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'codice_fiscale')->textInput(['maxlength' => true]) ?>
-
+<!--< ?= $form->field($model, 'codice_fiscale')->textInput(['maxlength' => true]) ?>-->
     <?= $form->field($model, 'sesso')->dropDownList([ 'Male' => 'Male', 'Female' => 'Female', ], ['prompt' => '']) ?>
-
     <?= $form->field($model, 'image')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'purpos')->textInput(['maxlength' => true]) ?>

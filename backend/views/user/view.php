@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use frontend\models\CountriesList;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\User */
@@ -79,6 +80,11 @@ $this->registerJs($script, yii\web\View::POS_END);
                                     echo isset($age_list[$user_profile->user_profile_age_group_id])?$age_list[$user_profile->user_profile_age_group_id]:'' ?>
                                 </dd>
                                 <dt>Country: </dt>
+                                <?php
+                                $country_list = CountriesList::countries;
+                                $country_value = isset($country_list[$user_profile->country])?$country_list[$user_profile->country]:'';
+                                ?>
+                                <dd><?= $country_value ?></dd>
                                 <dd>
                                     <?php if($user_profile->country): ?>
                                     <span class="flag-icon flag-icon-<?= strtolower($user_profile->country) ?>"></span>

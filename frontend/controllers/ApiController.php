@@ -26,6 +26,10 @@ class ApiController extends Controller
     public function actionResponse(){
         /** Save after complete Basic UTC data */
         if(Yii::$app->request->isGet){
+			//echo "<pre>";
+			//print_r(Yii::$app->request->get());
+			//echo "</pre>";
+			//die;
 
             $status = Yii::$app->request->get('status');
             $internal_user_id = Yii::$app->request->get('id_internal_user');

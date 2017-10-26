@@ -7,6 +7,7 @@ use common\models\User;
 use common\models\UserProfile;
 use common\models\UserProfileRole;
 use yii\db\ActiveRecord;
+use Yii;
 
 /**
  * Signup form
@@ -15,19 +16,49 @@ class SignupExtraForm extends ActiveRecord
 {
     public $email;
     public $password;
+//    public $nome;
+//    public $cognome;
+//    public $sesso;
+//    public $email_pec;
+//    public $telefono;
+//    public $user_profile_age_group_id;
+//    public $googleplus;
+//    public $facebook;
+//    public $linkedin;
+    public $file;
+//    /** фото @var  $image */
+//    public $image;
+//    /** опис @var  $presentazione_personale */
+//    public $presentazione_personale;
+//    public $remote_work;
+//    public $effort;
+//    public $country;
+//    public $city;
 
     public static function tableName(){
         return 'user_profile';
     }
-
+    
     /**
-     * @inheritdoc
+     * user group role array
+     * @return array
      */
+    public static function ageGroup(){
+        return [
+            '1'=>'18-25',
+            '2'=>'26-35',
+            '3'=>'36-45',
+            '4'=>'46-55',
+            '5'=>'56-65',
+            '6'=>'>65'
+        ];
+    }
+
     public function rules()
     {
         return [
             [['nome', 'cognome'], 'required'],
-            [['sesso', 'presentazione_personale', 'note'], 'string'],
+            [['sesso', 'presentazione_personale', 'note','country', 'city','purpos','expl'], 'string'],
             [['avatar_id', 'user_profile_role_id', 'user_profile_age_group_id'/*, 'user_id'*/], 'integer'],
             [['nome', 'cognome', 'presentazione_breve', 'telefono'/*, 'status'*/, 'facebook', 'linkedin', 'googleplus'], 'string', 'max' => 255],
             ['telefono', 'unique', 'message' => 'This phono has already been taken.'],
@@ -47,7 +78,11 @@ class SignupExtraForm extends ActiveRecord
             'nome' => 'Name',
             'email' => 'E-mail',
             'cognome' => 'Surname',
-            'sesso' => 'Sex',
+            'sesso' => 'Gender',
+            'purpos' => 'Purposes',
+            'country' => 'Country',
+            'city' => 'City',
+            'expl' => 'Explaination',
             'user_profile_age_group_id' => 'Age',
             'telefono' => 'Phone',
             'avatar_id' => 'Photo',
