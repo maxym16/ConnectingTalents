@@ -6,9 +6,10 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use frontend\models\CountriesList;
+use yii\web\UploadedFile;
 
 ?>
-<?php $form = ActiveForm::begin(['enableClientScript' => false]); ?>
+<?php $form = ActiveForm::begin(['enableClientScript' => false,'options' => ['enctype' => 'multipart/form-data']]); ?>
 <div class="form-group">
     <label for="username-field-id">Name*</label>
     <?= Html::activeTextInput($model, 'nome', ['class'=>'form-control', 'value'=> $model->nome, 'placeholder' => 'Name']); ?>
@@ -69,6 +70,25 @@ use frontend\models\CountriesList;
     <label for="username-field-id">Effort</label>
     <?= Html::activeDropDownList($model, 'effort', [''=>'','full-time'=>'full-time','part time'=>'part time','occasional'=>'occasional']) ?>
 </div>
+
+<div class="form-group">
+    <label for="username-field-id">Profile picture</label>
+    <div class="col-sm-12">
+        <?php if(isset($model->image) && $model->image != '' && file_exists(Yii::getAlias( '@frontend/web'.$model->image))){
+            ?>
+            <div class="col-sm-3 text-center">
+                <img src="<?= Yii::$app->urlManagerFrontend->baseUrl.$model->image ?>" class="img-responsive img-thumbnail" style="width: 100%">
+            </div>
+        <?php } ?>
+    <p>Picture requirements:</p>
+    <p>Dimension max: 5Mb, Res. min: 300x300 px</p>
+    <p>&nbsp;</p>
+    <?= Html::activeFileInput($model, 'file') ?>
+    </div>
+
+    <?= Html::error($model, 'file'); ?>
+</div>
+<p>&nbsp;</p>
 
 <div class="form-group">
     <button class="btn btn-success waves-effect waves-light" >

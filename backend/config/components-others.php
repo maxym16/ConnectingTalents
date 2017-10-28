@@ -51,7 +51,8 @@ return [
     ],
     'urlManagerFrontend' => [
         'class' => 'yii\web\urlManager',
-        'baseUrl' => 'http://connectingtalents.org',
+//        'baseUrl' => 'http://connectingtalents.org',
+        'baseUrl' => 'http://open',
         'enablePrettyUrl' => true,
         'showScriptName' => false,
     ],

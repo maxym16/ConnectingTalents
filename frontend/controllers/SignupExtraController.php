@@ -116,7 +116,7 @@ class SignupExtraController extends Controller
                         $model->image = '/'.$dir . $fileName;
                         $photo = Image::getImagine()->open($dir . $fileName);
                         $photo->thumbnail(new Box(800, 800))->save($dir . $fileName, ['quality' => 90]);
-                        Yii::$app->controller->createDirectory(Yii::getAlias('img/avatar/thumbs'));
+                        \yii\helpers\FileHelper::createDirectory(Yii::getAlias('img/avatar/thumbs'));
                         Image::thumbnail($dir . $fileName, 150, 70)
                             ->save(Yii::getAlias($dir .'thumbs/'. $fileName), ['quality' => 80]);
                     }

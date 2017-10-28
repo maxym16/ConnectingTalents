@@ -8,6 +8,11 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
+use yii\imagine\Image;
+use Imagine\Gd;
+use Imagine\Image\Box;
+use Imagine\Image\BoxInterface;
 
 /**
  * UserProfileController implements the CRUD actions for UserProfile model.
@@ -83,10 +88,38 @@ class UserProfileController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
+        if ($model->load(Yii::$app->request->post())) {
+            if($model->validate()){
+                $file = UploadedFile::getInstance($model, 'file');
+                if ($file && $file->tempName) {
+                    if ($model->validate(['file'])) {
+                        $dir = Yii::getAlias('img/avatar/');
+                        $dir0 = Yii::getAlias('@frontend/web/img/avatar/');
+                        $fileName = $file->name;
+                        $file->saveAs($dir0 . $fileName);
+                        $model->image = '/'.$dir . $fileName;
+                        $photo = Image::getImagine()->open($dir0 . $fileName);
+                        $photo->thumbnail(new Box(800, 800))->save($dir0 . $fileName, ['quality' => 90]);
+                        \yii\helpers\FileHelper::createDirectory(Yii::getAlias('img/avatar/thumbs'));
+                        Image::thumbnail($dir0 . $fileName, 150, 70)
+                            ->save(Yii::getAlias($dir0 .'thumbs/'. $fileName), ['quality' => 80]);
+                    }
+                }
+                
+                $model->save();
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+            else {
+                return $this->render('update', [
+                    'model' => $model,
+                ]);
+            }
+        }
+//        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+//            return $this->redirect(['view', 'id' => $model->id]);
+//        }
+        
+        else {
             return $this->render('update', [
                 'model' => $model,
             ]);

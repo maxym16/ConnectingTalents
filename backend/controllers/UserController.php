@@ -10,6 +10,11 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
+use yii\imagine\Image;
+use Imagine\Gd;
+use Imagine\Image\Box;
+use Imagine\Image\BoxInterface;
 
 /**
  * UserController implements the CRUD actions for User model.
@@ -92,8 +97,6 @@ class UserController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-//        debug($model);
-//        die;
         if (Yii::$app->request->isPost) {
             if(Yii::$app->request->post('update_type') === 'basic'){
                 if($model->load(Yii::$app->request->post()) && $model->update()){
@@ -104,10 +107,36 @@ class UserController extends Controller
             }
             if(Yii::$app->request->post('update_type') === 'extra'){
                 $profile_model = $model->myprofile;
-                if($profile_model->load(Yii::$app->request->post()) && $profile_model->save()){
+            if ($profile_model->load(Yii::$app->request->post())) {
+                if($profile_model->validate()){
+                    $file = UploadedFile::getInstance($profile_model, 'file');
+                    if ($file && $file->tempName) {
+                        if ($profile_model->validate(['file'])) {
+                            $dir = Yii::getAlias('img/avatar/');
+                            $dir0 = Yii::getAlias('@frontend/web/img/avatar/');
+                            $fileName = $file->name;
+                            $file->saveAs($dir0.$fileName);
+                            $profile_model->image = '/'.$dir.$fileName;
+                            $photo = Image::getImagine()->open($dir0.$fileName);
+                            $photo->thumbnail(new Box(800, 800))->save($dir0.$fileName, ['quality' => 90]);
+                            \yii\helpers\FileHelper::createDirectory(Yii::getAlias($dir.'thumbs'));
+                            //Yii::$app->controller->createDirectory(Yii::getAlias($dir.'thumbs'));
+                            Image::thumbnail($dir0. $fileName, 150, 70)
+                                ->save(Yii::getAlias($dir0 .'thumbs/'. $fileName), ['quality' => 80]);
+                        }
+                    }
+
+                    $profile_model->save();
                     Yii::$app->session->setFlash('update', 'success');
                     return $this->render('update', compact('model', 'profile_model'));
                 }
+            }
+                
+//                if($profile_model->load(Yii::$app->request->post()) && $profile_model->save()){
+//                    Yii::$app->session->setFlash('update', 'success');
+//                    return $this->render('update', compact('model', 'profile_model'));
+//                }
+
                 return $this->render('update', compact('model', 'profile_model'));
             }
         }
