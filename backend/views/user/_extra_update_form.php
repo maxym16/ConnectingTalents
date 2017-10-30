@@ -24,6 +24,13 @@ use yii\web\UploadedFile;
 </div>
 
 <div class="form-group">
+    <label for="username-field-id">Role</label>
+    <?php
+    $array_roles=yii\helpers\ArrayHelper::map(Yii::$app->authManager->roles,'name','description');
+    ?>
+    <?= Html::activeDropDownList($model_user, 'role', $array_roles) ?>
+</div>
+<div class="form-group">
     <label for="username-field-id">Gender</label>
     <?= Html::activeDropDownList($model, 'sesso', [1=>'Male',2=>'Female']) ?>
 </div>
@@ -43,19 +50,19 @@ use yii\web\UploadedFile;
     <?= Html::activeTextInput($model, 'city', ['class'=>'form-control', 'value'=> $model->city, 'placeholder' => 'City']); ?>
 </div>
 <div class="form-group">
-    <label for="username-field-id">Phone</label>
+    <label for="username-field-id"><i class="ion-ios7-telephone"></i>&nbsp;Phone</label>
     <?= Html::activeTextInput($model, 'telefono', ['class'=>'form-control', 'value'=> $model->telefono, 'placeholder' => 'Phone']); ?>
 </div>
 <div class="form-group">
-    <label for="username-field-id">Linkedin</label>
+    <label for="username-field-id"><i class="ion-social-linkedin"></i>&nbsp;Linkedin</label>
     <?= Html::activeTextInput($model, 'linkedin', ['class'=>'form-control', 'value'=> $model->linkedin, 'placeholder' => 'Linkedin']); ?>
 </div>
 <div class="form-group">
-    <label for="username-field-id">Facebook</label>
+    <label for="username-field-id"><i class="ion-social-facebook"></i>&nbsp;Facebook</label>
     <?= Html::activeTextInput($model, 'facebook', ['class'=>'form-control', 'value'=> $model->facebook, 'placeholder' => 'Facebook']); ?>
 </div>
 <div class="form-group">
-    <label for="username-field-id">Googleplus</label>
+    <label for="username-field-id"><i class=" ion-social-googleplus"></i>&nbsp;Googleplus</label>
     <?= Html::activeTextInput($model, 'googleplus', ['class'=>'form-control', 'value'=> $model->googleplus, 'placeholder' => 'Googleplus']); ?>
 </div>
 <div class="form-group">

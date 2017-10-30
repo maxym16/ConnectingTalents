@@ -49,7 +49,8 @@ JS;
         <div class="card-box">
             <?php if($model->myprofile): ?>
                 <?= $this->render('_extra_update_form', [
-                    'model' => isset($profile_model)?$profile_model:$model->myprofile
+                    'model' => isset($profile_model)?$profile_model:$model->myprofile,
+                    'model_user' => $model
                 ]) ?>
             <?php else: ?>
                 <?= $this->render('_basic_update_form', compact('model')) ?>

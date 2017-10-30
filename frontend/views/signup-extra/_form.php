@@ -39,15 +39,11 @@ use yii\widgets\ActiveForm;
             <label class="form-group__label">Age</label>
             <div id="age" class="select js-select" data-eui-dropdown>
                 <div class="select__inner dd-eui-dropdown" data-eui-dropdown-depth="1">
-                    <?php
-                    $age_list = $model->ageGroup();
-                    $age_value = isset($age_list[$model->user_profile_age_group_id])?$age_list[$model->user_profile_age_group_id]:'';
-                    ?>
-                    <div class="select__value js-select-value"><?= $age_value ?></div>
+                    <div class="select__value js-select-value"><?= $model->user_profile_age_group_id ?></div>
                     <div class="select__items dd-eui-drop">
-                        <?php foreach($age_list as $key => $item) { ?>
-                            <input <?= $model->user_profile_age_group_id === $key?'checked':'' ?> id="age-<?= $key ?>" class="none js-select-option" type="radio" name="SignupExtraForm[user_profile_age_group_id]" data-text="<?= $item ?>" value="<?= $key ?>" />
-                            <label class="select__option" for="age-<?= $key ?>"><?= $item ?></label>
+                        <?php for($i = 15; $i <= 100; $i++) { ?>
+                            <input <?= $model->user_profile_age_group_id === $i?'checked':'' ?> id="age-<?= $i ?>" class="none js-select-option" type="radio" name="SignupExtraForm[user_profile_age_group_id]" data-text="<?= $i ?>" value="<?= $i ?>" />
+                            <label class="select__option" for="age-<?= $i ?>"><?= $i ?></label>
                         <?php } ?>
                     </div>
                 </div>

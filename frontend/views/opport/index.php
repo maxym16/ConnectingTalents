@@ -16,7 +16,7 @@ $this->title = 'Connecting Talents | Opportunity';
         <div class="opportunity__inner">
             <div class="opportunity__text">
                 <h1 class="opportunity__title">
-                    Grow your Opportunity
+                    Grow your Opportunities
                 </h1>
                 <p class="opportunity__subtitle">Opportunity seeker</p>
                 <div class="opportunity__desc">

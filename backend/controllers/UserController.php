@@ -97,6 +97,7 @@ class UserController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        
         if (Yii::$app->request->isPost) {
             if(Yii::$app->request->post('update_type') === 'basic'){
                 if($model->load(Yii::$app->request->post()) && $model->update()){
@@ -127,16 +128,17 @@ class UserController extends Controller
                     }
 
                     $profile_model->save();
+
+                    $model->username=$profile_model->nome;
+                    $model->surname=$profile_model->cognome;
+                    $model->role=Yii::$app->request->getBodyParam('User')['role'];
+                    $model->update();
+                    
                     Yii::$app->session->setFlash('update', 'success');
                     return $this->render('update', compact('model', 'profile_model'));
                 }
             }
                 
-//                if($profile_model->load(Yii::$app->request->post()) && $profile_model->save()){
-//                    Yii::$app->session->setFlash('update', 'success');
-//                    return $this->render('update', compact('model', 'profile_model'));
-//                }
-
                 return $this->render('update', compact('model', 'profile_model'));
             }
         }

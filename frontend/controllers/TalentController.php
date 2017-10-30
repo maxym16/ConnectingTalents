@@ -8,6 +8,8 @@ namespace frontend\controllers;
 
 use common\models\LoginForm;
 
+use common\models\User;
+use common\models\UserApiData;
 use frontend\models\ContactForm;
 
 use frontend\models\PasswordResetRequestForm;
@@ -130,7 +132,35 @@ class TalentController extends Controller
 
     {
         $this->layout = 'ct-main-layout';
-        return $this->render('index');
+
+        if(Yii::$app->user->isGuest){
+            $button_top_data = [
+              'link' => ['/site/signup'],
+              'title' => 'register'
+            ];
+        }else{
+            $user_id = Yii::$app->user->id;
+            $user = User::find()->where(['id' =>$user_id])->one();
+            if($user->myprofile){
+                $token = ApiController::getStartUtcSurveyToken(2, 'EN', $user->internal_user_id, 'external_'.$user_id);
+                $base_utc_url = 'http://services.connectingtalents.org/utc_survey?token='.urlencode($token);
+                $button_top_data = [
+                    'link' => $base_utc_url,
+                    'title' => 'UTC test'
+                ];
+            }
+            else{
+                $button_top_data = [
+                    'link' => ['/signup-extra/create'],
+                    'title' => 'register'
+                ];
+            }
+        }
+
+
+
+
+        return $this->render('index', compact('button_top_data'));
 
     }
 

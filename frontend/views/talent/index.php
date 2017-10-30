@@ -7,11 +7,11 @@
 //use yii\helpers\Html;
 use yii\helpers\Url;
 
-/* @var $this yii\web\View */
+/** @var $this yii\web\View
+ * @var $button_top_data
+ **/
 
 $this->title = 'Connecting Talents | Talent';
-
-//Url::to(['/showcaseopp'])
 ?>
 <div class="talent">
     <div class="talent__inner">
@@ -24,15 +24,9 @@ $this->title = 'Connecting Talents | Talent';
                         We believe <span class="extrabold">Talent</span> is that mix of inner strenths that makes us <span class="extrabold">unique</span>. It is not just about your capabilities and degrees;  it is about what drives you and it clearly shows in your passions.
                     </div>
                     <div class="talent__register">
-                        <?php if (Yii::$app->user->isGuest) { ?>
-                            <a class="button button--default button--white" href="<?= Url::to(['/site/signup']) ?>">
-                                <span class="button__text">register</span>
+                            <a class="button button--default button--white" href="<?= Url::to($button_top_data['link']) ?>">
+                                <span class="button__text"><?= $button_top_data['title'] ?></span>
                             </a>
-                        <?php }else{ ?>
-                            <a class="button button--default button--white" href="<?= Url::to(['/profile']) ?>">
-                                <span class="button__text">discover yourself</span>
-                            </a>
-                        <?php } ?>
                     </div>
                 </div>
             </div>
@@ -242,16 +236,16 @@ $this->title = 'Connecting Talents | Talent';
     </div>
     <p class="discover__phrase extrabold">Discover now!</p>
     <div class="text-center">
-            <?php if(Yii::$app->user->isGuest) { ?>
-                <a class="button button--default button--default_bigger button--white" href="<?= Url::to(['/site/login']) ?>">
-            <?php }
+            <?php /*if(Yii::$app->user->isGuest) { */?><!--
+                <a class="button button--default button--default_bigger button--white" href="<?/*= Url::to(['/site/login']) */?>">
+            <?php /*}
                   else { 
-                    if(common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_1'){ ?>
-                <a class="button button--default button--default_bigger button--white" href="<?= Url::to(['/signup-extra/create']) ?>">
-                    <?php } else { ?>
-                <a class="button button--default button--default_bigger button--white" href="<?= Url::to(['/profile']) ?>">
-            <?php } }?>
-<!--        <a class="button button--default button--default_bigger button--white" href="#">-->
+                    if(common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_1'){ */?>
+                <a class="button button--default button--default_bigger button--white" href="<?/*= Url::to(['/signup-extra/create']) */?>">
+                    <?php /*} else { */?>
+                <a class="button button--default button--default_bigger button--white" href="<?/*= Url::to(['/profile']) */?>">
+            --><?php /*} }*/?>
+        <a class="button button--default button--default_bigger button--white" href="<?= Url::to(['/opport']) ?>">
             <span class="button__text button__text--to-big">Discover</span>
         </a>
     </div>

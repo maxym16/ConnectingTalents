@@ -81,7 +81,9 @@ CTAsset::register($this);
             <?php if(Yii::$app->user->id && (common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_1' || common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_3')) { ?>
                 <a class="header__login">Welcome, <?= Yii::$app->user->identity->username ?></a>
             <?php } ?>
-            <?php if(Yii::$app->user->id && (common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_2' || common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_3')) { 
+            <?php
+            if (\Yii::$app->user->can('user_2')) {
+            //if(Yii::$app->user->id && (common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_2' || common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_3')) { 
                 $profile = UserProfile::findOne(['user_id'=>Yii::$app->user->id]);
                 ?>
                 <a class="header__login" href="<?= Url::to(['/profile']) ?>">Welcome, <?= $profile->nome ?></a>
@@ -100,8 +102,8 @@ CTAsset::register($this);
             //    ['label' => 'Community', 'url' => ['/community']],
             ];
             if (Yii::$app->user->isGuest) {
-                $menuItems[] = ['label' => 'I have a talent', 'url' => ['/talent']];
-                $menuItems[] = ['label' => 'I have an opportunity', 'url' => ['/opport']];
+                $menuItems[] = ['label' => 'Discover your talents', 'url' => ['/talent']];
+                $menuItems[] = ['label' => 'Discover your opportunities', 'url' => ['/opport']];
                 $menuItems[] = ['label' => 'SignIn', 'url' => ['/site/login']];
                 $menuItems[] = ['label' => 'SignUp', 'url' => ['/site/signup']];
             } else {
@@ -113,7 +115,8 @@ CTAsset::register($this);
 //                        $menuItems[] = ['label' => 'ExtraSignUp', 'url' => ['/signup-extra/create']];
                         $menuItems[] = ['label' => Yii::$app->user->identity->username, 'url' => ['/signup-extra/create']];
                     }
-                    if(common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_2' || common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_3'){
+                    if (\Yii::$app->user->can('user_2')) {
+//                    if(common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_2' || common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_3'){
                         $menuItems[] = ['label' => Yii::$app->user->identity->username, 'url' => ['/profile']];
                     }}
                 $menuItems[] = '<div>'

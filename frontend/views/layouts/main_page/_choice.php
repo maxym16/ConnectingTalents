@@ -2,7 +2,7 @@
 use yii\helpers\Url;
 ?>
 <div class="choice">
-    <h1 class="choice__head">Choose your solution</h1>
+<!--    <h1 class="choice__head">Choose your solution</h1>-->
     <div class="choice__items">
         <div class="choice__item">
             <div class="choice__inner">

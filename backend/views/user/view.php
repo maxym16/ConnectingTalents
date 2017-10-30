@@ -65,6 +65,11 @@ $this->registerJs($script, yii\web\View::POS_END);
                                 <dd><?= ucfirst(strtolower($model->surname)) ?></dd>
                                 <dt>Email: </dt>
                                 <dd><?= $model->email ?></dd>
+                                <dt>Role: </dt>
+                                <?php
+                                $array_roles=yii\helpers\ArrayHelper::map(Yii::$app->authManager->roles,'name','description');
+                                ?>
+                                <dd><?= $array_roles[$model->role] ?></dd>
                                 <dt>Gender: </dt>
                                 <dd>
                                     <?php if($user_profile->sesso === 'Male'){ ?>

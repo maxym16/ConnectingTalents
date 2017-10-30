@@ -2,13 +2,11 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+
+use common\models\UserProfile;
 use common\widgets\CTMenuWidget;
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
 use frontend\assets\CTAsset;
-use common\widgets\Alert;
 use yii\helpers\Url;
 
 CTAsset::register($this);
@@ -24,12 +22,26 @@ CTAsset::register($this);
     <style>
         a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font:inherit;font-size:100%;vertical-align:baseline}html{line-height:1}ol,ul{list-style:none}table{border-collapse:collapse;border-spacing:0}caption,td,th{text-align:left;font-weight:400;vertical-align:middle}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:"";content:none}a img{border:none}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}button,input,optgroup,select,textarea{background:0 0;border:0;padding:0;margin:0;font:inherit;color:inherit;box-shadow:none}button{height:auto;cursor:pointer}button:focus{outline:0}button::-moz-focus-inner{outline:0;border:0;padding:0}
     </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="http://www.connectingtalents.org/wp-content/uploads/2016/07/faviconconnect.png"/>
     <?php $this->head() ?>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108297365-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-108297365-1');
+    </script>
 </head>
-<body>
+<body class="<?php if( false /*!isset($_COOKIE['introduce'])*/): ?> eui-body--hidden <?php endif; ?>">
 <?php $this->beginBody() ?>
 
 <div class="wrapper">
+    <?php if( false /*!isset($_COOKIE['introduce'])*/ ): ?>
+        <?= $this->render('../layouts/main_page/intro') ?>
+    <?php endif; ?>
     <header class="header">
         <div class="left">
             <a class="logo" href="<?= Url::to(['/']) ?>">
@@ -64,13 +76,18 @@ CTAsset::register($this);
         </div>
         <div class="right">
             <?php if (Yii::$app->user->isGuest){ ?>
-                <a class="header__login" href="<?= Url::to(['/site/login']) ?>">Login</a>
+                <a class="header__login" >Welcome, Talent</a>
             <?php } ?>
-            <?php if(Yii::$app->user->id && (common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_1' || common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_3')) { ?>
-                <a class="header__login">Hello <?= Yii::$app->user->identity->username ?></a>
+            <?php 
+            if(Yii::$app->user->id && (common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_1' || common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_3')) { ?>
+                <a class="header__login">Welcome, <?= Yii::$app->user->identity->username ?></a>
             <?php } ?>
-            <?php if(Yii::$app->user->id && (common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_2' || common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_3')) { ?>
-                <a class="header__login" href="<?= Url::to(['/profile']) ?>"><?= Yii::$app->user->identity->username ?></a>
+            <?php
+            if (\Yii::$app->user->can('user_2')) {
+            //if(Yii::$app->user->id && (common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_2' || common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_3')) { 
+                $profile = UserProfile::findOne(['user_id'=>Yii::$app->user->id]);
+                ?>
+                <a class="header__login" href="<?= Url::to(['/profile']) ?>">Welcome, <?= $profile->nome ?></a>
             <?php } ?>
             <button class="nav-trigger" data-eui-bundle-id="nav" data-eui-bundle-action="toggle" data-eui-other-bundles="true" data-eui-bundle data-eui-bundle-outside>
                 <span class="nav-trigger__bottom-line"></span>
@@ -79,20 +96,28 @@ CTAsset::register($this);
         <nav class="nav" data-eui-bundle-outside >
             <?php
             $menuItems = [
-                ['label' => 'Help', 'url' => ['#']],
-                ['label' => 'Community', 'url' => ['/community']],
+            //    ['label' => 'Help', 'url' => ['#']],
+                ['label' => 'Blog', 'url' => Yii::$app->params['ctblog']['url']['main_page']],
+                ['label' => 'About', 'url' => ['site/about']],
+                ['label' => 'Feedback', 'url' => ['site/feedback']],
+            //    ['label' => 'Community', 'url' => ['/community']],
             ];
             if (Yii::$app->user->isGuest) {
                 $menuItems[] = ['label' => 'I have a talent', 'url' => ['/talent']];
                 $menuItems[] = ['label' => 'I have an opportunity', 'url' => ['/opport']];
-                $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+                $menuItems[] = ['label' => 'SignIn', 'url' => ['/site/login']];
                 $menuItems[] = ['label' => 'SignUp', 'url' => ['/site/signup']];
             } else {
+//                $menuItems[] = ['label' => 'Help', 'url' => ['#']];
+//                $menuItems[] = ['label' => 'Blog', 'url' => Yii::$app->params['ctblog']['url']['main_page'].'/blog'];
+//                $menuItems[] = ['label' => 'Community', 'url' => ['/community']];
                 if(Yii::$app->user->id){
                     if(common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_1'){
-                        $menuItems[] = ['label' => 'ExtraSignUp', 'url' => ['/signup-extra/create']];
+//                        $menuItems[] = ['label' => 'ExtraSignUp', 'url' => ['/signup-extra/create']];
+                        $menuItems[] = ['label' => Yii::$app->user->identity->username, 'url' => ['/signup-extra/create']];
                     }
-                    if(common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_2' || common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_3'){
+                    if (\Yii::$app->user->can('user_2')) {
+//                    if(common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_2' || common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_3'){
                         $menuItems[] = ['label' => Yii::$app->user->identity->username, 'url' => ['/profile']];
                     }}
                 $menuItems[] = '<div>'
@@ -113,10 +138,13 @@ CTAsset::register($this);
     <main class="main">
     <?= $content ?>
     </main>
+    <?= $this->render('blocks/_alerts') ?>
     <footer class="footer clearfix">
         <div class="footer__pages">
-            <a class="footer__page" href="http://openblog.connectingtalents.org/polices/">Polices</a>
-            <a class="footer__page" href="http://openblog.connectingtalents.org/cookie/">Cookie</a>
+            <a class="footer__page" href="<?= Url::to(['site/agreement']) ?>">User Agreement</a>
+<!--            <a class="footer__page" href="< ?= Url::to(Yii::$app->params['agreement']) ?>">User Agreement</a>-->
+            <a class="footer__page" href="<?= Url::to(['site/privacy']) ?>">Privacy Policy</a>
+            <a class="footer__page" href="<?= Url::to(['site/cookie']) ?>">Cookie Policy</a>
         </div>
         <div class="left">
             <div class="footer__intro">
@@ -125,14 +153,15 @@ CTAsset::register($this);
             </div>
             <div class="footer__address">
                 <!-- TODO заменить на динамику -->
-                <p>2nd Floor, Victory House 99-101</p>
-                <p>Regent Street London, UK W18 4EZ</p>
+                <p>2nd Floor Victory House,</p>
+                <p>99-101 Regent Street</p>
+                <p>W1B 4EZ LONDON UK</p>
             </div>
         </div>
         <div class="right">
             <div class="socials">
                 <!-- TODO пока статика переделать -->
-                <a class="socials__item" href="#">
+                <a class="socials__item" href="https://www.linkedin.com/company/27018380/">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--middle" width="28" height="28" viewBox="0 0 100 100" fill="currentColor">
                         <path d="M91.938,50.024c0,23.419-18.677,42.065-42.244,41.936C25.889,91.826,7.82,72.126,8.064,49.527
           C8.314,26.467,27.03,8.029,50.641,8.039C73.338,8.049,91.939,26.959,91.938,50.024z M48.24,71.444c0.764,0,1.542-0.089,2.291,0.021
@@ -145,7 +174,7 @@ CTAsset::register($this);
           C44.114,71.444,44.114,71.444,48.24,71.444z"/>
                     </svg>
                 </a>
-                <a class="socials__item" href="#">
+                <a class="socials__item" href="https://twitter.com/ConnecTalents">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--middle" width="28" height="28" viewBox="0 0 100 100" fill="currentColor">
                         <path d="M50.037,8.055c21.537-0.323,41.9,17.091,41.941,41.871c0.04,23.771-19.044,42.135-42.201,42.025
           C27.112,91.847,8.031,73.926,8.022,50.021C8.012,24.882,28.667,7.683,50.037,8.055z M76.831,34.924
@@ -160,7 +189,7 @@ CTAsset::register($this);
           C74.526,38.07,75.678,36.732,76.831,34.924z"/>
                     </svg>
                 </a>
-                <a class="socials__item" href="#">
+                <a class="socials__item" href="https://it.linkedin.com/company/connecting-talents-ltd">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--middle" width="28" height="28" viewBox="0 0 100 100" fill="currentColor">
                         <path d="M91.958,49.978c0.01,23.259-18.593,41.92-41.865,41.99C26.858,92.037,7.976,73.058,8.042,49.933
           C8.107,27.503,25.925,8.007,50.045,8.031C74.477,8.052,92.144,27.921,91.958,49.978z M55.082,46.537
@@ -182,8 +211,17 @@ CTAsset::register($this);
         </div>
     </footer>
 </div>
-
+<?php
+$this->registerCssFile(
+    '@web/assets/css/header.css'
+);
+?>
 <?php $this->endBody() ?>
+<!-- CSS file here -->
+<!--<link rel="stylesheet" href="<?/*= Url::to('@web/assets/css/content.css') */?>">
+<link rel="stylesheet" href="<?/*= Url::to('@web/assets/css/slick.min.css') */?>">
+<link rel="stylesheet" href="<?/*= Url::to('@web/assets/css/fancybox.min.css') */?>">-->
+
 </body>
 </html>
 <?php $this->endPage() ?>

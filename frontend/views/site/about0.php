@@ -133,26 +133,6 @@ $this->registerJsFile(
                     'name' => 'Marco Guaita',
                     'img' => 'Marco_Guaita.jpg'
                 ],
-                [
-                    'name' => 'Giorgio Manfredi',
-                    'img' => 'Giorgio_Manfredi.jpg'
-                ],
-                [
-                    'name' => 'Laura Buddensieg',
-                    'img' => 'Laura_Buddensieg.jpg'
-                ],
-                [
-                    'name' => 'Marcella Orlando',
-                    'img' => 'Marcella_Orlando.jpg'
-                ],
-                [
-                    'name' => 'Meltem Tamer',
-                    'img' => 'Meltem_Tamer.jpg'
-                ],
-                [
-                    'name' => 'Paolo Gregotti',
-                    'img' => 'Paolo_Gregotti.jpg'
-                ],
             ]
         ?>
         <h2 class="members__title">Members of our Archipelago</h2>
