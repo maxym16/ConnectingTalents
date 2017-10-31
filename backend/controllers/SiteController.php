@@ -394,6 +394,23 @@ class SiteController extends Controller {
         return $this->redirect(Url::previous());
     }
 
+    public function actionFeedbackIdea(){
+//        $this->layout = 'ubold-pages-layout';
+
+        $model = new \common\models\FeedbackIdea();
+/*        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            if ($model->sendEmail()) {
+//                $model->save();
+//                $model->clear();
+                Yii::$app->session->setFlash('feedback_ok', 'Mail sending is success.');
+            } else {
+                Yii::$app->session->setFlash('feedback_error', 'Sorry, mail sending is failed.');
+            }
+        }
+*/
+        return $this->render('feedback-idea', compact('model'));
+    }
+    
     /*  public function beforeAction($action) {
       if ($action->id == 'language') {
       $this->enableCsrfValidation = false;

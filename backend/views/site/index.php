@@ -11,6 +11,16 @@
                 <p>Users</p>
                 <p><a class="btn btn-default" href="/user">Users &raquo;</a></p>
             </div>
+            <div class="col-lg-4 color-grey">
+                <h2>Feedback Ideas/Problems</h2>
+                <p>Feedback IDEAS/PROBLEMS</p>
+                <p><a class="btn btn-default" href="/feedback-idea">Feedback IDEAS/PROBLEMS &raquo;</a></p>
+            </div>
+            <div class="col-lg-4 color-grey">
+                <h2>Feedback</h2>
+                <p>Feedback</p>
+                <p><a class="btn btn-default" href="#">Feedback &raquo;</a></p>
+            </div>
 <!--            <div class="col-lg-4 color-grey">
                 <h2>Users profiles</h2>
                 <p>Users profiles</p>

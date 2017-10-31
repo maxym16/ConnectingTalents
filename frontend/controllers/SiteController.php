@@ -62,7 +62,7 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $this->layout = 'ct-main-layout';
-/* //
+/* // 
         if(!isset($_COOKIE['introduce'])){
             $time = time()+72*3600;
             $parse = parse_url(Url::to(['/']));
@@ -390,9 +390,11 @@ class SiteController extends Controller
     public function actionFeedback(){
         $this->layout = 'ct-main-layout';
 
-        $model = new FeedbackForm();
+//        $model = new FeedbackForm();
+        $model = new \common\models\FeedbackIdea();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail()) {
+                $model->save();
                 $model->clear();
                 Yii::$app->session->setFlash('feedback_ok', 'Mail sending is success.');
             } else {
@@ -402,4 +404,5 @@ class SiteController extends Controller
 
         return $this->render('feedback', compact('model'));
     }
+        
 }

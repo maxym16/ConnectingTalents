@@ -2,10 +2,12 @@
 
 return [
 
-    'adminEmail' => 'kerry@connectingtalents.org',
+//    'adminEmail' => 'kerry@connectingtalents.org',
+    'adminEmail' => 'vitalykor@gmail.com',
     'supportEmail' => 'forever7@foreveridentity.com',
 
-    'feedbackEmail' => 'kerry@connectingtalents.org',
+//    'feedbackEmail' => 'kerry@connectingtalents.org',
+    'feedbackEmail' => 'vitalykor@gmail.com',
     'bugEmail'      => 'rudenko.programmer@gmail.com',
     
     'myApplication' => 'Connecting Talents',
