@@ -19,7 +19,7 @@
             <div class="col-lg-4 color-grey">
                 <h2>Feedback</h2>
                 <p>Feedback</p>
-                <p><a class="btn btn-default" href="#">Feedback &raquo;</a></p>
+                <p><a class="btn btn-default" href="/feedback-feed">Feedback &raquo;</a></p>
             </div>
 <!--            <div class="col-lg-4 color-grey">
                 <h2>Users profiles</h2>

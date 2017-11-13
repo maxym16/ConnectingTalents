@@ -45,10 +45,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="form-group">
                     <?= Html::activeCheckbox($model, 'rememberMe', ['class'=>'']); ?>
                 </div>
-                <div class="form__captcha">
-                    <?= \himiklab\yii2\recaptcha\ReCaptcha::widget(['name' => 'reCaptcha']) ?>
-                    <?= Html::error($model, 'reCaptcha', ['class'=>'validation-notice']); ?>
-                </div>
+<!--                <div class="form__captcha">
+                    < ?= \himiklab\yii2\recaptcha\ReCaptcha::widget(['name' => 'reCaptcha']) ?>
+                    < ?= Html::error($model, 'reCaptcha', ['class'=>'validation-notice']); ?>
+                </div>-->
                 <div class="form__table">
                     <div class="form__cell">
                         <button class="form__button" type="submit">Log in</button>

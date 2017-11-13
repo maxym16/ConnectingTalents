@@ -11,6 +11,10 @@ use Yii;
  * @property string $title
  * @property string $description
  * @property string $email
+ * @property string $date
+ * @property string $ffrom
+ * @property string $fto
+ * @property string $rev
  */
 class FeedbackIdea extends \yii\db\ActiveRecord
 {
@@ -28,7 +32,8 @@ class FeedbackIdea extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'description', 'email', 'type'], 'required'],
-            [['description'], 'string'],
+            [['description','ffrom','fto','rev'], 'string'],
+            [['date'], 'safe'],
             [['title', 'email'], 'string', 'max' => 256],
             [['email'], 'email'],
         ];
@@ -44,6 +49,10 @@ class FeedbackIdea extends \yii\db\ActiveRecord
             'title' => 'Title',
             'description' => 'Description',
             'email' => 'Email',
+            'date' => 'Date',
+            'ffrom' => 'From',
+            'fto' => 'To',
+            'rev' => 'Revision',
         ];
     }
     

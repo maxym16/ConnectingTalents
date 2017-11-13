@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use common\models\Options;
 use Yii;
 use common\models\FeedbackIdea;
 use yii\data\ActiveDataProvider;
@@ -34,13 +35,116 @@ class FeedbackIdeaController extends Controller
      */
     public function actionIndex()
     {
+
         $dataProvider = new ActiveDataProvider([
             'query' => FeedbackIdea::find(),
         ]);
 
+
+
         return $this->render('index', [
             'dataProvider' => $dataProvider,
         ]);
+    }
+
+    function exportToGoogleSpreadsheet(){
+        $client = $this->getClient();
+        $service = new \Google_Service_Sheets($client);
+
+// TODO: Assign values to desired properties of `requestBody`:
+        $requestBody = new \Google_Service_Sheets_Spreadsheet();
+
+        $response = $service->spreadsheets->create($requestBody);
+
+        $requests = array();
+        $requests[] = new \Google_Service_Sheets_Request(array(
+            'updateSpreadsheetProperties' => array(
+                'properties' => array(
+                    'title' => 'Export '.date('Y-m-d H:i:s')
+                ),
+                'fields' => 'title'
+            )
+        ));
+        $requests[] = new \Google_Service_Sheets_Request(array(
+            'updateSheetProperties' => array(
+                'properties' => array(
+                    'title' => 'My sheet'
+                ),
+                'fields' => 'title'
+            )
+        ));
+
+        $batchUpdateRequest = new \Google_Service_Sheets_BatchUpdateSpreadsheetRequest(array(
+            'requests' => $requests
+        ));
+
+        $service->spreadsheets->batchUpdate($response->getSpreadsheetId(),
+            $batchUpdateRequest);
+
+        $values = [];
+
+        $counter = 1;
+        $feedbacks = FeedbackIdea::find()->all();
+        /** @var FeedbackIdea $item */
+        foreach ($feedbacks as $item){
+            $values[] = [
+                $counter++,
+                $item->title,
+                $item->email,
+                $item->description,
+            ];
+        }
+
+        $body = new \Google_Service_Sheets_ValueRange(array(
+            'values' => $values
+        ));
+        $params = array(
+            'valueInputOption' => 'RAW'
+        );
+        $service->spreadsheets_values->update($response->getSpreadsheetId(), 'My sheet',
+            $body, $params);
+
+        return $response->getSpreadsheetUrl();
+    }
+
+    function getClient() {
+
+        $client = new \Google_Client();
+
+        $client->setScopes(
+            [
+                'https://www.googleapis.com/auth/spreadsheets'
+            ]
+        );
+        $client->setAuthConfig(__DIR__.'/key.json');
+        $client->setIncludeGrantedScopes(true);
+
+//        if (Options::getOption('access_token') != null) {
+        if (Yii::$app->session->get('access_token') != null) {
+//            $client->setAccessToken(Options::getOption('access_token'));
+            $client->setAccessToken(Yii::$app->session->get('access_token'));
+            $token = $client->getAccessToken();
+//            Options::setOption('access_token',$token['access_token']);
+            Yii::$app->session->set('access_token',$token);
+            return $client;
+        }
+
+        if(Yii::$app->request->get('code') != null){
+            $client->fetchAccessTokenWithAuthCode(Yii::$app->request->get('code'));
+            $token = $client->getAccessToken();
+//            Options::setOption('access_token',$token['access_token']);
+            Yii::$app->session->set('access_token',$token);
+            $client->setAccessToken($token);
+            return $client;
+        }
+
+        $client->setAccessType('offline');
+        $client->setIncludeGrantedScopes(true);
+        //$client->setRedirectUri('https://openadmin.connectingtalents.org/feedback-idea/export');
+        $client->setRedirectUri('http://testadmin.connectingtalents.org/feedback-idea/export');
+        $auth_url = $client->createAuthUrl();
+        header('Location: ' . filter_var($auth_url, FILTER_SANITIZE_URL));
+        die;
     }
 
     /**
@@ -120,32 +224,10 @@ class FeedbackIdeaController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
-    
-    public function export_csv(
-            $table, 		// Iм'я таблицi для експорту
-            $afields, 		// Масив рядків - імен полів таблиці
-            $filename, 	 	// Iм'я CSV файла для зберігання інформації
-                                    // (шлях від корня web-сервера)
-            $delim=',', 		// Разділювач полів в CSV файлі
-            $enclosed='"', 	 	// лапки для вмісту полів
-            $escaped='\\', 	 	// Ставиться перед спец. символами
-            $lineend='\\r\\n'){  	// Чим закінчувати рядок в файлі CSV
 
-    $q_export = 
-    "SELECT ".implode(',', $afields).
-    "   INTO OUTFILE '".$_SERVER['DOCUMENT_ROOT'].$filename."' ".
-    "FIELDS TERMINATED BY '".$delim."' ENCLOSED BY '".$enclosed."' ".
-    "    ESCAPED BY '".$escaped."' ".
-    "LINES TERMINATED BY '".$lineend."' ".
-    "FROM ".$table
-    ;
-
-            // Якщо файл існує, при експорті буде видана помилка
-            if(file_exists($_SERVER['DOCUMENT_ROOT'].$filename)) 
-                    unlink($_SERVER['DOCUMENT_ROOT'].$filename); 
-            return mysql_query($q_export);
-//https://docs.google.com/spreadsheets/d/<KEY>/export?gid=0&fo‌​rmat=csv            
+    public function actionExport(){
+        echo $this->exportToGoogleSpreadsheet();
+//        $this->redirect(['index']);
     }
-    
     
 }

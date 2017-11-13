@@ -18,6 +18,9 @@
             <li class="has_sub">
                 <a href="<?= \yii\helpers\Url::to(['/feedback-idea']) ?>"><span> Feedback Ideas/Problems </span></a>
             </li>
+            <li class="has_sub">
+                <a href="<?= \yii\helpers\Url::to(['/feedback-feed']) ?>"><span> Feedback </span></a>
+            </li>
         </ul>
         <div class="clearfix"></div>
     </div>

@@ -52,6 +52,14 @@ class ApiController extends Controller
                     $model->user_id = $user->id;
                     $model->save();
 
+//Mail for users    
+                    $email=User::findOne([Yii::$app->user->id])->email;
+                    Yii::$app->mailer->compose(['text' => 'basic-utc-text'])
+                    ->setFrom([Yii::$app->params['supportEmail']=>Yii::$app->params['adminEmail']])
+                    ->setTo($email)
+                    ->setSubject('Test message UTC Basic')
+                    ->send();
+                    
                     return $this->redirect(['/profile', 'alert'=>'basic_utc_success']);
                 }
             }
@@ -61,6 +69,8 @@ class ApiController extends Controller
     }
 
     public function actionTest(){
+//        debug('test');
+//        die;
         echo "<pre>";
         //utc_id = 59de9f811d65c0a00f2d2f7f берём тут http://prntscr.com/gwa5of в дальнейшем будем подключать из таблици user_api_data
         print_r(json_decode(self::getUTCData('59de9f811d65c0a00f2d2f7f')));

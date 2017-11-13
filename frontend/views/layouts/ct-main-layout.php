@@ -8,6 +8,21 @@ use common\widgets\CTMenuWidget;
 use yii\helpers\Html;
 use frontend\assets\CTAsset;
 use yii\helpers\Url;
+use common\models\FeedbackIdea;
+use common\models\FeedbackFeed;
+
+$cidea = FeedbackIdea::find()->asArray()->where('rev="0"')->count();
+$cfeed = FeedbackFeed::find()->asArray()->where('rev="0"')->count();
+$count=$cidea+$cfeed;
+$idea = FeedbackIdea::find()->where('rev="0"')->orderBy(['date' => SORT_DESC])->all();
+$feed = FeedbackFeed::find()->where('rev="0"')->orderBy(['date' => SORT_DESC])->all();
+$date=date('Y-m-d H:i:s');
+$i=60;
+$h=60*60;
+$d=60*60*24;
+$m=60*60*24*30;
+$y=60*60*24*365;
+
 
 CTAsset::register($this);
 ?>
@@ -76,17 +91,51 @@ CTAsset::register($this);
         </div>
         <div class="right">
             <?php if (Yii::$app->user->isGuest){ ?>
-                <a class="header__login" >Welcome, Talent</a>
+                <a class="header__login" >Welcome Talent !</a>
             <?php } ?>
             <?php if(Yii::$app->user->id && (common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_1' || common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_3')) { ?>
-                <a class="header__login">Welcome, <?= Yii::$app->user->identity->username ?></a>
+                
+    <button class="notifier-trigger" data-eui-bundle-id="notifier" data-eui-bundle-action="toggle" data-eui-other-bundles="true" data-eui-bundle data-eui-bundle-outside>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" class="notifier-trigger__icon icon icon--middle" height="25" viewBox="0 0 20 25" fill="currentColor">
+        <path d="M10,24.6c1.3,0,2.3-1,2.3-2.3H7.7C7.7,23.6,8.7,24.6,10,24.6z"/>
+        <path d="M17.5,17v-6.3c0-3.9-2-7.1-5.6-8V1.9C11.9,0.8,11,0,10,0S8.1,0.8,8.1,1.9v0.9c-3.6,0.9-5.6,4.1-5.6,8V17
+          L0,19.5v1.3h20v-1.3L17.5,17z"/>
+      </svg>
+      <span class="notifier-trigger__counter"><?= $count?></span>
+    </button>
+    <a class="header__user" href="<?= Url::to(['/profile']) ?>">
+      <img src="..<?= $profile->image ?>" alt="" />
+    </a>
             <?php } ?>
             <?php
             if (\Yii::$app->user->can('user_2')) {
             //if(Yii::$app->user->id && (common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_2' || common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_3')) { 
                 $profile = UserProfile::findOne(['user_id'=>Yii::$app->user->id]);
                 ?>
-                <a class="header__login" href="<?= Url::to(['/profile']) ?>">Welcome, <?= $profile->nome ?></a>
+                
+    <button class="notifier-trigger" data-eui-bundle-id="notifier" data-eui-bundle-action="toggle" data-eui-other-bundles="true" data-eui-bundle data-eui-bundle-outside>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" class="notifier-trigger__icon icon icon--middle" height="25" viewBox="0 0 20 25" fill="currentColor">
+        <path d="M10,24.6c1.3,0,2.3-1,2.3-2.3H7.7C7.7,23.6,8.7,24.6,10,24.6z"/>
+        <path d="M17.5,17v-6.3c0-3.9-2-7.1-5.6-8V1.9C11.9,0.8,11,0,10,0S8.1,0.8,8.1,1.9v0.9c-3.6,0.9-5.6,4.1-5.6,8V17
+          L0,19.5v1.3h20v-1.3L17.5,17z"/>
+      </svg>
+      <span class="notifier-trigger__counter"><?= $count?></span>
+    </button>
+    <a class="header__user" href="<?= Url::to(['/profile']) ?>">
+      <img src="..<?= $profile->image ?>" alt="" />
+    </a>
+                
+<!--                
+                <button class="notifier-trigger" type="button" data-eui-bundle-id="notificat" data-eui-bundle-action="toggle" data-eui-other-bundles="true" data-eui-bundle data-eui-bundle-outside>
+                <div class="content_">
+                    <div class="countMe"><span>< ?= $count?></span></div>
+                    <img src="../img/notif.png">
+                </div>
+                </button>
+
+                
+                <a class="header__login" href="< ?= Url::to(['/profile']) ?>"><img src="..< ?= $profile->image ?>"></a>
+-->
             <?php } ?>
             <button class="nav-trigger" data-eui-bundle-id="nav" data-eui-bundle-action="toggle" data-eui-other-bundles="true" data-eui-bundle data-eui-bundle-outside>
                 <span class="nav-trigger__bottom-line"></span>
@@ -133,7 +182,149 @@ CTAsset::register($this);
             ]);
             ?>
         </nav>
+
+<!--
+        <nav class="notifier" data-eui-bundle-outside>
+            <div class="notificat__inner">
+            < ?php foreach ($idea as $ide){?>
+              <a class="notificat__item active" href="#">
+                <img src="../img/user.jpg">
+                <p>< ?= $ide->description ?></p>
+                <span>
+                < ?php 
+                $del=strtotime($date)-strtotime($ide->date);
+                if(($inter=intdiv($del,$y))>1){echo 'more than a year ago';}
+                else{
+                    if(($inter=intdiv($del,$m))>=1){echo $inter.' months ago';}
+                    else{
+                        if(($inter=intdiv($del,$d))>=1){echo $inter.' days ago';}
+                        else{
+                            if(($inter=intdiv($del,$h))>=1){echo $inter.' hours ago';}
+                            else{
+                            $inter=intdiv($del,$i);
+                            echo $inter.' minutes ago';
+                            }
+                        }
+                    }
+                }
+                ?>
+                </span>
+              </a>
+            < ?php } ?>
+            < ?php foreach ($feed as $fee){?>
+              <a class="notificat__item active" href="#">
+                <img src="../img/user.jpg">
+                <p>< ?= $fee->text ?></p>
+                <span>
+                < ?php 
+                $del=strtotime($date)-strtotime($fee->date);
+                if(($inter=intdiv($del,$y))>1){echo 'more than a year ago';}
+                else{
+                    if(($inter=intdiv($del,$m))>=1){echo $inter.' months ago';}
+                    else{
+                        if(($inter=intdiv($del,$d))>=1){echo $inter.' days ago';}
+                        else{
+                            if(($inter=intdiv($del,$h))>=1){echo $inter.' hours ago';}
+                            else{
+                            $inter=intdiv($del,$i);
+                            echo $inter.' minutes ago';
+                            }
+                        }
+                    }
+                }
+                ?>
+                </span>
+              </a>
+            < ?php } ?>
+          </div>
+        </nav>                
+-->        
     </header>
+    
+<div class="notifier" data-eui-bundle-outside>
+  <div class="notifier__inner">
+<!--    < ?php for ($i = 0; $i < 20; $i += 1) { ?>-->
+
+    <?php foreach ($idea as $ide){?>
+      <a class="notice clearfix" href="#">
+        <div class="notice__cell">
+          <div class="notice__image image">
+            <div class="image__inner">
+              <img src="../img/user.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="notice__cell">
+          <div class="notice__content">
+            <div class="notice__desc">
+            <?= $ide->description ?>  
+            </div>
+            <time class="notice__time">
+                <?php 
+                $del=strtotime($date)-strtotime($ide->date);
+                if(($inter=intdiv($del,$y))>1){echo 'more than a year ago';}
+                else{
+                    if(($inter=intdiv($del,$m))>=1){echo $inter.' months ago';}
+                    else{
+                        if(($inter=intdiv($del,$d))>=1){echo $inter.' days ago';}
+                        else{
+                            if(($inter=intdiv($del,$h))>=1){echo $inter.' hours ago';}
+                            else{
+                            $inter=intdiv($del,$i);
+                            echo $inter.' minutes ago';
+                            }
+                        }
+                    }
+                }
+                ?>
+            </time>
+          </div>
+        </div>
+      </a>
+    <?php } ?>
+    <?php foreach ($feed as $fee){?>
+      <a class="notice clearfix" href="#">
+        <div class="notice__cell">
+          <div class="notice__image image">
+            <div class="image__inner">
+              <img src="../img/user.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="notice__cell">
+          <div class="notice__content">
+            <div class="notice__desc">
+            <?= $fee->text ?>  
+            </div>
+            <time class="notice__time">
+                <?php 
+                $del=strtotime($date)-strtotime($fee->date);
+                if(($inter=intdiv($del,$y))>1){echo 'more than a year ago';}
+                else{
+                    if(($inter=intdiv($del,$m))>=1){echo $inter.' months ago';}
+                    else{
+                        if(($inter=intdiv($del,$d))>=1){echo $inter.' days ago';}
+                        else{
+                            if(($inter=intdiv($del,$h))>=1){echo $inter.' hours ago';}
+                            else{
+                            $inter=intdiv($del,$i);
+                            echo $inter.' minutes ago';
+                            }
+                        }
+                    }
+                }
+                ?>
+            </time>
+          </div>
+        </div>
+      </a>
+    <?php } ?>
+
+
+  </div>
+</div>
+    
+    
     <main class="main">
     <?= $content ?>
     </main>
@@ -160,7 +351,7 @@ CTAsset::register($this);
         <div class="right">
             <div class="socials">
                 <!-- TODO пока статика переделать -->
-                <a class="socials__item" href="https://www.linkedin.com/company/27018380/">
+                <a class="socials__item" href="https://www.facebook.com/Connecting-Talents-299139017111407/">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--middle" width="28" height="28" viewBox="0 0 100 100" fill="currentColor">
                         <path d="M91.938,50.024c0,23.419-18.677,42.065-42.244,41.936C25.889,91.826,7.82,72.126,8.064,49.527
           C8.314,26.467,27.03,8.029,50.641,8.039C73.338,8.049,91.939,26.959,91.938,50.024z M48.24,71.444c0.764,0,1.542-0.089,2.291,0.021
@@ -188,7 +379,7 @@ CTAsset::register($this);
           C74.526,38.07,75.678,36.732,76.831,34.924z"/>
                     </svg>
                 </a>
-                <a class="socials__item" href="https://it.linkedin.com/company/connecting-talents-ltd">
+                <a class="socials__item" href="https://www.linkedin.com/company/27018380/">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--middle" width="28" height="28" viewBox="0 0 100 100" fill="currentColor">
                         <path d="M91.958,49.978c0.01,23.259-18.593,41.92-41.865,41.99C26.858,92.037,7.976,73.058,8.042,49.933
           C8.107,27.503,25.925,8.007,50.045,8.031C74.477,8.052,92.144,27.921,91.958,49.978z M55.082,46.537

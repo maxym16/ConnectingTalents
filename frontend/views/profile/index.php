@@ -36,10 +36,10 @@ $this->registerCssFile('@web/assets/js/radarChart.js');
 $is_water = $is_earth = $is_air = $is_fire = false;
 
 if($utcdata){
-	$utcdata->water = $utcdata->water < 1 ? $utcdata->water:$utcdata->water/100;
-	$utcdata->earth = $utcdata->earth < 1 ? $utcdata->earth:$utcdata->earth/100;
-	$utcdata->air   = $utcdata->air < 1 ? $utcdata->air:$utcdata->air/100;
-	$utcdata->fire  = $utcdata->fire < 1 ? $utcdata->fire:$utcdata->fire/100;
+	$utcdata->water = $utcdata->water > 1 ? $utcdata->water:$utcdata->water*100;
+	$utcdata->earth = $utcdata->earth > 1 ? $utcdata->earth:$utcdata->earth*100;
+	$utcdata->air   = $utcdata->air > 1 ? $utcdata->air:$utcdata->air*100;
+	$utcdata->fire  = $utcdata->fire > 1 ? $utcdata->fire:$utcdata->fire*100;
     $is_water = ($utcdata->water > $utcdata->earth) && ($utcdata->water > $utcdata->air) &&($utcdata->water > $utcdata->fire);
     $is_earth = ($utcdata->earth > $utcdata->water) && ($utcdata->earth > $utcdata->air) &&($utcdata->earth > $utcdata->fire);
     $is_air   = ($utcdata->air > $utcdata->water) && ($utcdata->air > $utcdata->earth) &&($utcdata->air > $utcdata->fire);
@@ -50,7 +50,7 @@ if($utcdata){
 <div class="profile">
     <div class="profile__inner">
         <div class="profile__row">
-            <div class="profile__section profile__section--user profile__section--left">
+            <div class="profile__section profile__section--gradient profile__section--left">
                 <div class="user">
                     <div class="user__section user__section--left">
                         <div class="user__text-info">
@@ -119,8 +119,14 @@ if($utcdata){
                                         fill-opacity: 0.9;
                                     }
                                     .area.radar, .radar .circle {
-                                        fill: #f4c38d;
-                                        stroke: none;
+                                        fill: none;
+                                        stroke: #551642;
+                                        stroke-width: 2px;
+                                    }
+                                    .area.radar2, .radar2 .circle {
+                                        fill: none;
+                                        stroke: #f4c38d;
+                                        stroke-width: 2px;
                                     }
                                 </style>
                                 <div class="chart-container" style="position: absolute;z-index: 11;margin-top: -3px;margin-left: 41px;"></div>
@@ -129,29 +135,57 @@ if($utcdata){
                                     RadarChart.defaultConfig.radius = 0;
                                     RadarChart.defaultConfig.w = 186;
                                     RadarChart.defaultConfig.h = 186;
-                                    RadarChart.defaultConfig.maxValue = 1.95;
+                                    RadarChart.defaultConfig.maxValue = 93;
+                                    RadarChart.defaultConfig.minValue = 0;
                                     RadarChart.defaultConfig.circles = false;
                                     RadarChart.defaultConfig.axisLine = false;
                                     RadarChart.defaultConfig.axisText = false;
                                     RadarChart.defaultConfig.levels = false;
                                 </script>
+                                <?php
+                                    $delta = (double)47/60;
+                                    $_radar_earth  = $utcdata->earth > 60? 60 : $utcdata->earth;
+                                    $_radar_water = $utcdata->water > 60? 60 : $utcdata->water;
+                                    $_radar_air   = $utcdata->air > 60? 60 : $utcdata->air;
+                                    $_radar_fire  = $utcdata->fire > 60? 60 : $utcdata->fire;
+
+
+                                ?>
+                                <!-- Earth <?= $_radar_earth ?> Water <?= $_radar_water ?> Air <?= $_radar_air ?> Fire <?= $_radar_fire ?> -->
                                 <script>
                                     var data = [
                                         {
                                             className: 'radar', // optional can be used for styling
                                             axes: [
-                                                {axis: "Earth", value: <?= $utcdata->earth + 0.99 ?>},
-                                                {axis: "1", value: 0.95},
-                                                {axis: "11", value: 0.95},
-                                                {axis: "Water", value: <?= $utcdata->water + 0.99 ?>},
-                                                {axis: "2", value: 0.95},
-                                                {axis: "22", value: 0.95},
-                                                {axis: "Air", value: <?= $utcdata->air+0.99 ?>},
-                                                {axis: "3", value: 0.95},
-                                                {axis: "33", value: 0.95},
-                                                {axis: "Fire", value: <?= $utcdata->fire +0.99?>},
-                                                {axis: "4", value: 0.95},
-                                                {axis: "44", value: 0.95},
+                                                {axis: "Earth", value: <?= $_radar_earth * $delta + 47 ?>},
+                                                {axis: "1", value: 44},
+                                                {axis: "11", value: 44},
+                                                {axis: "Water", value: <?= $_radar_water * $delta + 47 ?>},
+                                                {axis: "2", value: 44},
+                                                {axis: "22", value: 44},
+                                                {axis: "Air", value: <?= $_radar_air * $delta + 47 ?>},
+                                                {axis: "3", value: 44},
+                                                {axis: "33", value: 44},
+                                                {axis: "Fire", value: <?= $_radar_fire * $delta + 47 ?>},
+                                                {axis: "4", value: 44},
+                                                {axis: "44", value: 44}
+                                            ]
+                                        },
+                                        {
+                                            className: 'radar2', // optional can be used for styling
+                                            axes: [
+                                                {axis: "Earth", value: <?= 10 * $delta + 47 ?>},
+                                                {axis: "1", value: 44},
+                                                {axis: "11", value: 44},
+                                                {axis: "Water", value: <?= 32 * $delta + 47 ?>},
+                                                {axis: "2", value: 44},
+                                                {axis: "22", value: 44},
+                                                {axis: "Air", value: <?= 40 * $delta + 47 ?>},
+                                                {axis: "3", value: 44},
+                                                {axis: "33", value: 44},
+                                                {axis: "Fire", value: <?= 17 * $delta + 47 ?>},
+                                                {axis: "4", value: 44},
+                                                {axis: "44", value: 44}
                                             ]
                                         }
                                     ];
@@ -396,7 +430,7 @@ if($utcdata){
                                                         </a>
                                                     </div>
                                                     <div class="level__button level__button--fluid">
-                                                        <a class="button button--ultrasmall button--yellow" href="#">
+                                                        <a class="button button--ultrasmall button--yellow" href="<?= $pass_skill_url ?>">
                                                             <span class="button__text button__text--ultrasmall">add skills &amp; passions</span>
                                                         </a>
                                                     </div>
@@ -536,7 +570,7 @@ if($utcdata){
                     </div>
                     <div class="showcase__count js-showcase-count">Talents: <?= $talents_count ?></div>
                     <div class="showcase__desc js-showcase-desc">total number of <span class="js-showcase-phrase">talents</span> in the platform</div>
-                    <div class="showcase__informer js-showcase-informer">Go ovet the bubbles to discover more</div>
+                    <div class="showcase__informer js-showcase-informer">Go over the bubbles to discover more</div>
                     <div class="circles js-circles js-circles-talents none">
                         <p class="circles__title circles__title--talent">Age segments</p>
                         <table class="circles__table">

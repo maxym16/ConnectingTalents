@@ -2,8 +2,8 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
+$date=date('Y-m-d H:i:s');
 $this->title = 'Feedback | ';
-
 $this->registerJsFile(
     '@web/assets/js/feedback-page.js',
     [
@@ -24,6 +24,7 @@ $this->registerJsFile(
                 <div class="feedback__form">
                         <?php $form = ActiveForm::begin(['enableClientScript' => false]); ?>
                         <fieldset class="form">
+                                <?= Html::activeHiddenInput($model, 'date', ['id'=>'feedback-idea-title', 'class'=>'input', 'value'=>$date]); ?>
                             <div class="form-group">
                                 <label class="form-group__title" for="feedback-idea-title">Title</label>
                                 <?= Html::activeTextInput($model, 'title', ['id'=>'feedback-idea-title', 'class'=>'input', 'placeholder' => 'Click to insert text']); ?>
@@ -62,6 +63,7 @@ $this->registerJsFile(
                 <div class="feedback__form">
                     <?php $form = ActiveForm::begin(['enableClientScript' => false]); ?>
                         <fieldset class="form">
+                                <?= Html::activeHiddenInput($model, 'date', ['id'=>'feedback-idea-title', 'class'=>'input', 'value'=>$date]); ?>
                             <div class="form-group">
                                 <label class="form-group__title" for="feedback-problem-title">Title</label>
                                 <?= Html::activeTextInput($model, 'title', ['id'=>'feedback-problem-title', 'class'=>'input', 'placeholder' => 'Click to insert text']); ?>

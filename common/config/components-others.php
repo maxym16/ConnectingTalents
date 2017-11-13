@@ -84,20 +84,20 @@ return [
             'google' => [
                 // register your app here: https://code.google.com/apis/console/
                 'class' => 'nodge\eauth\services\GoogleOAuth2Service',
-                'clientId' => '221077937769-4o6vmdfdk5ndcos2eq4btesm0et718hf.apps.googleusercontent.com',
-                'clientSecret' => 'pMTCYcQe-4Z1gcazzi46bR1h',
+                'clientId' => '221077937769-308umg865t2osnfach3d6l2i47h5mlv8.apps.googleusercontent.com',
+                'clientSecret' => 'EslmhU46TVbaFvVLYyl7Am0M',
                 'title' => 'Google',
             ],
             'facebook' => [
                 // register your app here: https://developers.facebook.com/apps/
                 'class' => 'nodge\eauth\services\FacebookOAuth2Service',
-                'clientId' => '1836071753076704',
-                'clientSecret' => 'c84540ebf7ab4610081dd2f30d431f11',
+                'clientId' => '128162874568874',
+                'clientSecret' => '1f83080f7a34d23a78f66f6b1c7536b3',
             ],
             'linkedin_oauth2' => [
                 // register your app here: https://www.linkedin.com/secure/developer
                 'class' => 'nodge\eauth\services\LinkedinOAuth2Service',
-                'clientId' => '86v0nxpecxfhg4',
+                'clientId' => '86n14wknf1j83y',
                 'clientSecret' => 'PAvd1mkyNUCIOOj2',
                 'title' => 'LinkedIn',
             ],
@@ -113,4 +113,9 @@ return [
         'siteKey' => '6LcI2jIUAAAAAKIh7rZLgjSVwECzbKVWlwkAtNpb',
         'secret' => '6LcI2jIUAAAAAKNezuGV1TOhT6Z7uv3A4LJC_Yc_',
     ],
+	'googleApi' =>
+	[
+		'class'                 => '\skeeks\yii2\googleApi\GoogleApiComponent',
+		'developer_key'         => 'AIzaSyBgx7y0_wFrWezm3mTVaU-vcQCMaBzOvwU',
+	],
 ];

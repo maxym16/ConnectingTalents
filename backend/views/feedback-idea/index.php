@@ -14,6 +14,9 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
+        <?= Html::a('Export Google Drive', ['feedback-idea/export'], ['class' => 'btn btn-info']) ?>
+    </p>
+    <p>
         <?= Html::a('Create Feedback Idea', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([

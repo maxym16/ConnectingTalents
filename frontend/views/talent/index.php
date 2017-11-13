@@ -21,7 +21,7 @@ $this->title = 'Connecting Talents | Talent';
                     <h1 class="talent__title">Discover your talents</h1>
                     <div class="talent__desc">
                         You are a <span class="extrabold">Talent</span>. You might have difficulty defining what that means. You probably  have heard people around you use the concept of talent.
-                        We believe <span class="extrabold">Talent</span> is that mix of inner strenths that makes us <span class="extrabold">unique</span>. It is not just about your capabilities and degrees;  it is about what drives you and it clearly shows in your passions.
+                        We believe <span class="extrabold">Talent</span> is that mix of inner strengths that makes us <span class="extrabold">unique</span>. It is not just about your capabilities and degrees;  it is about what drives you and it clearly shows in your passions.
                     </div>
                     <div class="talent__register">
                             <a class="button button--default button--white" href="<?= Url::to($button_top_data['link']) ?>">
@@ -112,7 +112,7 @@ $this->title = 'Connecting Talents | Talent';
             </div>
         </div>
     </div>
-    <div class="talent__cta">CTA to play the game</div>
+<!--    <div class="talent__cta">CTA to play the game</div>-->
 <!--    <a class="talent__play" href="#">
         <span class="talent__play-text">Play</span>
     </a>
