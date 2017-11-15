@@ -17,8 +17,9 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Export Google Drive', ['feedback-feed/export'], ['class' => 'btn btn-info']) ?>
     </p>
     <p>
-        <?= Html::a('View Coogle Drive', 'https://docs.google.com/spreadsheets/d/18bcbfgHzeqRL7JdgjA-dRIpZUyyTECmWzTOjE3wXYPY/edit#gid=0', ['class' => 'btn btn-danger']) ?>
+        <?= Html::a('View Coogle Drive', 'http://docs.google.com/spreadsheets/d/18bcbfgHzeqRL7JdgjA-dRIpZUyyTECmWzTOjE3wXYPY/edit#gid=0', ['class' => 'btn btn-danger']) ?>
     </p>
+<!--    <a href="http://docs.google.com/spreadsheets/d/18bcbfgHzeqRL7JdgjA-dRIpZUyyTECmWzTOjE3wXYPY/edit#gid=0">View Coogle Drive</a>-->
     <?php 
     //debug($model);
     //debug($xw);

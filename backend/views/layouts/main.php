@@ -12,6 +12,11 @@ use common\widgets\Alert;
 
 AppAsset::register($this);
 ?>
+<?php $this->registerLinkTag([
+    'rel' => 'shortcut icon',
+    'type' => 'image/x-icon',
+    'href' => 'favicon.ico',
+]);?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">

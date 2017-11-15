@@ -26,6 +26,7 @@ use yii\db\Query;
  * @property integer $created_at
  * @property integer $updated_at
  * @property string $password write-only password
+ * @property string $game_status
  */
 class User extends Record implements IdentityInterface 
     {
@@ -124,7 +125,7 @@ class User extends Record implements IdentityInterface
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
             ['email', 'email'],
-            [['username', 'surname', 'role'], 'string'],
+            [['username', 'surname', 'role', 'game_status'], 'string'],
             [['email'], 'unique' ,'when' => function($model){
                 if(!User::findOne($model->id)) return true;
                 return User::findOne($model->id)->email != $model->email;

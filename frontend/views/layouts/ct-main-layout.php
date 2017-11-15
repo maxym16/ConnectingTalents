@@ -26,6 +26,11 @@ $y=60*60*24*365;
 
 CTAsset::register($this);
 ?>
+<?php $this->registerLinkTag([
+    'rel' => 'shortcut icon',
+    'type' => 'image/x-icon',
+    'href' => 'favicon.ico',
+]);?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
@@ -95,6 +100,7 @@ CTAsset::register($this);
             <?php } ?>
             <?php if(Yii::$app->user->id && (common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_1' || common\models\User::getRoleOfUser(Yii::$app->user->id)=='user_3')) { ?>
                 
+<!--    <button class="notifier-trigger">-->
     <button class="notifier-trigger" data-eui-bundle-id="notifier" data-eui-bundle-action="toggle" data-eui-other-bundles="true" data-eui-bundle data-eui-bundle-outside>
       <svg xmlns="http://www.w3.org/2000/svg" width="20" class="notifier-trigger__icon icon icon--middle" height="25" viewBox="0 0 20 25" fill="currentColor">
         <path d="M10,24.6c1.3,0,2.3-1,2.3-2.3H7.7C7.7,23.6,8.7,24.6,10,24.6z"/>
@@ -113,6 +119,7 @@ CTAsset::register($this);
                 $profile = UserProfile::findOne(['user_id'=>Yii::$app->user->id]);
                 ?>
                 
+<!--    <button class="notifier-trigger">-->
     <button class="notifier-trigger" data-eui-bundle-id="notifier" data-eui-bundle-action="toggle" data-eui-other-bundles="true" data-eui-bundle data-eui-bundle-outside>
       <svg xmlns="http://www.w3.org/2000/svg" width="20" class="notifier-trigger__icon icon icon--middle" height="25" viewBox="0 0 20 25" fill="currentColor">
         <path d="M10,24.6c1.3,0,2.3-1,2.3-2.3H7.7C7.7,23.6,8.7,24.6,10,24.6z"/>
@@ -125,17 +132,6 @@ CTAsset::register($this);
       <img src="..<?= $profile->image ?>" alt="" />
     </a>
                 
-<!--                
-                <button class="notifier-trigger" type="button" data-eui-bundle-id="notificat" data-eui-bundle-action="toggle" data-eui-other-bundles="true" data-eui-bundle data-eui-bundle-outside>
-                <div class="content_">
-                    <div class="countMe"><span>< ?= $count?></span></div>
-                    <img src="../img/notif.png">
-                </div>
-                </button>
-
-                
-                <a class="header__login" href="< ?= Url::to(['/profile']) ?>"><img src="..< ?= $profile->image ?>"></a>
--->
             <?php } ?>
             <button class="nav-trigger" data-eui-bundle-id="nav" data-eui-bundle-action="toggle" data-eui-other-bundles="true" data-eui-bundle data-eui-bundle-outside>
                 <span class="nav-trigger__bottom-line"></span>
@@ -242,15 +238,16 @@ CTAsset::register($this);
     </header>
     
 <div class="notifier" data-eui-bundle-outside>
+<div class="notifier__container">    
   <div class="notifier__inner">
 <!--    < ?php for ($i = 0; $i < 20; $i += 1) { ?>-->
 
     <?php foreach ($idea as $ide){?>
-      <a class="notice clearfix" href="#">
+      <a class="notice notice--unread clearfix" href="#">
         <div class="notice__cell">
           <div class="notice__image image">
             <div class="image__inner">
-              <img src="../img/user.jpg" alt="" />
+              <img src="../../img/feedbacknot.png" alt="" />
             </div>
           </div>
         </div>
@@ -283,11 +280,11 @@ CTAsset::register($this);
       </a>
     <?php } ?>
     <?php foreach ($feed as $fee){?>
-      <a class="notice clearfix" href="#">
+      <a class="notice notice--unread clearfix" href="#">
         <div class="notice__cell">
           <div class="notice__image image">
             <div class="image__inner">
-              <img src="../img/user.jpg" alt="" />
+              <img src="../../img/user.jpg" alt="" />
             </div>
           </div>
         </div>
@@ -322,6 +319,8 @@ CTAsset::register($this);
 
 
   </div>
+    
+</div>    
 </div>
     
     

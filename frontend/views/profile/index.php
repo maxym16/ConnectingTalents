@@ -429,11 +429,11 @@ if($utcdata){
                                                             <span class="button__text button__text--ultrasmall">new test</span>
                                                         </a>
                                                     </div>
-                                                    <div class="level__button level__button--fluid">
-                                                        <a class="button button--ultrasmall button--yellow" href="<?= $pass_skill_url ?>">
+                                                    <!--<div class="level__button level__button--fluid">
+                                                        <a class="button button--ultrasmall button--yellow" href="< ?= $pass_skill_url ?>">
                                                             <span class="button__text button__text--ultrasmall">add skills &amp; passions</span>
                                                         </a>
-                                                    </div>
+                                                    </div>-->
                                                     <div class="level__button level__button--fluid">
                                                         <a class="level__read" href="<?= Url::to(['profile/report']) ?>">
                                                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--middle" width="18" height="23" viewBox="0 0 24 30.5" fill="currentColor">
@@ -453,6 +453,11 @@ if($utcdata){
                                       c0.8,0,1.2,0.5,1.2,1.1c0,0.7-0.5,1.1-1.2,1.1C9.9,13.1,9,13.1,8.1,13.1z"/>
                                                             </svg>
                                                             <span class="level__read-text">Read your Report</span>
+                                                        </a>
+                                                    </div>
+                                                    <div class="level__button level__button--fluid">
+                                                        <a class="button button--ultrasmall button--yellow" href="<?= Url::to(['profile/feedback']) ?>">
+                                                            <span class="button__text button__text--ultrasmall">feedback</span>
                                                         </a>
                                                     </div>
 
